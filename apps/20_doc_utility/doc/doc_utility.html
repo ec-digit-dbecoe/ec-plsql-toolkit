@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>doc_utility</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./doc_utility_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="doc-utility---users-guide-v240">DOC Utility - User's Guide v24.0 </h1>
+<h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#1-introduction">1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#2-data-access-path-language-dapl">2. Data Access Path Language (DAPL)</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#21-introduction">2.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#22-general-syntax">2.2. General Syntax</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#23-simple-example">2.3. Simple Example</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#231-purpose">2.3.1. Purpose</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#232-data-diagram">2.3.2. Data Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#233-data-access-path-described-in-dapl">2.3.3. Data Access Path Described in DAPL</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#234-generated-query">2.3.4. Generated Query</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#235-comments">2.3.5. Comments</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#24-the-language-explained">2.4. The Language Explained</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#241-table-alias">2.4.1. Table Alias</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#242-query-alias">2.4.2. Query alias</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#243-table-filter">2.4.3. Table Filter</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#244-arrow">2.4.4. Arrow</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#245-qualified-arrow">2.4.5. Qualified Arrow</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#246-access-path-explained">2.4.6. Access Path Explained</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#25-query-generation">2.5. Query Generation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#26-default-values">2.6. Default Values</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#261-purpose">2.6.1. Purpose</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#262-example">2.6.2. Example</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#263-syntax">2.6.3. Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3-template-form">3. Template form</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#31-simple-example">3.1. Simple Example</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#311-plsql-source-code">3.1.1. PL/SQL source code</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#312-sql-source-code-alternate-solution">3.1.2. SQL source code (alternate solution)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#313-results">3.1.3. Results</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#314-generated-query">3.1.4. Generated query</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#315-comments">3.1.5. Comments</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#32-directives">3.2. Directives</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#321-data-access-path-definition">3.2.1. Data Access Path Definition</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3211-from-directive">3.2.1.1. #from Directive</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3212-select-directive">3.2.1.2. #select Directive</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3213-where-directive">3.2.1.3. #where Directive</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3214-orderby-directive">3.2.1.4. #orderby Directive</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#322-repetitive-block">3.2.2. Repetitive Block</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3221-foreach-directive">3.2.2.1. #foreach Directive</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#3222-next-directive">3.2.2.2. #next Directive</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#323-future-extensions">3.2.3. Future Extensions</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#33-variables">3.3. Variables</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#331-syntax">3.3.1. Syntax</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#332-format-mask">3.3.2. Format Mask</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#34-parameters">3.4. Parameters</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#341-syntax">3.4.1. Syntax</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#342-usage">3.4.2. Usage</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#343-instantiation">3.4.3. Instantiation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#35-descriptors">3.5. Descriptors</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#351-usage">3.5.1. Usage</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#352-syntax">3.5.2. Syntax</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#353-example">3.5.3. Example</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#36-merge-engine-invocation">3.6. Merge Engine Invocation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#361-plsql-invocation">3.6.1. PL/SQL Invocation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#362-sql-invocation">3.6.2. SQL Invocation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#4-more-complex-example">4. More Complex Example</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#41-purpose">4.1. Purpose</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#42-data-model-and-access-path">4.2. Data Model and Access Path</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#43-invocation-from-plsql">4.3. Invocation from PL/SQL</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#44-generated-queries">4.4. Generated Queries</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#441-query-per">4.4.1. Query “per”</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#442-query-tel">4.4.2. Query “tel”</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#45-comments">4.5. Comments</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#46-result-partial">4.6. Result (Partial)</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#5-miscellaneous">5. Miscellaneous</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#51-dependencies">5.1. Dependencies</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#52-debugging">5.2. Debugging</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#53-future-enhancements">5.3. Future Enhancements</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#6-chatgpts-opinion-about-this-tool">6. ChatGPT's opinion about this tool</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#61-strengths">6.1. Strengths</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#62-considerations">6.2. Considerations</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-auz9ns.ati1c.html#63-conclusion">6.3. Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-introduction">1. Introduction </h1>
+<p>Many information systems have a mail merge module that permits generating emails, letters, or documents from a single template and a structured data source. Templates consist of boilerplate text, which is identical in each generated document, and variables (also known as keywords or fields), which act as placeholders replaced by text from a data source.</p>
+<p>A mail merge solution has three main components:</p>
+<ul>
+<li><strong>An editor</strong>: This allows for editing the templates (e.g., MS Word).</li>
+<li><strong>A data source</strong>: This provides the values for the variables (e.g., Oracle, Excel).</li>
+<li><strong>An engine</strong>: This generates the documents from the templates and the data source.</li>
+</ul>
+<p>When developing a mail merge solution, the most frequent problems arise from the data source:</p>
+<ul>
+<li>How to display the list of available variables in the editor (or how to validate them)?</li>
+<li>How to retrieve the data necessary to replace the variables during the merge operation?</li>
+<li>How to minimize the work needed to add extra variables?</li>
+<li>How to display repetitive information (e.g., rows in a table)?</li>
+</ul>
+<p>This tool is an attempt to provide solutions to most of these issues. Its cornerstone is the underlying DAPL language, which has been specifically designed to describe easily and concisely how to retrieve the data necessary to replace the variables during the merge.</p>
+<p>It takes the form of an Oracle package that provides a mail merge service that can be invoked from PL/SQL or from a SQL query. It transforms any input stream, composed of a template form and a description of how to extract data, into an output stream. Three types of streams are currently supported: pure text, XML, and MS Word documents (.docx).</p>
+<p>The first chapter describes the DAPL language designed to outline data access paths. The second chapter covers the template form, the variables, and the so-called directives, which provide the necessary instructions to the mail merge engine. A concrete example is presented in the third chapter. The last chapter groups all other important information to know.</p>
+<h1 id="2-data-access-path-language-dapl">2. Data Access Path Language (DAPL) </h1>
+<h2 id="21-introduction">2.1. Introduction </h2>
+<p>This language permits to describe, in an easy and concise way, how to navigate through a data model to extract data (e.g. for doing mail merge or for any other purpose). During parsing, the access path is transformed into a single-query made up of one or several joins which is then executed to retrieve necessary data.</p>
+<h2 id="22-general-syntax">2.2. General Syntax </h2>
+<p>Here is the general syntax of a data access path described in EBNF (Extended Backus Naur Form).</p>
+<p><img src="./doc_utility_files/general-syntax.png" alt="General Syntax"></p>
+<h2 id="23-simple-example">2.3. Simple Example </h2>
+<h3 id="231-purpose">2.3.1. Purpose </h3>
+<p>Retrieve the name and birth date of the person with <code>per_id</code> 48016 (from history tables).</p>
+<h3 id="232-data-diagram">2.3.2. Data Diagram </h3>
+<p><img src="./doc_utility_files/simple-example-data-diagram.png" alt="Data Diagram"></p>
+<p>A person has a history of names of different types (birth, usual, official, etc.) and a history of identity information (e.g., birth date, gender, etc.).</p>
+<h3 id="233-data-access-path-described-in-dapl">2.3.3. Data Access Path Described in DAPL </h3>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>per[per_id=48016]-&gt;nam[oth_id_nametype=20021],ide
+</code></pre><p><img src="./doc_utility_files/simple-example-data-access_path.png" alt="Data Access Path"></p>
+<h3 id="234-generated-query">2.3.4. Generated Query </h3>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> nam<span class="token punctuation">.</span>given_name<span class="token punctuation">,</span>
+       ide<span class="token punctuation">.</span>birth_date
+  <span class="token keyword keyword-FROM">FROM</span> sp2_per_persons per
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_per_identities ide
+    <span class="token keyword keyword-ON">ON</span> ide<span class="token punctuation">.</span>per_id <span class="token operator">=</span> per<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> ide<span class="token punctuation">.</span>pet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- latest version</span>
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> ide<span class="token punctuation">.</span>date_from
+                          <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>ide<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- today</span>
+   <span class="token operator">AND</span> ide<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- from personal profile only</span>
+   <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>ide<span class="token punctuation">.</span>closure_flag<span class="token punctuation">,</span> <span class="token string">'N'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'N'</span> <span class="token comment">-- not a closure record</span>
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_per_names nam
+    <span class="token keyword keyword-ON">ON</span> nam<span class="token punctuation">.</span>per_id <span class="token operator">=</span> per<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> nam<span class="token punctuation">.</span>date_from
+                          <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>nam<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- today</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>pet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- latest version</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- from personal profile only</span>
+   <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>nam<span class="token punctuation">.</span>closure_flag<span class="token punctuation">,</span> <span class="token string">'N'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'N'</span> <span class="token comment">-- not a closure record</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>oth_id_nametype <span class="token operator">=</span> <span class="token number">20021</span>
+ <span class="token keyword keyword-WHERE">WHERE</span> per<span class="token punctuation">.</span>per_id <span class="token operator">=</span> <span class="token number">48016</span>
+</code></pre><h3 id="235-comments">2.3.5. Comments </h3>
+<p>Various filters have been automatically added in addition to the join conditions. The ratio between the length of the definition and the length of the generated query is between 5% and 10%, depending on whether comments and white spaces are counted or not.</p>
+<h2 id="24-the-language-explained">2.4. The Language Explained </h2>
+<h3 id="241-table-alias">2.4.1. Table Alias </h3>
+<p>Navigation consists of starting from a specific table and accessing successive nearby tables by following foreign keys. For the sake of conciseness, tables are referenced by their official alias (always in lowercase) instead of their name. The official alias of each table is derived from the name of its primary key.</p>
+<p><img src="./doc_utility_files/table-alias.png" alt="Table Alias"></p>
+<p><strong>Example</strong>: If <code>PER_PK</code> is the primary key of <code>SP2_PER_PERSONS</code>, "per" (in lowercase) is considered the official table alias.</p>
+<h3 id="242-query-alias">2.4.2. Query alias </h3>
+<p>When the same table is involved several times in the access path, a qualifier (a number or a suffix) can be added to the table alias in order to make it unique (as requested by SQL when joining multiple times with the same table). Such an alias is called a "query alias" as it will end-up "as is" in the final query.</p>
+<p><img src="./doc_utility_files/query-alias.png" alt="Alt text"></p>
+<p>Examples of valid query aliases for the "SP2_PER_PERSONS" table:<br>
+"per" (just a person)<br>
+"per2" (a second person)<br>
+"per_benef" (a person qualified as a beneficiary)<br>
+"per$jh" (a person qualified as a job holder)</p>
+<h3 id="243-table-filter">2.4.3. Table Filter </h3>
+<p>To start the navigation from a specific record, a filter enclosed in square brackets can be specified after the query alias. Any valid SQL expression can be used, which can include function calls or references to parameters. All table columns referenced in the expression will be automatically prefixed with the query alias in the generated query. Table filters can be defined for all tables involved in the access path.</p>
+<p><img src="./doc_utility_files/query-alias-with-filter.png" alt="Table Filter"></p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p><strong>Table filters</strong>:</p>
+<ul>
+<li><code>per[per_id=48016]</code>: Person with a given <code>per_id</code> value.</li>
+<li><code>per[per_id=:per_id]</code>: Person with a given <code>per_id</code> whose value is a parameter.</li>
+<li><code>per[usual_family_name="DEBOIS" AND usual_given_name="Philippe"]</code>: Person with a specific family name and given name.</li>
+</ul>
+</li>
+<li>
+<p><strong>Resulting expressions in the final query</strong>:</p>
+<ul>
+<li><code>per.per_id = 48016</code></li>
+<li><code>per.per_id = :per_id</code></li>
+<li><code>per.usual_family_name = 'DEBOIS' AND per.usual_given_name = 'Philippe'</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The double quotes surrounding string values in the filter have been replaced with single quotes in the final query.</li>
+<li>Column names have been prefixed with the query alias in the final query.</li>
+</ul>
+<h3 id="244-arrow">2.4.4. Arrow </h3>
+<p>The navigation from one table to another is indicated via an arrow, which signifies that a foreign key must be followed. The type of arrow provides an indication of the type of foreign key that can be followed and the type of join generated in the final query.</p>
+<ul>
+<li>A single dash (<code>-</code>) is used to generate a <strong>left outer join</strong>.</li>
+<li>A double dash (<code>=</code>) is used for an <strong>inner join</strong>.</li>
+</ul>
+<p>The type of arrow indicates the kind of foreign keys that can be followed:</p>
+<ul>
+<li><code>&gt;-</code> for <strong>many-to-one</strong></li>
+<li><code>-&lt;</code> for <strong>one-to-many</strong></li>
+<li><code>-&gt;</code> for <strong>any type</strong> (many-to-one or one-to-many)</li>
+</ul>
+<p>The combination of these two characteristics leads to the following six possibilities:</p>
+<p><img src="./doc_utility_files/arrow.png" alt="Arrow Types"></p>
+<p>The first two arrows (<code>-&gt;</code> and <code>=&gt;</code>) are the most frequently used.</p>
+<h3 id="245-qualified-arrow">2.4.5. Qualified Arrow </h3>
+<p>When several foreign keys of the specified type exist between two tables, the system selects the one involving the earliest columns of the table. It is possible to force the system to use a specific foreign key by adding some information enclosed in square brackets just after the arrow.</p>
+<p><img src="./doc_utility_files/qualified-arrow.png" alt="Qualified Arrow"></p>
+<p>The arrow qualifier can be:</p>
+<ul>
+<li>The name of the desired foreign key</li>
+<li>The name of a column involved in the desired foreign key (this is, in most cases, sufficient to uniquely identify such a foreign key)</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<p>An individual right ("rig") is linked to an assignee and to a beneficiary, both of them being persons. The following qualifiers can be used to force the system to get the beneficiary of a given right:</p>
+<ul>
+<li>The foreign key name: <code>rig-&gt;[rig_per_benef_fk]per_benef</code></li>
+<li>The column name: <code>rig-&gt;[per_id_benef]per_benef</code></li>
+</ul>
+<h3 id="246-access-path-explained">2.4.6. Access Path Explained </h3>
+<p>The data model from which information must be retrieved can be considered a graph made up of nodes (the tables) and edges (the foreign keys). An access path is a sub-graph of the data model describing, from a particular starting node, how edges are successfully crossed to access nearby nodes.</p>
+<ul>
+<li>An edge crossing from node "a" to node "b" is denoted: <code>a-&gt;b</code></li>
+<li>An access path is a succession of edge crossings; from a notational point of view, they are separated with a semicolon (<code>;</code>). For example, an access path going from "a" to "b" and then from "b" to "c" is denoted: <code>a-&gt;b;b-&gt;c</code></li>
+</ul>
+<p>When the nodes to the left and right of the semicolon are the same (i.e., when a node is crossed by an access path, as the "b" node in the above example), the following equivalent shortcut notation can be used: <code>a-&gt;b-&gt;c</code> (equivalent to <code>a-&gt;b;b-&gt;c</code>).</p>
+<p>When two nodes are reached from the same source node, the following equivalent shortcut notation can be used: <code>a-&gt;b,c</code> (equivalent to <code>a-&gt;b;a-&gt;c</code>).</p>
+<p>The following restrictions apply:</p>
+<ul>
+<li>A node cannot be a target more than once. For example, <code>a-&gt;b-&gt;c;a-&gt;c</code> is invalid and should be defined as: <code>a-&gt;b-&gt;c1;a-&gt;c2</code>.</li>
+<li>The starting node cannot be a target, meaning <code>a-&gt;b-&gt;a</code> is invalid and should be defined as: <code>a1-&gt;b-&gt;a2</code>.</li>
+<li>There is only one starting node, so <code>a-&gt;b;c-&gt;d</code> is invalid (as "c" is a second starting node). In other words, the node mentioned after a semicolon must already be known.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p><img src="./doc_utility_files/example2.png" alt="Access Path Example"></p>
+<p>Here are some possible access paths (all equivalent):</p>
+<ul>
+<li><code>a-&gt;b;b-&gt;c1;a-&gt;c2</code></li>
+<li><code>a-&gt;b-&gt;c1;a-&gt;c2</code> (preferred)</li>
+<li><code>a-&gt;c2,b-&gt;c1</code></li>
+</ul>
+<h2 id="25-query-generation">2.5. Query Generation </h2>
+<p>The first alias defines the table that will be used in the <code>FROM</code> clause. Any filter defined on the first alias will be included in the <code>WHERE</code> clause. Each arrow results in an (inner or left outer) join between the two involved tables with the specified query aliases. Unless explicitly qualified, the foreign key is chosen by the system to limit the number of resulting records as much as possible. As such, any existing many-to-one foreign key is selected first. If none is found, one-to-many foreign keys are considered, with priority given to those having the greatest number of columns in common with the primary key of the target table. Once the foreign key to be used is identified, the join condition is automatically generated.</p>
+<p>Filters specified for the source and/or target aliases are added to the join conditions and/or to the <code>WHERE</code> clause (with table columns automatically prefixed by the query alias), if any. Extra filters are also generated for historic tables and versioned tables.</p>
+<p>For history tables (those containing "date_from"/"date_to" columns), a filter is automatically generated to get the current situation (<code>SYSDATE BETWEEN date_from AND date_to</code>). For versioned tables (those containing "pet_seq_nbr_from"/"pet_seq_nbr_to" columns), a filter is automatically added to get the latest version (<code>pet_seq_nbr_to IS NULL</code>). For historic tables with closure records (those containing a "closure_flag" column), a filter is automatically added to exclude closure records (<code>closure_flag != 'Y'</code>). For tables used for both files and profiles (those containing a "pef_id" or "cef_id" column), a filter is automatically added to exclude records stored in a file (<code>pef_id IS NULL</code>).</p>
+<p>However, these filters are not added if the mentioned columns are already referenced in a table filter. To prevent these default filters from being generated, a dummy condition can be added in the table filter. For example, <code>date_from=date_from</code> will permit retrieval of the whole history instead of just the current record.</p>
+<p>It is also possible to filter on a date different from <code>SYSDATE</code> by setting the <code>sysdate</code> variable to a specific date. Similarly, filtering on an event (version) different from the last one can be done by setting the <code>pet_seq_nbr</code> variable to a specific event number.</p>
+<p>The selected columns depend on the variables used in the template form. When no variable is found, a <code>SELECT *</code> is performed, meaning all columns of all tables are retrieved (which can be extensive).</p>
+<h2 id="26-default-values">2.6. Default Values </h2>
+<h3 id="261-purpose">2.6.1. Purpose </h3>
+<p>Extra filters or default values can be defined to make the data access path even smaller. For instance, when a table contains multiple dimensions, it is possible to define a default one.</p>
+<p>For example, the "sp2_per_names" table contains several types of names (at birth, official, usual, etc.) as indicated by the "oth_id_nametype" column. It is possible to declare that the official name should be used by default when no type of name is specified by using the "set_default" method of the "doc_utility" package.</p>
+<h3 id="262-example">2.6.2. Example </h3>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token comment">-- official name by default</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'nam.oth_id_nametype'</span><span class="token punctuation">,</span><span class="token string">'20021'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment">-- normal grade by default</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'cgr.oth_id_purpose'</span><span class="token punctuation">,</span><span class="token string">'8000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token comment">-- normal assignment by default</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'cas.jot_cd'</span><span class="token punctuation">,</span><span class="token string">'"AFF"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><p>Data access path with explicit name type:<br>
+<code>per[per_id=48016]-&gt;nam[oth_id_nametype=20021],ide</code></p>
+<p>Data access path with default name type:<br>
+<code>per[per_id=48016]-&gt;nam,ide</code></p>
+<p>Both are equivalent.</p>
+<h3 id="263-syntax">2.6.3. Syntax </h3>
+<p>The syntax of a default name is the following:</p>
+<p><img src="./doc_utility_files/default-name.png" alt="Alt text"></p>
+<p><strong>Note:</strong> Table alias must be specified and not query alias; it clearly means that this default value will apply to all query aliases defined for this table (in all queries).</p>
+<h1 id="3-template-form">3. Template form </h1>
+<p>The template form is made up of text lines that contain variables that will be substituted with extracted data at run-time. It also contains directives (special lines starting with a cross character) that give some instructions to the engine. These special lines are not copied to the output stream.</p>
+<h2 id="31-simple-example">3.1. Simple Example </h2>
+<h3 id="311-plsql-source-code">3.1.1. PL/SQL source code </h3>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   t dbms_sql<span class="token punctuation">.</span>varchar2a<span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   doc_utility<span class="token punctuation">.</span>set_variable<span class="token punctuation">(</span><span class="token string">'per_id'</span><span class="token punctuation">,</span><span class="token string">'48016'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:=</span><span class="token string">'#from per[per_id=:per_id]-&gt;ide,nam[oth_id_nametype=20021]'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">:=</span><span class="token string">'#foreach per'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">:=</span><span class="token string">'{nam.given_name} ({per.per_id}) born on {ide.birth_date}'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">:=</span><span class="token string">'#next'</span><span class="token punctuation">;</span>
+   doc_utility<span class="token punctuation">.</span><span class="token keyword keyword-merge">merge</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><h3 id="312-sql-source-code-alternate-solution">3.1.2. SQL source code (alternate solution) </h3>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> <span class="token keyword keyword-TABLE">TABLE</span><span class="token punctuation">(</span>doc_utility<span class="token punctuation">.</span>merge_pipelined<span class="token punctuation">(</span>
+   <span class="token string">'#from per[per_id=:per.per_id]-&gt;ide,nam[oth_id_nametype=20021]\n'</span>
+ <span class="token operator">||</span><span class="token string">'#foreach per\n'</span>
+ <span class="token operator">||</span><span class="token string">'{nam.given_name} ({per.per_id}) born on {ide.birth_date}\n'</span>
+ <span class="token operator">||</span><span class="token string">'#next'</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span> merge_result
+</code></pre><h3 id="313-results">3.1.3. Results </h3>
+<p>From "dbms_output" in PL/SQL and from fetched rows in SQL (pipelined solution):</p>
+<p><strong>Philippe (48016) born on 09.12.1965</strong></p>
+<h3 id="314-generated-query">3.1.4. Generated query </h3>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> nam<span class="token punctuation">.</span>given_name
+     <span class="token punctuation">,</span> per<span class="token punctuation">.</span>per_id
+     <span class="token punctuation">,</span> ide<span class="token punctuation">.</span>birth_date
+  <span class="token keyword keyword-FROM">FROM</span> sp2_per_persons per
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_per_identities ide
+    <span class="token keyword keyword-ON">ON</span> ide<span class="token punctuation">.</span>per_id<span class="token operator">=</span>per<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> ide<span class="token punctuation">.</span>pet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- latest version</span>
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> ide<span class="token punctuation">.</span>date_from
+                          <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>ide<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span>TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- today</span>
+   <span class="token operator">AND</span> ide<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- from personal profile only</span>
+   <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>ide<span class="token punctuation">.</span>closure_flag<span class="token punctuation">,</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">'N'</span> <span class="token comment">-- not a closure record</span>
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_per_names nam
+    <span class="token keyword keyword-ON">ON</span> nam<span class="token punctuation">.</span>per_id<span class="token operator">=</span>per<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> nam<span class="token punctuation">.</span>date_from
+                          <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>nam<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span>TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- today</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>pet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- latest version</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">-- from personal profile only</span>
+   <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>nam<span class="token punctuation">.</span>closure_flag<span class="token punctuation">,</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">'N'</span> <span class="token comment">-- not a closure record</span>
+   <span class="token operator">AND</span> nam<span class="token punctuation">.</span>oth_id_nametype<span class="token operator">=</span><span class="token number">20021</span>
+ <span class="token keyword keyword-WHERE">WHERE</span> per<span class="token punctuation">.</span>per_id<span class="token operator">=</span>:per_id
+</code></pre><h3 id="315-comments">3.1.5. Comments </h3>
+<p>Note that the parameters must be set before invoking the mail merge.</p>
+<h2 id="32-directives">3.2. Directives </h2>
+<p>Directives are used for two different purposes:</p>
+<ol>
+<li>To define the data access path.</li>
+<li>To iterate in the template.</li>
+</ol>
+<h3 id="321-data-access-path-definition">3.2.1. Data Access Path Definition </h3>
+<p>The data access path is defined with the following directives:</p>
+<ul>
+<li><strong>#from <data-access-path></data-access-path></strong> (mandatory)</li>
+<li><strong>#select <expressions-list></expressions-list></strong> (optional)</li>
+<li><strong>#where <condition></condition></strong> (optional)</li>
+<li><strong>#orderby <expressions-list></expressions-list></strong> (optional)</li>
+</ul>
+<p>The <strong>#from</strong> directive defines the data access path and is the only mandatory directive. Other directives can be used to add columns to the selected columns list, to add filters, and to change the sorting order.</p>
+<h4 id="3211-from-directive">3.2.1.1. #from Directive </h4>
+<p>This directive defines a data access path. Refer to the chapter on the DAPL language for an explanation of how to define the data access path. A template can contain several data access paths (also referred to as "queries") that can be independent or related. For example, a master/details relationship can be implemented with one master query and one related slave sub-query. Each query has a name that will be referenced by other directives used for iterations. The name of a query is defined as the name of the first alias in its data access path. A template cannot contain two queries with the same name. For instance, the query name for <code>#from per[per_id=:per_id]-&gt;……</code> is "per".</p>
+<h4 id="3212-select-directive">3.2.1.2. #select Directive </h4>
+<p>Selected columns are normally derived from the list of variables used in the template form. However, extra columns may sometimes be necessary, such as a column used to link two queries together, which is not referenced in the template form. This directive must be followed by a list of columns or expressions that conform to SQL syntax.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#select rownum
+</code></pre><p>When the template contains multiple queries, this directive relates to the most recent one encountered.</p>
+<h4 id="3213-where-directive">3.2.1.3. #where Directive </h4>
+<p>This directive can be used to add an extra filter to a query. Strictly speaking, it is not necessary since filters can also be specified in the data access path. It must be followed by a condition that conforms to SQL syntax.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#where local_flag="Y"
+</code></pre><p>When the template contains multiple queries, this directive relates to the most recent one encountered.</p>
+<h4 id="3214-orderby-directive">3.2.1.4. #orderby Directive </h4>
+<p>This directive can be used to change the sorting order of the results set. It must be followed by a list of columns or expressions that conform to SQL syntax.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#orderby per_id
+</code></pre><p>When the template contains multiple queries, this directive relates to the most recent one encountered.</p>
+<h3 id="322-repetitive-block">3.2.2. Repetitive Block </h3>
+<p>The following pair of directives gives instructions to the engine on how to iterate:</p>
+<ul>
+<li><strong>#foreach <query></query></strong></li>
+<li><strong>#next [<query>]</query></strong></li>
+</ul>
+<h4 id="3221-foreach-directive">3.2.2.1. #foreach Directive </h4>
+<p>This directive indicates that the text lines between <strong>#foreach</strong> and <strong>#next</strong> will be repeated for each record retrieved by the specified query, which must have been defined previously using the <strong>#from</strong> directive. It is also used to identify the columns that must be retrieved by the query. Each variable encountered in this block will be added to the list of selected columns in the corresponding query. Each data access path declared via the <strong>#from</strong> directive should have a corresponding iterative block declared via the <strong>#foreach</strong> and <strong>#next</strong> directives; otherwise, the declaration would be unnecessary.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#foreach per
+</code></pre><h4 id="3222-next-directive">3.2.2.2. #next Directive </h4>
+<p>This directive marks the end of a repetitive block started with the <strong>#foreach</strong> directive. The name of the query is optional but, when specified, it should match the one defined with the corresponding <strong>#foreach</strong> directive. Each block opened with a <strong>#foreach</strong> directive must be closed with a <strong>#next</strong> directive.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#next per
+</code></pre><p>Repetitive blocks can be embedded within each other, such as to implement a master/details relationship. Alternatively, they can be placed one after the other.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#from master……
+#from detail……
+……
+#foreach master
+……
+#foreach detail
+……
+#next detail
+……
+#next master
+……
+</code></pre><h3 id="323-future-extensions">3.2.3. Future Extensions </h3>
+<p>Other directives might be added in a future release to manage headers, footers, and breaking columns.</p>
+<h2 id="33-variables">3.3. Variables </h2>
+<p>Text lines (which are not directives) can contain variables that are substituted at run-time with data extracted from the query results set.</p>
+<h3 id="331-syntax">3.3.1. Syntax </h3>
+<p>Variables are enclosed in curly brackets.</p>
+<p><img src="./doc_utility_files/variable.png" alt="Variable Syntax"></p>
+<p>A variable can be:</p>
+<ul>
+<li>A table column prefixed with its query alias (plus an optional descriptor, as explained in section 2.5).</li>
+<li>A parameter (refer to section 2.4).</li>
+<li>Any valid SQL expression.</li>
+</ul>
+<h3 id="332-format-mask">3.3.2. Format Mask </h3>
+<p>A format mask (similar to—but not exactly the same as—the one used in the <code>sprintf</code> function of the C language) can be specified to format the output. For a complete description of the possible format masks, see the following URL: <a href="http://www.adp-gmbh.ch/blog/2007/04/14.php#test_case">ADP Blog on Format Masks</a>.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>{per.pers_nbr;%06d}
+</code></pre><p>This will left-pad the personal number with zeros, resulting in a format like <code>048016</code>.</p>
+<h2 id="34-parameters">3.4. Parameters </h2>
+<h3 id="341-syntax">3.4.1. Syntax </h3>
+<p>Parameters are prefixed with a colon ("😊.</p>
+<p><img src="./doc_utility_files/parameter.png" alt="Parameter Syntax"></p>
+<p><strong>Example:</strong> As previously mentioned, the syntax for a parameter would be:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>per[per_id=:per_id]
+</code></pre><h3 id="342-usage">3.4.2. Usage </h3>
+<p>When a SQL query needs to be executed multiple times but with different contexts, it is highly recommended to use parameters instead of hardcoding constants. This approach allows Oracle to re-execute the same query without the need for parsing it again. Additionally, a caching mechanism will be implemented in the merge engine in a future release to avoid repeatedly parsing data access paths that have not changed.</p>
+<p>Parameters also serve to correlate queries with one another. For example, in a master/details relationship, the second query must reference the ID of the master record. Parameters are the only means to reference a column defined in another query.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#from master……
+#from detail[master_id=:master.master_id]
+</code></pre><h3 id="343-instantiation">3.4.3. Instantiation </h3>
+<p>Parameter values can be set in PL/SQL by invoking the <code>set_variable</code> method, which accepts two parameters: the parameter name and its value. Currently, all parameters are treated as character strings. The concept of "parameter type" could be introduced in a future release.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>doc_utility.set_variable('per_id', '48016');
+</code></pre><h2 id="35-descriptors">3.5. Descriptors </h2>
+<h3 id="351-usage">3.5.1. Usage </h3>
+<p>Most tables contain surrogate keys, which are internal unique identifiers that are not easily understandable by end-users and, therefore, cannot be displayed as they are. A descriptor of a table is a column that accurately describes a record and can be presented to end-users.</p>
+<p><strong>Examples:</strong> country name, currency code, person's name, etc.</p>
+<p>When retrieving data, several additional joins with reference tables are often required to obtain the descriptors. Fortunately, there is no need to include these joins in the data access path (keeping it simple) because a special syntax can be utilized.</p>
+<h3 id="352-syntax">3.5.2. Syntax </h3>
+<p>When a column has a many-to-one foreign key pointing to a reference table, this foreign key can be followed to retrieve the descriptor of the reference record simply by adding a dot (".") followed by the descriptor column.</p>
+<h3 id="353-example">3.5.3. Example </h3>
+<p>Consider the case where a person (<code>per</code>) has a gender (<code>sex</code>).</p>
+<p><img src="./doc_utility_files/example3.png" alt="Descriptor Example"></p>
+<p><strong>Assuming the following columns:</strong></p>
+<ul>
+<li><code>per.sex_id</code> (many-to-one foreign key to "sex")</li>
+<li><code>sex.sex_id</code> (primary key of "sex")</li>
+<li><code>sex.descr</code> (descriptor of "sex")</li>
+</ul>
+<p><strong>Solution 1:</strong> Include "sex" explicitly in the access path.</p>
+<ul>
+<li><strong>Access path:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>per[per_id=48016]-&gt;sex
+</code></pre></li>
+<li><strong>Variable:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>{sex.descr}
+</code></pre></li>
+</ul>
+<p><strong>Solution 2:</strong> Use the descriptor syntax.</p>
+<ul>
+<li><strong>Access path:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>per[per_id=48016]
+</code></pre></li>
+<li><strong>Variable:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>{per.sex_id.descr}  &lt;= dot + descriptor
+</code></pre></li>
+</ul>
+<p>Note that internally, this will be transformed into:</p>
+<ul>
+<li><strong>Access path:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>per[per_id=48016]-&gt;per_sex
+</code></pre></li>
+<li><strong>Variable:</strong><pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>{per_sex.descr}
+</code></pre></li>
+</ul>
+<p>When a descriptor consists of two columns (for example, for <code>per</code>: <code>usual_name</code> + <code>family_name</code>), this syntax is not recommended, as it will result in two joins (one for each column).</p>
+<p>Moreover, multiple many-to-one foreign keys can be followed in cascade simply by adding extra dots.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>{per.cty_cd.cnt_cd.descr}
+</code></pre><p>This expression retrieves the description of the country of the city associated with a person.</p>
+<h2 id="36-merge-engine-invocation">3.6. Merge Engine Invocation </h2>
+<p>The mail merge engine can be invoked from both PL/SQL and SQL environments.</p>
+<h3 id="361-plsql-invocation">3.6.1. PL/SQL Invocation </h3>
+<p>When invoked from PL/SQL, the input stream is provided as a table of text lines, utilizing the <code>varchar2a</code> data type defined in the <code>dbms_sql</code> package. The <code>LOG_UTILITY</code> package is responsible for generating the output stream, which can be directed to either <code>dbms_output</code> or the <code>log_output</code> table, depending on your requirements.</p>
+<h3 id="362-sql-invocation">3.6.2. SQL Invocation </h3>
+<p>For invocation from SQL, the input stream consists of a single string formed from multiple lines of text, separated by a line feed (LF) character (CHR(10)) or a '\n' string in C syntax. If a line is too long, it can be continued onto the next line using a backslash (""), which is particularly useful for splitting the <code>#from</code> directive, as it must remain a single line of code and is often lengthy.</p>
+<h1 id="4-more-complex-example">4. More Complex Example </h1>
+<p>This section presents a master/details report example.</p>
+<h2 id="41-purpose">4.1. Purpose </h2>
+<p>The objective is to produce a list of people working in DIGIT.B.3, along with their professional telecom numbers (office phone/fax).</p>
+<h2 id="42-data-model-and-access-path">4.2. Data Model and Access Path </h2>
+<p>In the data model, tables and foreign keys are represented by circles and arrows. The first data access path to retrieve the persons working in DIGIT.B.3 is illustrated in blue, while the second access path to gather the telecom information for each person is shown in red.</p>
+<p><img src="./doc_utility_files/example4.png" alt="More complex example"></p>
+<h2 id="43-invocation-from-plsql">4.3. Invocation from PL/SQL </h2>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   t dbms_sql<span class="token punctuation">.</span>varchar2a<span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'nam.oth_id_nametype'</span><span class="token punctuation">,</span> <span class="token string">'20022'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- official name</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'cgr.oth_id_purpose'</span><span class="token punctuation">,</span> <span class="token string">'8000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- normal grade</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'cas.jot_cd'</span><span class="token punctuation">,</span> <span class="token string">'"AFF"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- main assignment</span>
+   doc_utility<span class="token punctuation">.</span>set_default<span class="token punctuation">(</span><span class="token string">'crr.skg_id'</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- career of officials</span>
+   
+   t<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'#from per=&gt;crr[ou_id=1]=&gt;cas=&gt;job=&gt;ou\';
+   t(2) := '</span><span class="token operator">=&gt;</span>ouv<span class="token punctuation">[</span>acr_compl <span class="token keyword keyword-LIKE">LIKE</span> <span class="token string">"DIGIT.B.3%"</span><span class="token punctuation">]</span><span class="token string">';
+   t(3) := '</span>#<span class="token keyword keyword-from">from</span> tel<span class="token punctuation">[</span>per_id<span class="token operator">=</span><span class="token operator">:</span>per<span class="token punctuation">.</span>per_id <span class="token keyword keyword-and">and</span> oth_id_context<span class="token operator">=</span><span class="token number">12051</span><span class="token punctuation">]</span><span class="token string">';   
+   t(4) := '</span>#foreach per<span class="token string">';
+   t(5) := '</span>{per<span class="token punctuation">.</span>oth_id_title<span class="token punctuation">.</span>descr_fra} {per<span class="token punctuation">.</span>usual_given_name} \'<span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'{per.usual_family_name} ({per.per_id})'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'#foreach tel'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'- {tel.oth_id_tel_type.descr_eng} {tel.subscr_nbr}'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'#next tel'</span><span class="token punctuation">;</span>
+   t<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'#next per'</span><span class="token punctuation">;</span>
+   
+   doc_utility<span class="token punctuation">.</span><span class="token keyword keyword-merge">merge</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><h2 id="44-generated-queries">4.4. Generated Queries </h2>
+<h3 id="441-query-per">4.4.1. Query “per” </h3>
+<p>This query retrieves the personal details of individuals in the specified organization unit.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> per_oth<span class="token punctuation">.</span>descr_fra<span class="token punctuation">,</span>
+       per<span class="token punctuation">.</span>usual_given_name<span class="token punctuation">,</span>
+       per<span class="token punctuation">.</span>usual_family_name<span class="token punctuation">,</span>
+       per<span class="token punctuation">.</span>per_id
+  <span class="token keyword keyword-FROM">FROM</span> sp2_per_persons per
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_careers <span class="token number">574</span>crr <span class="token keyword keyword-ON">ON</span> crr<span class="token punctuation">.</span>per_id <span class="token operator">=</span> per<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> crr<span class="token punctuation">.</span>skg_id <span class="token operator">=</span> <span class="token number">5</span>
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> crr<span class="token punctuation">.</span>date_from <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>crr<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token operator">AND</span> crr<span class="token punctuation">.</span>ou_id <span class="token operator">=</span> <span class="token number">1</span>
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_car_assignments cas <span class="token keyword keyword-ON">ON</span> cas<span class="token punctuation">.</span>per_id <span class="token operator">=</span> crr<span class="token punctuation">.</span>per_id
+   <span class="token operator">AND</span> cas<span class="token punctuation">.</span>crr_seq_nbr <span class="token operator">=</span> crr<span class="token punctuation">.</span>crr_seq_nbr
+   <span class="token operator">AND</span> cas<span class="token punctuation">.</span>cet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span>
+   <span class="token operator">AND</span> cas<span class="token punctuation">.</span>jot_cd <span class="token operator">=</span> <span class="token string">'AFF'</span>
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> cas<span class="token punctuation">.</span>date_from <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>cas<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_jobs job <span class="token keyword keyword-ON">ON</span> job<span class="token punctuation">.</span>job_id <span class="token operator">=</span> cas<span class="token punctuation">.</span>job_id
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_org_units ou <span class="token keyword keyword-ON">ON</span> ou<span class="token punctuation">.</span>ou_id <span class="token operator">=</span> job<span class="token punctuation">.</span>ou_id
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_org_unit_versions ouv <span class="token keyword keyword-ON">ON</span> ouv<span class="token punctuation">.</span>ou_id <span class="token operator">=</span> ou<span class="token punctuation">.</span>ou_id
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> ouv<span class="token punctuation">.</span>date_from <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>ouv<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token operator">AND</span> ouv<span class="token punctuation">.</span>acr_compl <span class="token operator">LIKE</span> <span class="token string">'DIGIT.B.3%'</span>
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_ref_others per_oth <span class="token keyword keyword-ON">ON</span> per_oth<span class="token punctuation">.</span>oth_id <span class="token operator">=</span> per<span class="token punctuation">.</span>oth_id_title
+ <span class="token keyword keyword-WHERE">WHERE</span> per<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+</code></pre><h3 id="442-query-tel">4.4.2. Query “tel” </h3>
+<p>574<br>
+This query retrieves the telecom details associated with the persons.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> tel_oth<span class="token punctuation">.</span>descr_eng<span class="token punctuation">,</span>
+       tel<span class="token punctuation">.</span>subscr_nbr
+  <span class="token keyword keyword-FROM">FROM</span> sp2_per_telecoms tel
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> sp2_ref_others tel_oth <span class="token keyword keyword-ON">ON</span> tel_oth<span class="token punctuation">.</span>oth_id <span class="token operator">=</span> tel<span class="token punctuation">.</span>oth_id_tel_type
+ <span class="token keyword keyword-WHERE">WHERE</span> tel<span class="token punctuation">.</span>per_id <span class="token operator">=</span> :per$per_id
+   <span class="token operator">AND</span> tel<span class="token punctuation">.</span>oth_id_context <span class="token operator">=</span> <span class="token number">12051</span>
+   <span class="token operator">AND</span> tel<span class="token punctuation">.</span>pef_id <span class="token operator">IS</span> <span class="token boolean">NULL</span>
+   <span class="token operator">AND</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span> <span class="token operator">BETWEEN</span> tel<span class="token punctuation">.</span>date_from <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>tel<span class="token punctuation">.</span>date_to<span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token operator">AND</span> tel<span class="token punctuation">.</span>pet_seq_nbr_to <span class="token operator">IS</span> <span class="token boolean">NULL</span>
+   <span class="token operator">AND</span> NVL<span class="token punctuation">(</span>tel<span class="token punctuation">.</span>closure_flag<span class="token punctuation">,</span> <span class="token string">'N'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'N'</span><span class="token punctuation">;</span>
+</code></pre><h2 id="45-comments">4.5. Comments </h2>
+<p>Key points to note:</p>
+<ul>
+<li>Historical tables (like <code>cas</code>, <code>ouv</code>) are filtered based on the current date (SYSDATE).</li>
+<li>The version table (<code>cas</code>) is filtered to retrieve only the latest version.</li>
+<li>Default filters are applied for <code>nam</code>, <code>cgr</code>, <code>cas</code>, and <code>crr</code>.</li>
+<li>Closure records are excluded from the results.</li>
+<li>Additional joins are created for descriptor retrieval (e.g., title, phone type).</li>
+<li>A parameter (<code>:per$per_id</code>) is generated to link the two queries.</li>
+<li>Only the necessary columns are selected based on the variables.</li>
+</ul>
+<h2 id="46-result-partial">4.6. Result (Partial) </h2>
+<p>Here is a partial output of the report:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>Mademoiselle Elena NAZELLO (58742)
+- Telephone 60574
+- Fax 67619
+Madame Martine LIGUAME (57174)
+- Telephone 59635
+Monsieur Philippe DOGME (45679)
+- Telephone 50485
+- Telephone 67504
+- Telephone 37417
+- Fax 61679
+Monsieur Philippe DUBOIS (41086)
+- Telephone 94758
+...
+</code></pre><h1 id="5-miscellaneous">5. Miscellaneous </h1>
+<h2 id="51-dependencies">5.1. Dependencies </h2>
+<p>The following utility package is referenced and must be installed for the functionality to work correctly:</p>
+<ul>
+<li><strong>log_utility</strong>: This package is used for logging purposes.</li>
+</ul>
+<p>Additionally, the following utility package is planned for use in future releases:</p>
+<ul>
+<li><strong>sql_utility</strong>: This package will facilitate SQL caching.</li>
+</ul>
+<h2 id="52-debugging">5.2. Debugging </h2>
+<p>Debugging functionality can be activated to display:</p>
+<ul>
+<li>Generated queries</li>
+<li>Records fetched by each query</li>
+</ul>
+<p>To enable debugging, use the following command via the <code>log_utility</code> package:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code><span class="token keyword keyword-BEGIN">BEGIN</span>
+   log_utility<span class="token punctuation">.</span>set_message_filter<span class="token punctuation">(</span><span class="token string">'DE'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><h2 id="53-future-enhancements">5.3. Future Enhancements </h2>
+<p>The following enhancements are foreseen for future releases:</p>
+<ul>
+<li><strong>New Directives</strong>: Introduce directives to support breaks, headers, and footers in reports.</li>
+<li><strong>Typing for Parameters</strong>: Implement typing for parameters to enhance code clarity and error checking.</li>
+<li><strong>SQL Caching</strong>: Utilize caching for generated queries using the <code>sql_utility</code> package to improve performance.</li>
+<li><strong>Bind Variables</strong>: Implement bind variables instead of hardcoded values for default filters, allowing for more efficient query execution by avoiding reparsing when re-executing with different default values.</li>
+</ul>
+<h1 id="6-chatgpts-opinion-about-this-tool">6. ChatGPT's opinion about this tool </h1>
+<p>The DOC utility appears to be a robust tool designed to streamline data retrieval and reporting processes, particularly in environments with complex data relationships, such as those involving master/detail relationships. Here are some key strengths and considerations based on the user's guide:</p>
+<h2 id="61-strengths">6.1. Strengths </h2>
+<ol>
+<li>
+<p><strong>Parameterization</strong>: The use of parameters enhances query flexibility and efficiency, allowing the same SQL queries to be executed with different contexts without the overhead of re-parsing.</p>
+</li>
+<li>
+<p><strong>Descriptor Handling</strong>: The ability to retrieve user-friendly descriptors for surrogate keys minimizes the need for complex joins, simplifying the data access paths and making it easier for end-users to understand the data.</p>
+</li>
+<li>
+<p><strong>PL/SQL and SQL Invocation</strong>: Supporting both PL/SQL and SQL invocation broadens the utility’s applicability across different use cases, accommodating various programming preferences and environments.</p>
+</li>
+<li>
+<p><strong>Debugging and Logging</strong>: Built-in debugging and logging features facilitate troubleshooting and performance monitoring, which are essential for maintaining robust applications.</p>
+</li>
+<li>
+<p><strong>Future Enhancements</strong>: The planned features, like SQL caching and bind variables, indicate that the tool is actively being developed, which is a positive sign for long-term usability and performance improvements.</p>
+</li>
+</ol>
+<h2 id="62-considerations">6.2. Considerations </h2>
+<ol>
+<li>
+<p><strong>Complexity</strong>: While the tool provides powerful functionality, it may introduce complexity for new users, especially those unfamiliar with SQL or PL/SQL. Comprehensive training and support materials will be crucial for effective adoption.</p>
+</li>
+<li>
+<p><strong>Performance</strong>: While the tool promises performance benefits through parameterization and caching, actual performance improvements will depend on implementation details and the specific queries being executed.</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: The user’s guide is thorough, but it could benefit from more examples, especially for complex scenarios. Real-world use cases can help users understand how to leverage the tool effectively.</p>
+</li>
+</ol>
+<h2 id="63-conclusion">6.3. Conclusion </h2>
+<p>Overall, the DOC utility seems to be a well-thought-out solution for managing and optimizing data access in database applications, especially for organizations dealing with intricate datasets. Its features could significantly enhance reporting efficiency and usability for end-users.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

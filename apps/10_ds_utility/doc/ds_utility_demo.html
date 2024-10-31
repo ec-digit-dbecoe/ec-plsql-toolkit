@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>ds_utility_demo</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./ds_utility_demo_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="data-set-utility---demo-guide-v240">Data Set Utility - Demo Guide v24.0 </h1>
+<h2 id="author-philippe-debois-digit">Author: Philippe Debois (DIGIT) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#11-overview">1.1. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#12-key-functionalities">1.2. Key Functionalities</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#13-installation">1.3. Installation</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#14-demo-use-case">1.4. Demo use case</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#2-foreword">2. Foreword</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#21-internal-data-model">2.1. Internal Data Model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#211-data-sets">2.1.1. Data sets</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#212-tables">2.1.2. Tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#213-constraints">2.1.3. Constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#214-columns">2.1.4. Columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#215-records">2.1.5. Records</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#216-patterns">2.1.6. Patterns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#217-masks">2.1.7. Masks</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#218-identifiers">2.1.8. Identifiers</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#219-tokens">2.1.9. Tokens</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#2110-output">2.1.10. Output</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#2111-extraction-types">2.1.11. Extraction types</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#22-demo-data-model">2.2. Demo Data Model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#221-diagrams">2.2.1. Diagrams</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#2211-part-1">2.2.1.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#2212-part-2">2.2.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#222-data-classification">2.2.2. Data classification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3-synthetic-data-generation">3. Synthetic Data Generation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#31-introduction">3.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#32-requirements">3.2. Requirements</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#321-persons">3.2.1. Persons</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#322-organisational-entities">3.2.2. Organisational entities</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#323-persons-assignments">3.2.3. Person’s assignments</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#324-persons-clockings">3.2.4. Person’s clockings</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#325-persons-orders">3.2.5. Person’s orders</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#326-orders-lines">3.2.6. Order’s lines</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#327-products">3.2.7. Products</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#328-stores">3.2.8. Stores</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#329-persons-credit-cards">3.2.9. Person’s credit cards</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3210-persons-transactions">3.2.10. Person’s transactions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3211-other-requirements">3.2.11. Other requirements</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#33-solution">3.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#331-algorithm">3.3.1. Algorithm</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#332-procedure">3.3.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3321-create-a-data-set">3.3.2.1. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3322-include-master-and-detail-tables">3.3.2.2. Include master and detail tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3323-include-referential-constraints">3.3.2.3. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3324-review-included-tables-and-constraints">3.3.2.4. Review included tables and constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3325-include-table-columns">3.3.2.5. Include table columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3326-update-table-properties">3.3.2.6. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3327-update-constraint-properties">3.3.2.7. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3328-update-column-properties">3.3.2.8. Update column properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#3329-review-the-whole-configuration">3.3.2.9. Review the whole configuration</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#33210-generate-the-data-set">3.3.2.10. Generate the data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#33211-check-statistics">3.3.2.11. Check statistics</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#33212-check-generated-data-via-ad-hoc-views">3.3.2.12. Check generated data via ad-hoc views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4-data-subsetting">4. Data Subsetting</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#41-introduction">4.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#42-requirements">4.2. Requirements</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#43-solution">4.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#431-algorithm">4.3.1. Algorithm</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#432-procedure">4.3.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4321-create-a-data-set">4.3.2.1. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4322-include-base-tables-and-their-details">4.3.2.2. Include base tables and their details</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4323-include-referential-constraints">4.3.2.3. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4324-update-table-properties">4.3.2.4. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4325-update-constraint-properties">4.3.2.5. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4326-count-table-records">4.3.2.6. Count table records</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4327-review-configuration">4.3.2.7. Review configuration</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4328-extract-data-set-rowids">4.3.2.8. Extract data set rowids</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#4329-review-statistics">4.3.2.9. Review statistics</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#43210-mask-data-set">4.3.2.10. Mask data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#43211-preview-data-set">4.3.2.11. Preview data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#43212-transport-data-set">4.3.2.12. Transport data set</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5-sensitive-data-discovery">5. Sensitive Data Discovery</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#51-requirements">5.1. Requirements</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#52-solution">5.2. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#521-algorithm">5.2.1. Algorithm</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#522-procedure">5.2.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5221-review-and-adapt-search-patterns">5.2.2.1. Review and adapt search patterns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5222-review-and-adapt-look-up-data-sets">5.2.2.2. Review and adapt look-up data sets</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5223-launch-data-discovery">5.2.2.3. Launch data discovery</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5224-check-data-discovery-report">5.2.2.4. Check data discovery report</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#5225-check-sensitive-columns">5.2.2.5. Check sensitive columns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#6-sensitive-data-masking">6. Sensitive Data Masking</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#61-introduction">6.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#62-requirements">6.2. Requirements</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#621-scenario-1">6.2.1. Scenario 1</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#622-scenarios-2-to-7">6.2.2. Scenarios 2 to 7</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#63-solution">6.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#631-algorithms">6.3.1. Algorithms</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#632-procedure">6.3.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#6321-review-and-adapt-column-masks">6.3.2.1. Review and adapt column masks</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#6322-check-masking-configuration">6.3.2.2. Check masking configuration</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#6323-apply-data-masking">6.3.2.3. Apply data masking</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#6324-check-masked-data">6.3.2.4. Check masked data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#7-data-transportation">7. Data Transportation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#71-introduction">7.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#72-requirements">7.2. Requirements</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#73-solutions">7.3. Solutions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#731-algorithm">7.3.1. Algorithm</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#732-procedure">7.3.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#7321-prepare-the-target-schema">7.3.2.1. Prepare the target schema</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#7322-transport-data-to-destination">7.3.2.2. Transport Data to Destination</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#7323-exportimport-data-fromto-xml">7.3.2.3. Export/Import Data from/to XML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8-change-data-capture">8. Change Data Capture</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#81-introduction">8.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#82-requirements">8.2. Requirements</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#83-solution">8.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#831-algorithm">8.3.1. Algorithm</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#832-procedure">8.3.2. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8321-create-a-data-set">8.3.2.1. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8322-include-tables">8.3.2.2. Include tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8323-create-triggers">8.3.2.3. Create triggers</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8324-check-configuration">8.3.2.4. Check configuration</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8325-enable-and-disable-cdc">8.3.2.5. Enable and disable CDC</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8326-manual-rollback-or-rollforward">8.3.2.6. Manual Rollback or rollforward</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8327-automatic-replication">8.3.2.7. Automatic replication</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8328-generate-scripts">8.3.2.8. Generate scripts</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#8329-drop-triggers">8.3.2.9. Drop triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#9-graph-visualisation-using-graphviz">9. Graph Visualisation using GraphViz</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#91-introduction">9.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#92-invocation">9.2. Invocation</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#93-parameters">9.3. Parameters</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#94-diagram-examples">9.4. Diagram Examples</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#941-synthetic-data-generation-diagram">9.4.1. Synthetic Data Generation Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#942-sensitive-data-masking-diagram">9.4.2. Sensitive Data Masking Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#943-data-subsetting-diagram">9.4.3. Data Subsetting Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#944-change-data-capture-diagram">9.4.4. Change Data Capture Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#945-data-structure-diagram">9.4.5. Data Structure Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#10-degpl-language">10. DEGPL Language</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#101-introduction">10.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#102-key-features">10.2. Key features</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#103-syntax-overview">10.3. Syntax Overview</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1031-data-set">10.3.1. Data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1032-tables">10.3.2. Tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1033-constraints">10.3.3. Constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1034-properties">10.3.4. Properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1035-columns">10.3.5. Columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1036-default-values">10.3.6. Default values</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1037-recursion">10.3.7. Recursion</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1038-scope">10.3.8. Scope</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1039-invocation">10.3.9. Invocation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#104-examples">10.4. Examples</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1041-data-generation-example">10.4.1. Data Generation Example</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1042-data-subsetting-example">10.4.2. Data Subsetting Example</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1043-data-masking-example">10.4.3. Data Masking Example</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-6kqo27.7mg96.html#1044-data-capture-example">10.4.4. Data Capture Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-introduction">1. Introduction </h2>
+<p>This guide is crafted to assist you in executing and comprehending the demo scripts accompanying the Data Set Utility. It offers an introduction to the tool, outlining its primary functionalities. Each capability is accompanied by an explanation of the corresponding use case, detailing the requirements, and a presentation of the solution, including the algorithm and the necessary steps.</p>
+<h3 id="11-overview">1.1. Overview </h3>
+<p>The Data Set Utility is an open-source PL/SQL solution for Oracle databases, providing a comprehensive set of features comparable to, if not surpassing on some aspects, those offered by commercial products in the market. What sets it apart is its commitment to being freely accessible, offering all the robust functionalities required for efficient data management without any associated costs.</p>
+<p>With its powerful features, amongst which data subsetting and transportation, sensitive data discovery and masking, synthetic data generation, and change data capture, the Data Set Utility caters to diverse data management needs.</p>
+<p>This open-source nature empowers users to harness the full potential of advanced data handling tools without the financial constraints often associated with proprietary alternatives.</p>
+<h3 id="12-key-functionalities">1.2. Key Functionalities </h3>
+<ul>
+<li><strong>Synthetic Data Generation:</strong> Create realistic synthetic/mock data for testing and analytical purposes.</li>
+<li><strong>Data Subsetting</strong>: Easily extract and preview a consistent subset of your data using smart extraction strategies.</li>
+<li><strong>Sensitive Data Discovery:</strong> Identify and secure sensitive information to comply with data privacy standards.</li>
+<li><strong>On-the-fly Data Masking:</strong> Configure data masking policies that will be applied while transporting your data.</li>
+<li><strong>Data Transportation</strong>: Transport your anonymised data subset from one environment to another, by different means and without needing to disable constraints.</li>
+<li><strong>Change Data Capture:</strong> Capture, rollback, or rollforward DML operations, ensuring data integrity and replication capabilities.</li>
+<li><strong>Graph Visualization:</strong> Utilize GraphViz to generate insightful graphs, providing a visual representation of data set configurations.</li>
+<li><strong>DEGPL Language:</strong> Leverage the Data Extraction and Generation Path Language for efficient configuration.</li>
+</ul>
+<h3 id="13-installation">1.3. Installation </h3>
+<p>The Data Set Utility is designed with a set of tables and PL/SQL packages that can be installed either in your data schema or in a dedicated central one. Operating without a graphical user interface, the utility relies on APIs for efficient use. Taking a programmatic approach, both API utilisation and the creation of source code in the DEGPL language align with the 'configuration as code' paradigm and simplify its integration into DevOps pipelines and code source repositories.</p>
+<p>For <strong>installing</strong> the tool, execute the <code>ds_install.sql</code> script located in the <code>install</code> directory. During the installation process, you will be prompted to enter the names of the data and index tablespaces in which tables and indexes must be created.</p>
+<p>Pre-requisite: to install the <em>DS_CRYPTO</em> package, you need to have the execute privilege on <em>SYS.DBMS_CRYPTO</em> (usually not granted by default). If you don't need Format Preserved Encryption (FPE), you can just drop the package or let it invalid.</p>
+<p>For <strong>upgrading</strong> the tool to its latest version, execute the <code>ds_upgrade.sql</code> script located in the <code>upgrade</code> directory. If you are upgrading from a version more than one release behind, you will need to perform all intermediate upgrades. You may sometimes be also invited to enter the names of your data and index tablespaces.</p>
+<p>Demo scripts can be found in the <code>demo</code> directory. They are numbered so as to be executed in the right order. Scripts "a" are based on APIs only, scripts "b" are based on the DEGPL language, and script "c" are to be used when the tool is installed in a central schema and the demo tables in another one. Files "z" are the corresponding GraphViz diagrams.</p>
+<h3 id="14-demo-use-case">1.4. Demo use case </h3>
+<p>A typical data management requirement is to transfer an anonymised subset of production data to a non-production environment (e.g., development, test, or acceptance).</p>
+<p>As depicted in the diagram below, this demo will successively demonstrate, starting from an empty data model, how to generate synthetic data in it, extract a coherent subset of it, discover and mask its sensitive data (both steps being optional), and transport the (masked) data subset to another schema using various methods. It will end by showing how to capture data changes and replicate them synchronously or asynchronously to another schema.</p>
+<p><img src="./ds_utility_demo_files/demo_path.svg" alt="Demo path"></p>
+<p>Each capability is detailed in its own dedicated chapter.</p>
+<h2 id="2-foreword">2. Foreword </h2>
+<p>Before showcasing the tool's functionalities, it is essential to provide an explanation of both its internal data model and the data model utilised for the demonstration.</p>
+<h3 id="21-internal-data-model">2.1. Internal Data Model </h3>
+<p>It is important to look at the tool's internal data model not only to understand underlying concepts but also to be able to perform queries on its data.</p>
+<p>This sections gives only an overview of the internal data model. For a more detailed description, please see the <em>Data Set Utility Reference Guide</em>.</p>
+<p><img src="./ds_utility_demo_files/ds_utility_model.png" alt="Internal data model"></p>
+<h4 id="211-data-sets">2.1.1. Data sets </h4>
+<p><em>Data_sets</em> may be created for the following purposes (<em>set_type</em>):</p>
+<ul>
+<li>SUB: for data subsetting (i.e., extraction and transportation).</li>
+<li>GEN: for data generation.</li>
+<li>CAP: for change data capture (CDC)</li>
+<li>CSV: for reference data stored as CSV in a CLOB.</li>
+<li>SQL: for reference data expressed with a SQL statement.</li>
+</ul>
+<p>Data sets are uniquely identified by a <em>set_id</em> and a <em>set_name</em>. Some reference data sets are provided with the tool and created during its installation.</p>
+<h4 id="212-tables">2.1.2. Tables </h4>
+<p>A data set may be used to extract data from or generate data into one or several tables. Tables are uniquely identified by a <em>table_id</em> or by the <em>set_id</em> and <em>table_name</em> pair. A table has an <em>extract_type</em> (one of its most important properties described later).</p>
+<h4 id="213-constraints">2.1.3. Constraints </h4>
+<p>A data set may use one or several constraints to extract or generate data (e.g., in the context of a one-to-many master/detail relationship), or to enforce referential integrity (many-to-one relationship). The <em>cardinality</em> of a constraint (1-N or N-1) indicates the direction in which it is walked through. It is therefore important to note that a constraint can be stored twice in a data set, once for each direction.</p>
+<p>A constraint is uniquely identified by a <em>con_id</em> or by the <em>set_id</em>, <em>constraint_name</em>, and <em>cardinality</em> triple. A constraint always link a <em>src_table_name</em> (source) with a <em>dst_table_name</em> (destination). A constraint also has an <em>extract_type</em> (see later).</p>
+<h4 id="214-columns">2.1.4. Columns </h4>
+<p>Data sets used for synthetic data generation (GEN type) must have table columns (<em>tab_columns</em>) that describe how to generate their values. This is indicated by their "gen_type" (generation type), whose value can be <em>SQL</em>, <em>SEQ</em> (sequence) or <em>FK</em> (foreign key). They are identified by the <em>table_id</em> and <em>col_name</em> (column name) pair.</p>
+<h4 id="215-records">2.1.5. Records </h4>
+<p>The <em>rowid</em> of <em>records</em> that are extracted or generated during data subsetting or synthetic data generation are recorded. Records belong to a table (<em>table_id</em>) and are uniquely identified by a <em>rec_id</em>. They may be the result of an extraction or a generation via a constraint (<em>con_id</em>). This table is also used for Change Data Capture to record captured operations and their data.</p>
+<h4 id="216-patterns">2.1.6. Patterns </h4>
+<p>Sensitive data discovery is performed by searching for <em>patterns</em> in table/column names and comments, and in the data themselves. Alternatively, they could have been named <em>sensitive data types</em>. They are uniquely identified by a <em>pat_id</em> and by a <em>pat_name</em>. As the sensitivity nature of data does not depend on how they are extracted, they are not linked to data sets. The tool comes with a library of pre-defined patterns. Patterns also provide default masks that can be applied to discovered sensitive data types.</p>
+<h4 id="217-masks">2.1.7. Masks </h4>
+<p><em>Masks</em> may be applied on-the-fly (i.e., during transportation) to anonymise columns of any data set. The default masks created during sensitive data discovery can be adapted or complemented by end-user. Masks based on random functions can also be used as a starting point for synthetic data generation. For the same reasons as patterns, they are not linked to any data set. Masks are identified by a <em>msk_id</em> and by the <em>table_name</em> and <em>column_name</em> pair.</p>
+<h4 id="218-identifiers">2.1.8. Identifiers </h4>
+<p>When numeric unique <em>identifiers</em> are masked, the mapping between old and new ids is stored in this table to be able to propagate their masking to foreign keys. Identifiers are uniquely identified by the <em>msk_id</em> and <em>old_id</em> pair.</p>
+<h4 id="219-tokens">2.1.9. Tokens </h4>
+<p>When columns are masked using the tokenisation technique, the mapping between values and <em>tokens</em> is recorded in this <em>token store</em>. Tokens are uniquely identified by the <em>msk_id</em> and <em>value</em> pair. Values may be protected via encryption exactly as in a <em>token vault</em>.</p>
+<h4 id="2110-output">2.1.10. Output </h4>
+<p>The <em>output</em> table is used as an alternative to dbms_output to store large amount of data like e.g., SQL scripts to transport large data sets. Each line is uniquely identified by a <em>line</em> number.</p>
+<h4 id="2111-extraction-types">2.1.11. Extraction types </h4>
+<p>The concept of the <em>extraction type</em>, which applies to both tables and constraints, is key and must therefore be explained in detail. It is used during data subsetting and, equally, during synthetic data <em>generation</em> (in which case the word <em>extraction</em> must be read as or replaced with <em>generation</em>).</p>
+<p>Tables can be qualified with the following extraction types:</p>
+<ul>
+<li><strong>B</strong>)ase (denoted B-table): a table whose records are extracted first.</li>
+<li><strong>P</strong>)artial (denoted P-table): a table that is partially extracted because of a direct or an indirect relationship with a base table (e.g., a child table, a grand-child table, etc.).</li>
+<li><strong>F</strong>)ull (denoted F-table): a table whose content is fully extracted without any other condition (usually, reference tables that do not exist in the target schema and that you want to transfer in full).</li>
+<li><strong>N</strong>)one (denoted N-table): a table that is not extracted at all (usually, reference tables that exist already in the target schema and which therefore do not need to be transferred).</li>
+<li>e<strong>X</strong>)cluded (denoted X-tables): a table that is not in the data set (it is used only on diagrams to show tables that are not part of the data set at stake).</li>
+</ul>
+<p>By analogy, constraints can be qualified with a sub-set of the same extraction types:</p>
+<ul>
+<li><strong>B</strong>)ase (denoted B-cons): a driving constraint used to extract records related directly or indirectly with base records (i.e., records of the base tables); most of them are 1-N constraints (i.e., parent/child relationships) although N-1 constraints can also be driving to cross intersection tables (i.e., tables implementing many-to-many relationships).</li>
+<li><strong>P</strong>)artial (denoted P-cons): a non-driving constraint (usually N-1) used only to enforce referential integrity.</li>
+<li><strong>N</strong>)one (denoted N-cons): a constraint not used during the extraction process (e.g., a foreign key to a reference table that is not extracted).</li>
+</ul>
+<p>Extracting records refers to the process of storing their <em>rowid</em>s (the unique identifier of a row in Oracle databases) in one of the internal tables of the tool (namely <code>ds_records</code>) in such a way that they can subsequently be manipulated (previewed, deleted, anonymised, transported, etc.). As an exception, as there is no need but also to save space, <em>rowid</em>s of fully extracted tables are never stored.</p>
+<h3 id="22-demo-data-model">2.2. Demo Data Model </h3>
+<p>This section explains the data model used to demonstrate all capabilities (data generation, subsetting, masking, etc.). While it may not mirror the data model of a real-world application, it is sufficiently complex and realistic to illustrate the challenges faced by data management tools in general. All database objects and tables, in particular, carry a <em>DEMO</em> prefix, which is often omitted for brevity when referenced.</p>
+<p>The data model described below can be generated by executing the <code>10_demo_data_model.sql</code> script located in the <code>demo</code> directory. This script creates tables, indexes, and constraints. Additionally, it populates reference tables (<em>entity_types</em>, <em>credit_card_types</em>, and <em>countries</em>) which, for the purpose of the demo, are expected to exist in all environments and, therefore, do not need to be generated or extracted (although they could very well be).</p>
+<h4 id="221-diagrams">2.2.1. Diagrams </h4>
+<p>The data model is split into two diagrams for better document layout.</p>
+<h5 id="2211-part-1">2.2.1.1. Part 1 </h5>
+<p><img src="./ds_utility_demo_files/Demo_SubView_1.png" alt="Data model - Part 1"></p>
+<p>A <em><strong>person</strong></em> may own one or several <em><strong>credit cards</strong></em> that are of a given <em><strong>credit card type</strong></em> (MasterCard, Visa, etc.). A <em><strong>person</strong></em> may place <em><strong>orders</strong></em> in <em><strong>stores</strong></em>. <em><strong>orders</strong></em> must be composed of one or several <em><strong>order items</strong></em> or lines, one per ordered <em><strong>product</strong></em>. Furthermore, a <em><strong>person</strong></em> who placed <em><strong>orders</strong></em> may pay for them in one or several <em><strong>transactions</strong></em> using its <em><strong>credit cards</strong></em>.</p>
+<h5 id="2212-part-2">2.2.1.2. Part 2 </h5>
+<p><img src="./ds_utility_demo_files/Demo_SubView_2.png" alt="Data model - Part 2"></p>
+<p>A <em><strong>person</strong></em> is a national of a <em><strong>country</strong></em> (nationality). A <em><strong>person</strong></em> may hold the role of a manager or a staff member. A staff member is supervised by one manager, and a manager may supervise several staff members (recursive relationship). <em><strong>Clockings</strong></em> of <em><strong>persons</strong></em> coming in and out of the office are recorded. <em><strong>Persons</strong></em> are assigned to <em><strong>entities</strong></em>, and a history of their <em><strong>assignments</strong></em> is recorded (many-to-many relationship). <em><strong>Entities</strong></em> are organised in a hierarchy (recursive relationship) and have an <em><strong>entity_type</strong></em> (Institution, Directorate General, Directorate, Unit, or Sector) that reflects their level in the hierarchy.</p>
+<h4 id="222-data-classification">2.2.2. Data classification </h4>
+<p>The following terms used throughout this document need to be well understood.</p>
+<ul>
+<li>
+<p><strong>Reference data</strong> (also known as static data): These are values or codes that provide context or categorisation for other data. They are relatively stable over time and don't change frequently. In our data model: <em>countries</em>, <em>entity_types</em>, <em>credit_card_types</em>.</p>
+</li>
+<li>
+<p><strong>Master data</strong> (also referred to as core data): These represent the foundational and critical business entities shared across an organisation. Master data are relatively stable but can change over time. In our data model: <em>persons</em>, <em>org_entities</em>, <em>per_credit_cards</em>, <em>products</em>, <em>stores</em>.</p>
+</li>
+<li>
+<p><strong>Transactional data</strong>: These are records of day-to-day business activities and operations. They represent individual transactions or events within an organisation and are highly dynamic and frequently changing. In our data model: <em>per_assignments</em>, <em>per_clockings</em>, <em>orders</em>, <em>order_items</em>, <em>per_transactions</em>.</p>
+</li>
+</ul>
+<h2 id="3-synthetic-data-generation">3. Synthetic Data Generation </h2>
+<h3 id="31-introduction">3.1. Introduction </h3>
+<p>Synthetic data generation involves creating artificial data that mimics the statistical properties and patterns of real data. This synthetic data can be used for various purposes, such as testing and development, training machine learning models, and sharing data with third parties, all while safeguarding the privacy and confidentiality of sensitive information.</p>
+<p>It is important to note that both synthetic data generation and data masking have their own use cases and considerations. The choice between them depends on the specific needs of the organisation, the nature of the data, and the intended use of the generated or masked data.</p>
+<p>Synthetic data generation and data masking can also be complementary approaches, and they are often used in conjunction to enhance data privacy and utility.</p>
+<h3 id="32-requirements">3.2. Requirements </h3>
+<h4 id="321-persons">3.2.1. Persons </h4>
+<ul>
+<li><em>Persons</em> (alias <em>per</em>) is a driving table (i.e., a starting point) of the data generation.</li>
+<li><em>per_id</em> is the unique identifier of a <em>person</em>; it must be generated using an Oracle sequence (<em>per_seq</em>).</li>
+<li><em>gender</em> must be <em>M</em>ale or <em>F</em>emale, generated at random with a uniform distribution.</li>
+<li><em>first_name</em> must be realistic (e.g., generated from a list of most common first names) and must be coherent with <em>gender</em>.</li>
+<li><em>last_name</em> must be realistic (e.g., generated from a list of most common last names).</li>
+<li><em>full_name</em> is the concatenation of <em>first_name</em> and <em>last_name</em> (denormalised column).</li>
+<li><em>birth_date</em> must be generated at random in such a way that person’s current age is between 21 and 65 (active staff).</li>
+<li><em>nationality</em> must be selected at random from <em>countries</em> (EU member states only) following a non-uniform distribution proportional to its <em>population</em>.</li>
+<li><em>title</em> (which is optional and missing in 20% of the cases) depends on <em>gender</em> (e.g., Mr for Male, Mrs or Miss for Female).</li>
+<li><em>manager_flag</em> must be set to Y for 10% of the staff.</li>
+<li>For non-management staff, <em>per_id_manager</em> must reference a manager (a person identified as such via the above flag). To keep it simple, managers do not have a manager.</li>
+</ul>
+<h4 id="322-organisational-entities">3.2.2. Organisational entities </h4>
+<ul>
+<li>Organisational entities (or <em>entities</em> to keep it short, alias <em>oen</em>) are organised in a hierarchy (via a recursive relationship) to form the organisation chart. Each level corresponds to an <em>entity type</em> (alias <em>oet</em>) that reflects the way EU institutions are organised (usually: Institution, Directorate General, Directorate, Unit, and Sector).</li>
+<li>The organisation chart must be generated for a certain number of institutions (so it is not a tree but rather a forest) and a given number of levels. The number of sub-entities of each entity (i.e., siblings) must be generated at random between a certain range of numbers.</li>
+<li><em>oen_id</em> is the unique identifier of an <em>entity</em>; it must be generated using an Oracle sequence (<em>oen_seq</em>).</li>
+<li>Entity acronym or a code (<em>oen_cd</em>) must be generated at random following a format that depends on its level (e.g., 1/ EC, 2/ DIGIT, 3/ DIGIT.B, 4/ DIGIT.B.4, 5/ DIGIT.B.4.001). As of level 3, the acronym of an entity is prefixed with the one of its parent.</li>
+<li><em>name</em> must be generated randomly while still being meaningful.</li>
+<li>Entity type (<em>oen_cd</em>) must be selected from <em>org_entity_types</em> depending on its level (from 1 to 5) in the hierarchy.</li>
+<li>Each entity must be linked to its parent entity via <em>oen_id_parent</em>.</li>
+</ul>
+<h4 id="323-persons-assignments">3.2.3. Person’s assignments </h4>
+<ul>
+<li>A person may be assigned during its career to one or several entities (of any type). The history of its assignments is recorded in <em>per_assignments</em> (alias <em>pas</em>).</li>
+<li>A history must be made up of random number of periods (date ranges), starting from a given date in the past, each period having a random duration.</li>
+<li><em>date_from</em> must be set to the start date of the assignment period.</li>
+<li><em>date_to</em> must be set to the end date of the assignment period (not included).</li>
+<li>Assignment periods must be consecutive (no hole) i.e., <em>date_from</em> of a period must be equal to <em>date_to</em> of the previous period (except for the first one).</li>
+<li>For active staff, last period must be opened i.e., <em>date_to</em> must be set to 31/12/9999. This rule does not apply to retired staff or staff who left the company.</li>
+<li><em>per_id</em> and <em>oen_id</em> are foreign keys to respectively <em>persons</em> and <em>entities</em>.</li>
+</ul>
+<h4 id="324-persons-clockings">3.2.4. Person’s clockings </h4>
+<ul>
+<li><em>Clockings</em> (alias <em>pcl</em>) of persons coming in and out of the office on working days (excluding weekends) are recorded. Normally, there are four clockings a day per person (1/ arrival in the office, 2/ departure for lunch, 3/ return from lunch, 4/ back home). No clocking is allowed during morning and afternoon core time periods, though exceptions may occur.</li>
+<li><em>Clocking_date</em> is the date of the clocking.</li>
+<li><em>Clocking_time</em> is the clocking time.</li>
+<li><em>Clocking_time</em> must be IN or OUT.</li>
+<li><em>Per_id</em> is the foreign key towards <em>persons</em>.</li>
+</ul>
+<h4 id="325-persons-orders">3.2.5. Person’s orders </h4>
+<ul>
+<li><em>Persons</em> may place one or several <em>orders</em> (alias <em>ord</em>).</li>
+<li><em>Ord_id</em> is the unique identifier of an order; it must be generated using an Oracle sequence (<em>ord_seq</em>).</li>
+<li><em>Per_id</em> and <em>Sto_id</em> are foreign keys to respectively <em>persons</em> and <em>stores</em>.</li>
+<li><em>Order_date</em> is the date of the order; it must be generated at random in the past (≤ current date).</li>
+<li><em>Total_price</em> is the price of the order; it must be equal to the sum of <em>price</em> of its <em>order_lines</em>.</li>
+</ul>
+<h4 id="326-orders-lines">3.2.6. Order’s lines </h4>
+<ul>
+<li><em>Orders</em> (alias <em>ord</em>) must have at least one <em>order_line</em> but may have more.</li>
+<li><em>Ord_id</em> and <em>Prd_id</em> are foreign keys to respectively <em>orders</em> and <em>products</em>.</li>
+<li><em>Order_line</em> is a sequential number starting with 1 (sequence within parent).</li>
+<li><em>Quantity</em> must be a random number greater or equal to 1.</li>
+<li><em>Price</em> must be equal to the ordered quantity multiplied by the unit price of the <em>product</em>.</li>
+<li>An <em>order_line</em> is uniquely identified by its <em>ord_id</em> and <em>order_line</em>.</li>
+</ul>
+<h4 id="327-products">3.2.7. Products </h4>
+<ul>
+<li><em>Products</em> (alias <em>prd</em>) is a master table that must be entirely generated.</li>
+<li><em>Prd_id</em> is the unique identifier of the <em>product</em>; it must be generated using an Oracle sequence (<em>prd_seq</em>).</li>
+<li><em>Product_name</em> must be generated at random while still being meaningful (e.g., can be generated from a list of objects).</li>
+<li><em>Unit_price</em> is an integer ≥1 that must be generated at random.</li>
+</ul>
+<h4 id="328-stores">3.2.8. Stores </h4>
+<ul>
+<li><em>Stores</em> (alias <em>sto</em>) is a master table that must be entirely generated.</li>
+<li><em>Sto_id</em> is the unique identifier of the <em>store</em>; it must be generated using an Oracle sequence (<em>sto_seq</em>).</li>
+<li><em>Store_name</em> must be generated at random while still being meaningful.</li>
+</ul>
+<h4 id="329-persons-credit-cards">3.2.9. Person’s credit cards </h4>
+<ul>
+<li>A person may have one or several <em>credit_cards</em> (alias <em>pcc</em>) that are of a given <em>credit_card_type</em> (alias <em>cct</em>) e.g., MasterCard, Visa, etc.</li>
+<li><em>Per_id</em> and <em>Cct_cd</em> are foreign keys to respectively <em>persons</em> and <em>credit_card_types</em>.</li>
+<li><em>Credit_card_number</em> must be generated as valid (i.e., its checksum must be correct); its first digit(s) must be equal to those specified by its <em>credit_card_type</em> (e.g., 5 for MasterCard, 4 for Visa, etc.).</li>
+<li><em>Expiry_date</em> must be generated as a date in the future and must be valid (last day of a month).</li>
+</ul>
+<h4 id="3210-persons-transactions">3.2.10. Person’s transactions </h4>
+<ul>
+<li>A <em>person</em> placing an <em>order</em> may pay via one or two credit card <em>transactions</em> (alias <em>ptr</em>). An <em>order</em> may be fully paid via one or two <em>transactions</em> (e.g., 30% when placing the order, remaining i.e., 70% upon delivery or receipt).</li>
+<li><em>Per_id</em> and <em>Ord_id</em>, <em>Credit_card_nbr</em> are foreign keys to respectively <em>persons</em> and <em>transactions</em>.</li>
+<li><em>Transaction_timestamp</em> (date and time) must be equal or posterior to the date of the related <em>order</em>.</li>
+<li>The sum of <em>Transaction_amount</em> must be equal to the <em>total_price</em> of the related <em>order</em>.</li>
+<li>Inclusion constraint: <em>Credit cards</em> used in a <em>transaction</em> must belong to the <em>person</em> that placed the <em>order</em>.</li>
+</ul>
+<h4 id="3211-other-requirements">3.2.11. Other requirements </h4>
+<ul>
+<li>The figures given above are just examples; they must be configurable.</li>
+<li>For master tables (<em>persons</em>, <em>entities</em>, <em>stores</em>, and <em>products</em>), a fixed number of records to generate must be specified.</li>
+<li>For master/detail relationships, a minimum and maximum number of detail records to generate per master must be specified.</li>
+<li>For recursive one-to-many relationships (e.g., from <em>entities</em> to <em>entities</em>), the number of levels to generate in the hierarchy must be specified.</li>
+<li>For foreign keys (many-to-one relationships), an optional condition that must be fulfilled may be specified (e.g., the supervisor of a staff must have its <em>manager_flag</em> equal to <em>Y</em>).</li>
+<li>It is up to the tool to determine the order in which tables and relationships must be processed, based on their dependencies. However, when two tables have the same priority, a decision may be needed on which one must be generated first (e.g., <em>order_items</em> before <em>transactions</em>).</li>
+<li>Some tables may require several rounds of processing. For example, <em>orders</em> must be created before <em>order_lines</em> (to ensure referential integrity), but the <em>total_price</em> of an <em>order</em> cannot be computed before the generation of its <em>order_items</em>. So, the <em>total_price</em> must be updated in a second step.</li>
+<li>For tables implementing an intersection entity (<em>assignments</em>, <em>order_items</em>), only one of their two master/detail relationships may be used to drive their generation. For example, for <em>order_items</em>, <em>orders</em> should be driving, not <em>products</em>.</li>
+<li>For tables that are part of the current data set, only records generated in this context can be referenced by other generated records. In other words, records generated by other data sets cannot be referenced. Pre-existing records (e.g., in reference tables) that are not part of the current data set can be referenced without any restriction.</li>
+</ul>
+<h3 id="33-solution">3.3. Solution </h3>
+<p>This section provides an overview of how to generate a data set that meets the previously described requirements, using the <code>20a_demo_data_generation.sql</code> and <code>20b_demo_data_generation.sql</code> scripts (located in the <code>demo</code> directory). The first script is based only on APIs, while the second script makes use of the DEGPL language.</p>
+<p>For more details, please consult the <em>Synthetic Data Generation User's Guide</em> and the <em>Reference Manual</em>.</p>
+<h4 id="331-algorithm">3.3.1. Algorithm </h4>
+<p>The data generation algorithm is as follows:</p>
+<ul>
+<li>The order in which tables are populated is computed based on table dependencies (if table <em>A</em> references table <em>B</em>, table <em>B</em> must obviously be populated before table <em>A</em>).</li>
+<li>Driving/master/base tables (B-tables) are populated first, in the above-defined order.</li>
+<li>Recursive foreign-keys columns (like <em>per_id_manager</em>) are set to <em>NULL</em> initially and generated in a second step.</li>
+<li>For all tables (driving or not), processed in the above-defined order, master-detail (one-to-many) relationships (B-cons) are followed to generate child records from parents.</li>
+<li>Foreign keys (many-to-one) are generated by selecting records at random from referenced tables.</li>
+</ul>
+<h4 id="332-procedure">3.3.2. Procedure </h4>
+<p>Here are the steps that must be followed:</p>
+<h5 id="3321-create-a-data-set">3.3.2.1. Create a data set </h5>
+<p>Create a data set of type <em>GEN</em> by invoking the <code>create_data_set_def()</code> procedure or function of the <code>ds_utility_krn</code> main package.</p>
+<h5 id="3322-include-master-and-detail-tables">3.3.2.2. Include master and detail tables </h5>
+<p>Include driving/master/base tables in the data set by invoking the <code>include_tables()</code> procedure. For our use case, base tables are <code>persons</code>, <code>products</code>, <code>stores</code>, and <code>entities</code>. At the same time and when requested, detail tables linked via one-to-many relationships can be included recursively.</p>
+<h5 id="3323-include-referential-constraints">3.3.2.3. Include referential constraints </h5>
+<p>To ensure referential integrity, many-to-one (N-1) foreign keys or constraints must also be included by invoking the <code>include_referential_cons()</code> procedure. Referenced tables will be added at the same time.</p>
+<h5 id="3324-review-included-tables-and-constraints">3.3.2.4. Review included tables and constraints </h5>
+<p>To get a graphical representation of the data set configuration, invoke the <code>graph_data_set()</code> function of the extension package (<code>ds_utility_ext</code>). Here is the diagram that you get when you paste the generated DOT code into an on-line Graphviz editor (e.g., <a href="https://dreampuf.github.io/GraphvizOnline">GraphvizOnline</a>).</p>
+<p><img src="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc/ds_utility_demo_files/ds_utility_demo_files/ds_gen_1.svg" alt="GEN Data set rough configuration"></p>
+<p>Here are the color conventions used (as shown on the legend):</p>
+<ul>
+<li>Green tables: base/master/driving tables (populated first).</li>
+<li>Blue tables: detail tables (populated from master tables via one-to-many relationships).</li>
+<li>Red tables: not generated tables (e.g., reference tables that are already filled).</li>
+<li>Grey tables: tables that are not part of the data set, i.e., excluded tables.</li>
+<li>Green arrows: one-to-many relationships used to generate detail tables from master.</li>
+<li>Red arrows: one-to-many relationships that must NOT be used for the generation.</li>
+<li>Crowded arrows: foreign keys for some of which referenced records are generated at random.</li>
+</ul>
+<p>For each table, the following information is shown:</p>
+<ul>
+<li>Table name.</li>
+<li>Table alias (@alias).</li>
+<li>Order of processing (#order, sub-order).</li>
+</ul>
+<p>The order of processing is automatically computed during the generation process. If you want to display it at this stage, you must request its computation by invoking the <code>define_walk_through_strategy()</code> procedure of the main package. The sub-order is defined by the end-user to prioritize tables having the same processing order.</p>
+<h5 id="3325-include-table-columns">3.3.2.5. Include table columns </h5>
+<p>Columns of generated tables must also be included in the data set by invoking the <code>insert_table_columns()</code> procedure. This will allow you to later specify how to generate their value. During this step, foreign key columns are identified, and a default SQL expression to generate a random value may even be proposed for columns identified as sensitive (as a result of a prior sensitive data discovery run).</p>
+<h5 id="3326-update-table-properties">3.3.2.6. Update table properties </h5>
+<p>For each base table, you must specify how many records to generate by invoking the <code>update_table_properties()</code> procedure. You may also need to change the sequence in which tables are processed (in our use case, <em>order items</em> must be generated before <em>transactions</em> so as to know the <em>total_amount</em> to be paid).</p>
+<h5 id="3327-update-constraint-properties">3.3.2.7. Update constraint properties </h5>
+<p>For one-to-many relationships, you may or must specify the following properties:</p>
+<ul>
+<li>The number of child records to generate per parent record.</li>
+<li>For hierarchies (recursive relationships), the number of levels and the number of siblings per parent.</li>
+<li>For complex/historical tables, the so-called generation view that must be used to generate records.</li>
+<li>For denormalized fields, the post-generation PL/SQL code that must be invoked to compute them.</li>
+<li>For intersection tables, which of the 2 relationships must be used.</li>
+</ul>
+<p>For many-to-one relationships, you may specify a filter that restricts the allowed values when generated at random.</p>
+<p>To proceed, invoke the <code>update_constraint_properties()</code> procedure of the main package.</p>
+<h5 id="3328-update-column-properties">3.3.2.8. Update column properties </h5>
+<p>For each column (at least for mandatory ones), you must specify its generation type i.e., how to generate its value, amongst the following:</p>
+<ul>
+<li>SQL: any valid SQL expression.</li>
+<li>SEQ: an Oracle sequence (to generate surrogate keys).</li>
+<li>FK: a value generated at random from a foreign/look-up table.</li>
+</ul>
+<p>The tool comes with the <code>ds_masker_krn</code> package, a library of random functions that can be used in the SQL expressions. Some pseudo-columns like <em>RECORD</em>, <em>PARENT</em>, <em>ROWNUM</em>, <em>ROWCOUNT</em>, <em>SEED</em>, <em>LAG</em>, <em>PRIOR</em>, and <em>LEVEL</em> can also be used.</p>
+<p>To proceed, invoke the <code>update_column_properties()</code> procedure of the main package.</p>
+<h5 id="3329-review-the-whole-configuration">3.3.2.9. Review the whole configuration </h5>
+<p>The following diagram can be used to check most of the data set configuration:</p>
+<p><img src="./ds_utility_demo_files/ds_gen_2.svg" alt="GEN Data set detailed configuration"></p>
+<p>Compared to the previous diagram, the following information is now shown:</p>
+<ul>
+<li>Columns with their type of generation (SQL, SEQ, FK).</li>
+<li>Masking function used in SQL expression if any (random, obfuscate, encrypt, etc.)</li>
+<li>Number of records to generate in base tables (xx rows).</li>
+<li>Min/max number of child records to generate for 1-N relationships (min-max rows).</li>
+<li>Number of levels to generate in hierarchies i.e., 1-N recursive relationships (x levels).</li>
+<li>Whether a filter is applied on source or target tables of N-1 relationships (src/tgt filter).</li>
+<li>Whether pre/post generation PL/SQL code must be executed (pre/post gen).</li>
+</ul>
+<p>Other configuration details (e.g., SQL expressions, sequence names, filter conditions, etc.) that cannot be easily displayed on the diagram are shown in table and constraint tooltips displayed when you pass the mouse over a table box or a constraint arrow. Tooltips are also available in diagrams saved as SVG (Scalable Vector Graphics) images.</p>
+<h5 id="33210-generate-the-data-set">3.3.2.10. Generate the data set </h5>
+<p>The data set can be generated by invoking the <code>generate_data_set()</code> procedure of the main package.</p>
+<h5 id="33211-check-statistics">3.3.2.11. Check statistics </h5>
+<p>The following diagram can be used to get and check some statistics:</p>
+<p><img src="./ds_utility_demo_files/ds_gen_3.svg" alt="GEN Data set generation results"></p>
+<p>The following statistics are displayed:</p>
+<ul>
+<li>For all tables: number of rows generated vs number of existing rows (if different).</li>
+<li>For 1-N constraints (coloured arrows): number of records generated via this constraint.</li>
+<li>For N-1 constraints (crowded arrows): number of records referenced by this constraint.</li>
+</ul>
+<h5 id="33212-check-generated-data-via-ad-hoc-views">3.3.2.12. Check generated data via ad-hoc views </h5>
+<p>Generated data can be consulted via ad-hoc views that you can create by invoking the <code>create_views()</code> procedure of the main package. To drop these views after consultation, invoke the <code>drop_views()</code> procedure.</p>
+<h2 id="4-data-subsetting">4. Data Subsetting </h2>
+<h3 id="41-introduction">4.1. Introduction </h3>
+<p>Data subsetting involves selecting and extracting specific portions or subsets of data from a larger dataset based on defined criteria or conditions. This process is valuable in data analysis, management, and various development and testing scenarios.</p>
+<p>In development and testing environments, data subsetting is a common practice to feed non-production databases. It allows developers to work with smaller, representative datasets for coding and debugging, supports quality assurance by creating test environments with relevant data subsets, and populates staging environments for final testing before deployment.</p>
+<h3 id="42-requirements">4.2. Requirements </h3>
+<p>For our demo use case, here follow the specifications of the data subset that we want to extract:</p>
+<ul>
+<li>Extract 10 <em>persons</em> out of the 50 existing ones (let's say those whose <em>per_id</em> is between 1 and 10).</li>
+<li>Extract all detail data related to those persons with one exception: only extract 50% of their <em>orders</em>.</li>
+<li>Extract all <em>stores</em>, whether they are referenced or not.</li>
+<li>Extract only the <em>products</em> referenced by extracted <em>order lines</em>.</li>
+<li>Do not extract reference tables (<em>countries</em>, <em>credit card types</em>, and <em>organisational entity types</em>) as they exist in all environments already.</li>
+</ul>
+<p>This data subset will subsequently be anonymised before being transported into another schema or environment.</p>
+<h3 id="43-solution">4.3. Solution </h3>
+<p>This section gives an overview of how to extract the data that meet the above requirements, using the <code>30a_demo_data_subsetting.sql</code> and <code>30b_demo_data_subsetting.sql</code> scripts located in the <code>demo</code> directory. The first script is based only on APIs, while the second script makes use of the DEGPL language.</p>
+<h4 id="431-algorithm">4.3.1. Algorithm </h4>
+<p>The extraction algorithm is the following:</p>
+<ul>
+<li>Tables are processed in an order that is based on their dependencies (if table <em>A</em> references table <em>B</em>, records of table <em>B</em> must be extracted before those of table <em>A</em>)</li>
+<li>Records of all base/driving tables are extracted first; they are filtered, if requested; they are processed in the order previously mentioned.</li>
+<li>Driving/base constraints (1-N or N-1) are followed to extract child or dependent records; this is repeated for any new record found until no more new record is found.</li>
+<li>Non-driving referential constraints (N-1) are followed to extract referenced records (to enforce referential integrity); this is repeated for any new record found until no more record is found.</li>
+</ul>
+<h4 id="432-procedure">4.3.2. Procedure </h4>
+<p>Here are the steps that must be followed.</p>
+<h5 id="4321-create-a-data-set">4.3.2.1. Create a data set </h5>
+<p>Create a data set of type <em>SUB</em> by invoking the <code>create_data_set_def()</code> procedure or function of the <code>ds_utility_krn</code> main package.</p>
+<h5 id="4322-include-base-tables-and-their-details">4.3.2.2. Include base tables and their details </h5>
+<p>Include driving/master/base tables (B-tables) in the data set by invoking the <code>include_tables()</code> procedure. For our use case, <code>persons</code> is the only base table. At the same time, detail tables (P-tables) linked via one-to-many relationships (B-cons) will also be included recursively.</p>
+<h5 id="4323-include-referential-constraints">4.3.2.3. Include referential constraints </h5>
+<p>Include referential constraints to make sure that referential integrity will be enforced by invoking the <code>include_referential_cons()</code> procedure. Tables referenced by these many-to-one constraints (P-cons) will be included at the same time.</p>
+<h5 id="4324-update-table-properties">4.3.2.4. Update table properties </h5>
+<p>Update properties of base tables by invoking the <code>update_table_properties()</code> procedure. For our use case, we need to filter the <em>per_id</em>s of the <em>persons</em> table. We also need to specify which table to exclude (N-tables) and which one to fully extract (F-tables) by updating their <em>extract_type</em> property.</p>
+<h5 id="4325-update-constraint-properties">4.3.2.5. Update constraint properties </h5>
+<p>Update constraint properties by invoking the <code>update_constraint_properties()</code> procedure. For our use case, we need to extract only 50% of the <em>orders</em>. You may also need to update their <em>extract_type</em>.</p>
+<h5 id="4326-count-table-records">4.3.2.6. Count table records </h5>
+<p>The number of records in each table (important to know if you want to extract only a percentage) is inherited from Oracle statistics but can be computed if missing by invoking the <code>count_table_records()</code> procedure.</p>
+<h5 id="4327-review-configuration">4.3.2.7. Review configuration </h5>
+<p>The following diagram can be used to check the configuration of your data subset:</p>
+<p><img src="./ds_utility_demo_files/ds_sub_1.svg" alt="SUB Subsetting configuration"></p>
+<p>The following information is shown:</p>
+<ul>
+<li>Tables and constraints in the data set.</li>
+<li>Their extract type based on color code (see legend).</li>
+<li>Table configuration (e.g., whether a filter is applied).</li>
+<li>Constraints configuration (e.g., rows percentage).</li>
+<li>The order in which tables are extracted (#n).</li>
+</ul>
+<p>Configuration details (e.g., where clause, order by clause, etc.) cannot be easily displayed on the diagram and, therefore, can only be checked by querying the internal tables of the tool.</p>
+<h5 id="4328-extract-data-set-rowids">4.3.2.8. Extract data set rowids </h5>
+<p>Extraction of records (which means their identification and the storage of their rowids in the <em>ds_records</em> table) can be launched by invoking the <em>extract_data_set_rowids()</em> procedure.</p>
+<h5 id="4329-review-statistics">4.3.2.9. Review statistics </h5>
+<p>After extraction, statistics can be shown on the following diagram:</p>
+<p><img src="./ds_utility_demo_files/ds_sub_2.svg" alt="SUB Subsetting statistics"></p>
+<p>Compared to the previous diagram, the following statistics have been added:</p>
+<ul>
+<li>For tables, the number of records extracted compared to the total number of records.</li>
+<li>For constraints, the number of records extracted by using them.</li>
+</ul>
+<p>Note that about 20 persons have been extracted with their details compared to the 10 initially requested. This is because the staff members of one manager have been extracted too, due to the driving 1-N recursive constraint on <em>persons</em>. This constraint was added while including recursively detail tables of <em>persons</em> table.</p>
+<h5 id="43210-mask-data-set">4.3.2.10. Mask data set </h5>
+<p>Optionally, sensitive data can be masked (i.e., anonymised) in various ways.</p>
+<p>See chapter dedicated to sensitive data masking.</p>
+<h5 id="43211-preview-data-set">4.3.2.11. Preview data set </h5>
+<p>Before transporting the data set, you can preview extracted (and anonymised) records via ad-hoc views, created by invoking the <em>create_views()</em> procedure. After preview, these views can be deleted by invoking the <em>drop_views()</em> procedure.</p>
+<h5 id="43212-transport-data-set">4.3.2.12. Transport data set </h5>
+<p>Finally, data set can be transported to another schema in various ways.</p>
+<p>See chapter dedicated to data transportation.</p>
+<h2 id="5-sensitive-data-discovery">5. Sensitive Data Discovery </h2>
+<p>Sensitive data discovery refers to the process of identifying and locating sensitive or personally identifiable information (PII) within a dataset or a system. This is an important step in data privacy and security, as it helps organizations identify and protect sensitive information from unauthorized access or disclosure.</p>
+<p>Sensitive data are discovered by searching for specific keywords or patterns that indicate the presence of sensitive data. For example, searching for terms like "social security number," "credit card number," or "date of birth" can help identify relevant data.</p>
+<p>This tool allows to discover sensitive data by searching for patterns in column names, column comments, and/or in the data themselves. Patterns are based on regular expressions. Data can also be searched in look-up data sets (e.g., lists of countries, cities, currencies, etc.) to determine their types.</p>
+<p>The tool comes with a collection of pre-defined look-up data sets as well as search patterns which cover the following categories: address, banking, internet, large text, national identifiers, personal information, and vehicle. Both can be adapted and complemented with user-defined ones. Each sensitive data type comes with a default mask that can be applied during the next data masking stage.</p>
+<p>For more details, please consult the sensitive data discovery and masking guide.</p>
+<h3 id="51-requirements">5.1. Requirements </h3>
+<p>For our use case, we just want to discover the sensitive data of our data model that might need to be masked or anonymised i.e., personally identifiable information (PII) and banking data (<em>credit cards)</em>. We also need to understand how the sensitive columns have been discovered in order to potentially identify false positives (data reported as sensitive while being not).</p>
+<h3 id="52-solution">5.2. Solution </h3>
+<p>This section gives an overview of how to perform a sensitive data discovery with this tool, using the <code>40a_demo_data_discovery.sql</code> script located in the <code>demo</code> directory.</p>
+<h4 id="521-algorithm">5.2.1. Algorithm </h4>
+<p>The sensitive data discovery algorithm is the following:</p>
+<ul>
+<li>All tables of the data set or whose name is matching are considered in turn.</li>
+<li>All column names and/or comments are matched against all keyword patterns.</li>
+<li>The compatibility of column data types is verified.</li>
+<li>A sample set of records is fetched from each table.</li>
+<li>All selected column values are matched against all data patterns.</li>
+<li>All selected column values are searched in all look-up data sets.</li>
+<li>Patterns not meeting the minimum hit criteria are discarded.</li>
+<li>The best matching patterns are finally retained.</li>
+<li>A sensitive data discovery report is produced on-the-fly.</li>
+</ul>
+<h4 id="522-procedure">5.2.2. Procedure </h4>
+<h5 id="5221-review-and-adapt-search-patterns">5.2.2.1. Review and adapt search patterns </h5>
+<p>You must perform the following:</p>
+<ul>
+<li>Review and understand pre-defined search patterns</li>
+<li>Disable those that are not needed to speed-up the discovery e.g., based on their category.</li>
+<li>Adapt patterns to your specific needs if necessary (e.g., translate into your language).</li>
+<li>Create your own user-defined patterns if necessary.</li>
+</ul>
+<p>Note that pre-defined patterns and look-up data sets have been designed with the assumption that your database object names and comments, and your data are in English.</p>
+<p>Properties of search patterns can be updated by invoking the <em>update_pattern_properties()</em> procedure. New patterns can be created via the <em>insert_pattern()</em> procedure. Existing pattern can be deleted via the <em>delete_pattern()</em> procedure.</p>
+<h5 id="5222-review-and-adapt-look-up-data-sets">5.2.2.2. Review and adapt look-up data sets </h5>
+<p>You must perform the following:</p>
+<ul>
+<li>Review the pre-defined look-up data sets referenced in the patterns.</li>
+<li>Adapt them to your specific needs (e.g, translate into another language).</li>
+<li>Create your own if necessary (e.g., family/given names specific to your country).</li>
+</ul>
+<p>To create a new look-up data set, put your CSV formatted data in a CLOB and invoke the <em>create_data_set_def()</em> procedure or function. To update an existing look-up data set, replace it using the *create_or_replace_data_set_def()" procedure or function. See one of the SQL scripts in the <code>install</code> directory as a source of inspiration.</p>
+<h5 id="5223-launch-data-discovery">5.2.2.3. Launch data discovery </h5>
+<p>The sensitive data discovery can be launched by invoking the <em>discover_sensitive_data()</em> procedure of the main package. It can be launched for the whole schema or just for the tables involved in a specific data set. Some parameters like sample size and minimum hit can also be passed. To generate the data discovery report, enable <em>dbms_output</em> and information messages via the <em>set_message_filter()</em> procedure.</p>
+<h5 id="5224-check-data-discovery-report">5.2.2.4. Check data discovery report </h5>
+<p>The data discovery report shows the result of the pattern matching exercise. It is particularly useful to understand why a specific pattern has been discarded or, in case of multiple matches, why a specific pattern has been preferred over another one. It also shows a sample of matching values that may help in detecting wrong matches.</p>
+<p>For each column, are indicated:</p>
+<ul>
+<li>Which pattern is matching which criteria (name, comment, or data regular expression; lookup data set; data type).</li>
+<li>For sample records, the number and percentage of matching values + sample values.</li>
+<li>Which patterns were discarded (+ reason), retained but not the best, and the best.</li>
+</ul>
+<p>Based on this report, you may need to adapt search patterns and launch a new sensitive data discovery process.</p>
+<h5 id="5225-check-sensitive-columns">5.2.2.5. Check sensitive columns </h5>
+<p>In addition to the report, discovered sensitive columns can be checked by querying the <em>ds_masks</em> table and filtering on <em>sensitive_flag='Y'</em>, or visually using the following diagram:</p>
+<p><img src="./ds_utility_demo_files/ds_dis_1.svg" alt="SUB Sensitive data discovery"></p>
+<p>This diagram can be generated by invoking the <em>graph_data_set()</em> function with <em>NULL</em> passed as data set id. It shows the following:</p>
+<ul>
+<li>All tables matching table name pattern + their relationships.</li>
+<li>Some statistics on their number of records.</li>
+<li>Columns that are marked as sensitive and their proposed default masking (SQL, INHERIT).</li>
+</ul>
+<p>To be noted that the proposed default masks may not be entirely satisfactory (as an example, the tool cannot detect dernomalised fields like the <em>full_name</em>). You will therefore need to review and adapt them during the next data masking stage.</p>
+<h2 id="6-sensitive-data-masking">6. Sensitive Data Masking </h2>
+<h3 id="61-introduction">6.1. Introduction </h3>
+<p>Data masking, also known as data obfuscation or data anonymisation, is a technique used to protect sensitive or confidential information by replacing real data with fictional or modified data while preserving the data's format and usability for non-sensitive purposes. The primary goal of data masking is to minimize the risk of unauthorized access to sensitive data while still allowing organizations to use the data for various non-production purposes such as software testing, analytics, or outsourcing.</p>
+<p>The most common data masking techniques, all supported by this tool, are substitution, shuffling, masking, perturbation, encryption, and tokenisation. They can be applied individually or combined. Users should carefully choose the appropriate technique based on their specific use case and compliance requirements.</p>
+<p>Data masking can be implemented using different approaches amongst which: on-the-fly data masking, static data masking, dynamic data masking. This tool performs sub-setting and data masking on-the-fly i.e., during data transportation. It has the advantage that it does not require the creation of a copy of the production database, which can be resource-intensive and time-consuming</p>
+<p>This tool implements the following mask types:</p>
+<ul>
+<li>SQL: any valid SQL expression (which can use any masking function of the supplied library).</li>
+<li>SHUFFLE: shuffles a group of columns with optional partitioning.</li>
+<li>SEQUENCE: generate a value from a sequence (in-memory or Oracle, local or remote).</li>
+<li>INHERIT: masked foreign keys values are inherited from masked primary key values.</li>
+<li>TOKENIZE: values are replaced with tokens stored in a token store or vault.</li>
+</ul>
+<p>The tool comes with a library (implemented in the <em>ds_masking_krn</em> package) that offers the following types of masking functions:</p>
+<ul>
+<li>random_xxx: generate a random value.</li>
+<li>obfuscate_xxx: obfuscate a given value (i.e., replace it in part or in full).</li>
+<li>mask_xxx: mask a given value (i.e., hide it in part or in full).</li>
+<li>encrypt_xxx: encrypt a value with a private key (format is preserved).</li>
+<li>decrypt_xxx: decrypt a value with the same private key.</li>
+</ul>
+<p>These functions are available for numbers, integers, strings, names, dates, times, credit card numbers, BBANs, IBANs, data sets, etc. Most of them accept a seed parameter that makes their result deterministic (i.e., the same output value is produced for the same input values).</p>
+<p>For more details, please consult the <em>Sensitive Data Discovery and Masking Guide</em>.</p>
+<h3 id="62-requirements">6.2. Requirements </h3>
+<h4 id="621-scenario-1">6.2.1. Scenario 1 </h4>
+<p>In the first scenario, we will mask the sensitive columns discovered in the previous stage. Since the default masks proposed are not entirely satisfactory (e.g., because the tool is not capable of detecting dependencies between columns and because we want to demonstrate several masking techniques), they must be changed in the following way:</p>
+<ul>
+<li>First names must be shuffled while staying coherent with the person's gender.</li>
+<li>Last names must be tokenized using existing family names as tokens (i.e., a family name carried by several persons will consistently be replaced with another existing and different one).</li>
+<li>Full names must be denormalized as the concatenation of first and last names.</li>
+<li>Nationalities must be generated at random from existing nationalities.</li>
+<li>The title (by the way, not detected as sensitive) must be obfuscated with the <em>XXXX</em> value.</li>
+<li>Credit card numbers must be encrypted while remaining valid.</li>
+</ul>
+<h4 id="622-scenarios-2-to-7">6.2.2. Scenarios 2 to 7 </h4>
+<p>For the other scenarios, we will only mask person's identifiers (<em>per_id</em>s), which, like the <em>gender</em>, were not detected as sensitive. This will demonstrate the various techniques that can be used to mask primary keys and how masking is propagated to foreign keys.</p>
+<ul>
+<li><strong>Scenario 2:</strong> Generate <em>per_id</em>s using an in-memory sequence or a local/remote Oracle sequence.</li>
+<li><strong>Scenario 3:</strong> Shuffle <em>per_id</em>s.</li>
+<li><strong>Scenario 4:</strong> Encrypt <em>per_id</em>s using FPE.</li>
+<li><strong>Scenario 5:</strong> Tokenize <em>per_id</em>s with random tokens or <em>per_id</em>s encryption.</li>
+<li><strong>Scenario 6:</strong> Differ masking of <em>per_ids</em> using a remote non-accessible Oracle sequence.</li>
+<li><strong>Scenario 7:</strong> Shift <em>per_id</em>s by a constant value.</li>
+</ul>
+<h3 id="63-solution">6.3. Solution </h3>
+<p>This section provides an overview of how to mask the subset of data extracted previously, using the <code>50a_demo_data_masking.sql</code> and <code>50b_demo_data_masking.sql</code> scripts located in the <code>demo</code> directory. The first script is based only on APIs, while the second script makes use of the DEGPL language.</p>
+<p>It is important to note that all internal tables of the tool involved in data masking are NOT linked to any data set. This ensures that data are masked consistently across all data sets, meaning multiple masked subsets of the same data can be transported and merged into the same target schema. Shuffling, however, is data set-specific and is therefore an exception.</p>
+<h4 id="631-algorithms">6.3.1. Algorithms </h4>
+<p>Shuffling is implemented by randomly exchanging records of the same partition. Shuffled <em>rowid</em>s are stored in the <em>ds_records</em> table, together with the original <em>rowid</em>s. Shuffling is usually not deterministic.</p>
+<p>Tokenization is implemented by generating tokens using a user-defined SQL expression and storing them with their encrypted value in the <em>ds_tokens</em> table (which therefore plays the role of a token store or vault). The following tokenization techniques are supported: format-preserving, secure-hash, random, deterministic, FPE.</p>
+<p>Sequence-based masking, which consists of generating new numeric identifiers, is implemented by storing the mapping between old and new values in the <em>ds_identifiers</em> table. When deferred, the remote mapping table is populated on-the-fly while the import script is executed.</p>
+<p>The Format Preserved Encryption (FPE) algorithm used in this tool is proprietary and implemented in the <em>ds_encrypt_krn</em> package. It consists of making several rounds of random permutations and substitutions (based on substitutions tables generated at random). The encryption is symmetric, i.e., the same key is used to encrypt and decrypt. The encryption key is not persisted and must, therefore, be saved somewhere by the end-user to make decryption possible.</p>
+<p>In all cases, masks are applied to data on-the-fly, i.e., only during data set preview and transportation (i.e., original data remain unchanged).</p>
+<h4 id="632-procedure">6.3.2. Procedure </h4>
+<p>For each scenario, follow these steps to proceed with data masking.</p>
+<h5 id="6321-review-and-adapt-column-masks">6.3.2.1. Review and adapt column masks </h5>
+<p>If a sensitive data discovery was run before, review the default masks that were generated and adapt them as necessary by invoking the <em>update_mask_properties()</em> procedure. You can also create new or delete existing masks using <em>insert_mask()</em> and <em>delete_mask()</em> procedure. The DEGPL language can also be used as an alternative.</p>
+<h5 id="6322-check-masking-configuration">6.3.2.2. Check masking configuration </h5>
+<p>Once reviewed and adapted, check that your masking configuration meets your requirements. Most of it can be checked visually using the following graphviz diagram:</p>
+<p><img src="./ds_utility_demo_files/ds_msk_1.svg" alt="Data masking configuration"></p>
+<p>The above diagram, which relates to the first scenario, can be generated by invoking the <em>graph_data_set()</em> function with <em>NULL</em> passed as the data set id. You will note the following:</p>
+<ul>
+<li>Only masked columns are displayed (although all columns can also be shown if requested).</li>
+<li>Mask types have been adapted (updated, created, and deleted) as required.</li>
+<li>The encryption of <em>credit card number</em> is cascaded from <em>credit cards</em> to <em>transactions</em> (i.e., foreign keys <em>INHERIT</em> the masking of their corresponding primary key).</li>
+</ul>
+<h5 id="6323-apply-data-masking">6.3.2.3. Apply data masking </h5>
+<p>Shuffling, tokenization, and sequence-based masking techniques require a formal step, which consists of shuffling <em>rowid</em>s, generating new identifiers (surrogate keys), and/or generating tokens into the internal tables of tools. You can perform this step by invoking the <em>mask_data_set()</em> procedure. When encryption is involved, you must pass your encryption key as a parameter.</p>
+<p>You can check the generated data by querying the following internal tables of the tool: <em>ds_records</em>, <em>ds_identifiers</em>, and <em>ds_tokens</em>. In this latest table, you will note that the original <em>value</em>s associated with tokens are, by default, encrypted.</p>
+<p>Note that generated identifiers and tokens are shared across multiple data sets while shuffling is data set specific.</p>
+<h5 id="6324-check-masked-data">6.3.2.4. Check masked data </h5>
+<p>It is recommended to check that your data are correctly masked before transporting them. For this purpose, you need to create 2 views per table: one that shows original data and one that shows masked data. You must request to add a <em>rowid#</em> column in each of those views to allow joining and comparing original and masked records when querying them.</p>
+<h2 id="7-data-transportation">7. Data Transportation </h2>
+<h3 id="71-introduction">7.1. Introduction </h3>
+<p>Data transportation refers to the process of moving or transferring data from one schema to another. Database objects (tables and constraints) are supposed to be pre-created in the target schema and fully aligned with those of the source schema. Source and target schemas can be in the same database or not. With this solution, data masking is applied during data transportation (i.e., on-the-fly).</p>
+<p>This tool supports the following transportation methods:</p>
+<ul>
+<li>Direct execution of DML statements through a database link.</li>
+<li>Generation of a SQL script followed by its execution through a database link.</li>
+<li>Generation of a SQL script to be executed manually in the target schema.</li>
+<li>Extraction of the data as XML into the internal tables of the tools.</li>
+<li>Export/Import by filtering the data using security policies (without data masking).</li>
+</ul>
+<p>Records are, by default, inserted in the target schema, but the tool can also <em>upsert</em> or refresh the data i.e., update records when they exist and create them when they are not found.</p>
+<p>The following special use cases are also supported:</p>
+<ul>
+<li>Deletion of a data set from the source schema (e.g., after it was copied).</li>
+<li>Clone a data set by inserting data in the source schema (i.e., target = source).</li>
+</ul>
+<h3 id="72-requirements">7.2. Requirements </h3>
+<p>We want to transfer the data sets made in the previous stages, with or without data masking, from one schema to another, possibly through a database link. Source and target schemas can be hosted in the same or in different databases. The first four transportation techniques will be demonstrated (the last one being more theoretical than practical).</p>
+<h3 id="73-solutions">7.3. Solutions </h3>
+<p>This section gives an overview of how to transport the data subset made in the previous stages, using the <code>60a_demo_data_transport.sql</code>script located in the <code>demo</code> directory.</p>
+<h4 id="731-algorithm">7.3.1. Algorithm </h4>
+<p>A smart algorithm is used to transport the data in such a way that constraints do not need to be disabled in the target schema. Simply said, records must be created in the right order to avoid referential constraints from being violated. Be careful, however, that some database triggers that implement business logic may need to be disabled to avoid side effects.</p>
+<p>The algorithm used to transport the data is the following:</p>
+<ul>
+<li>Tables are processed one by one, in an order that depends on table dependencies (exactly as when extracting or generating records e.g., if table <em>A</em> references table <em>B</em>, table <em>B</em> must be processed before table <em>A</em>).</li>
+<li>Records of tables without recursive constraints are processed in any order, in a single operation.</li>
+<li>Records of tables that do have a recursive relationship are processed in the reverse order of their extraction i.e., records extracted last (those that do not depend on others) are inserted first and vice-versa; several iterations are needed, as many as the number of levels in your hierarchy.</li>
+<li>In case of deletion, the order of processing of both tables and records is just reversed.</li>
+</ul>
+<h4 id="732-procedure">7.3.2. Procedure </h4>
+<h5 id="7321-prepare-the-target-schema">7.3.2.1. Prepare the target schema </h5>
+<p>As already explained, database objects must exist in the target schema and be aligned with the source schema. Reference tables that are not part of the data set must also be populated with the same data. Upgrade your target schema if necessary.</p>
+<p>For the demo, you must execute the <code>10a_demo_data_model.sql</code> script in the target schema before each transportation (i.e., for each scenario). This script will drop and recreate all tables and will populate some reference tables.</p>
+<h5 id="7322-transport-data-to-destination">7.3.2.2. Transport Data to Destination </h5>
+<p>To transport data either via direct DML operation or through a script, use the <em>transport_data_set()</em>`* procedure of the main package. Specify, as a parameter, which of the three transportation methods you want to use (direct execution, prepare script, or execute script). When applicable, provide the database link pointing to the target schema.</p>
+<p>For the <em>prepare script</em> method, the generated script is stored in the <em>ds_output</em> table (which must be truncated beforehand) and can be saved to a file using spooling.</p>
+<p>You can globally override the export mode (insert, update, upsert, or delete) defined at the table level. By default, data masking is applied during transportation, but you can also disable it. The transportation is performed in a single transaction, which must be committed in the end.</p>
+<p>Note that when source and target schemas are hosted in different databases, an Oracle restriction imposes that your database link must have the same name as your target database.</p>
+<h5 id="7323-exportimport-data-fromto-xml">7.3.2.3. Export/Import Data from/to XML </h5>
+<p>Exporting your data set as XML into the internal tables of the tool (specifically, <em>ds_tables</em> and <em>ds_records</em>) can be done by invoking the <em>export_data_set_as_xml()</em> procedure. Subsequently, the internal tables holding your data set as XML can be transferred to the target schema using tools such as Oracle Export/Import or DataPump utilities.</p>
+<p>For the reverse operation, importing your data from XML into the target schema, you can use the <em>import_data_set_as_xml()</em> procedure. Note that this requires installing the tool in the target schema as well.</p>
+<p>This method is also useful if you intend to import your data set back into the source schema. For instance, this could be done to perform in-place subsetting and masking (i.e., in the same schema) or if you wish to clone specific data.</p>
+<h2 id="8-change-data-capture">8. Change Data Capture </h2>
+<p>This chapter gives an overview of the CDC functionality. Please consult the <em>Reference Manual</em> for more details.</p>
+<h3 id="81-introduction">8.1. Introduction </h3>
+<p>Change Data Capture (CDC) is a technique used in databases to identify and capture changes made to the data so that downstream systems can be updated with the modified information. The primary goal of CDC is to track and capture changes to the data in near real-time or at scheduled intervals, enabling efficient and timely synchronization of data between different systems.</p>
+<p>CDC is commonly used in scenarios where it's crucial to keep multiple databases, applications, or data warehouses in sync without having to replicate entire datasets each time an update occurs. This approach helps reduce the amount of data transferred and improves the efficiency of data integration processes.</p>
+<p>Change Data Capture is commonly used in data warehousing, business intelligence, and data integration scenarios where maintaining synchronized and up-to-date data across different systems is essential. It helps in avoiding unnecessary data transfers and reduces the overall processing time, making data integration processes more efficient.</p>
+<p>Another valuable use case for Change Data Capture (CDC) is its application in swiftly restoring a schema to its original state following the execution of a destructive test. In scenarios where a test results in permanent alterations to the data, CDC facilitates the rapid rollback of changes, ensuring a quick and efficient restoration of the database schema to its pre-test condition. This capability enhances the resilience and ease of managing test environments, providing a reliable mechanism for undoing modifications made during testing processes.</p>
+<p>Finally, CDC can contribute to gaining insights into the data logic of an application by revealing the operations submitted to the database and the specific data that undergo modifications.</p>
+<p>This tool employs a log-based Change Data Capture (CDC) approach, which involves capturing and logging all changes (including inserts, updates, and deletes) made to the tables within a data set in XML format. These recorded operations can then be rolled back or rolled forward to another schema, either synchronously or asynchronously (in near real-time). Additionally, the tool enables the generation of redo and undo scripts to further enhance flexibility in managing and reverting data modifications.</p>
+<h3 id="82-requirements">8.2. Requirements </h3>
+<p>To showcase the CDC functionalities, we aim to capture every change applied to the demo tables, including operations like the generation of synthetic data that involves inserts and updates. Subsequently, we plan to propagate these changes to another schema synchronously and asynchronously, through a database link, generate redo and undo scripts, and ultimately roll back the generated data.</p>
+<h3 id="83-solution">8.3. Solution </h3>
+<p>The approach employed in this tool involves creating an "<em>after each row</em>" database trigger on all tables within the data set. This trigger captures insert, update, and delete operations, storing the details in the <em>ds_records</em> table. Additionally, the data as it existed both before and after the operation is stored in XML format, allowing for subsequent redo or undo actions.</p>
+<h4 id="831-algorithm">8.3.1. Algorithm </h4>
+<p>To apply changes or create redo scripts, the recorded operations are replayed in their original execution sequence using the data stored in the XML.</p>
+<p>For rolling back changes or generating undo scripts, the stored operations are traversed in the reverse order of their original execution. Records that were initially inserted are deleted, those that were deleted are re-inserted, and the old values of updated records are reinstated.</p>
+<p>Any modification to a primary key is executed through a two-step process involving deletion followed by insertion.</p>
+<p>To enable asynchronous rollforwarding or replication, a <em>dbms_job</em> is dynamically created when the first operation of a transaction is captured. All operations within the same transaction are subsequently rolled forward by the job just after the commit, ensuring near real-time processing.</p>
+<h4 id="832-procedure">8.3.2. Procedure </h4>
+<h5 id="8321-create-a-data-set">8.3.2.1. Create a data set </h5>
+<p>To create a data set for CDC, invoke the <em>create_or_replace_data_set_def()</em> procedure of the main package and set its <em>set_type</em> to'CAP'.</p>
+<p>Specify one of the following replication mode (<em>capture_mode</em> property):</p>
+<ul>
+<li><em>NONE</em>: no replication mode i.e., operations are just recorded as XML in <em>ds_records</em> table; rollback or rollforward must be performed manually (via APIs or through generated scripts).</li>
+<li><em>ASYN</em>: asynchronous replication mode (using <em>dbms_jobs</em>) with operations recorded temporarily in <em>ds_records</em> table as XML and deleted after their async replication.</li>
+<li><em>SYNC</em>: synchronous replication mode i.e., operations are rolled forward immediately and therefore not stored in <em>ds_records</em> table.</li>
+</ul>
+<p>Additionally, you can specify which field in your table contain user information that can be utilised to filter transactions. For instance, an audit field such as <em>inserted_by</em> or <em>updated_by</em> can be employed for this purpose.</p>
+<h5 id="8322-include-tables">8.3.2.2. Include tables </h5>
+<p>Tables for which you intend to capture changes can be incorporated into the data set using the <em>include_tables()</em> procedure. To rollforward table changes to another schema, specify the <em>target_schema</em> (if in the same db) or the <em>target_db_link</em> (if in another db).</p>
+<h5 id="8323-create-triggers">8.3.2.3. Create triggers </h5>
+<p>To create the capturing triggers on the tables of your data set, invoke the <em>create_triggers()</em> procedure.</p>
+<h5 id="8324-check-configuration">8.3.2.4. Check configuration </h5>
+<p>To check tables included in your data set and the capturing triggers just created, invoke the <em>graph_data_set()</em> pipeline function from a SELECT statement. Here is the diagram that you will get.</p>
+<p><img src="./ds_utility_demo_files/ds_cap.svg" alt="Alt text"></p>
+<h5 id="8325-enable-and-disable-cdc">8.3.2.5. Enable and disable CDC </h5>
+<p>Data capture is by default immediately enabled when triggers are created. To disable or re-enable CDC, update the <em>capture_flag</em> property of your data set using the <em>update_data_set_def_properties()</em> procedure. <em>Y</em> means enabled and <em>N</em> means disabled.</p>
+<h5 id="8326-manual-rollback-or-rollforward">8.3.2.6. Manual Rollback or rollforward </h5>
+<p>To rollback or rollforward operations captured in the NONE replication mode, invoke the <em>rollback_captured_data_set()</em> or <em>rollforward_captured_data_set()</em> procedure. You may decide to keep or delete recorded operations after their rollback or rollforward. They are deleted by default.</p>
+<p>Alternatively, you can also invoke <em>undo_captured_operations()</em> and <em>redo_captured_operations()</em> procedures which accept additional parameters. You can filter on the <em>username</em> who performed the transactions and limit the number of operations to redo or undo.</p>
+<h5 id="8327-automatic-replication">8.3.2.7. Automatic replication </h5>
+<p>Operations captured in the SYNC or ASYN replication mode are automatically rolled forward to another local or remote schema, without any end-user intervention.</p>
+<p>While synchronous replication offers the benefit of immediacy, it comes with the drawback that if it encounters any failure, the entire transaction fails, thereby impacting the transactional system. Additionally, it may affect system performance.</p>
+<p>It is important to note that, as of now, no logs are provided for asynchronous replication.</p>
+<h5 id="8328-generate-scripts">8.3.2.8. Generate scripts </h5>
+<p>To generate redo or undo scripts, invoke the <em>gen_captured_data_set_script()</em> pipelined function from a SELECT statement, with the appropriate parameters.</p>
+<h5 id="8329-drop-triggers">8.3.2.9. Drop triggers </h5>
+<p>Once you are done, you can drop the capturing triggers from the tables of your data set by invoking the <em>drop_triggers()</em> procedure.</p>
+<h2 id="9-graph-visualisation-using-graphviz">9. Graph Visualisation using GraphViz </h2>
+<p>This chapter gives an overview of the graph visualisation functionality offered by the Data Set Utility. For more details, please consult the <em>Data Set Utility Reference Manual</em>.</p>
+<h3 id="91-introduction">9.1. Introduction </h3>
+<p>The Data Set Utility incorporates Graphviz functionality, allowing users to visually represent and analyze the configuration of their data sets. This feature employs Graphviz, an open-source graph visualization software, to generate diagrams illustrating the relationships, constraints, and configurations within a data set. Users can leverage these diagrams to gain insights into the structure of their data sets, understand interconnections between tables and constraints, and verify the accuracy of their configurations.</p>
+<h3 id="92-invocation">9.2. Invocation </h3>
+<p>To generate the DOT code, invoke the <em>graph_data_set()</em> function of the extension package (<em>DS_UTILITY_EXT</em>) and pass in parameter the <em>set_id</em> of the data set that you want to visualise. Passing a NULL reference for the data set means that you want to get the data masking configuration (which is independent of any data set). An example is provided in the <em>80_demo_data_graphviz.sql</em> script provided in the <em>demo</em> directory.</p>
+<p>The information that is shown also depends on the type of data set (SUB, GEN or none).</p>
+<p>To visualize the diagram, copy/paste the code into your favourite online GraphViz editor. I recommend using the following: <a href="https://dreampuf.github.io/GraphvizOnline">GraphvizOnline</a> although you can find many others on the internet.</p>
+<h3 id="93-parameters">9.3. Parameters </h3>
+<p>You can decide to show only tables and constraints of your data set or those of your whole schema, with the possibility to filter on table names.</p>
+<p>You can decide to show or not:</p>
+<ul>
+<li>A legend.</li>
+<li>Table aliases.</li>
+<li>GEN/SUB configuration information.</li>
+<li>Statistics on total/extracted/generated records.</li>
+<li>All, configured, indexed and/or constraint table columns.</li>
+<li>Key constraints (PK/UK/FK) and their details (columns).</li>
+<li>Indexes and their details (column).</li>
+<li>All or some properties in tooltips.</li>
+</ul>
+<p>Default graph, node, edge, and subgraph attributes can also be overwritten to customise the generated layout. Configuration properties that do not fit on the diagram (e.g., SQL expressions) can be consulted using tooltips.</p>
+<h3 id="94-diagram-examples">9.4. Diagram Examples </h3>
+<p>Here follow a few examples of generated diagrams.</p>
+<h4 id="941-synthetic-data-generation-diagram">9.4.1. Synthetic Data Generation Diagram </h4>
+<p>This diagram shows the data generation configuration used in the demo.</p>
+<p><img src="./ds_utility_demo_files/ds_gen_2.svg" alt="Alt text"></p>
+<h4 id="942-sensitive-data-masking-diagram">9.4.2. Sensitive Data Masking Diagram </h4>
+<p>This diagram shows the default data masking configuration resulting from a sensitive data discovery and applicable to all data sets.</p>
+<p><img src="./ds_utility_demo_files/ds_dis_1.svg" alt="Alt text"></p>
+<h4 id="943-data-subsetting-diagram">9.4.3. Data Subsetting Diagram </h4>
+<p>This diagram shows the data subsetting and (adapted) data masking configurations used in the demo.</p>
+<p><img src="./ds_utility_demo_files/ds_msk_1.svg" alt="Alt text"></p>
+<h4 id="944-change-data-capture-diagram">9.4.4. Change Data Capture Diagram </h4>
+<p>This diagram shows tables and triggers of the capture data set used in the demo.</p>
+<p><img src="./ds_utility_demo_files/ds_cap.svg" alt="Alt text"></p>
+<h4 id="945-data-structure-diagram">9.4.5. Data Structure Diagram </h4>
+<p>This tool can also generate the data structure diagram of your schema (or a subset of it) similar to those generated by database design engineering tools like SQL*Developer Data Modeler.</p>
+<p><img src="./ds_utility_demo_files/ds_dsd.svg" alt="Data Structure Diagram"></p>
+<h2 id="10-degpl-language">10. DEGPL Language </h2>
+<p>This chapter provides a brief overview of DEGPL's features, syntax, and includes a few examples. For a more detailed description of the language, please refer to the <em>Data Set Utility Reference Manual</em>.</p>
+<h3 id="101-introduction">10.1. Introduction </h3>
+<p>The Data Extraction and Generation Path Language (DEGPL) is presented as an alternative or complementary approach to APIs for achieving data subsetting (SUB), synthetic data generation (GEN), and sensitive data masking. Notably, DEGPL adopts a syntax reminiscent of the GraphViz DOT language.</p>
+<h3 id="102-key-features">10.2. Key features </h3>
+<ul>
+<li><strong>Easy and Concise Description:</strong> DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.</li>
+<li><strong>Easy and Concise Description:</strong> DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.</li>
+<li><strong>Syntax Similarity to GraphViz DOT Language:</strong> The language's syntax is inspired by and closely resembles the syntax of the GraphViz DOT language, making it intuitive for those familiar with DOT.</li>
+<li><strong>Support for Data Subsetting and Generation:</strong> DEGPL is versatile, allowing configuration for both data subsetting (SUB) and synthetic data generation (GEN), offering flexibility for different use cases.</li>
+<li><strong>Handling of Sensitive Data Masking:</strong> DEGPL includes support for sensitive data masking, contributing to enhanced data security by allowing users to specify how data should be masked during the subsetting process.</li>
+<li><strong>Extraction Paths and Relationships:</strong> Users can define extraction paths between tables, specifying relationships and constraints. The language supports one-to-many and many-to-one relationships, providing a comprehensive way to navigate data models.</li>
+<li><strong>Recursion and Cardinality Specification:</strong> DEGPL allows the specification of recursion levels and cardinality for constraints, ensuring a flexible and precise definition of the data extraction or generation process.</li>
+<li><strong>Table and Constraint Aliases:</strong> Users can employ aliases for tables, enhancing readability and simplifying the representation of complex data models.</li>
+<li><strong>Property and Default Value Configuration:</strong> DEGPL enables users to set properties and default values for tables, constraints, columns, and masks, offering fine-grained control over the configuration.</li>
+<li><strong>Wildcard Usage:</strong> Wildcards such as '?' and '*' can be used in table, constraint, and column names, facilitating the inclusion or exclusion of multiple elements at once.</li>
+<li><strong>Scope Specification:</strong> Users can define the scope, indicating whether to consider only elements already included in the data set or those that are not yet included.</li>
+<li><strong>Recommendations for Structuring and Testing:</strong> The reference manual provides recommendations for structuring and testing the code using DEGPL, emphasising best practices for an organised and effective configuration.</li>
+</ul>
+<p>These features collectively contribute to DEGPL's effectiveness in configuring data extraction, generation, and masking processes in a user-friendly and versatile manner.</p>
+<h3 id="103-syntax-overview">10.3. Syntax Overview </h3>
+<p>This section only gives an overview of the DEGPL language syntax. For a more in-depth description of the syntax, please consult the <em>Data Set Utility Reference Manual</em>.</p>
+<h4 id="1031-data-set">10.3.1. Data set </h4>
+<p>A data set can be retrieved, deleted, created or replaced using its name or id (<em>set_id</em>). Its properties can be set or modified as explained in the properties section below.</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_gen/d[set_type=GEN, capture_mode=SYNC]; -- delete and create
+set demo_data_sub/r[set_type=GEN, capture_mode=SYNC]; -- create or replace
+set demo_data_cap[set_type=CAP, capture_mode=SYNC];   -- retrieve and update
+set demo_data_cap/d;                                  -- just delete
+</code></pre><h4 id="1032-tables">10.3.2. Tables </h4>
+<p>A table can be included in a data set by specifying its name or its alias. When no alias is defined, it is generated by the tool based on your (configurable) naming conventions. When both are specified, table alias is modified as indicated. Standard wildcards <em>*</em> and <em>?</em> can be used for multiple matches. Extraction type can also be specified with a slash after table name or alias. All statements are separated with a semi-colon. Comments must be enclosed between <em>/*</em> and <em>*/</em>.</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo*;           /*include all demo tables*/
+demo_persons/b;  /*includes persons as a driving table (B-table)*/
+prd/f;           /*fully extract table with alias prd (i.e., products)*/*
+demo_orders ord; /*includes orders table and sets its alias to ord*/
+</code></pre><h4 id="1033-constraints">10.3.3. Constraints </h4>
+<p>Constraints are specified and included in the data set using directed arrows between two tables. The arrow shape indicates the cardinality, and the body denotes the extraction type of the constraint. Wildcards can be employed for tables.</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>A -&gt; B;  /*include any constraint from table A to B (P-cons)*/
+A =&gt; B;  /*idem + define constraint as driving (B-cons)*/
+A -&lt; B;  /*include 1-N constraint from table A to B*/
+A &gt;- B;  /*include N-1 constraint from table A to B*/
+A +&gt; B;  /*don't use constraints from table A to B (N-cons)*/
+A &lt;-&gt; B; /*include all constraints between A and B (in both directions)*/
+A #&gt; B;  /*excluded constraints from A to B*/
+A ~&gt; B;  /*keep extraction type of constraints from A to B as is*/
+A -&gt; *;  /*include any constraint from A to any table*/
+</code></pre><p>A shortcut syntax is provided for specifying extraction paths between tables. This syntax allows users to express relationships in a more concise and readable manner.</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>A -&gt; B -&gt; C; /* equivalent to A -&gt; B; B -&gt; C */
+A -&gt; B , C ; /* equivalent to A -&gt; B, A -&gt; C */
+A , B -&gt; C ; /* equivalent to A -&gt; C, B -&gt; C*/
+</code></pre><h4 id="1034-properties">10.3.4. Properties </h4>
+<p>Properties of data sets, tables, constraints, columns, masks, and default values can be modified by specifying them within square brackets, separating with a comma (preferred), semi-colon, or space. Property names, aligning with the internal data model column names of the tool, may be abbreviated for brevity. Values must be enclosed in double quotes, except for positive integers and identifiers (mix of letters, digits and underscore).</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo_persons[where="per_id&lt;=10"]; /*extract persons with defined filter*/
+per/b[row_count=10]; /*generate 10 rows in persons table*/
+per-&gt;[percentage="50%"]ord; /*extract 50% of person's orders*/
+per=&gt;[min_rows=0,max_rows=5]ord; /*generate between 0 and 5 orders per person*/
+</code></pre><h4 id="1035-columns">10.3.5. Columns </h4>
+<p>Properties for generated or masked columns can be specified following the column name. Column names are separated from table names by a dot. It is unnecessary to repeat table name for each column. Wildcards <em>*</em> and <em>?</em> can also be used.</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>/* set properties of per_id columns*/
+per.per_id[gen_type="SQL", params=DEMO_PER_SEQ];
+per.gender[msk_type=SHUFFLE, shuffle_group=1] /*statement continue on next line*/
+   .first_name[msk_type=SHUFFLE, shuffle_group=1]; /*table name not repeated*/
+</code></pre><h4 id="1036-default-values">10.3.6. Default values </h4>
+<p>Default values can be specified for table, constraint, column, and mask properties. Utilize the table syntax with <em>table</em>, <em>constraint</em>, <em>column</em>, or <em>mask</em> as the table name.</p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>table[source_schema="..."]; /*default property for all subsequent tables*/
+constraint[batch=1000]; /*default property for all subsequent constraints*/
+column[gen_type=SQL]; /*default property for all subsequent columns*/
+mask[msk_type=SQL], locked=Y; /*default properties for all subsequent masks*/
+</code></pre><p>A scope can also be specified allowing to overwrite non-NULL values or ignore any subsequent setting of a property.</p>
+<h4 id="1037-recursion">10.3.7. Recursion </h4>
+<p>You can include constraints and tables recursively by specifying a number of recursions just after the constraint name (or properties if any).</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>per/b=&lt;3*; /*extract persons and all its child tables (using 1-nN constraints) down to 3 levels*/
+</code></pre><h4 id="1038-scope">10.3.8. Scope </h4>
+<p>You can specify whether a referenced object (table or constraint) is in the data set, outside of the data set, or if it doesn't matter, by prefixing it with an exclamation mark, a caret, or nothing, respectively.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>!*^&gt;-0* /*include recursively any N-1 constraint not in the data set yet, from tables already included to any table*/
+</code></pre><h4 id="1039-invocation">10.3.9. Invocation </h4>
+<p>Your DEGPL code or configuration can be submitted to the <em>include_path()</em> procedure available in the extension package (<em>DS_UTILITY_EXT</em>). It will apply to any existing configuration, so you may need to reset (create or replace) your data set if you want to start from a clean slate.</p>
+<h3 id="104-examples">10.4. Examples </h3>
+<p>Here follow some commented (partial) examples of DEGPL code used in the demo:</p>
+<h4 id="1041-data-generation-example">10.4.1. Data Generation Example </h4>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>/*1. define driving and detail tables + parent/child and referential constraints*/
+demo*&gt;-demo* /*include all demo tables and their fks, isolated tables excluded*/;
+sto/b[row_count=10]; /*generate 10 stores (alias sto)*/
+oen/b[row_count=1];  /*generate 1 org. entity (alias oen)*/
+prd/b[row_count=50]; /*generate 10 products (alias prd)*/
+per/b[row_count=50]; /*generate 50 persons (alias per)*/
+oet/r;cct/r;cnt/r;   /*declare not generated reference tables*/
+oit[tab_seq=1];      /*generate order items (alias oit) before...*/
+ptr[tab_seq=2];      /*...transactions (alias ptr)*/
+per=&gt;[min_rows=0,max_rows=5]ord; /*generate between 0 and 5 orders per person*/
+per≠&lt;per; /*don't generate staff members from members */
+per=&gt;[gen_view_name=demo_random_date_history]pas; /*generate person assignments using a view*/
+per=&gt;[min_rows=2,max_rows=4]pcc; /*generate between 2 and 4 credit cards per person*/
+pcc+&gt;ptr; /*don't generate transactions (alias ptr) from credit cards (alias pcc)*/
+∃*∄&gt;-0* /*Add recursively missing referential constraints (N-1) for all data set tables*/;
+...
+/*2. define how to generate column values*/
+per.per_id[params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
+column[gen_type=SQL]; /*Use a SQL expression for all subsequent columns*/
+per.first_name[params="ds_masker_krn.random_value_from_data_set(...)"];
+per.last_name[params="ds_masker_krn.random_value_from_data_set(...)"];
+per.full_name[params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
+ord.order_date[params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
+   .total_price[params="0/*computed with post_gen_code*/"];
+sto.store_name[params="ds_masker_krn.random_company_name"];
+prd.unit_price[params="ds_masker_krn.random_integer(10,100)"];
+...
+</code></pre><h4 id="1042-data-subsetting-example">10.4.2. Data Subsetting Example </h4>
+<p>With comments (hence one line per instruction):</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_sub/r[set_type=SUB];
+demo*; /*include all demo tables and generate aliases*/
+demo_dual/x; /*exclude dual table*/
+sto/f; /*fully extract stores (alias sto)*/
+cnt/n; /*don't extract countries (alias cnt)*/
+cct/n; /*don't extract credit card types (alias cct)*/
+oet/n; /*don't extract org entity types (alias oet)*/
+per/b[where="per_id&lt;=10"]=&lt;3*; /*extract filtered persons + all child tables (3 levels)*/
+per~&gt;[percent=50]ord; /*only extract 50% of orders*/
+!*^&gt;-0*; /*include missing referential constraints (N-1) for tables already in the data set*/
+</code></pre><p>The same without comments, all on a single line:</p>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo*;demo_dual/x;sto/f;cnt/n;cct/n;oet/n;per/b[where="per_id&lt;=10"]=&lt;3*;per~&gt;[percent=50]ord;!*^&gt;-*;
+</code></pre><h4 id="1043-data-masking-example">10.4.3. Data Masking Example </h4>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_gen/r[set_type=GEN];
+/*Define how to mask table columns*/
+mask[locked=Y]; /*default value for all masked column below*/
+per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
+   .first_name[msk_type=SHUFFLE, shuffle_group=1]
+   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table(...)]
+             [options="enforce_uniqueness=true"];
+mask[msk_type=SQL]; /*all columns below will be masked with a SQL expression*/
+per.full_name[params=":first_name||' '||:last_name"]
+   .nationality[params="ds_utility_krn.random_value_from_table(...)"]
+   .title[params="'XXXX'", options="mask_null_values=true"];
+pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
+</code></pre><h4 id="1044-data-capture-example">10.4.4. Data Capture Example </h4>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>   set demo_data_cap/r[set_type=CAP, capture_mode=SYNC];
+   demo*/b[target_db="DBCC_DIGIT_01_T.CC.CEC.EU.INT"];
+   demo_dual/x;
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

@@ -1,0 +1,6 @@
+#!/bin/bash
+./cleanup
+cd ..
+rm -f ec_plsql_toolkit.zip
+zip ec_plsql_toolkit.zip -r ec_plsql_toolkit
+cd ec_plsql_toolkit

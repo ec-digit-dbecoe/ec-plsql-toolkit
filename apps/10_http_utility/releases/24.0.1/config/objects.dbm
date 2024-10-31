@@ -1,0 +1,5 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(PACKAGE BODY|PACKAGE) HTTP_', p_obj_name_anti_pattern=>'^(PACKAGE BODY|PACKAGE) HTTP_.*_TST$', p_checksum=>'Y', p_condition=>'Y', p_public=>'N', p_app_code=>'http_utility', p_ver_code=>'24.0.1'))
+PACKAGE BODY HTTP_UTILITY_KRN: 463975078
+PACKAGE HTTP_UTILITY_KRN: 876690451
+PACKAGE HTTP_UTILITY_LIC: 669743439
+PACKAGE HTTP_UTILITY_VAR: 580087608

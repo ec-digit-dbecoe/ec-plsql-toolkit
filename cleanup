@@ -1,0 +1,2 @@
+rm -f `find . -type f -name '~*' -print`
+rm -f `find . -type f -name '*.log' -print`

@@ -1,0 +1,4 @@
+#!/bin/bash
+# Usage: delete-file.sh file
+# $1 is file
+rm -f "$1" >/dev/null 2>&1

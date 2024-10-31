@@ -1,0 +1,5 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(PACKAGE BODY|PACKAGE) DDL_', p_obj_name_anti_pattern=>'^$', p_checksum=>'Y', p_condition=>'Y', p_public=>'N', p_app_code=>'ddl_utility', p_ver_code=>'24.0.1'))
+PACKAGE BODY DDL_UTILITY: 795325857
+PACKAGE BODY DDL_UTILITY_TST: 586344638 '&&utplsql' = 'Y'
+PACKAGE DDL_UTILITY: 806137511
+PACKAGE DDL_UTILITY_TST: 858683819 '&&utplsql' = 'Y'

@@ -1,0 +1,71 @@
+#!/bin/bash
+
+if [ "$1" = "-help" ]; then
+    echo "Usage: migrate-dbm [option]"
+    exit 0
+fi
+
+export PATH=$PATH:.
+
+# Check if DBM_USERNAME is not set, then prompt user
+if [ -z "$DBM_USERNAME" ]; then
+    read -p "Enter username: " DBM_USERNAME
+fi
+
+# Check if DBM_PASSWORD is not set, then prompt user
+if [ -z "$DBM_PASSWORD" ]; then
+    read -s -p "Enter password: " DBM_PASSWORD
+    echo
+fi
+
+# Check if DBM_DATABASE is not set, then prompt user
+if [ -z "$DBM_DATABASE" ]; then
+    read -p "Enter database: " DBM_DATABASE
+fi
+
+export DBM_CONNECT="$DBM_USERNAME/$DBM_PASSWORD@$DBM_DATABASE"
+export DBA_CONNECT="$DBA_USERNAME/$DBA_PASSWORD@$DBA_DATABASE"
+DBM_ERROR=
+
+export NLS_LANG=.UTF8
+
+# Set DBM_CONF_PATH if not set
+if [ -z "DBM_CONF_PATH" ]; then
+    export DBM_CONF_PATH=conf/dbm_utility.conf
+fi
+
+# Set DBM_APPS_DIR if not set
+if [ -z "$DBM_APPS_DIR" ]; then
+    export DBM_APPS_DIR=apps
+fi
+
+# Set DBM_TMP_DIR if not set
+if [ -z "$DBM_TMP_DIR" ]; then
+    export DBM_TMP_DIR=tmp
+fi
+
+# Set DBM_LOGS_DIR if not set
+if [ -z "$DBM_LOGS_DIR" ]; then
+    export DBM_LOGS_DIR=logs
+fi
+
+export DATETIME=`date +%Y%m%d%H%M%S`
+export DBM_SRC_VER_CODE=$2
+
+while true; do
+    rm $DBM_TMP_DIR/*.sql > /dev/null 2>&1
+    # Execute SQLPlus command
+    sqlplus -L $DBM_CONNECT @sql/migrate-dbm $1 $DBM_SRC_VER_CODE | tee $DBM_LOGS_DIR/$DATETIME-migrate-dbm_utility.log
+    DBM_ERROR=${PIPESTATUS[0]}
+    export DBM_SRC_VER_CODE=""
+    case $DBM_ERROR in
+        0)
+            ;;     # loop
+        255)
+            exit 0 # success
+            ;;
+        *)
+            exit 1 # failure
+            ;;
+    esac
+done

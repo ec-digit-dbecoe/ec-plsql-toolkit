@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024928-21733-7gieji.g1315.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>ds_utility_synthetic_data_generation</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./ds_utility_synthetic_data_generation_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><!-- omit in toc --></p>
+<h1 id="data-set-utility---synthetic-data-generation---users-guide-v241">Data Set Utility - Synthetic Data Generation - User's Guide v24.1 </h1>
+<h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1-synthetic-data-generation">1. Synthetic Data Generation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#11-introduction">1.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#12-overview">1.2. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#13-properties">1.3. Properties</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#131-data-set-properties">1.3.1. Data set properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#132-table-properties">1.3.2. Table properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#133-table-column-properties">1.3.3. Table column properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#134-constraint-properties">1.3.4. Constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#135-record-properties">1.3.5. Record properties</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#14-generation-types">1.4. Generation types</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#141-seq--sequence">1.4.1. SEQ – Sequence</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#142-fk--foreign-key">1.4.2. FK – Foreign key</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#143-sql--expression">1.4.3. SQL – Expression</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1431-random-functions">1.4.3.1. Random functions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1432-reference-to-other-columns">1.4.3.2. Reference to other columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1433-pseudo-columns">1.4.3.3. Pseudo columns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#15-generation-view">1.5. Generation view</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#16-procedure">1.6. Procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#161-get-a-print-out-of-your-data-model">1.6.1. Get a print-out of your data model</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#162-create-a-data-set">1.6.2. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#163-include-base-tables">1.6.3. Include base tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#164-include-referential-constraints">1.6.4. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#165-review-included-tables-and-constraints">1.6.5. Review included tables and constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#166-insert-table-columns">1.6.6. Insert table columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#167-update-table-properties">1.6.7. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#168-update-constraint-properties">1.6.8. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#169-update-column-properties">1.6.9. Update column properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1610-generate-data-set">1.6.10. Generate data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1611-check-statistics">1.6.11. Check statistics</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1612-create-views">1.6.12. Create views</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1613-drop-views">1.6.13. Drop views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2-tutorial">2. Tutorial</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#21-data-model">2.1. Data Model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#211-diagrams">2.1.1. Diagrams</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2111-part-1">2.1.1.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2112-part-2">2.1.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#212-narrative">2.1.2. Narrative</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2121-part-1">2.1.2.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2122-part-2">2.1.2.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#213-data-classification">2.1.3. Data classification</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#22-requirements">2.2. Requirements</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#221-persons">2.2.1. Persons</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#222-entities">2.2.2. Entities</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#223-persons-assignments">2.2.3. Person’s assignments</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#224-persons-clockings">2.2.4. Person’s clockings</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#225-persons-orders">2.2.5. Person’s orders</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#226-orders-lines">2.2.6. Order’s lines</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#227-products">2.2.7. Products</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#228-stores">2.2.8. Stores</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#229-persons-credit-cards">2.2.9. Person’s credit cards</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2210-persons-transactions">2.2.10. Person’s transactions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2211-other-requirements">2.2.11. Other requirements</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#23-solution">2.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#231-get-a-print-out-of-your-data-model">2.3.1. Get a print-out of your data model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2311-part-1">2.3.1.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2312-part-2">2.3.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#232-create-a-data-set">2.3.2. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#233-include-base-tables">2.3.3. Include base tables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#234-include-referential-constraints">2.3.4. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#235-review-included-tables-and-constraints">2.3.5. Review included tables and constraints</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#236-insert-table-columns">2.3.6. Insert table columns</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#237-update-table-properties">2.3.7. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#238-update-constraint-properties">2.3.8. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#239-update-column-properties">2.3.9. Update column properties</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2310-generate-data-set">2.3.10. Generate data set</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2311-check-statistics">2.3.11. Check statistics</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2312-create-views">2.3.12. Create views</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2313-drop-views">2.3.13. Drop views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#3-annexes">3. Annexes</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#31-regular-expressions">3.1. Regular Expressions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#311-metacharacters">3.1.1. Metacharacters</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#312-shorthand-character-classes">3.1.2. Shorthand character classes</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#313-character-class-ranges">3.1.3. Character class ranges</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#314-negated-character-classes">3.1.4. Negated character classes</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#315-posix-character-classes">3.1.5. POSIX character classes</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#316-posix-collating-sequences">3.1.6. POSIX collating sequences</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#317-posix-character-equivalent-classes">3.1.7. POSIX character equivalent classes</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#318-character-class-subtraction">3.1.8. Character class subtraction</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#319-non-capturing-groups">3.1.9. Non-capturing groups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-synthetic-data-generation">1. Synthetic Data Generation </h1>
+<h2 id="11-introduction">1.1. Introduction </h2>
+<p>Synthetic data generation involves creating artificial data that mimics the statistical properties and patterns of real data. This synthetic data can be used for various purposes, such as testing and development, training machine learning models, and sharing data with third parties, all while safeguarding the privacy and confidentiality of sensitive information.</p>
+<p>Synthetic data generation offers some advantages compared to data masking:</p>
+<ul>
+<li><strong>Preservation of Privacy</strong>: With synthetic data, sensitive information from the original dataset is not exposed at all. Data masking, on the other hand, involves altering the original data to preserve privacy, which can sometimes still carry a risk of re-identification.</li>
+<li><strong>Statistical Integrity</strong>: Synthetic data is generated to retain the statistical characteristics and patterns of the original data. This ensures that the generated data closely resembles the real data distribution, which can lead to more accurate and robust model training compared to masked data, where the statistical properties may be altered.</li>
+<li><strong>Data Utility</strong>: Synthetic data can provide a higher level of data utility because it maintains the structure and relationships present in the original dataset. This can lead to more effective testing, model validation, and analysis compared to data masking, where some of these relationships might be distorted.</li>
+<li><strong>Regulatory Compliance</strong>: Synthetic data can help organisations comply with data protection regulations (such as GDPR) by ensuring that no real personal information is present in the generated dataset. This can simplify compliance efforts compared to data masking, which might require careful management of masked data.</li>
+<li><strong>Reduced Risk of Insider Threats</strong>: Since synthetic data is artificially generated, there is a reduced risk of insider threats as there is no real sensitive information to be leaked or misused by employees or other insiders.</li>
+<li><strong>Generalisation</strong>: Synthetic data can help improve the generalisation ability of machine learning models. Models trained on synthetic data may be less prone to over-fitting to the specifics of the original dataset, leading to better performance on new and unseen data.</li>
+<li><strong>Easier Data Sharing</strong>: Sharing synthetic data with external parties, such as research collaborators or third-party vendors, is often simpler and safer since the risk of exposing real sensitive information is eliminated.</li>
+</ul>
+<p>It's important to note that both synthetic data generation and data masking have their own use cases and considerations. The choice between them depends on the specific needs of the organisation, the nature of the data, and the intended use of the generated or masked data.</p>
+<p>Synthetic data generation and data masking can also be complementary approaches, and they are often used in conjunction to enhance data privacy and utility.</p>
+<p>Here's how they can work together:</p>
+<ul>
+<li><strong>Enhancing Masked Data</strong>: Synthetic data can be used to enrich masked datasets. While data masking helps protect sensitive information in the original dataset, it might also distort some of the statistical properties or relationships in the data. Synthetic data can be generated to fill in the gaps, ensuring that the masked dataset still retains its original statistical integrity and relationships.</li>
+<li><strong>Augmenting Small Datasets</strong>: In cases where the original dataset is small, synthetic data can be generated to augment the dataset before applying masking techniques. This can help improve the utility of the masked data, as well as ensure that any machine learning models trained on it have sufficient examples to generalize well.</li>
+<li><strong>Simulating Rare Events</strong>: Synthetic data can be used to simulate rare or extreme events that might be present in the original dataset but are unlikely to be captured in the masked data. This can help ensure that models trained on masked data are robust enough to handle such events.</li>
+<li><strong>Third-Party Sharing</strong>: When sharing data with third parties, synthetic data can be provided alongside masked data. This allows the recipient to work with data that maintains the original data distribution while having no access to the real sensitive information.</li>
+<li><strong>Balancing Utility and Privacy</strong>: In some cases, data masking might overly compromise data utility. Synthetic data can be introduced to strike a better balance between preserving privacy and maintaining the usefulness of the data.</li>
+<li><strong>Testing and Development</strong>: Synthetic data can be valuable for testing and development purposes where realistic data is required. By combining masked and synthetic data, developers and testers can work with data that closely resembles the original while still being privacy compliant.</li>
+</ul>
+<p>It's important to carefully consider the specific goals, risks, and requirements of your data privacy strategy when deciding how to combine synthetic data generation and data masking. The aim is to achieve a balance between data privacy, data utility, and regulatory compliance.</p>
+<h2 id="12-overview">1.2. Overview </h2>
+<p>The main steps for defining and generating a synthetic data set are the following:</p>
+<ul>
+<li>Create a data set of type <code>GEN</code> (which stands for generation).</li>
+<li>Identify the base (=driving) tables, usually the ones that contain your master data (i.e., data that are referenced by transactional data like clients, products, stores, etc.).</li>
+<li>Identify the master/detail foreign keys (one-to-many relationships) that must be successively followed to generate child records from parent records, starting from base tables.</li>
+<li>Identify the referential constraints (many-to-one relationships) that must be enforced.</li>
+<li>For each table, define how the values of its columns must be generated.</li>
+<li>Review all table, column, and constraint properties and adapt them as needed.</li>
+<li>Generate the data set following the process described below.</li>
+<li>Create ad-hoc views to check generated records.</li>
+</ul>
+<p>The process for generating the data set is the following:</p>
+<ul>
+<li>Define the walk-through strategy i.e., based on table dependencies, identify the order in which tables must be generated (this allows to avoid disabling referential constraints).</li>
+<li>First, generate records in base (i.e., driving and reference) tables.</li>
+<li>Second, recursively generate records in child tables (following parent/child relationships).</li>
+<li>For hierarchic tables, first generate root records, then lower-level records down to leaves.</li>
+<li>For recursive many-to-one relationships, generate their values in a second iteration.</li>
+<li>Register the <code>ROWID</code> of all generated records to remind which ones are part of the data set.</li>
+</ul>
+<p>Column values can be generated in one of the following ways:</p>
+<ul>
+<li>From an Oracle sequence</li>
+<li>From a SQL expression</li>
+<li>From a foreign key table</li>
+</ul>
+<h2 id="13-properties">1.3. Properties </h2>
+<p>This section describes the data set, table, column, and constraint properties that are used for synthetic data generation.</p>
+<h3 id="131-data-set-properties">1.3.1. Data set properties </h3>
+<p>The following properties are used for synthetic data generation:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SET_NAME</td>
+<td>Name of the data set.</td>
+</tr>
+<tr>
+<td>SET_TYPE</td>
+<td>Type of the data set; must be set to GEN for data generation.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 1 - Data set properties</strong></em></p>
+<h3 id="132-table-properties">1.3.2. Table properties </h3>
+<p>The following properties are used for synthetic data generation:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TABLE_NAME</td>
+<td>Name of the table.</td>
+</tr>
+<tr>
+<td>EXTRACT_TYPE<sup>(*)</sup></td>
+<td>B)ase (for driving tables), P)artial (for child tables) or R)eference (for reference tables whose content is not generated).</td>
+</tr>
+<tr>
+<td>EXTRACT_COUNT<sup>(*)</sup></td>
+<td>Number of generated records (statistics reported by the tool).</td>
+</tr>
+<tr>
+<td>ROW_COUNT</td>
+<td>Number of records to be generated in this table.</td>
+</tr>
+<tr>
+<td>SEQ</td>
+<td>Order of processing determined (by the tool) from table dependencies.</td>
+</tr>
+<tr>
+<td>TAB_SEQ</td>
+<td>Sub-order of processing (user-defined) to prioritize SEQ ex-aequo.</td>
+</tr>
+<tr>
+<td>BATCH_SIZE</td>
+<td>Number of records to be inserted/updated in a once (bulk DMLs), for performance reason, 1000 records by default.</td>
+</tr>
+<tr>
+<td>GEN_VIEW_NAME</td>
+<td>Name of the view used to generate records (instead of using the dual view).</td>
+</tr>
+<tr>
+<td>PRE_GEN_CODE</td>
+<td>PL/SQL code to be executed before the generation of records in this table.</td>
+</tr>
+<tr>
+<td>POST_GEN_CODE</td>
+<td>PL/SQL code to be executed after the generation of records in this table (e.g., to compute denormalised fields).</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 2 - Table properties</strong></em></p>
+<p><sup>(*)</sup> <strong>Note</strong>: synthetic data generation reuses columns created for sub-setting (extraction), reason why the name is misleading; "extraction" should be read "generation" for <code>GEN</code> data sets.</p>
+<h3 id="133-table-column-properties">1.3.3. Table column properties </h3>
+<p>The following properties are used for synthetic data generation:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TABLE_ID</td>
+<td>Unique id of the table.</td>
+</tr>
+<tr>
+<td>TAB_NAME</td>
+<td>Table name (denormalised).</td>
+</tr>
+<tr>
+<td>COL_NAME</td>
+<td>Column name.</td>
+</tr>
+<tr>
+<td>COL_SEQ</td>
+<td>Column sequence (order of processing).</td>
+</tr>
+<tr>
+<td>GEN_TYPE</td>
+<td>Type of generation; allowed values are: SEQ for Sequence, SQL for SQL expression, FK for Foreign Key.</td>
+</tr>
+<tr>
+<td>PARAMS</td>
+<td>Generation parameters (sequence name, SQL expression, or FK name).</td>
+</tr>
+<tr>
+<td>NULL_VALUE_PCT</td>
+<td>Percentage of NULL values to generate (for optional columns only).</td>
+</tr>
+<tr>
+<td>NULL_VALUE_CONDITION</td>
+<td>Condition under which a NULL value must be generated (for optional columns only).</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 3 - Table column properties</strong></em></p>
+<h3 id="134-constraint-properties">1.3.4. Constraint properties </h3>
+<p>The following properties are used for synthetic data generation:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTRAINT_NAME</td>
+<td>Name of the FK.</td>
+</tr>
+<tr>
+<td>SRC_TABLE_NAME</td>
+<td>Name of the table owning the FK (many side).</td>
+</tr>
+<tr>
+<td>TGT_TABLE_NAME</td>
+<td>Name of the referenced table (one side).</td>
+</tr>
+<tr>
+<td>CARDINALITY</td>
+<td>Direction of the constraint (1-N or N-1).</td>
+</tr>
+<tr>
+<td>EXTRACT_TYPE<sup>(*)</sup></td>
+<td>Ttype of generation (B for 1-N, P for N-1, N for “Not to be used”).</td>
+</tr>
+<tr>
+<td>EXTRACT_COUNT<sup>(*)</sup></td>
+<td>Number of records generated via this FK (system statistic).</td>
+</tr>
+<tr>
+<td>MIN_ROWS</td>
+<td>Minimum number of child records to be generated per parent.</td>
+</tr>
+<tr>
+<td>MAX_ROWS</td>
+<td>Maximum number of child records to be generated per parent.</td>
+</tr>
+<tr>
+<td>LEVEL_COUNT</td>
+<td>Number of levels to be generated in hierarchies (recursive FK).</td>
+</tr>
+<tr>
+<td>WHERE_CLAUSE</td>
+<td>Filter applied to target table (for N-1 constraints only).</td>
+</tr>
+<tr>
+<td>CON_SEQ</td>
+<td>Order of processing (user-defined) between all constraints of the table.</td>
+</tr>
+<tr>
+<td>GEN_VIEW_NAME</td>
+<td>Name of the view used to generate records via this FK (instead of using the dual view).</td>
+</tr>
+<tr>
+<td>PRE_GEN_CODE</td>
+<td>PL/SQL code to be executed before the generation of records via this FK.</td>
+</tr>
+<tr>
+<td>POST_GEN_CODE</td>
+<td>PL/SQL code to be executed after the generation of records via this FK (e.g., to compute denormalised fields)</td>
+</tr>
+<tr>
+<td>SRC_FILTER</td>
+<td>Filter applied to source table (for 1-N and recursive N-1 constraints).</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 4 - Constraint properties</strong></em></p>
+<p><sup>(*)</sup> <strong>Note</strong>: synthetic data generation reuses columns created for sub-setting (extraction), reason why the name is misleading; "extraction" should be read "generation" for <code>GEN</code> data sets.</p>
+<h3 id="135-record-properties">1.3.5. Record properties </h3>
+<p>The following record properties are set by the tool for all generated records:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TABLE_ID</td>
+<td>Unique identifier (for internal use).</td>
+</tr>
+<tr>
+<td>RECORD_ROWID</td>
+<td>ROWID of the generated record.</td>
+</tr>
+<tr>
+<td>SEQ</td>
+<td>Sequential number of the generated record.</td>
+</tr>
+<tr>
+<td>PASS_COUNT</td>
+<td>Level in the hierarchy of the generated record.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 5 - Record properties</strong></em></p>
+<h2 id="14-generation-types">1.4. Generation types </h2>
+<p>The following generation types define how column values are generated:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Generation type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ</td>
+<td>ORACLE Sequence</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>SQL Expression</td>
+</tr>
+<tr>
+<td>FK</td>
+<td>Foreign key</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 6 - Generation types</strong></em></p>
+<p>When creating table columns, the tool can determine whether a column is involved in a foreign key but nothing more. However, if a sensitive data discover process was launched on the schema beforehand, the tool is capable of reusing SQL expressions (but only those that generate random values).</p>
+<p>In any case, default column settings must be revised and complemented where necessary.</p>
+<h3 id="141-seq--sequence">1.4.1. SEQ – Sequence </h3>
+<p>To generate a value based on an Oracle sequence, set:</p>
+<ul>
+<li><code>GEN_TYPE</code> to <code>SEQ</code>.</li>
+<li><code>PARAMS</code> to the name of the sequence.</li>
+</ul>
+<h3 id="142-fk--foreign-key">1.4.2. FK – Foreign key </h3>
+<p>For fields that are involved in a foreign key, the following settings is generated:</p>
+<ul>
+<li><code>GEN_TYPE</code> is set to <code>FK</code>.</li>
+<li><code>PARAMS</code> is set to the name of the foreign key.</li>
+</ul>
+<p>These default values can be overwritten by end-user when necessary, meaning that the foreign key will no more be used to generate the column value. This can be used e.g., to generate non-uniform distribution or if you want to define some conditional logic (based on a SQL expression).</p>
+<p>A condition can be specified on the foreign key to restrict the set of records that can be referenced (see <code>WHERE_CLAUSE</code> on <code>CONSTRAINTS</code>).</p>
+<p>If the referenced or foreign table is not part of the data set (<code>EXTRACT_TYPE = 'R'</code>), any existing record can be selected at random. If the referenced table is part of the data set (<code>extract_type = 'B' OR 'P'</code>), only records generated in the current data set can be selected at random.</p>
+<p>For each foreign key, all column values of the referenced record selected at random are available and can be used in a SQL expression using the following syntax:</p>
+<p><code>RECORD &lt;foreign_key_name&gt;.&lt;field&gt; </code></p>
+<h3 id="143-sql--expression">1.4.3. SQL – Expression </h3>
+<p>To generate a value based on a SQL expression, set:</p>
+<ul>
+<li><code>GEN_TYPE</code> to <code>SQL</code>.</li>
+<li><code>PARAMS</code> to the SQL expression.</li>
+</ul>
+<p>The SQL must be any expression that is valid when executed against the dual view.</p>
+<p><strong>Warning</strong>: syntax is not checked when the SQL expression is defined; any invalid syntax will result in an exception raised at runtime; it his therefore strongly advised to test the SQL expression before defining it.</p>
+<h4 id="1431-random-functions">1.4.3.1. Random functions </h4>
+<p>The tool comes with a library of random functions (provided through the <code>DS_MASKER_KRN</code> package). Here follows a short description of available random functions:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>random_value</td>
+<td>As dbms_random.value but with a seed.</td>
+</tr>
+<tr>
+<td>random_integer</td>
+<td>Returns a random integer within a given range.</td>
+</tr>
+<tr>
+<td>random_value_from_regexp</td>
+<td>Returns a value that matches a given regular expression.</td>
+</tr>
+<tr>
+<td>random_string</td>
+<td>Returns a random string whose length is within a given range; case may be specified.</td>
+</tr>
+<tr>
+<td>random_name</td>
+<td>Returns a random name whose length is within a given range; case may be specified.</td>
+</tr>
+<tr>
+<td>random_number</td>
+<td>Returns a random number with a given precision and scale.</td>
+</tr>
+<tr>
+<td>random_date</td>
+<td>Returns a random date within a given range.</td>
+</tr>
+<tr>
+<td>random_time</td>
+<td>Returns a random date and time within a given date range and time range.</td>
+</tr>
+<tr>
+<td>random_expiry_date</td>
+<td>Returns a valid random credit card expiry date in the future within a given months range.</td>
+</tr>
+<tr>
+<td>random_value_from_table</td>
+<td>Returns a column value of a random row from a database table, with a uniform distribution.</td>
+</tr>
+<tr>
+<td>random_value_from_data_set</td>
+<td>Returns a random value from a data set with a uniform distribution or user-defined distribution (based on a column of weights).</td>
+</tr>
+<tr>
+<td>random_number_with_mod97</td>
+<td>Returns a valid random number with a modulo 97 checksum.</td>
+</tr>
+<tr>
+<td>random_bban</td>
+<td>Returns a valid random basic bank account number for a given country and format.</td>
+</tr>
+<tr>
+<td>random_credit_card_number</td>
+<td>Returns a valid random credit card number for a given prefix (card issuer) and format.</td>
+</tr>
+<tr>
+<td>random_ip_v4</td>
+<td>Returns a random IP v4 internet address.</td>
+</tr>
+<tr>
+<td>random_ip_v6</td>
+<td>Returns a random IP v6 address.</td>
+</tr>
+<tr>
+<td>random_value_from_list</td>
+<td>Returns a random value from a list of hardcoded values with a uniform distribution or user-defined distribution (based on a list of weights).</td>
+</tr>
+<tr>
+<td>random_company_name</td>
+<td>Returns a random company name made up of 4 components (a prefix, an adjective, a name, and a suffix).</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 7 - Random functions</strong></em></p>
+<p>All functions accept a <code>P_SEED</code> parameter that can be passed to make the function deterministic (the same value is always returned for the same set of input values).</p>
+<p>For the function returning a random value from a (hardcoded) list of values, a list of corresponding weights can be specified to generate a specific (non-uniform) statistical distribution.</p>
+<p>For the function returning a random value from a data set, the name of a column containing weights can be specified to generate a specific (non-uniform) statistical distribution.</p>
+<p>The following data set are provided by default:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Data set</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EU6_FAMILY_NAMES_217</td>
+<td>Most common family name in EU6 (Germany, France, Italy, Netherlands, Belgium, Luxembourg).</td>
+</tr>
+<tr>
+<td>EU_MAJOR_CITIES_590</td>
+<td>Major European cities.</td>
+</tr>
+<tr>
+<td>INT_COUNTRIES_250</td>
+<td>Countries (worldwide).</td>
+</tr>
+<tr>
+<td>INT_CURRENCIES_170</td>
+<td>Currencies (worldwide).</td>
+</tr>
+<tr>
+<td>INT_GIVEN_NAMES_250</td>
+<td>Most common given names (worldwide).</td>
+</tr>
+<tr>
+<td>EU_COUNTRIES_27</td>
+<td>27 Member states of the EU.</td>
+</tr>
+<tr>
+<td>COLORS</td>
+<td>A list of 147 colours.</td>
+</tr>
+<tr>
+<td>OBJECTS</td>
+<td>A list of 200 common objects.</td>
+</tr>
+<tr>
+<td>FOOD</td>
+<td>A list of 162 fruits, vegetables, or seafood.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 8 - Provided data sets</strong></em></p>
+<p>You can easily create your own.</p>
+<p>The function that generates a value compliant with a given regular expression is described more in detail in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#31-regular-expressions">3.1. Regular Expressions</a>.</p>
+<h4 id="1432-reference-to-other-columns">1.4.3.2. Reference to other columns </h4>
+<p>A SQL expression may reference generated values of other columns of the same table by prefixing their name with a colon i.e., using the following syntax:</p>
+<p><code>:&lt;column_name&gt;</code></p>
+<p>This is useful to build the value of denormalised columns. As an example, <code>FULL_NAME</code>, which is the concatenation of <code>FIRST_NAME</code> and <code>LAST_NAME</code>, can be generated with the following SQL expression:</p>
+<p><code>:FIRST_NAME || ’ ’ || :LAST_NAME</code></p>
+<p><strong>Warning</strong>: if the referenced column value is generated using a random function, a <code>SEED</code> parameter must be passed to make the result deterministic! The value of the denormalised column will otherwise be incorrect.</p>
+<p><strong>Warning</strong>: no direct or indirect loop in the column dependencies is allowed (e.g., A references B, B references C, and C references A =&gt; loop =&gt; error).</p>
+<h4 id="1433-pseudo-columns">1.4.3.3. Pseudo columns </h4>
+<p>The following pseudo-columns can be used in a SQL expression:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Pseudo-column</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAG &lt;col_name&gt;</td>
+<td>The column value of the previously generated record of the current table; this is the syntax used in analytic functions to reference a previous record.</td>
+</tr>
+<tr>
+<td>RECORD &lt;fk_name&gt;.&lt;col_name&gt;</td>
+<td>The column value of the record selected at random for the given foreign key; can also be used to access other records of the generated PL/SQL block (e.g., src (parent record), tgt (child record), lag (previous record), gen (generation view)).</td>
+</tr>
+<tr>
+<td>SOURCE &lt;col_name&gt;</td>
+<td>Column value of the source/parent/master record.</td>
+</tr>
+<tr>
+<td>PARENT &lt;col_name&gt;</td>
+<td>Synonym of SOURCE in the context of a parent/child relationship.</td>
+</tr>
+<tr>
+<td>MASTER &lt;col_name&gt;</td>
+<td>Synonym of SOURCE in the context of a master/detail relationship.</td>
+</tr>
+<tr>
+<td>PRIOR &lt;col_name&gt;</td>
+<td>Synonym of SOURCE in the context of a hierarchical relationship. (same syntax as in CONNECT BY).</td>
+</tr>
+<tr>
+<td>LEVEL</td>
+<td>The level being currently generated in a hierarchy (starting from 1; same syntax as in CONNECT BY).</td>
+</tr>
+<tr>
+<td>ROWNUM</td>
+<td>The sequence number of the records currently generated (starting from 1; standard SQL syntax).</td>
+</tr>
+<tr>
+<td>ROWCOUNT</td>
+<td>The total number of records that will be generated while processing a table or a constraint; this is not available (i.e., NULL) if a generation view that returns a random number of records is used instead of the dual view.</td>
+</tr>
+<tr>
+<td>SEED</td>
+<td>A seed value that can be passed in parameter to random functions to make them deterministic.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 9 - Pseudo-columns</strong></em></p>
+<h2 id="15-generation-view">1.5. Generation view </h2>
+<p>Records are generated via the following query which returns the desired number of records:</p>
+<p><code>SELECT * FROM dual CONNECT BY LEVEL &lt;= &lt;row-count&gt;</code></p>
+<p>For some specific use cases (e.g., to generate historic tables), it is easier to encapsulate the complexity into a view that is used to generate the records. The tool offers the possibility to define a generation view for tables and constraints (see <code>GEN_VIEW</code> property) that can be used instead of the above query on dual.</p>
+<p>There is one pre-requisite: the view must contain at least one column named ROW# which returns a sequential number for each record (like <code>ROWNUM</code>). It is mainly used to limit the number of records fetched when necessary and for sorting. It also gives its value to the <code>ROWNUM</code> pseudo column.</p>
+<p>The view can contain any other column that can be referenced in a SQL expression via the following syntax:</p>
+<p><code>RECORD gen.&lt;column_name&gt;</code></p>
+<p>A randomisation of the number of returned records can be implemented in the generation view itself or not (at your discretion).</p>
+<h2 id="16-procedure">1.6. Procedure </h2>
+<p>The following steps must be repeated for each data set that you want to generate (e.g., one per test case). All procedures referenced below belong to the <code>DS_UTILITY_KRN</code> package and should therefore been prefixed by this package when invoked. Also, they all accept a <code>P_SET_ID</code> parameter that identifies the data set being worked on.</p>
+<h3 id="161-get-a-print-out-of-your-data-model">1.6.1. Get a print-out of your data model </h3>
+<p>Having a print-out of your ERD or relational data model at hand will help a lot to identify the tables for which you want to generate content as well as which parent/child or master/detail relationships you want to follow.</p>
+<h3 id="162-create-a-data-set">1.6.2. Create a data set </h3>
+<p>Create a data set of type <code>GEN</code> by calling the <code>create_or_replace_data_set_def()</code> procedure or function. Data sets are identified by a name that must be unique.</p>
+<h3 id="163-include-base-tables">1.6.3. Include base tables </h3>
+<p>Identify the base tables i.e., the table whose content must be generated first, usually:</p>
+<ul>
+<li>Reference tables (i.e., tables that do not depend on any other)</li>
+<li>Master tables (containing master data i.e., data that transactional data reference)</li>
+</ul>
+<p>Include those tables in the data set by calling the <code>include_tables()</code> procedure with the following parameters:</p>
+<ul>
+<li><code>p_extract_type =&gt; 'B'</code>: base table (driving the process)</li>
+<li><code>p_recursive_level =&gt; &lt;integer&gt;</code>: number of levels to search to find detail tables through master/detail (one-to-many) relationships; not applicable to reference tables!</li>
+</ul>
+<p>Don’t include in the data set tables for which the content must not be generated (e.g., reference tables with predefined content)!</p>
+<h3 id="164-include-referential-constraints">1.6.4. Include referential constraints </h3>
+<p>Include in the data set referential constraints (many-to-one relationships) for all tables that are part of the data set by calling the <code>include_referential_cons()</code> procedure with the following parameters:</p>
+<ul>
+<li><code>p_extract_type =&gt; 'R'</code>: referenced table</li>
+</ul>
+<p>Tables referenced by these foreign keys that are not part of the data set yet will be added with an extract type R, indicating that their records will be referenced but not generated.</p>
+<p>Note that one foreign key may generate 2 constraints, once for each direction (one 1-N, one N-1), that may have different properties (you may want a constraint to be used in one direction but not in the other one).</p>
+<h3 id="165-review-included-tables-and-constraints">1.6.5. Review included tables and constraints </h3>
+<p>Check tables and constraints that have been included in the data set so far by querying the <code>DS_TABLES</code> and <code>DS_CONSTRAINTS</code> internal tables for your data set. Make sure their EXTRACT_TYPE is correct. Identify any missing table and iterate as necessary.</p>
+<h3 id="166-insert-table-columns">1.6.6. Insert table columns </h3>
+<p>Call the <code>include_table_columns()</code> procedure to generate the columns of all tables in your data set. Default properties will be generated for columns involved in a foreign key and for columns identified as sensitive during a previous sensitive data discovery run. You will have to explicitly define the properties of other columns.</p>
+<p>When invoked several times, this procedure does not modify or overwrite existing data. It only adds missing columns if any.</p>
+<h3 id="167-update-table-properties">1.6.7. Update table properties </h3>
+<p>Review table properties by querying the <code>DS_TABLES</code> internal table and adapt them as necessary by calling the<code> update_table_properties()</code> procedure. Only specify in parameters the properties that need to be modified.</p>
+<p>The following properties may need to be changed:</p>
+<ul>
+<li><code>ROW_COUNT</code>: the number of records that you want to generate (applicable to base tables only); for tables that have a recursive foreign key representing a hierarchy, this number must correspond to the number of root records (one for a tree, several for a forest).</li>
+<li><code>TAB_SEQ</code>: some situations require to process one table before another; for tables having the same order of processing (computed based on table dependencies and indicated by the <code>SEQ</code> property), you can force one table to be processed before another by setting their <code>TAB_SEQ</code> property (kind of sub-order).</li>
+<li><code>PRE_GEN_CODE</code>: PL/SQL code to execute before generating base records in this table.</li>
+<li><code>POST_GEN_CODE</code>: PL/SQL code to execute after generating base records in this table.</li>
+<li><code>BATCH_SIZE</code>: batch size when bulk inserting/updating this table.</li>
+</ul>
+<h3 id="168-update-constraint-properties">1.6.8. Update constraint properties </h3>
+<p>Review constraint properties by querying the <code>DS_CONSTRAINTS</code> internal table and adapt them as necessary by calling the <code>update_constraint_properties()</code> procedure. Only specify in parameters the properties that need to be modified.</p>
+<p><strong>Warning</strong>: don’t forget to indicate the direction of the constraint that you want to modify by specifying its cardinality parameter (1-N or N-1)!</p>
+<p>The following properties may need to be changed:</p>
+<ul>
+<li><code>EXTRACT_TYPE</code>: type of generation; may need to be reset to N to ignore one specific direction of a constraint; as an example, for referential constraints, the N-1 direction is used while the 1-N direction must usually be ignored (a reference table does not have child records so generating them would be a mistake).</li>
+<li><code>GEN_VIEW</code>: the name of a view that must be used to generate records instead of a hierarchical (connect by) query on the dual view.</li>
+<li><code>MIN_ROWS</code>: minimum number of rows to generate (0 by default); applicable to 1-N only.</li>
+<li><code>MAX_ROWS</code>: maximum number of rows to generate (= minimum by default); applicable to 1-N only.</li>
+<li><code>LEVEL_COUNT</code>: number of levels to generate in the hierarchy (applicable to 1-N recursive foreign keys)</li>
+<li><code>WHERE_CLAUSE</code>: to filter the records that can be referenced (applicable to N-1 only).</li>
+<li><code>PRE_GEN_CODE</code>: PL/SQL code to execute before generating records via this constraint.</li>
+<li><code>POST_GEN_CODE</code>: PL/SQL code to execute after generating records via this constraint; may be useful to compute denormalised fields.</li>
+<li><code>SRC_FILTER</code>: to filter source records for 1-N or N-1 relationships.</li>
+<li><code>BATCH_SIZE</code>: batch size when bulk fetching FK records (N-1 relationship).</li>
+</ul>
+<h3 id="169-update-column-properties">1.6.9. Update column properties </h3>
+<p>Review column properties by querying the <code>DS_TAB_COLUMNS</code> internal table and adapt them as necessary by calling the<code> update_table_column_properties()</code> procedure. Only specify in parameters the properties that need to be modified.</p>
+<p>The following properties may need to be changed:</p>
+<ul>
+<li><code>GEN_TYPE</code>: type of generation (<code>SEQ</code>, <code>SQL</code>, <code>FK</code>).</li>
+<li><code>PARAMS</code>: parameters (sequence name, SQL expression, foreign key name).</li>
+<li><code>NULL_VALUE_PCT</code>: percentage of <code>NULL</code> value to generate (optional columns only).</li>
+<li><code>NULL_VALUE_CONDITION</code>: condition under which a <code>NULL</code> value is generated (optional columns only); this expression may contain reference to other columns and/or pseudo-columns.</li>
+</ul>
+<p>To use simple quotes within your SQL expression, it is recommended to use quoted strings like:</p>
+<p><code>q'#This is a 'quoted' string #'</code></p>
+<p><strong>Note</strong>: all mandatory fields must have an expression that is obviously not evaluated to <code>NULL</code>; if a field is derived and cannot be computed immediately, a temporary default value must be defined.</p>
+<p>For fields that are referenced by others, make sure to use a <code>SEED</code> when calling a random function (the <code>SEED</code> pseudo-column provides a seed value for you).</p>
+<h3 id="1610-generate-data-set">1.6.10. Generate data set </h3>
+<p>Generate records in the tables of the data set by calling the <code>generate_data_set()</code> procedure. When the <code>P_COMMIT</code> optional parameter is set to <code>TRUE</code>, a <code>COMMIT</code> is performed at the end.</p>
+<p>This procedure performs the following:</p>
+<ol>
+<li>Delete records generated in the data set by a previous run if any; these records can be identified via their <code>ROWID</code> registered in the <code>DS_RECORDS</code> table; delete records from this latest table as well.</li>
+<li>Reset statistics (<code>EXTRACT_COUNT</code> in <code>DS_TABLES</code> and <code>DS_CONSTRAINTS</code>).</li>
+<li>Define the walk-through strategy (i.e., determine the order in which tables must be populated).</li>
+<li>For each base table (in the above order), generate records.</li>
+<li>For those having a recursive foreign key, update records with a random key in a second iteration.</li>
+<li>For each parent/master table, generate records in the child/detail/foreign table via the one-to-many relationship.</li>
+<li>Commit the transaction if requested.</li>
+</ol>
+<p>For steps 4, 5 and 6, a separate PL/SQL block is generated and executed (one per table). Any syntax error made in one of your SQL expressions will result in an exception being raised. For an easy debugging, it is possible to request not to execute the code (test mode) and generate it in <code>DBMS_OUTPUT</code>, then execute it yourself manually, step by step.</p>
+<p>To proceed, enable <code>DBMS_OUTPUT</code> and execute the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>set_message_filter<span class="token punctuation">(</span><span class="token string">'ES'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>set_test_mode<span class="token punctuation">(</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>generate_data_set<span class="token punctuation">(</span>…<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>set_message_filter<span class="token punctuation">(</span><span class="token string">'E'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>set_test_mode<span class="token punctuation">(</span><span class="token boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Message filter S means: send SQL statements to <code>DBMS_OUTPUT</code>.</p>
+<h3 id="1611-check-statistics">1.6.11. Check statistics </h3>
+<p>check the statistics to see how many records have been generated for each table and for each master/detail relationship. To proceed, select the <code>EXTRACT_COUNT</code> from <code>DS_TABLES</code> and <code>DS_CONSTRAINTS</code> internal tables.</p>
+<h3 id="1612-create-views">1.6.12. Create views </h3>
+<p>Create views on the tables of your data set to check that records have been generated according to your specifications. To proceed, invoke the <code>create_views()</code> procedure and specify a suffix for your views (e.g., ‘<code>_v</code>’) via the <code>p_view_suffix</code> parameter. You can also request not to create views for empty tables via the <code>p_non_empty_only</code> parameter.</p>
+<p>These views only show the records that have been generated in the current data set.</p>
+<h3 id="1613-drop-views">1.6.13. Drop views </h3>
+<p>To terminate, drop the views by invoking the <code>drop_views()</code> procedure, with the same parameters as those passed to <code>create_views()</code>.</p>
+<h1 id="2-tutorial">2. Tutorial </h1>
+<h2 id="21-data-model">2.1. Data Model </h2>
+<p>This section explains the data model that is used in the tutorial of the synthetic data generation tool. Although it is not the data model of a real application, it is sufficiently realistic and complex to demonstrate the challenges that data generation tools are facing. All database objects has a TMP prefix that is omitted in this document for the sake of its conciseness.</p>
+<h3 id="211-diagrams">2.1.1. Diagrams </h3>
+<p>The data model is split into two diagrams to fit the document.</p>
+<h4 id="2111-part-1">2.1.1.1. Part 1 </h4>
+<p><img src="./ds_utility_synthetic_data_generation_files/001.png" alt=""></p>
+<p><em><strong>Figure 1- Data Model - Part 1</strong></em></p>
+<h4 id="2112-part-2">2.1.1.2. Part 2 </h4>
+<p><img src="./ds_utility_synthetic_data_generation_files/002.png" alt=""></p>
+<p><em><strong>Figure 2- Data Model - Part 2</strong></em></p>
+<h3 id="212-narrative">2.1.2. Narrative </h3>
+<h4 id="2121-part-1">2.1.2.1. Part 1 </h4>
+<p>A <code>PERSON</code> may own one or several <code>CREDIT_CARDS</code> that are of a given <code>CREDIT_CARD_TYPE</code> (MasterCard, Visa, etc.). A <code>PERSON</code> may place <code>ORDERS</code> in <code>STORES</code>. <code>ORDERS</code> are made up of (at least) one or several <code>ORDER_ITEMS</code> or lines, one per ordered <code>PRODUCT</code>. A <code>PERSON</code> who placed <code>ORDERS</code> may pay them in one or several <code>TRANSACTIONS</code> using its <code>CREDIT_CARDS</code>.</p>
+<h4 id="2122-part-2">2.1.2.2. Part 2 </h4>
+<p>A <code>PERSON</code> has a nationality (link to <code>COUNTRY</code>). A <code>PERSON</code> may be a manager or a staff. A staff is supervised by one manager and a manager may supervise several staff (recursive relationship). <code>CLOCKINGS</code> of <code>PERSONS</code> coming in and out of the office are registered. <code>PERSONS</code> are assigned to <code>ENTITIES</code> and a history of their <code>ASSIGNMENTS</code> is kept. <code>ENTITIES</code> are organised in a hierarchy (recursive relationship). <code>ENTITIES</code> have an <code>ENTITY_TYPE</code> (Institution, Directorate General, Directorate, Unit, or Sector) that reflects their level in the hierarchy.</p>
+<h3 id="213-data-classification">2.1.3. Data classification </h3>
+<p><strong>Reference data</strong> (also known as static data, are values or codes that provide context or categorisation for other data; they are relatively stable over time and doesn't change frequently).</p>
+<p>In our data model: <code>COUNTRIES</code>, <code>ENTITY_TYPES</code>, <code>CREDIT_CARD_TYPES</code>.</p>
+<p><strong>Master data</strong> (also referred to as core data, represents the foundational and critical business entities that are shared across an organisation; they are relatively stable but can change over time).</p>
+<p>In our data model: <code>PERSONS</code>, <code>ORG_ENTITIES</code>, <code>PER_CREDIT_CARDS</code>, <code>PRODUCTS</code>, <code>STORES</code>.</p>
+<p><strong>Transactional data</strong> (records of day-to-day business activities and operations; they represent the individual transactions or events that occur within an organisation; they are highly dynamic and frequently changing).</p>
+<p>In our data model: <code>PER_ASSIGNMENTS</code>, <code>PER_CLOCKINGS</code>, <code>ORDERS</code>, <code>ORDER_ITEMS</code>, <code>PER_TRANSACTIONS</code>.</p>
+<h2 id="22-requirements">2.2. Requirements </h2>
+<p>Although shown on the data model, the following (pre-filled) reference tables are not generated and therefore not part of the generated data set: <code>ENTITY_TYPES</code>, <code>CREDIT_CARD_TYPES</code>, and <code>COUNTRIES</code>.</p>
+<h3 id="221-persons">2.2.1. Persons </h3>
+<p><code>PERSONS</code> is the driving table of the data generation.</p>
+<p><code>PER_ID</code> is the unique identifier of a <code>PERSON</code>; it must be generated using an Oracle sequence (<code>PER_SEQ</code>).</p>
+<p><code>GENDER</code> must be <code>M</code> for Male or <code>F</code> for Female, generated at random with a uniform distribution.</p>
+<p><code>FIRST_NAME</code> must be realistic (e.g., generated from a list of most common first names) and must be coherent with <code>GENDER</code>.</p>
+<p><code>LAST_NAME</code> must be realistic (e.g., generated from a list of most common last names).</p>
+<p><code>FULL_NAME</code> is the concatenation of <code>FIRST_NAME</code> and <code>LAST_NAME</code> (denormalised column).</p>
+<p><code>BIRTH_DATE</code> must be generated at random in such a way that person’s current age is between 21 and 65 (active staff).</p>
+<p><code>NATIONALITY</code> must be selected at random from <code>COUNTRIES</code> (containing EU member states) following a non-uniform distribution based on its <code>POPULATION</code>.</p>
+<p><code>TITLE</code> (which is optional and missing in 20% of the cases) depends on <code>GENDER</code> (e.g., Mr for Male, Mrs or Miss for Female).</p>
+<p><code>MANAGER_FLAG</code> must be set to Y for 10% of the staff.</p>
+<p>For non-management staff, <code>PER_ID_MANAGER</code> must reference a manager (a person identified as such via the above flag). To keep it simple, managers do not have a manager.</p>
+<h3 id="222-entities">2.2.2. Entities </h3>
+<p>Organisational entities (or <code>ENTITIES</code> to keep it short) are organised in a hierarchy (via a recursive relationship) to form the organisation chart. Each level corresponds to an <code>ENTITY TYPE</code> that reflects the way EU institutions are organised (usually: Institution, Directorate General, Directorate, Unit and Sector).</p>
+<p>The organisation chart must be generated for a certain number of institutions (so it is not a tree but rather a forest) and a given number of levels. The number of sub-entities of each entity (i.e., siblings) must be generated at random between a certain range of numbers.</p>
+<p><code>OEN_ID</code> is the unique identifier of an <code>ENTITY</code>; it must be generated using an Oracle sequence (<code>OEN_SEQ</code>).</p>
+<p>Entity acronym or code (<code>OEN_CD</code>) must be generated at random following a format that depends on its level (e.g., 1/ EC, 2/ DIGIT, 3/ DIGIT.B, 4/ DIGIT.B.4, 5/ DIGIT.B.4.004). As of level 3, the acronym of an entity is prefixed with the one of its parent.</p>
+<p><code>NAME</code> must be generated randomly while still being meaningful.</p>
+<p>Entity type (<code>OEN_CD</code>) must be selected from <code>ORG_ENTITY_TYPES</code> depending on its level (from 1 to 5) in the hierarchy.</p>
+<p>Each entity must be linked to its parent entity via <code>OEN_ID_PARENT</code>.</p>
+<h3 id="223-persons-assignments">2.2.3. Person’s assignments </h3>
+<p>A <code>PERSON</code> may be assigned during its career to one or several entities (of any type). The history of its assignments is registered in <code>PER_ASSIGNMENTS</code>.</p>
+<p>A history must be made up of random number of periods (date ranges), starting from a given date in the past, each period having a random duration.</p>
+<p><code>DATE_FROM</code> must be set to the start date of the assignment period.</p>
+<p><code>DATE_TO</code> must be set to the end date of the assignment period (not included).</p>
+<p>Assignment periods must be consecutive (no hole) i.e., <code>DATE_FROM</code> of a period must be equal to <code>DATE_TO</code> of the previous period (except for the first one).</p>
+<p>For active staff, last period must be opened i.e., <code>DATE_TO</code> must be set to 31/12/9999. This rule does not apply to retired staff or staff who left the company.</p>
+<p><code>PER_ID</code> and <code>OEN_ID</code> are foreign keys to respectively <code>PERSONS</code> and <code>ENTITIES</code>.</p>
+<h3 id="224-persons-clockings">2.2.4. Person’s clockings </h3>
+<p>Clockings of persons coming in and out of the office on working days (so weekend excluded) are registered in <code>CLOCKINGS</code>. Normally, 4 clockings are registered per day and per person (1/ arrival in the office, 2/ departure for lunch, 3/ return from lunch, 4/ back to home). No clocking is normally allowed during morning and afternoon core time periods (but exceptions may occur).</p>
+<p><code>CLOCKING_DATE</code> is the date of the clocking.</p>
+<p><code>CLOCKING_TIME</code> is the clocking time.</p>
+<p><code>CLOCKING_TIME</code> must be <code>IN</code> or <code>OUT</code>.</p>
+<p><code>PER_ID</code> is the foreign key towards <code>PERSONS</code>.</p>
+<h3 id="225-persons-orders">2.2.5. Person’s orders </h3>
+<p>A <code>PERSON</code> may place one or several <code>ORDERS</code>.</p>
+<p><code>ORD_ID</code> is the unique identifier of an order; it must be generated using an Oracle sequence (<code>ORD_SEQ</code>).</p>
+<p><code>PER_ID</code> and <code>STO_ID</code> are foreign keys to respectively <code>PERSONS</code> and <code>STORES</code>.</p>
+<p><code>ORDER_DATE</code> is the date of the order; it must be generated at random in the past (&lt;= current date).</p>
+<p><code>TOTAL_PRICE</code> is the price of the order; it must be equal to the sum of <code>PRICE</code> of its <code>ORDER_LINES</code>.</p>
+<h3 id="226-orders-lines">2.2.6. Order’s lines </h3>
+<p>An <code>ORDER</code> must have at least one <code>ORDER_LINE</code> but it may have more.</p>
+<p><code>ORD_ID</code> and <code>PRD_ID</code> are foreign keys to respectively <code>ORDERS</code> and <code>PRODUCTS</code>.</p>
+<p><code>ORDER_LINE</code> is a sequential number starting with 1 (sequence within parent).</p>
+<p><code>QUANTITY</code> must be a random number greater or equal to 1.</p>
+<p><code>PRICE</code> must be equal to the ordered quantity multiplied by the unit price of the <code>PRODUCT</code>.</p>
+<p>An <code>ORDER_LINE</code> is uniquely identified by its <code>ORD_ID</code> and <code>ORDER_LINE</code>.</p>
+<h3 id="227-products">2.2.7. Products </h3>
+<p><code>PRODUCTS</code> is a master table that must be entirely generated.</p>
+<p><code>PRD_ID</code> is the unique identifier of the <code>PRODUCT</code>; it must be generated using an Oracle sequence (<code>PRD_SEQ</code>).</p>
+<p><code>PRODUCT_NAME</code> must be generated at random while still being meaningful (e.g., can be generated from a list of objects).</p>
+<p><code>UNIT_PRICE</code> is an integer &gt;=1 that must be generated at random.</p>
+<h3 id="228-stores">2.2.8. Stores </h3>
+<p><code>STORES</code> is a master table that must be entirely generated.</p>
+<p><code>STO_ID</code> is the unique identifier of the <code>STORE</code>; it must be generated using an Oracle sequence (<code>STO_SEQ</code>).</p>
+<p><code>STORE_NAME</code> must be generated at random while still being meaningful.</p>
+<h3 id="229-persons-credit-cards">2.2.9. Person’s credit cards </h3>
+<p>A <code>PERSON</code> may have one or several <code>CREDIT_CARDS</code> that are of a given <code>CREDIT_CARD_TYPE</code> (MasterCard, Visa, etc.).</p>
+<p><code>PER_ID</code> and <code>CCT_CD</code> are foreign keys to respectively <code>PERSONS</code> and <code>CREDIT_CARD_TYPES</code>.</p>
+<p><code>CREDIT_CARD_NUMBER</code> must be generated valid (i.e., its checksum must be correct); its first digit(s) must be equal to those specified by its <code>CREDIT_CARD_TYPE</code> (e.g., 5 for MasterCard, 4 for Visa, etc.).</p>
+<p><code>EXPIRY_DATE</code> must be generated as a date in the future and must be valid (last day of a month).</p>
+<h3 id="2210-persons-transactions">2.2.10. Person’s transactions </h3>
+<p>A <code>PERSON</code> placing an <code>ORDER</code> may pay via one or two credit card <code>TRANSACTIONS</code>. An order may be fully paid via a single transaction or may be paid in two transactions (e.g., 30% when placing the order, remaining i.e., 70% upon delivery or receipt).</p>
+<p><code>PER_ID</code> and <code>ORD_ID</code>, <code>CREDIT_CARD_NBR</code> are foreign keys to respectively <code>PERSONS</code> and <code>TRANSACTIONS</code>.</p>
+<p><code>TRANSACTION_TIMESTAMP</code> (date and time) must be equal or posterior to the date of the related <code>ORDER</code>.</p>
+<p>The sum of <code>TRANSACTION AMOUNT</code> must be equal to the <code>TOTAL_PRICE</code> of the related <code>ORDER</code>.</p>
+<p>Inclusion constraint: credit cards used in a transaction must belong to the person that placed the order.</p>
+<h3 id="2211-other-requirements">2.2.11. Other requirements </h3>
+<p>The figures given above are just examples; they must be configurable.</p>
+<p>For master tables (<code>PERSONS</code>, <code>ENTITIES</code>, <code>STORES</code> and <code>PRODUCTS</code>), a fixed number of records to generate must be specified.</p>
+<p>For master/detail relationships, a minimum and maximum number of detail records to generate per master must be specified.</p>
+<p>For recursive one-to-many relationships (e.g., from <code>ENTITIES</code> to <code>ENTITIES</code>), the number of levels to generate in the hierarchy must be specified.</p>
+<p>For foreign keys (many-to-one relationships), an optional condition that must be fulfilled may be specified (e.g., the supervisor of a staff must have its <code>MANAGER_FLAG</code> equal to <code>Y</code>).</p>
+<p>It is up to the tool to determine the order in which tables and relationships must be processed, based on their dependencies. It may however be necessary to decide, when 2 tables have the same priority, which one must be generated first (e.g., <code>ORDER_ITEMS</code> before <code>TRANSACTIONS</code>).</p>
+<p>Some tables may require several rounds of processing. As an example, <code>ORDERS</code> must be created before <code>ORDER_LINES</code> (to ensure referential integrity) but the <code>TOTAL_PRICE</code> of an <code>ORDER</code> cannot be computed before the generation of <code>ORDER_ITEMS</code>. So, the <code>TOTAL_PRICE</code> must be updated as a second step.</p>
+<p>For tables implementing an intersection entity (<code>ASSIGNMENTS</code>, <code>ORDER_ITEMS</code>), only one of their two master/detail relationships may be used to drive their generation. As an example, for <code>ORDER_ITEMS</code>, <code>ORDERS</code> should be driving, not <code>PRODUCTS</code>.</p>
+<p>For tables that are part of the current data set, only records generated in this context can be referenced by other generated records. In other words, records generated by other data sets cannot be referenced. Pre-existing records (e.g., in reference tables) that are not part of the current data set can be referenced without any restriction.</p>
+<h2 id="23-solution">2.3. Solution </h2>
+<p>This section describes how the data set is created and configured to generate the data according to the requirements described in the previous section. The steps followed are those described in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#16-procedure">1.6. Procedure</a>.</p>
+<p>You will find the tutorial files is in the following directory: <code>tutorial\scripts</code>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>File</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ds_fake_data_gen_model.sql</code></td>
+<td>Script to create the data model.</td>
+</tr>
+<tr>
+<td><code>ds_fake_data_gen_dataset.sql</code></td>
+<td>Script to generate the data set.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="231-get-a-print-out-of-your-data-model">2.3.1. Get a print-out of your data model </h3>
+<p>Execute the script ds_fake_data_gen_model.sql to create the tutorial database objects.</p>
+<p>Here follows the same diagrams as in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#211-diagrams">2.1.1. Diagrams</a> but with some colours added with the following conventions:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Colour</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green tables</td>
+<td>Base tables (driving the generation).</td>
+</tr>
+<tr>
+<td>Blue tables</td>
+<td>Child/detail tables.</td>
+</tr>
+<tr>
+<td>Purple tables</td>
+<td>Reference tables (content not generated).</td>
+</tr>
+<tr>
+<td>Orange foreign keys</td>
+<td>One-to-many relationships used to generate child/detail records from parent/master ones.</td>
+</tr>
+<tr>
+<td>Purple foreign keys</td>
+<td>Many-to-one relationships used to ensure referential integrity.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2311-part-1">2.3.1.1. Part 1 </h4>
+<p><img src="./ds_utility_synthetic_data_generation_files/003.png" alt=""></p>
+<p><em><strong>Figure 3 - Coloured Data Model - Part 1</strong></em></p>
+<h4 id="2312-part-2">2.3.1.2. Part 2 </h4>
+<p><img src="./ds_utility_synthetic_data_generation_files/004.png" alt=""></p>
+<p><em><strong>Figure 4 - Coloured Data Model - Part 2</strong></em></p>
+<h3 id="232-create-a-data-set">2.3.2. Create a data set </h3>
+<p>A data set named <code>DS_GEN_TUTORIAL</code> of type <code>GEN</code> is created as follows:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>create_or_replace_data_set_def<span class="token punctuation">(</span>p_set_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">,</span> p_set_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'GEN'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_data_sets <span class="token keyword keyword-where">where</span> set_name<span class="token operator">=</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">;</span>
+</code></pre><h3 id="233-include-base-tables">2.3.3. Include base tables </h3>
+<p>Reference tables and master tables that drive the generation must be populated first. They are highlighted in green on the diagrams. To proceed, execute the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_STORES'</span><span class="token punctuation">,</span>p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'B'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PRODUCTS'</span><span class="token punctuation">,</span>p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'B'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORG_ENTITIES'</span><span class="token punctuation">,</span>p_recursive_level<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">,</span>p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'B'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span> p_recursive_level<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">3</span><span class="token punctuation">,</span>p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'B'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>For tables that have a master/detail relationship with other tables (<code>PERSONS</code> and <code>ORG_ENTITIES</code>), the <code>p_recursive_level</code> parameter is used to include them recursively.</p>
+<p>As a result, all child/detail tables highlighted in blue will be included in the data set (with an <code>extract_type</code> set to <code>P</code>, i.e., they are not driving the process), as well as the 1-N constraints highlighted in orange.</p>
+<h3 id="234-include-referential-constraints">2.3.4. Include referential constraints </h3>
+<p>To ensure referential integrity, many-to-one (N-1) foreign keys or constraints (those highlighted in purple) must also be included by executing the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>include_referential_cons<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'R'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Referenced tables not already in the data set will get an extract type R meaning that their content will not be generated. They are highlighted in purple on the diagrams.</p>
+<h3 id="235-review-included-tables-and-constraints">2.3.5. Review included tables and constraints </h3>
+<p>Check tables and constraints now included in the data set and their <code>extract_type</code> with the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_tables <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span> <span class="token keyword keyword-order">order</span> <span class="token keyword keyword-by">by</span> seq<span class="token punctuation">,</span> table_name<span class="token punctuation">;</span>
+<span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_constraints <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>For tables, you should get:</p>
+<p><img src="./ds_utility_synthetic_data_generation_files/005.png" alt=""></p>
+<p>The meaning of the <code>EXTRACT_TYPE</code> is:</p>
+<ul>
+<li>B=Base: base/driving table (i.e., generated first)</li>
+<li>P=partial: child/detail table (generated from others)</li>
+<li>R=Reference: referenced table (not generated)</li>
+</ul>
+<p>The <code>SEQ</code> column indicates the order of processing determined based on table dependencies. To get it set, you need to execute the following:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>define_walk_through_strategy<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="236-insert-table-columns">2.3.6. Insert table columns </h3>
+<p>For tables that will be generated (<code>extract_type</code> <code>B</code> and <code>P</code>), create their columns to be able to specify later how to generate their value, via the following code:</p>
+<p>Here is a sample of columns involved in a foreign key:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>insert_table_columns<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="./ds_utility_synthetic_data_generation_files/006.png" alt=""></p>
+<p>Here is a sample of columns whose SQL expression is inherited from the results of a data discovery run:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_tab_columns <span class="token keyword keyword-where">where</span> table_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword keyword-select">select</span> table_id <span class="token keyword keyword-from">from</span> ds_tables <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="./ds_utility_synthetic_data_generation_files/007.png" alt=""></p>
+<h3 id="237-update-table-properties">2.3.7. Update table properties </h3>
+<p>For each base table, we must specify how many records we want to generate, via the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>   <span class="token comment">-- Set row count for base tables</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span> p_row_count<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_STORES'</span><span class="token punctuation">,</span> p_row_count<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PRODUCTS'</span><span class="token punctuation">,</span> p_row_count<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORG_ENTITIES'</span><span class="token punctuation">,</span> p_row_count<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Note that for <code>ORG_ENTITIES</code>, which implement a hierarchy, this figure represents the number of root records. The figures used above can of course be changed according to your needs.</p>
+<p>You may also need to change the order of processing of tables that are considered on an equal footing (i.e., having the same <code>SEQ</code>). That’s the purpose of the <code>TAB_SEQ</code> property (kind of sub-order).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>   <span class="token comment">-- Set order of processing for some tables</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORDER_ITEMS'</span><span class="token punctuation">,</span> p_tab_seq<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">-- order amounts needed to generate...</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PER_TRANSACTIONS'</span><span class="token punctuation">,</span> p_tab_seq<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- ...coherent transaction amounts</span>
+</code></pre><p>In our use case, order items – which determine the total amount to be paid – must be generated before the transactions.</p>
+<h3 id="238-update-constraint-properties">2.3.8. Update constraint properties </h3>
+<p>For one-to-many (1-N) constraints, you must specify how many child records to generate per parent record. More precisely, you must specify a range (min/max) and the tool will generate a number at random within that range. This is the purpose of the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PCC_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_min_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">,</span> p_max_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 2-4 credit cards per person</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORD_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_min_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">,</span> p_max_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 0-5 orders per person</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OIT_ORD_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_min_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">,</span> p_max_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 1-5 lines per order</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PTR_ORD_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_min_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">,</span> p_max_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 0-2 transactions per order</span>
+</code></pre><p>Note that the cardinality of the constraint must be specified. A minimum of zero means that no child record may be generated.</p>
+<p>For tables that implement a hierarchy (like <code>ORG_ENTITIES</code>), this represents the number of siblings per parent, and you must also specify the number of levels in the following way:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OEN_OEN_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_min_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">4</span><span class="token punctuation">,</span> p_max_rows<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">6</span><span class="token punctuation">,</span> p_level_count<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 5 levels, 4-6 siblings</span>
+</code></pre><p>For complex/historical tables like <code>ASSIGNMENTS</code> and <code>CLOCKINGS</code>, we specify that we want to use a view that generate records, in the following way:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PAS_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_gen_view_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_RANDOM_DATE_HISTORY'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- all rows from view</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PCL_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_gen_view_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_RANDOM_TIME_CLOCKINGS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- all rows from random view</span>
+</code></pre><p>The <code>tmp_random_date_history</code> view generates between 3 and 5 date periods of maximum 12 months starting from 01/01/2000.</p>
+<p>The <code>tmp_random_time_clockings</code> view generates 4 clocking per day, for the last 25 working days (so weekend excluded) i.e., 100 records in total per person. Hours are generated at random outside of core time, however with a few exceptions generated on purpose.</p>
+<p>Some PL/SQL code is sometimes needed to compute denormalised fields. As an example, to set the total price of an order, the price of its order lines must be summed up. This is implemented with a post-generation code as what follows:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OIT_ORD_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_post_gen_code<span class="token operator">=</span><span class="token operator">&gt;</span>
+q<span class="token string">'#UPDATE tmp_orders ord SET total_price = (SELECT SUM(oit.price) FROM tmp_order_items oit WHERE oit.ord_id = ord.ord_id)#'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>For intersection tables (i.e., those that implement a many-to-many relationship), only one of the 2 relationships can be used to generate records meaning that we must prevent the other relationship from being used by setting its <code>extract_type</code> to N, as what follows:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token comment">-- Exclude 1-N constraints from base tables not to be used for master/detail generation</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PAS_OEN_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- assignments not generated from entities</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PTR_PCC_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- transactions not generated from credit cards</span>
+</code></pre><p>For recursive relationships, the same applies i.e., only one of the 2 side can be used. For persons, the N-1 direction is chosen to set the manager so the 1-N direction must be disabled. For entities, the 1-N direction is used to generate the hierarchy so the N-1 direction must be disabled.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PER_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- staff not generated from managers</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OEN_OEN_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- N-1 not used as 1-N is used</span>
+</code></pre><p>For referential/look-up constraints, you may need to specify a filter to implement some business rules. Here follow the filters that must be defined for our use case:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token comment">-- Set filter for look-up (N-1) constraints</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PAS_OEN_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_where_clause<span class="token operator">=</span><span class="token operator">&gt;</span>q<span class="token string">'#oet_cd != '</span>INST<span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- no assignment to INST</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PTR_PCC_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_where_clause<span class="token operator">=</span><span class="token operator">&gt;</span>q<span class="token string">'#per_id=PARENT per_id#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- credit card must belong to the order's person</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PER_PER_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_where_clause<span class="token operator">=</span><span class="token operator">&gt;</span>q<span class="token string">'#manager_flag='</span>Y<span class="token string">'#'</span><span class="token punctuation">,</span> p_src_filter<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'manager_flag IS NULL'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- only managers manage</span>
+ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OEN_OET_FK'</span><span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_where_clause<span class="token operator">=</span><span class="token operator">&gt;</span>q<span class="token string">'#oet_level=LEVEL#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- entity type of the right level</span>
+</code></pre><p>Here is the explanation for the rules implemented above:</p>
+<ul>
+<li>No person may be assigned to an institution.</li>
+<li>Only the credit cards of the person who placed the order may be used (inclusion constraint).</li>
+<li>The supervisor of a staff must be flagged as a manager.</li>
+<li>Only entity types of the level being currently generated may be used.</li>
+</ul>
+<h3 id="239-update-column-properties">2.3.9. Update column properties </h3>
+<p>Column properties that define how to generate their value must be reviewed, updated, or complemented as necessary. Here below are some examples for each generation type (<code>SEQ</code>, <code>SQL</code>, <code>FK</code>).</p>
+<p>A sequence is used to generate the unique identifier of 5 tables:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORG_ENTITIES'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'OEN_ID'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SEQ'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_OEN_SEQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PER_ID'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SEQ'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PER_SEQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORDERS'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'ORD_ID'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SEQ'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_ORD_SEQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_STORES'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'STO_ID'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SEQ'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_STO_SEQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PRODUCTS'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PRD_ID'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SEQ'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PRD_SEQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>One FK generation type is overwritten with a SQL expression to force the distribution of nationalities to be aligned with the percentage of population of the member state:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>ds_utility_krn<span class="token punctuation">.</span>update_table_column_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span> p_col_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'NATIONALITY'</span><span class="token punctuation">,</span> p_gen_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SQL'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span>
+  q<span class="token string">'#ds_masker_krn.random_value_from_data_set(p_set_name=&gt;'</span>EU_COUNTRIES_27<span class="token string">',p_col_name=&gt;'</span>CODE_A3<span class="token string">',p_col_len=&gt;30,p_seed=&gt;SEED,p_weight=&gt;'</span>POPULATION<span class="token string">')#'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>SQL expression of other columns are based on the following random functions of the library:</p>
+<ul>
+<li><code>random_integer</code></li>
+<li><code>random_value_from_data_set</code> (e.g., for first/last name)</li>
+<li><code>random_value_from_list</code> (e.g., for title)</li>
+<li><code>random_date</code></li>
+<li><code>random_time</code></li>
+<li><code>random_credit_card_number</code></li>
+<li><code>random_expiry_date</code></li>
+<li><code>random_company_name</code></li>
+</ul>
+<p>The following data sets are used:</p>
+<ul>
+<li><code>COLORS</code> and <code>FOOD</code> to generate entity names.</li>
+<li><code>INT_GIVEN_NAMES_250</code> to generate given names.</li>
+<li><code>EU6_FAMILY_NAMES_217</code> to generate family names.</li>
+<li><code>EU_COUNTRIES_27</code> to generate country codes.</li>
+<li><code>COLORS</code> and <code>OBJECTS</code> to generate product names.</li>
+</ul>
+<p>The usage of the following pseudo-columns is also demonstrated:</p>
+<ul>
+<li><code>RECORD</code> to get access to columns of a foreign table (e.g., <code>unit_price</code>).</li>
+<li><code>RECORD</code> to get access to columns of a generation view (e.g., clocking, assignments).</li>
+<li><code>PARENT</code> to get access to columns of the parent record (e.g., the person of an order).</li>
+<li><code>ROWNUM</code> to give a sequential number to order items/lines.</li>
+<li><code>ROWCOUNT</code> to get the number of generated records (e.g., the number of transactions).</li>
+<li><code>SEED</code> to generate columns involved in a denormalisation (e.g., first/last name).</li>
+<li><code>LAG</code> to access values of the previous record (e.g., to get the amount paid in the first transaction while generating the second one).</li>
+<li><code>PRIOR</code> to get access to an ancestor (e.g., to get the acronym of the parent entity).</li>
+<li><code>LEVEL</code> to get the level being currently generated for a hierarchy (e.g., entity).</li>
+</ul>
+<h3 id="2310-generate-data-set">2.3.10. Generate data set </h3>
+<p>The data set is generated in the following way:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>generate_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_middle_commit<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token boolean">TRUE</span><span class="token punctuation">,</span>p_final_commit<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="2311-check-statistics">2.3.11. Check statistics </h3>
+<p>Statistics can be obtained in the following way:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> <span class="token keyword keyword-statistics">statistics</span>
+<span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_tables <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span> <span class="token keyword keyword-order">order</span> <span class="token keyword keyword-by">by</span> seq<span class="token punctuation">,</span> tab_seq<span class="token punctuation">,</span> table_name<span class="token punctuation">;</span>
+<span class="token keyword keyword-select">select</span> <span class="token operator">*</span> <span class="token keyword keyword-from">from</span> ds_constraints <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Here follows the statistics for tables:</p>
+<p><img src="./ds_utility_synthetic_data_generation_files/008.png" alt=""></p>
+<p>Note that:</p>
+<ul>
+<li>No record was generated in 3 reference tables (as expected).</li>
+<li>You will get different figures (although the same degree of magnitude) for some tables as the number of generated records is random for master/detail relationships.</li>
+</ul>
+<p>Here are the statistics for constraints (only those having an <code>extract_count</code> &gt; 0):</p>
+<p><img src="./ds_utility_synthetic_data_generation_files/009.png" alt=""></p>
+<h3 id="2312-create-views">2.3.12. Create views </h3>
+<p>Here is how to create views for tables containing generated records:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> views <span class="token keyword keyword-to">to</span> look at generated <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>create_views<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_view_suffix<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'_V'</span><span class="token punctuation">,</span>p_non_empty_only<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>The following views are created:</p>
+<p><img src="./ds_utility_synthetic_data_generation_files/010.png" alt=""></p>
+<h3 id="2313-drop-views">2.3.13. Drop views </h3>
+<p>Here is how to drop the views previously created:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> views
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>drop_views<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'DS_GEN_TUTORIAL'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p_view_suffix<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'_V'</span><span class="token punctuation">,</span>p_non_empty_only<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Note that parameter values for dropping views must be the same as the ones used for creating them.</p>
+<h1 id="3-annexes">3. Annexes </h1>
+<h2 id="31-regular-expressions">3.1. Regular Expressions </h2>
+<p>The <code>gen_value_from_regexp()</code> function returns a random value that matches a given regular expression. This section describes the regular expression features that are supported by this function and highlights the differences with those supported by Oracle REGEXP functions. Features that are not used for the sake of data generation are indicated as <strong>NOT USED</strong>.</p>
+<p>More information on regular expressions features can be found at: <a href="https://www.regular-expressions.info/">https://www.regular-expressions.info/</a>. More information on Oracle specific implementation can be found at: <a href="https://www.regular-expressions.info/oracle.html">https://www.regular-expressions.info/oracle.html</a>.</p>
+<h3 id="311-metacharacters">3.1.1. Metacharacters </h3>
+<p>The following metacharacters are supported:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>Metacharacter</strong></th>
+<th style="text-align:left"><strong>Name</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">Any Character -- Dot</td>
+<td style="text-align:left">Matches any character</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">One or More -- Plus Quantifier</td>
+<td style="text-align:left">Matches one or more occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">Zero or One -- Question Mark Quantifier</td>
+<td style="text-align:left">Matches zero or one occurrence of the preceding subexpression</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Zero or More -- Star Quantifier</td>
+<td style="text-align:left">Matches zero or more occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td style="text-align:left">{<em>m</em>}</td>
+<td style="text-align:left">Interval--Exact Count</td>
+<td style="text-align:left">Matches exactly <em>m</em>&nbsp;occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td style="text-align:left">{<em>m</em>,}</td>
+<td style="text-align:left">Interval--At Least Count</td>
+<td style="text-align:left">Matches at least&nbsp;<em>m</em>&nbsp;occurrences of the preceding subexpression; <strong>unspecified maximum default to 3</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">{,n}</td>
+<td style="text-align:left">Interval--Maximum Count</td>
+<td style="text-align:left">Matches no more than <em>n</em>&nbsp;occurrences of the preceding subexpression; <strong>unspecified minimum defaults to 0</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">{<em>m</em>,<em>n</em>}</td>
+<td style="text-align:left">Interval--Between Count</td>
+<td style="text-align:left">Matches at least&nbsp;<em>m</em>, but not more than&nbsp;<em>n</em>&nbsp;occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td style="text-align:left">[...]</td>
+<td style="text-align:left">Matching Character List</td>
+<td style="text-align:left">Matches any character in list&nbsp;...</td>
+</tr>
+<tr>
+<td style="text-align:left">[^...]</td>
+<td style="text-align:left">Non-Matching Character List</td>
+<td style="text-align:left">Matches any character not in list&nbsp;...</td>
+</tr>
+<tr>
+<td style="text-align:left">|</td>
+<td style="text-align:left">Or</td>
+<td style="text-align:left">'a|b'&nbsp;matches character 'a' or 'b'.</td>
+</tr>
+<tr>
+<td style="text-align:left">(...)</td>
+<td style="text-align:left">Subexpression or Grouping</td>
+<td style="text-align:left">Treat expression&nbsp;...&nbsp;as a unit. The subexpression can be a string of literals or a complex expression containing operators.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\n</code></td>
+<td style="text-align:left">Backreference</td>
+<td style="text-align:left">Matches the n<sup>th</sup>&nbsp;preceding subexpression, where&nbsp;<em>n</em>&nbsp;is an integer from 1 to 9.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\</code></td>
+<td style="text-align:left">Escape Character</td>
+<td style="text-align:left">Treat the subsequent metacharacter in the expression as a literal.</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">Beginning of Line Anchor</td>
+<td style="text-align:left">Match the subsequent expression only when it occurs at the beginning of a line. <strong>NOT USED</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">End of Line Anchor</td>
+<td style="text-align:left">Match the preceding expression only when it occurs at the end of a line. <strong>NOT USED</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">[:<em>class</em>:]</td>
+<td style="text-align:left">POSIX Character Class</td>
+<td style="text-align:left">Match any character belonging to the specified character&nbsp;<em>class</em>. Can be used inside any list expression.</td>
+</tr>
+<tr>
+<td style="text-align:left">[.<em>element</em>.]</td>
+<td style="text-align:left">POSIX Collating Sequence</td>
+<td style="text-align:left">Specifies a collating sequence to use in the regular expression. The&nbsp;<em>element</em>&nbsp;you use must be a defined collating sequence, in the current locale. <strong>NOT USED</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">[=<em>character</em>=]</td>
+<td style="text-align:left">POSIX Character Equivalence Class</td>
+<td style="text-align:left">Match characters having the same base character as the&nbsp;<em>character</em>&nbsp;you specify.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 10 - Metacharacters</strong></em></p>
+<h3 id="312-shorthand-character-classes">3.1.2. Shorthand character classes </h3>
+<p>The following shorthand character classes are supported:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Shorthand</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Equivalent class</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>Digit</td>
+<td>[0-9]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>Word character</td>
+<td>[A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>Space</td>
+<td>[ \t\r\n\f]</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Tab (*)</td>
+<td>\x09</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>Line feed (*)</td>
+<td>\x0A</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>Form feed (*)</td>
+<td>\x0C</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>Carriage return (*)</td>
+<td>\x0D</td>
+</tr>
+<tr>
+<td>\x00</td>
+<td>Hexadecimal character (*)</td>
+<td>Character with hexadecimal value 00</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>Anchor</td>
+<td>Matches the beginning of a string or matches at the end of a string before a newline character. <strong>NOT USED</strong></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>Not digit</td>
+<td>[^\d]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>Not word character</td>
+<td>[^\w]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>Not space (*)</td>
+<td>[^\s]</td>
+</tr>
+<tr>
+<td>\T</td>
+<td>Not tab (*)</td>
+<td>[^\t]</td>
+</tr>
+<tr>
+<td>\N</td>
+<td>Not line feed (*)</td>
+<td>[^\n]</td>
+</tr>
+<tr>
+<td>\F</td>
+<td>Not form feed (*)</td>
+<td>[^\f]</td>
+</tr>
+<tr>
+<td>\R</td>
+<td>Not carriage return (*)</td>
+<td>[^\r]</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>End of string</td>
+<td>Matches at the end of a string. <strong>NOT USED</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 11 - Shorthand character classes</strong></em></p>
+<p>(*) <em>Not supported by Oracle.</em></p>
+<h3 id="313-character-class-ranges">3.1.3. Character class ranges </h3>
+<p>The following character class ranges are supported:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Range</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[A-Z]</td>
+<td>Any uppercase character in the specified range.</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>Any lowercase character in the specified range.</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>Any digit in the specified range.</td>
+</tr>
+<tr>
+<td>[\x00-\FF]</td>
+<td>Any character whose hexadecimal value is in the specified range.</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 12 - Character class ranges</strong></em></p>
+<p>In the above table, lower and upper limits are given as examples. Any character or digit is allowed if the range is valid (e.g., <code>[A-Fa-f0-9]</code> matches any hexadecimal character).</p>
+<h3 id="314-negated-character-classes">3.1.4. Negated character classes </h3>
+<p>Typing a caret (<code>^</code>) after the opening square bracket (<code>[</code>) negates the character class. For instance, <code>[^0-9]</code> matches all characters (of the given or default character set) except digits. The character set can be specified using the <code>p_charset</code> parameter. When not specified, all printable ASCII characters are used (156 out of 256).</p>
+<h3 id="315-posix-character-classes">3.1.5. POSIX character classes </h3>
+<p>The following standard POSIX character classes are supported:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>POSIX</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+<th style="text-align:left"><strong>Equivalent class</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[:alnum:]</td>
+<td style="text-align:left">Alphanumeric characters</td>
+<td style="text-align:left">[a-zA-Z0-9]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:alpha:]</td>
+<td style="text-align:left">Alphabetic characters</td>
+<td style="text-align:left">[a-zA-Z]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:ascii:]</td>
+<td style="text-align:left">ASCII characters</td>
+<td style="text-align:left">[\x00-\x7F]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:blank:]</td>
+<td style="text-align:left">Space and tab</td>
+<td style="text-align:left">[&nbsp;\t]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:cntrl:]</td>
+<td style="text-align:left">Control characters</td>
+<td style="text-align:left">[\x00-\x1F\x7F]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:digit:]</td>
+<td style="text-align:left">Digits</td>
+<td style="text-align:left">[0-9]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:graph:]</td>
+<td style="text-align:left">Visible characters (anything except spaces and control characters)</td>
+<td style="text-align:left">[\x21-\x7E]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:lower:]</td>
+<td style="text-align:left">Lowercase letters</td>
+<td style="text-align:left">[a-z]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:print:]</td>
+<td style="text-align:left">Visible characters and spaces (anything except control characters)</td>
+<td style="text-align:left">[\x20-\x7E]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:punct:]</td>
+<td style="text-align:left">Punctuation (and symbols)</td>
+<td style="text-align:left"><code>...</code></td>
+</tr>
+<tr>
+<td style="text-align:left">[:space:]</td>
+<td style="text-align:left">All whitespace characters, including line breaks</td>
+<td style="text-align:left">[&nbsp;\t\r\n\v\f]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:upper:]</td>
+<td style="text-align:left">Uppercase letters</td>
+<td style="text-align:left">[A-Z]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:word:]</td>
+<td style="text-align:left">Word characters (letters, numbers, and underscores)</td>
+<td style="text-align:left">[A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:xdigit:]</td>
+<td style="text-align:left">Hexadecimal digits</td>
+<td style="text-align:left">[A-Fa-f0-9]</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 13 - POSIX character classes (standard)</strong></em></p>
+<p>The following non-standard character classes are also supported (not by Oracle):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>POSIX</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+<th style="text-align:left"><strong>Equivalent class</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[:vowel:]</td>
+<td style="text-align:left">Vowels (lowercase and uppercase)</td>
+<td style="text-align:left">[aeiouyAEIOUY]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:lvowel:]</td>
+<td style="text-align:left">Lowercase vowels</td>
+<td style="text-align:left">[aeiouy]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:uvowel:]</td>
+<td style="text-align:left">Uppercase vowels</td>
+<td style="text-align:left">[AEIOUY]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:conso:]</td>
+<td style="text-align:left">Consonants (lowercase and uppercase)</td>
+<td style="text-align:left">[bcdfghjklmnpqrstvwxz BCDFGHJKLMNPQRSTVWXZ]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:lconso:]</td>
+<td style="text-align:left">Lowercase consonants</td>
+<td style="text-align:left">[bcdfghjklmnpqrstvwxz]</td>
+</tr>
+<tr>
+<td style="text-align:left">[:uconso:]</td>
+<td style="text-align:left">Uppercase consonants</td>
+<td style="text-align:left">[BCDFGHJKLMNPQRSTVWXZ]</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 14 - POSIX character classes (non-standard)</strong></em></p>
+<h3 id="316-posix-collating-sequences">3.1.6. POSIX collating sequences </h3>
+<p>POSIX collating sequences (syntax: <code>[.element.]</code>) are <strong>not implemented</strong>. When specified, the element itself is returned.</p>
+<h3 id="317-posix-character-equivalent-classes">3.1.7. POSIX character equivalent classes </h3>
+<p>The following character equivalent classes are supported:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Class</strong></th>
+<th><strong>Equivalent class</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[=a=]</td>
+<td>[aàáâãäå]</td>
+</tr>
+<tr>
+<td>[=e=]</td>
+<td>[eèéêë]</td>
+</tr>
+<tr>
+<td>[=i=]</td>
+<td>[iìíîï]</td>
+</tr>
+<tr>
+<td>[=o=]</td>
+<td>[oòóôõö]</td>
+</tr>
+<tr>
+<td>[=u=]</td>
+<td>[uùúûü]</td>
+</tr>
+<tr>
+<td>[=y=]</td>
+<td>[yýÿ]</td>
+</tr>
+<tr>
+<td>[=c=]</td>
+<td>[cç]</td>
+</tr>
+<tr>
+<td>[=n=]</td>
+<td>[nñ]</td>
+</tr>
+<tr>
+<td>[=A=]</td>
+<td>[AÀÁÂÃÄÅ]</td>
+</tr>
+<tr>
+<td>[=E=]</td>
+<td>[EÈÉÊË]</td>
+</tr>
+<tr>
+<td>[=I=]</td>
+<td>[IÌÍÎÏ]</td>
+</tr>
+<tr>
+<td>[=O=]</td>
+<td>[OÒÓÔÕÖ]</td>
+</tr>
+<tr>
+<td>[=U=]</td>
+<td>[UÙÚÛÜ]</td>
+</tr>
+<tr>
+<td>[=Y=]</td>
+<td>[YÝ]</td>
+</tr>
+<tr>
+<td>[=C=]</td>
+<td>[CÇ]</td>
+</tr>
+<tr>
+<td>[=N=]</td>
+<td>[NÑ]</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Table 15 - POSIX character equivalent classes</strong></em></p>
+<h3 id="318-character-class-subtraction">3.1.8. Character class subtraction </h3>
+<p>A character class subtraction matches any single character present in one list (the character class), but not present in another list (the subtracted class). The syntax is: <code>[class-[subtract]]</code>.</p>
+<p><strong>Example</strong>: <code>[A-Z-[AEIOUY]]</code> matches a single uppercase letter that is not a vowel i.e., a consonant.</p>
+<p><strong>Note</strong>: nesting like <code>[0-9-[0-6-[0-3]]]</code> is supported and equivalent to <code>[0-37-9]</code>.</p>
+<p><em>This syntax is not supported by Oracle regular expressions.</em></p>
+<h3 id="319-non-capturing-groups">3.1.9. Non-capturing groups </h3>
+<p>Parenthesis <code>(…)</code> create numbered capturing groups which can later be back referenced via <code>\n</code> where <code>n</code> is the group number. In case of nesting, groups are numbered while parsing from left to right (i.e., the outer group is number 1 and the inner group is number 2). This is the same as Oracle.</p>
+<p><strong>Example</strong>: for expression (AB(CD)), \1 evaluates to ABCD while \2 evaluates to CD.</p>
+<p>If you do not need a group to capture its match, you can create a non-capturing group to optimize the regular expression by putting a question mark (<code>?</code>) and a colon (<code>:</code>) just after the opening parenthesis like <code>(?:value)</code>.</p>
+<p><strong>Example</strong>: for expression <code>(?:AB(CD))</code>, <code>\1</code> evaluates to <code>CD</code>.</p>
+<p><em>This syntax is not supported by Oracle regular expressions.</em></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

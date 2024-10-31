@@ -1,0 +1,24 @@
+dpp_objects.sql
+DPP_SEC_VAR.pks
+DPP_UTILITY_LIC.pks
+DPP_ITF_VAR.pks
+DPP_INJ_VAR.pks
+DPP_JOB_VAR.pks
+DPP_ITF_KRN.pks
+DPP_INJ_KRN.pks
+DPP_JOB_MEM.pks
+DPP_JOB_KRN.pks
+DPP_ITF_KRN.pkb
+DPP_INJ_KRN.pkb
+DPP_JOB_MEM.pkb
+DPP_JOB_KRN.pkb
+003_dpp_job_types.sql
+004_dpp_options.sql
+005_dpp_option_allowed_values.sql
+dc_dba_mgmt_lock_user.sql: UPPER('&&installation_env') in ('AWS', 'COP')
+dpp_toolkit.java
+dc_dba_mgmt_kill_sess_dedic_db.sql: UPPER('&&installation_env')='COP'
+DPP_MONITORING_VAR.pks
+DPP_MONITORING_KRN.pks
+DPP_MONITORING_KRN.pkb
+create_monitoring_job.sql

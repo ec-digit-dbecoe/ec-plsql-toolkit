@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>qc_utility</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./qc_utility_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="qc-utility---users-guide-v240">QC Utility - User's Guide v24.0 </h1>
+<h2 id="author-philippe-debois--european-commission">Author: Philippe Debois  (European Commission) </h2>
+<h1 id="table-of-content">Table of content </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#11-background">1.1. Background</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#12-key-features">1.2. Key Features</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#13-quick-start">1.3. Quick Start</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#2-installation">2. Installation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#21-installation-type">2.1. Installation type</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#211-central-installation">2.1.1. Central installation</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#212-private-installation">2.1.2. Private installation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#22-installation-procedure">2.2. Installation procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#23-installed-objects">2.3. Installed objects</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#24-uninstallation">2.4. Uninstallation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#3-setup">3. Setup</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#31-configuration-types">3.1. Configuration types</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#32-setup-wizard">3.2. Setup wizard</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#33-parameters">3.3. Parameters</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#4-operations">4. Operations</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#41-naming-conventions">4.1. Naming Conventions</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#42-keywords">4.2. Keywords</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#421-special-syntax">4.2.1. Special Syntax</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#43-patterns">4.3. Patterns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#44-dictionaries">4.4. Dictionaries</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#45-extraction-of-aliases">4.5. Extraction of Aliases</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#46-extraction-of-entities">4.6. Extraction of Entities</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#47-incremental-reporting">4.7. Incremental Reporting</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#48-email-notifications">4.8. Email Notifications</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#49-message-types">4.9. Message Types</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#410-fixing-anomalies">4.10. Fixing Anomalies</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#4101-fixing-database-object-anomalies">4.10.1. Fixing Database Object Anomalies</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#4102-fixing-plsql-identifiers-anomalies">4.10.2. Fixing PL/SQL Identifiers Anomalies</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#411-impact-analysis">4.11. Impact Analysis</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#412-database-changes">4.12. Database Changes</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#4121-online-report">4.12.1. Online Report</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#4122-email-report">4.12.2. Email Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5-appendices">5. Appendices</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#51-predefined-patterns">5.1. Predefined Patterns</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#511-default-patterns-and-observations">5.1.1. Default Patterns and Observations</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#512-default-fix-patterns">5.1.2. Default Fix Patterns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#513-additional-observations">5.1.3. Additional Observations</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#514-plsql-identifier-patterns">5.1.4. PL/SQL Identifier Patterns</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#52-sysper-patterns">5.2. SYSPER patterns</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#521-check-patterns-for-sysper">5.2.1. Check Patterns for SYSPER</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#522-fix-patterns-for-sysper">5.2.2. Fix Patterns for SYSPER</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#53-regular-expressions">5.3. Regular Expressions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#531-supported-meta-characters">5.3.1. Supported Meta-characters</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#54-predefined-dictionary-entries">5.4. Predefined Dictionary Entries</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#541-dictionary-entries">5.4.1. Dictionary Entries</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#55-list-of-quality-checks">5.5. List of Quality Checks</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#551-qc000-inventory-of-objects-and-statistics-internal-use-only">5.5.1. QC000: Inventory of Objects and Statistics (Internal Use Only)</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#552-qc001-each-table-must-have-an-alias">5.5.2. QC001: Each Table Must Have an Alias</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#553-qc002-table-aliases-must-be-unique">5.5.3. QC002: Table Aliases Must Be Unique</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#554-qc003-not-used">5.5.4. QC003: Not Used</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#555-qc004-each-table-must-have-a-primary-key">5.5.5. QC004: Each Table Must Have a Primary Key</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#556-qc005-each-table-should-have-at-least-one-foreign-key-to-another-table">5.5.6. QC005: Each Table Should Have at Least One Foreign Key to Another Table</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#557-qc006-not-used">5.5.7. QC006: Not Used</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#56-list-of-quality-checks">5.6. List of Quality Checks</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#561-qc007-each-tablecolumnmview-must-have-a-comment">5.6.1. QC007: Each table/column/mview must have a comment</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#562-qc008-object-names-must-match-standard-pattern">5.6.2. QC008: Object names must match standard pattern</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#563-qc009-potentially-missing-foreign-keys">5.6.3. QC009: Potentially missing foreign keys</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#564-qc010-foreign-key-columns-must-be-indexed">5.6.4. QC010: Foreign key columns must be indexed</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#565-qc011-disabled-database-objects">5.6.5. QC011: Disabled database objects</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#566-qc012-invalid-database-objects">5.6.6. QC012: Invalid database objects</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#567-qc013-tables-and-indexes-must-be-stored-in-their-respective-tablespace">5.6.7. QC013: Tables and indexes must be stored in their respective tablespace</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#568-qc014-package-bodyspec-should-not-contain-global-variables">5.6.8. QC014: Package body/spec should not contain global variables</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#569-qc015-potentially-redundant-indexes">5.6.9. QC015: Potentially redundant indexes</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5610-qc016-missing-audit-columns">5.6.10. QC016: Missing audit columns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5611-qc017-incorrect-data-typelengthoptionality-for-domain-based-columns">5.6.11. QC017: Incorrect data type/length/optionality for domain-based columns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5612-qc018-foreign-key-and-referenced-columns-must-have-the-same-data-type-and-length">5.6.12. QC018: Foreign key and referenced columns must have the same data type and length</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5613-qc019-plsql-identifiers-must-match-standard-naming-patterns">5.6.13. QC019: PL/SQL identifiers must match standard naming patterns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5614-qc020-object-names-must-not-match-anti-patterns">5.6.14. QC020: Object names must not match anti-patterns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5615-qc021-duplicate-primaryunique-key-constraints">5.6.15. QC021: Duplicate primary/unique key constraints</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#5616-qc022-standalone-procedures-and-functions-are-not-allowed">5.6.16. QC022: Standalone procedures and functions are not allowed</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#57-apis">5.7. APIs</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#571-general-principle">5.7.1. General Principle</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#572-changing-patterns">5.7.2. Changing Patterns</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#573-changing-dictionary-entries-parameters">5.7.3. Changing Dictionary Entries (Parameters)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-introduction">1. Introduction </h1>
+<h2 id="11-background">1.1. Background </h2>
+<p>Adhering to best practices in database design is essential for ensuring readability, maintainability, adaptability, and integrity. Database architecture is a specialized discipline that requires expertise and knowledge that may not be universally possessed. Even with a dedicated database designer on the team, their availability can be limited. Without a rigorous quality review process, poorly designed database objects may emerge, particularly when unqualified developers are involved.</p>
+<p>CASE tools (e.g., Oracle Data Model, ERWIN) can significantly aid in database engineering by providing built-in functionalities to check naming conventions and other design rules prior to object creation. However, even with such tools, controls can sometimes be bypassed. For instance, production tables may be inadvertently retained during a release, complicating the distinction between backup or temporary tables and operational ones when naming conventions are lax. Consequently, implementing quality checks directly within the database is crucial for identifying anomalies that might otherwise go unnoticed.</p>
+<p>The QC Utility facilitates quality checks on any database schema against your naming standards and best practices. It features a predefined set of rules that can be activated or customized, along with default naming conventions. These naming patterns utilize standard regular expressions, enhanced with specific keywords. Continuous quality monitoring of database objects, including PL/SQL code identifiers, is achievable by scheduling a job that runs the tool regularly, reporting only the anomalies discovered or resolved since the last run. The utility supports integration with SonarQube and Bamboo, and it can automatically rectify many detected issues by renaming incorrectly named database objects, dropping unnecessary items (e.g., unused sequences), and creating missing elements (e.g., foreign key indexes, audit columns). Names are generated according to configurable patterns for each object type, and before renaming or dropping objects, the tool conducts an impact analysis to identify any references in the database (note that references in the Java layer cannot be checked).</p>
+<h2 id="12-key-features">1.2. Key Features </h2>
+<p>The tool offers the following features:</p>
+<ul>
+<li>Support for multiple applications and schemas</li>
+<li>Ability to define which database objects are in scope or out of scope of the quality checks</li>
+<li>Ability to define and check naming conventions applicable to all database objects, including identifiers of PL/SQL code (the tool comes with predefined naming conventions that can be customized)</li>
+<li>Ability to check database design best practices (in addition to naming conventions)</li>
+<li>Customizable and extendable dictionary of keywords</li>
+<li>Automatic extraction of table aliases</li>
+<li>Manual launch or automated run for continuous checking via the database scheduler</li>
+<li>Automatic detection of changes made via DDL since last run</li>
+<li>Incremental execution reports (show newly detected anomalies and those resolved since last run)</li>
+<li>Execution reports sent by email</li>
+<li>Impact analysis for objects needing to be renamed or dropped</li>
+<li>Automatic fixing of some anomalies (renaming, creation of missing objects, etc.)</li>
+<li>Ability to report (online or via email) on database changes made between two dates or runs</li>
+<li>Possible integration with SonarQube via its generic import JSON format</li>
+<li>Possible integration with Bamboo via JUnit XML format</li>
+</ul>
+<h2 id="13-quick-start">1.3. Quick Start </h2>
+<ol>
+<li>
+<p><strong>Install the Application</strong></p>
+<p>Install the QC tool using the DBM tool (see "installation" section below)</p>
+</li>
+<li>
+<p><strong>Set Up the Tool</strong></p>
+<p>Register the applications and schema(s) to be quality checked using the setup command of the DBM tool (see "setup" section below).</p>
+</li>
+<li>
+<p><strong>Configure Naming Patterns</strong></p>
+<p>Review and adapt the default patterns provided in the QC_PATTERNS table according to your specific naming conventions.</p>
+<p>For each object type:</p>
+<ol>
+<li>Define the include pattern, i.e., objects that are in the scope of the quality checks.</li>
+<li>Define the exclude pattern, i.e., objects that are out of scope of the quality checks.</li>
+<li>Define the check pattern, i.e., how objects should be named according to the standards.</li>
+<li>Define the anti-pattern, i.e., the pattern that object names should not match.</li>
+<li>Define the fix pattern, i.e., how the object name is generated when fixing anomalies.<br>
+Patterns are defined using a combination of regular expressions (see "Regular expressions") and keywords like <code>{app alias}</code> or <code>{table alias}</code> (see "Keywords").</li>
+</ol>
+</li>
+<li>
+<p><strong>Extract Table Aliases</strong></p>
+<p>Execute the command:<br>
+<code>exec qc_utility_krn.extract_table_aliases_from_pk();</code><br>
+Table aliases are extracted from the names of primary or unique keys by default. You can pass another extract pattern as a parameter if necessary (see "Extraction of aliases").</p>
+</li>
+<li>
+<p><strong>Review Table Aliases</strong></p>
+<p>Check the extracted table aliases in the QC_DICTIONARY_ENTRIES table and define any missing ones.</p>
+</li>
+<li>
+<p><strong>Run Quality Checks</strong></p>
+<p>Execute the command:<br>
+<code>exec qc_utility_krn.check_all()</code></p>
+</li>
+<li>
+<p><strong>Review Results</strong><br>
+Check the results sent by email. If necessary, return to step 3 to refine your settings and rerun the quality checks.</p>
+</li>
+<li>
+<p><strong>Analyse Impact</strong></p>
+<p>Perform impact analysis (see "Impact analysis").</p>
+</li>
+<li>
+<p><strong>Fix Anomalies</strong></p>
+</li>
+</ol>
+<p>Address any detected anomalies (see "Fixing anomalies").</p>
+<h1 id="2-installation">2. Installation </h1>
+<h2 id="21-installation-type">2.1. Installation type </h2>
+<p>The tool can be installed in its own schema (<strong>central installation</strong>) or in the schema of the application to be quality checked (<strong>private installation</strong>). When the tool is used to quality check multiple applications and/or schemas, a central installation avoids the burden of installing and subsequently maintaining it multiple times. Note that if your application schemas are spread across several databases, the tool must still be installed in each of them.</p>
+<h3 id="211-central-installation">2.1.1. Central installation </h3>
+<p>If the tool is installed in a separate dedicated schema, it must have the necessary privileges to access the schema(s) where application database objects are stored. Write access is necessary to allow the tool to fix anomalies (e.g., renaming objects, creating missing ones, etc.). The required privileges are:</p>
+<ul>
+<li>SELECT ANY TABLE</li>
+<li>SELECT ANY DICTIONARY</li>
+<li>CREATE ANY &lt;object_type&gt;</li>
+<li>DROP ANY &lt;object_type&gt;</li>
+</ul>
+<h3 id="212-private-installation">2.1.2. Private installation </h3>
+<p>When the tool is installed in the same schema as the application to be quality checked, the database objects of the QC tool must be excluded from the scan using the “exclude pattern” (this is the default behavior).</p>
+<h2 id="22-installation-procedure">2.2. Installation procedure </h2>
+<p>The QC utility is part of the EC PL/SQL toolkit and utilises the MAIL and LOG utilities, which are also available in the toolkit.</p>
+<p>The steps to install these tools are the following:</p>
+<ul>
+<li>Set <code>DBM_USERNAME</code>, <code>DBM_PASSWORD</code>, and <code>DBM_DATABASE</code> environment variables corresponding to the schema in which you want to install the tool (central or application specific).</li>
+<li>Execute the following shell command while located in the home directory of the toolkit:<br>
+<code>dbm-cli install log, mail, qc</code>.</li>
+</ul>
+<h2 id="23-installed-objects">2.3. Installed objects </h2>
+<p>The following QC objects are created in the database schema:</p>
+<table>
+<thead>
+<tr>
+<th>Object Type</th>
+<th>Object Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PACKAGE</td>
+<td>QC_UTILITY_KRN</td>
+<td>Main package of the QC utility (KRN = Kernel)</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>QC_UTILITY_VAR</td>
+<td>Global variables of the QC utility</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>QC_UTILITY_MSG</td>
+<td>API for managing versions of QC_RUN_MSGS records (internal use)</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>QC_UTILITY_STAT</td>
+<td>API for managing versions of QC_RUN_STATS records (internal use)</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>QC_UTILITY_ORA_04068</td>
+<td>Parser for detecting packages containing global variables/cursors (internal use)</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_CHECKS</td>
+<td>List of quality checks</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_APPS</td>
+<td>Applications to check</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_DICTIONARY_ENTRIES</td>
+<td>Entries of the QC utility dictionaries</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_PATTERNS</td>
+<td>Various patterns (check, in/out scope, fix, anti-pattern, etc.)</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_RUNS</td>
+<td>Runs (invocations) of the QC utility</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_RUN_MSGS</td>
+<td>Messages raised during each run</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_RUN_STATS</td>
+<td>Statistics collected during each run</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_RUN_LOGS</td>
+<td>Information logged during each run</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>QC_SCHEMA_VERSION</td>
+<td>Schema version and status</td>
+</tr>
+<tr>
+<td>VIEW</td>
+<td>QC_CURRENT_SCHEMA_VERSION</td>
+<td>Current schema version and status</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td>QC_RUN_SEQ</td>
+<td>Sequence for QC_RUNS.RUN_ID</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td>QC_STAT_SEQ</td>
+<td>Sequence for QC_RUN_STATS.STAT_IVID</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td>QC_MSG_SEQ</td>
+<td>Sequence for QC_RUN_MSGS.MSG_IVID</td>
+</tr>
+<tr>
+<td>JOB</td>
+<td>QC_UTILITY_JOB</td>
+<td>Job to run the QC utility every hour</td>
+</tr>
+</tbody>
+</table>
+<p><em>Objects of MAIL and LOG utilities are not described in this document.</em></p>
+<h2 id="24-uninstallation">2.4. Uninstallation </h2>
+<p>To uninstall the QC tool, execute the following command: <code>dbm-cli uninstall qc</code>.</p>
+<p>To uninstall the QC tool and the tools it depends on: <code>dbm-cli uninstall qc, mail, log</code>.</p>
+<h1 id="3-setup">3. Setup </h1>
+<h2 id="31-configuration-types">3.1. Configuration types </h2>
+<p>The tool supports several configurations:</p>
+<ul>
+<li>The tool can quality check one or several applications (e.g., in a microservices architecture, each microservice can be considered a separate application).</li>
+<li>Each application can have one or more schemas (commonly, application data, application logic, and access layers are organized in separate schemas).</li>
+<li>Schemas are usually dedicated to a single application; however, the tool supports the rare case of one schema being used for multiple applications if the ownership of database objects can be determined based on naming conventions.</li>
+</ul>
+<p>Quality check rules (e.g., naming conventions) can be configured as shared across all applications or defined privately for each application. In a <strong>shared configuration</strong>, patterns and dictionary entries are attached to the “ALL” dummy application; in a <strong>private configuration</strong>, they are linked to the specific application. Note that a mix of shared and private rules is not supported, but shared rules can be converted into private rules and vice versa.</p>
+<p>Anomalies are reported per application and per schema. If email parameters are shared, a single email is sent for all applications; if private, one email is sent per application.</p>
+<h2 id="32-setup-wizard">3.2. Setup wizard </h2>
+<p>Once the tool has been installed, you must use the setup wizard to register your applications and schemas and decide on the type of configuration (shared or private). To setup the QC tool, execute the follwing shell command: <code>dbm-cli setup qc</code>.</p>
+<p>Available <strong>options</strong> are the following:</p>
+<ol>
+<li>Reset setup to factory settings (to start from scratch).</li>
+<li>Register one or more applications and their schemas.</li>
+<li>Register additional schemas for one or more applications.</li>
+<li>Unregister one or more applications (and their schemas).</li>
+<li>Unregister one or more schemas of an application.</li>
+<li>Check registered applications and their schemas.</li>
+<li>Check system privileges required to operate.</li>
+<li>Convert a shared configuration into multiple private configurations (one per application).</li>
+<li>Convert the private configuration of an application into a shared configuration.</li>
+<li>Copy a configuration from one application to another.</li>
+</ol>
+<p><strong>Remarks</strong>:</p>
+<ul>
+<li>To terminate a repetitive step or exit the setup, enter a dot (“.”) + RETURN.</li>
+<li>Names of schemas are validated online (must exist and be accessible).</li>
+<li>When registering the first application, you will be asked whether your configuration will be shared by all applications (yes/no). Enter “yes” for a shared configuration or “no” for private configurations.</li>
+<li>A <strong>warning</strong> is displayed for critical operations (e.g., reset or convert):<br>
+<code>WARNING: This is an irreversible operation: are you sure (yes/no)?</code><br>
+<code>Enter “yes” to continue or “no” to abort.</code><br>
+“y” and “n” are valid answers equivalent to “yes” and “no.”</li>
+</ul>
+<h2 id="33-parameters">3.3. Parameters </h2>
+<p>The following parameters will be requested (once for all applications in a shared setup, once per application in a private setup):</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Mandatory?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAB_TS</td>
+<td>Tablespace for table data</td>
+<td>N</td>
+</tr>
+<tr>
+<td>IDX_TS</td>
+<td>Tablespace for indexes</td>
+<td>N</td>
+</tr>
+<tr>
+<td>LOB_TS</td>
+<td>Tablespace for large objects</td>
+<td>N</td>
+</tr>
+<tr>
+<td>EMAIL_RECIPIENTS</td>
+<td>Recipients of anomalies report</td>
+<td>N</td>
+</tr>
+<tr>
+<td>EMAIL_CC</td>
+<td>Carbon Copy of anomalies report</td>
+<td>N</td>
+</tr>
+<tr>
+<td>EMAIL_BCC</td>
+<td>Blind Carbon Copy of anomalies report</td>
+<td>N</td>
+</tr>
+<tr>
+<td>AUDIT_INSERTED_BY</td>
+<td>Audit column name (who created?)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>AUDIT_INSERTED_ON</td>
+<td>Audit column name (when created?)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>AUDIT_UPDATED_BY</td>
+<td>Audit column name (who updated?)</td>
+<td>N</td>
+</tr>
+<tr>
+<td>AUDIT_UPDATED_ON</td>
+<td>Audit column name (when updated?)</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p>Tablespaces are used in QC013, and audit columns are used in QC016. These parameters can be modified later in the <code>QC_DICTIONARY_ENTRIES</code> table.</p>
+<p>Parameters (tablespaces, email addresses, and audit column names) are requested for each application (in the case of private configurations) or once for all applications (in the case of a shared configuration).</p>
+<p>By default, patterns and dictionary entries are those recommended by the DBCC and cannot be changed interactively via the setup (it would be too tedious). To customize them, it is advised to create a script that calls the provided APIs (see section 7.6). When managed as code, the configuration can be placed under version control and easily reapplied when needed.</p>
+<h1 id="4-operations">4. Operations </h1>
+<h2 id="41-naming-conventions">4.1. Naming Conventions </h2>
+<p>The tool can check the naming conventions of various database objects, including primary objects like tables, views, and stored procedures. It also evaluates secondary objects, which cannot exist independently of a primary object, such as table columns, constraints, indexes, and more. Additionally, identifiers within PL/SQL code can be assessed.</p>
+<p>Naming conventions are defined using extended regular expressions that can incorporate predefined keywords. These keywords are replaced with their corresponding values before the regular expression is evaluated. Some keywords apply universally to any object type, while others are specific to certain object types.</p>
+<h2 id="42-keywords">4.2. Keywords </h2>
+<p>The following predefined keywords are replaced with their corresponding single values:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>{app alias}</strong></td>
+<td>Application alias (configured during setup) - applicable to any object type</td>
+</tr>
+<tr>
+<td><strong>{object}</strong></td>
+<td>Name of the object being checked</td>
+</tr>
+<tr>
+<td><strong>{table}</strong></td>
+<td>Table name</td>
+</tr>
+<tr>
+<td><strong>{table entity}</strong></td>
+<td>Name of the entity corresponding to a table</td>
+</tr>
+<tr>
+<td><strong>{table alias}</strong></td>
+<td>Table alias - applicable to tables and their secondary object types (columns, constraints, indexes, etc.)</td>
+</tr>
+<tr>
+<td><strong>{parent table}</strong></td>
+<td>Name of the table referenced by a foreign key (FK) - applicable to FK and their indexes</td>
+</tr>
+<tr>
+<td><strong>{parent entity}</strong></td>
+<td>Name of the entity corresponding to a parent table</td>
+</tr>
+<tr>
+<td><strong>{parent alias}</strong></td>
+<td>Alias of the parent table</td>
+</tr>
+<tr>
+<td><strong>{parent cons}</strong></td>
+<td>Name of the primary key (PK) or unique key (UK) referenced by a FK - applicable to FK and their indexes</td>
+</tr>
+<tr>
+<td><strong>{tab column}</strong></td>
+<td>Name of the table column - applicable only to not null constraints</td>
+</tr>
+<tr>
+<td><strong>{tab col alias}</strong></td>
+<td>Alias of the table column - applicable only to not null constraints, used for long column names that result in a constraint name length ≥ 30</td>
+</tr>
+<tr>
+<td><strong>{ind column}</strong></td>
+<td>Name of the index column - applicable only to indexes made up of a single column</td>
+</tr>
+<tr>
+<td><strong>{cons column}</strong></td>
+<td>Name of the constraint column - applicable only to constraints based on a single column</td>
+</tr>
+<tr>
+<td><strong>{cons role}</strong></td>
+<td>Role qualifying a FK constraint, derived from column names (when two FKs exist between the same set of tables) - applicable to FK constraints only</td>
+</tr>
+<tr>
+<td><strong>{ind cons}</strong></td>
+<td>Index constraint: name of the constraint whose columns match those of the index - applicable to indexes only</td>
+</tr>
+<tr>
+<td><strong>{triggering event}</strong></td>
+<td>Triggering event (e.g., insert/update/delete) - applicable only to triggers</td>
+</tr>
+<tr>
+<td><strong>{trigger type}</strong></td>
+<td>Trigger type (e.g., before/after row/statement) - applicable only to triggers</td>
+</tr>
+<tr>
+<td><strong>{argument in out}</strong></td>
+<td>In out argument</td>
+</tr>
+<tr>
+<td><strong>{seq no}</strong></td>
+<td>Sequence number used to generate unique names when fixing anomalies - applicable to all object types</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The "name" qualifier is omitted from the keyword name (e.g., <code>{table name}</code> becomes <code>{table}</code>).</p>
+<p>The following predefined keywords match any value defined in the specified dictionary:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>{any &lt;object type&gt;}</strong></td>
+<td>Matches any object of the given type (e.g., table, constraint)</td>
+</tr>
+<tr>
+<td><strong>{any &lt;pk|uk|fk&gt; column}</strong></td>
+<td>Matches any column of any constraint of the given type (in the context of a given table)</td>
+</tr>
+<tr>
+<td><strong>{any &lt;dict name&gt;}</strong></td>
+<td>Matches any value defined in the named custom dictionary (e.g., "table alias", "plural")</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> To avoid performance issues, refrain from using two <code>{any \&lt;...\&gt;}</code> keywords in the same pattern.</p>
+<p>The tool includes the predefined dictionaries above, but additional ones can be defined. For example, large applications are often decomposed into modules, and abbreviations can be used in table names. These modules should be defined in the “module” dictionary and referenced in the matching patterns using the following keyword:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>{any module}</strong></td>
+<td>Matches any value defined in the “module” dictionary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="421-special-syntax">4.2.1. Special Syntax </h3>
+<p>Any keyword name can be prefixed and/or suffixed with an underscore (e.g., <code>{_keyword}</code>, <code>{keyword_}</code>, or <code>{_keyword_}</code>) to indicate that an underscore should be generated before and/or after the value when its value is not null.</p>
+<p>For example, the following check pattern for table names will work whether the application has an alias or not: <code>{app_alias_}([A-Z]|[0-9]|'_')+</code>.</p>
+<h2 id="43-patterns">4.3. Patterns </h2>
+<p>The following patterns are defined for each object type:</p>
+<ul>
+<li><strong>Check pattern:</strong> Specifies how objects should be named according to the established standards.</li>
+<li><strong>Anti-pattern:</strong> Specifies patterns that objects should not match.</li>
+<li><strong>Include pattern:</strong> Specifies which objects are within the scope of the quality checks.</li>
+<li><strong>Exclude pattern:</strong> Specifies which objects are outside the scope of the quality checks.</li>
+<li><strong>Fix pattern:</strong> Specifies how to generate object names when correcting naming anomalies.</li>
+</ul>
+<p>As a rule, the patterns associated with an object type are always applied to the names of the objects. For example, the pattern for the TABLE object type is applied to table names. Some patterns may also apply to other attributes, as indicated by the name of the object type itself. For instance, the patterns associated with the TABLE ALIAS object type are applied to table aliases rather than table names.</p>
+<h2 id="44-dictionaries">4.4. Dictionaries </h2>
+<p>The tool includes several predefined dictionaries used for various purposes. Each dictionary consists of key-value pairs. The predefined dictionaries are as follows:</p>
+<ul>
+<li><strong>PARAMETER:</strong> Holds various parameters for the tool (e.g., parameters for email notifications).</li>
+<li><strong>TABLE ALIAS:</strong> Created when extracting table aliases (see Extraction of Aliases).</li>
+<li><strong>TABLE ENTITY:</strong> Created when extracting entities from tables (see Extraction of Entities).</li>
+<li><strong>PLURAL WORD:</strong> A list of non-trivial plural words, i.e., those not ending with an "s" (e.g., information, staff, data).</li>
+<li><strong>TRIGGER TYPE:</strong> A list of trigger types with their abbreviations (e.g., BEFORE/AFTER EACH ROW trigger is abbreviated as BR/AR).</li>
+<li><strong>TRIGGERING EVENT:</strong> A list of triggering events with their abbreviations (e.g., INSERT/UPDATE/DELETE trigger is abbreviated as I/U/D).</li>
+<li><strong>AUDIT COLUMN:</strong> A list of audit columns that must exist in every table (e.g., date and author of creation and last update).</li>
+<li><strong>TABLE COLUMN ALIAS:</strong> Used to replace long column names with shorter ones to avoid exceeding 30 characters when generating not null constraint names; key format is <code>&lt;table&gt;.&lt;column&gt;</code> and the corresponding value is <code>&lt;tab col alias&gt;</code> (not prefixed with the table name). This dictionary is completely project-dependent and is therefore empty by default.</li>
+</ul>
+<p>Custom dictionaries can be added as necessary. For example, if your table names include a second prefix that represents the short name of a module (assuming the application comprises multiple modules), a custom dictionary could be created to hold the list of modules. This custom dictionary can then be referenced in the naming pattern using the <code>{any module}</code> keyword.</p>
+<h2 id="45-extraction-of-aliases">4.5. Extraction of Aliases </h2>
+<p>Table aliases can be extracted from existing database objects, provided that certain naming conventions have been followed. The tool includes a default rule to extract table aliases based on the following conventions:</p>
+<ul>
+<li><strong>Primary key:</strong> <code>^(&lt;table_alias&gt;)_PK$</code></li>
+<li><strong>Unique key:</strong> <code>^(&lt;table_alias&gt;)_UK[1-9]*$</code></li>
+</ul>
+<p>Table aliases are extracted using the <code>\1</code> meta-character, which references the first matching subexpression (the one enclosed in parentheses).</p>
+<p>If constraint names are prefixed with an application alias, the following conventions can also be applied:</p>
+<ul>
+<li><strong>Primary key:</strong> <code>^(&lt;app_alias&gt;)_(&lt;table_alias&gt;)_PK$</code></li>
+<li><strong>Unique key:</strong> <code>^(&lt;app_alias&gt;)_(&lt;table_alias&gt;)_UK[1-9]*$</code></li>
+</ul>
+<p>In this scenario, the pattern for extracting table aliases would be <code>\2</code> to reference the second subexpression.</p>
+<h2 id="46-extraction-of-entities">4.6. Extraction of Entities </h2>
+<p>Entity names can be extracted from existing table names, assuming that specific naming conventions have been adhered to. The tool provides a default rule for extracting entity names based on the following convention:</p>
+<ul>
+<li><strong>Table name:</strong> <code>^&lt;app_alias&gt;(.+)$</code></li>
+</ul>
+<p>Entity names are extracted using the <code>\1</code> meta-character, which references the first matching subexpression (the one enclosed in parentheses). By default, entity names are derived from table names by removing the application alias prefix.</p>
+<h2 id="47-incremental-reporting">4.7. Incremental Reporting </h2>
+<p>Execution reports are incremental, meaning they can highlight the differences between two consecutive runs. Each report consists of three distinct parts:</p>
+<ol>
+<li><strong>New Anomalies:</strong> Anomalies detected since the last run.</li>
+<li><strong>Resolved Anomalies:</strong> Anomalies that were present in the previous run but have been resolved.</li>
+<li><strong>Backlog:</strong> A record of other anomalies that were detected previously and remain unresolved.</li>
+</ol>
+<h2 id="48-email-notifications">4.8. Email Notifications </h2>
+<p>Execution reports can be sent via email to a designated list of recipients, with the option to include CC (Carbon Copy) or BCC (Blind Carbon Copy) recipients. The recipient types (TO, CC, BCC) can be specified in the <strong>PARAMETER</strong> dictionary. Additionally, the subject line and sender information of the emails can be customized. Execution reports are only sent when there are differences detected since the last run.</p>
+<h2 id="49-message-types">4.9. Message Types </h2>
+<p>The tool generates three types of messages: error, warning, and information messages.</p>
+<ul>
+<li><strong>Error Messages:</strong> Raised for rules that are universally applicable (e.g., table names must adhere to naming standards).</li>
+<li><strong>Warning Messages:</strong> Raised for rules that allow exceptions (e.g., each table must be linked to at least one other table; an exception could be a calendar table that holds a single record for each calendar day).</li>
+<li><strong>Information Messages:</strong> These provide additional context or insights related to the execution process.</li>
+</ul>
+<p>This structure improves readability and conveys the information clearly.</p>
+<h2 id="410-fixing-anomalies">4.10. Fixing Anomalies </h2>
+<h3 id="4101-fixing-database-object-anomalies">4.10.1. Fixing Database Object Anomalies </h3>
+<p>Some anomalies reported by the tool can be fixed automatically (refer to the individual descriptions in the <strong>List of Quality Checks</strong>). The following actions can be taken on database objects:</p>
+<ul>
+<li><strong>Rename:</strong> Change the name to comply with naming conventions.</li>
+<li><strong>Drop:</strong> Remove unnecessary objects, such as unused sequences.</li>
+<li><strong>Create:</strong> Generate missing objects, like foreign keys or indexes.</li>
+<li><strong>Enable:</strong> Activate disabled objects.</li>
+<li><strong>Compile:</strong> Compile invalid objects.</li>
+</ul>
+<p>Before executing the tool, it is advisable to review the proposed fixes by examining the following columns in <strong>qc_run_msgs</strong>:</p>
+<ul>
+<li><strong>fix_op:</strong> Indicates the fixing operation (e.g., rename, drop, create, enable, compile).</li>
+<li><strong>fix_type:</strong> Specifies the type of object being addressed.</li>
+<li><strong>fix_name:</strong> Represents the name of the object to be created or the new name of the object to be renamed.</li>
+</ul>
+<p>You can modify the proposed name and/or operation. To ensure that your changes are preserved in subsequent runs of the quality check, set the <strong>fix_locked</strong> column to <strong>Y</strong>.</p>
+<p>The following columns will be updated as a result of the fixing operation:</p>
+<ul>
+<li><strong>fix_ddl:</strong> The exact Data Definition Language (DDL) statement used to fix the anomaly.</li>
+<li><strong>fix_status:</strong> Displays <strong>SUCCESS</strong> or <strong>FAILURE</strong> depending on the outcome of the operation.</li>
+<li><strong>fix_msg:</strong> Contains the error message generated during the operation (in case of FAILURE).</li>
+<li><strong>fix_time:</strong> Records the date and time when the anomaly was fixed.</li>
+</ul>
+<p>It is recommended to check the status of the operation. The most common reasons for failure include:</p>
+<ul>
+<li><strong>Name length exceeds 30 characters:</strong> Shorten the name.</li>
+<li><strong>Object is currently locked:</strong> Try again later.</li>
+</ul>
+<p>Anomalies can be fixed by calling the <strong>qc_utility.krn.fix_anomalies</strong> procedure. If you prefer to target specific anomalies (which is often advisable rather than fixing all anomalies at once), you can specify the following parameters (wildcards <code>%</code> and <code>_</code> are allowed):</p>
+<ul>
+<li><strong>qc_code:</strong> Quality check code.</li>
+<li><strong>object_type:</strong> Type of object.</li>
+<li><strong>object_name:</strong> Name of the object.</li>
+<li><strong>fix_op:</strong> Fixing operation (e.g., rename, drop, create, enable, compile).</li>
+<li><strong>msg_type:</strong> Type of message (e.g., error, warning).</li>
+</ul>
+<p>Be aware that fixing an anomaly may lead to the generation of new anomalies during subsequent quality checks. For example, creating a missing foreign key may result in a "foreign key without index" anomaly. Once an anomaly has been successfully fixed, it will be reported as resolved in the next run of the quality checks.</p>
+<h3 id="4102-fixing-plsql-identifiers-anomalies">4.10.2. Fixing PL/SQL Identifiers Anomalies </h3>
+<p>Support for checking and fixing the names of PL/SQL identifiers was added in version 1.2. The code analysis utilizes the <strong>PLSCOPE</strong> feature of Oracle, which, when enabled, collects information about PL/SQL identifiers (e.g., where they are declared and referenced) during compilation. This information, accessible via the <strong>user_identifiers</strong> system view, is subsequently used by the QC utility to detect and fix naming non-compliances.</p>
+<p>It is advisable to enable <strong>PLSCOPE</strong> while developing PL/SQL code. You can enable or disable it for your session by invoking:</p>
+<ul>
+<li><strong>qc_utility_krn.enable_plscope</strong> to enable PLSCOPE.</li>
+<li><strong>qc_utility_krn.disable_plscope</strong> to disable PLSCOPE.</li>
+</ul>
+<p>The procedure for fixing PL/SQL identifier anomalies is similar to that for database objects (described in the previous section). However, there are two key reasons why the results of fix operations cannot be logged in the <strong>qc_run_msgs</strong> table:</p>
+<ol>
+<li>
+<p><strong>Scope of Renaming:</strong> Entries in <strong>qc_run_msgs</strong> correspond to declarations of poorly named identifiers, whereas the renaming operation applies not only to declarations but also to references. Some database objects not listed in <strong>qc_run_msgs</strong> may contain references to poorly named variables that could also be changed and recompiled.</p>
+</li>
+<li>
+<p><strong>Optimized Recompilation:</strong> The recompilation process is optimized to change and recompile each database object only once, allowing multiple naming anomalies to be fixed in a single operation.</p>
+</li>
+</ol>
+<p>Before fixing anomalies, please review the <strong>fix_name</strong> proposed in <strong>qc_run_msgs</strong>. The proposed name may be incorrect if the usage has not been accurately determined. For example, if the <strong>CONSTANT</strong> keyword has been omitted, a variable named "k_xxx" may be reported as poorly named because it has been considered a normal variable instead of a constant. In such cases, simply adding the missing <strong>CONSTANT</strong> keyword is preferable to renaming the variable.</p>
+<p>Anomalies can be fixed by calling the <strong>qc_utility.krn.fix_plsql_anomalies</strong> procedure. Changed and recompiled database objects are reported via the <strong>log_utility</strong>, whose output is by default sent to <strong>dbms_output</strong>. If you wish to persist this information in the <strong>log_output</strong> table, first set a context via <strong>log_utility.set_context</strong> (the context is a unique identifier for retrieving your logs) and specify a log mask containing "I" (indicating information). To receive details on which identifier references have been changed, in which database object, and at which line and column, activate the debugging mode by including "D" (indicating debug) in the log mask.</p>
+<p>Note that <strong>PLSCOPE</strong> is automatically disabled before the fix operation and re-enabled afterward. This prevents any recompilation during the fix process from modifying <strong>user_identifiers</strong>, which should remain unchanged until the operation is complete (to avoid the risk of a moving target).</p>
+<p>The order of recompilation for database objects considers dependencies (i.e., references). Database objects that do not depend on any others are changed and recompiled first.</p>
+<p>Any error detected during the recompilation of code after the substitution of identifiers will halt the fixing operation, potentially leaving your schema in an inconsistent state. If your code is not under version control, it is recommended to back it up before starting the fix operation, allowing you to restore the backup in case of failure.</p>
+<h2 id="411-impact-analysis">4.11. Impact Analysis </h2>
+<p>Before fixing anomalies, the tool can perform an impact analysis of the objects that need to be renamed or dropped. To accomplish this, it searches the <strong>user_dependencies</strong> and <strong>user_source</strong> Oracle data dictionary views. The following columns in <strong>qc_run_msgs</strong> are updated during this process:</p>
+<ul>
+<li><strong>dep_ref_cnt:</strong> Number of references found in <strong>user_dependencies</strong>.</li>
+<li><strong>usr_ref_cnt:</strong> Number of references found in <strong>user_source</strong>.</li>
+</ul>
+<h2 id="412-database-changes">4.12. Database Changes </h2>
+<p>The tool can detect, track, and report on database changes, both online and via email (refer to QC000 for more details).</p>
+<h3 id="4121-online-report">4.12.1. Online Report </h3>
+<p>To obtain a report of changes made to database objects between two specific dates, you can execute the following SQL query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span>
+  <span class="token keyword keyword-FROM">FROM</span> <span class="token keyword keyword-TABLE">TABLE</span><span class="token punctuation">(</span>qc_utility_krn<span class="token punctuation">.</span>get_db_changes<span class="token punctuation">(</span>
+                TO_DATE<span class="token punctuation">(</span><span class="token string">'16/08/2019 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY HH24:MI:SS'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                TO_DATE<span class="token punctuation">(</span><span class="token string">'27/08/2019 23:59:59'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY HH24:MI:SS'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>The <strong>get_db_changes</strong> pipelined function accepts the following four optional parameters:</p>
+<ul>
+<li><strong>Start date/time</strong></li>
+<li><strong>End date/time</strong></li>
+<li><strong>Start run ID</strong></li>
+<li><strong>End run ID</strong></li>
+</ul>
+<p>You can specify either a date/time range or a run ID range. If no start parameter is provided, the function considers database changes from the beginning of time. If no end parameter is specified, it will include database changes up to the current moment.</p>
+<h3 id="4122-email-report">4.12.2. Email Report </h3>
+<p>A report can also be sent via email using the following invocation:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-EXEC">EXEC</span> qc_utility_krn<span class="token punctuation">.</span>send_db_changes<span class="token punctuation">(</span>
+        TO_DATE<span class="token punctuation">(</span><span class="token string">'16/08/2019 00:00:00'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY HH24:MI:SS'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        TO_DATE<span class="token punctuation">(</span><span class="token string">'27/08/2019 23:59:59'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY HH24:MI:SS'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>The <strong>send_db_changes</strong> procedure accepts the same four parameters as the <strong>get_db_changes</strong> function. The recipients (TO, CC, and BCC) are specified in the <strong>PARAMETER</strong> dictionary.</p>
+<h1 id="5-appendices">5. Appendices </h1>
+<h2 id="51-predefined-patterns">5.1. Predefined Patterns </h2>
+<p>Matching patterns are defined for the following categories:</p>
+<ul>
+<li><strong>Native Oracle Object Types</strong></li>
+<li><strong>Object Types Qualified by Their Properties</strong> (e.g., index type, constraint type, object comment, object alias, etc.)</li>
+<li><strong>Non-Oracle Object Types</strong> (any non-database object type for which patterns must be defined, e.g., Quality Check)</li>
+</ul>
+<p>Below are the default check patterns provided:</p>
+<table>
+<thead>
+<tr>
+<th><strong>OBJECT_TYPE</strong></th>
+<th><strong>CHECK_PATTERN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTRAINT: CHECK</td>
+<td>^{app alias_}{table alias}_([A-Z]</td>
+</tr>
+<tr>
+<td>CONSTRAINT: FOREIGN KEY</td>
+<td>^{app alias_}{table alias}<em>{parent alias}</em>([A-Z]</td>
+</tr>
+<tr>
+<td>CONSTRAINT: NOT NULL</td>
+<td>^{app alias_}{table alias_}{tab column}_NN$</td>
+</tr>
+<tr>
+<td>CONSTRAINT: PRIMARY KEY</td>
+<td>^{app alias_}{table alias}_PK$</td>
+</tr>
+<tr>
+<td>CONSTRAINT: UNIQUE KEY</td>
+<td>^{app alias_}{table alias}_UK[0-9]*$</td>
+</tr>
+<tr>
+<td>FUNCTION</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>INDEX: FOREIGN KEY</td>
+<td>^{app alias_}{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>INDEX: NON UNIQUE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>INDEX: PRIMARY KEY</td>
+<td>^{app alias_}{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE KEY</td>
+<td>^{app alias_}{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>MATERIALIZED VIEW</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>PACKAGE BODY</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>PROCEDURE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>QUALITY CHECK</td>
+<td>^QC[0-9]{3}$</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td>^{app alias_}{any table alias}_SEQ$</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>TABLE ALIAS</td>
+<td><sup class="footnote-ref"><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#fn1" id="fnref1">[1]</a></sup>([A-Z]</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>^{app alias_}{table alias}_{triggering event}{trigger_type}_TRG$</td>
+</tr>
+<tr>
+<td>VIEW</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+</tbody>
+</table>
+<p>You can add any missing native database object types, provided they appear in the <code>USER_OBJECTS</code> data dictionary view. Additionally, you can adapt the provided patterns to suit your needs and naming conventions.</p>
+<h3 id="511-default-patterns-and-observations">5.1.1. Default Patterns and Observations </h3>
+<p>Regarding the default patterns, note the following:</p>
+<ul>
+<li>All object names (both primary and secondary) are prefixed with the application alias to ensure uniqueness within a database schema.</li>
+<li>Table aliases consist of a minimum of 2 and a maximum of 4 characters, with an ideal length of 3 characters.</li>
+<li>Table names are plural, meaning they end with an "S" or another defined plural word from the relevant dictionary.</li>
+<li>Trigger names include abbreviations for their type and event, as defined in their respective dictionaries.</li>
+<li>Quality check codes are formatted as <code>QC001</code> to <code>QC999</code>.</li>
+<li>Comments can be bilingual by choice, though they may also be monolingual.</li>
+<li>Constraint names vary depending on their type (e.g., primary key, unique key, foreign key, check constraints).</li>
+<li>Index names vary based on their type (e.g., pk, uk, fk, non-unique).</li>
+</ul>
+<h3 id="512-default-fix-patterns">5.1.2. Default Fix Patterns </h3>
+<p>The following fix patterns are provided by default to generate names according to these naming conventions:</p>
+<table>
+<thead>
+<tr>
+<th><strong>OBJECT_TYPE</strong></th>
+<th><strong>FIX_PATTERN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTRAINT: CHECK</td>
+<td>{app alias_}{table alias}_CK{seq nr}</td>
+</tr>
+<tr>
+<td>CONSTRAINT: FOREIGN KEY</td>
+<td>{app alias_}{child alias}_{parent alias}{_cons role}_FK</td>
+</tr>
+<tr>
+<td>CONSTRAINT: NOT NULL</td>
+<td>{app alias_}{table alias_}{tab column}_NN</td>
+</tr>
+<tr>
+<td>CONSTRAINT: PRIMARY KEY</td>
+<td>{app alias_}{table alias}_PK</td>
+</tr>
+<tr>
+<td>CONSTRAINT: UNIQUE KEY</td>
+<td>{app alias_}{table alias}_UK{seq nr}</td>
+</tr>
+<tr>
+<td>INDEX: FOREIGN KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>INDEX: NON UNIQUE</td>
+<td>{app alias_}{table alias}_I{seq nr}</td>
+</tr>
+<tr>
+<td>INDEX: PRIMARY KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>{app alias_}{table alias}_{triggering event}{trigger_type}_TRG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="513-additional-observations">5.1.3. Additional Observations </h3>
+<ul>
+<li>Not all object types can have their names fixed automatically.</li>
+<li>A sequence number (<code>{seq nr}</code>) is used for certain object types to ensure unique names.</li>
+<li>The constraint role (<code>{cons role}</code>) helps to generate unique foreign keys when multiple foreign keys exist between the same pair of tables.</li>
+<li>Index constraints (<code>{ind cons}</code>) are used to derive index names from their corresponding constraint names.</li>
+<li>Trigger names depend on their type and event.</li>
+</ul>
+<h3 id="514-plsql-identifier-patterns">5.1.4. PL/SQL Identifier Patterns </h3>
+<p>Here are the patterns for PL/SQL identifiers, aligned with the naming conventions recommended by the Database Engineering Centre of Excellence (DBCC):</p>
+<table>
+<thead>
+<tr>
+<th><strong>OBJECT_TYPE</strong></th>
+<th><strong>CHECK_PATTERN</strong></th>
+<th><strong>FIX_PATTERN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDENTIFIER: GLOBAL CONSTANT OBJECT</td>
+<td>^gko_.*$</td>
+<td>gko_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL CONSTANT RECORD</td>
+<td>^gkr_.*$</td>
+<td>gkr_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL CONSTANT SCALAR</td>
+<td>^gk_.*$</td>
+<td>gk_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL CONSTANT TABLE</td>
+<td>^gk[ta]_.*$</td>
+<td>gkt_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL CURSOR</td>
+<td>^gv?c_.*$</td>
+<td>gc_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL EXCEPTION</td>
+<td>^gv?e_.*$</td>
+<td>ge_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL OBJECT</td>
+<td>^gv?o_.*$</td>
+<td>go_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL RECORD</td>
+<td>^gv?r_.*$</td>
+<td>gr_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL RECORD TYPE</td>
+<td>^gr_.*_type$</td>
+<td>gr_{name}_type</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL SCALAR</td>
+<td>^gv?_.*$</td>
+<td>g_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL TABLE</td>
+<td>^gv?[ta]_.*$</td>
+<td>gt_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: GLOBAL TABLE TYPE</td>
+<td>^g[ta]_.*_type$</td>
+<td>gt_{name}_type</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN OBJECT PARAMETER</td>
+<td>^pi?o_.*$</td>
+<td>po_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN OUT OBJECT PARAMETER</td>
+<td>^pioo_.*$</td>
+<td>pioo_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN OUT RECORD PARAMETER</td>
+<td>^pior_.*$</td>
+<td>pior_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN OUT SCALAR PARAMETER</td>
+<td>^pio_.*$</td>
+<td>pio_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN OUT TABLE PARAMETER</td>
+<td>^pio[ta]_.*$</td>
+<td>piot_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN RECORD PARAMETER</td>
+<td>^pi?r_.*$</td>
+<td>pr_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN SCALAR PARAMETER</td>
+<td>^pi?_.*$</td>
+<td>p_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: IN TABLE PARAMETER</td>
+<td>^pi?[ta]_.*$</td>
+<td>pt_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL CONSTANT OBJECT</td>
+<td>^l?ko_.*$</td>
+<td>ko_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL CONSTANT RECORD</td>
+<td>^l?kr_.*$</td>
+<td>kr_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL CONSTANT SCALAR</td>
+<td>^l?k_.*$</td>
+<td>k_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL CONSTANT TABLE</td>
+<td>^l?k[ta]_.*$</td>
+<td>kt_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL CURSOR</td>
+<td>^l?v?c_.*$</td>
+<td>c_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL EXCEPTION</td>
+<td>^l?v?e_.*$</td>
+<td>e_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL OBJECT</td>
+<td>^l?v?o_.*$</td>
+<td>o_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL RECORD</td>
+<td>^l?v?r_.*$</td>
+<td>r_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL RECORD TYPE</td>
+<td>^l?r_.*_type$</td>
+<td>r_{name}_type</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL SCALAR</td>
+<td>^l?v?_.*$</td>
+<td>l_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL TABLE</td>
+<td>^l?v?[ta]_.*$</td>
+<td>t_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: LOCAL TABLE TYPE</td>
+<td>^l?[ta]_.*_type$</td>
+<td>t_{name}_type</td>
+</tr>
+<tr>
+<td>IDENTIFIER: OUT OBJECT PARAMETER</td>
+<td>^poo_.*$</td>
+<td>poo_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: OUT RECORD PARAMETER</td>
+<td>^por_.*$</td>
+<td>por_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: OUT SCALAR PARAMETER</td>
+<td>^po_.*$</td>
+<td>po_{name}</td>
+</tr>
+<tr>
+<td>IDENTIFIER: OUT TABLE PARAMETER</td>
+<td>^po[ta]_.*$</td>
+<td>pot_{name}</td>
+</tr>
+</tbody>
+</table>
+<p>Where <code>{name}</code> is the identifier name with any prefix or suffix removed.</p>
+<h2 id="52-sysper-patterns">5.2. SYSPER patterns </h2>
+<p>Here is an example of patterns for the SYSPER project.</p>
+<h3 id="521-check-patterns-for-sysper">5.2.1. Check Patterns for SYSPER </h3>
+<table>
+<thead>
+<tr>
+<th>OBJECT_TYPE</th>
+<th>CHECK_PATTERN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTRAINT: PRIMARY KEY</td>
+<td>^{table alias}_PK$</td>
+</tr>
+<tr>
+<td>CONSTRAINT: UNIQUE KEY</td>
+<td>^{table alias}_UK[0-9]*$</td>
+</tr>
+<tr>
+<td>CONSTRAINT: FOREIGN KEY</td>
+<td>^{table alias}<em>{parent alias}</em>([A-Z]</td>
+</tr>
+<tr>
+<td>CONSTRAINT: CHECK</td>
+<td>^{table alias}_([A-Z]</td>
+</tr>
+<tr>
+<td>FUNCTION</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>INDEX: PRIMARY KEY</td>
+<td>^{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE KEY</td>
+<td>^{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>INDEX: FOREIGN KEY</td>
+<td>^{ind cons}(_I)?$</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE</td>
+<td>^{table alias}_(UK[0-9]*</td>
+</tr>
+<tr>
+<td>INDEX: NON UNIQUE</td>
+<td>^([A-Z]</td>
+</tr>
+<tr>
+<td>MATERIALIZED VIEW</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>MVIEW COMMENT</td>
+<td>^ENG:.<em>/ FRA:.</em>$</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>PACKAGE BODY</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>PROCEDURE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>QUALITY CHECK</td>
+<td>^QC[0-9]{3}$</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td>^{app alias_}{any table alias}_SEQ$</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td>^{app alias_}([A-Z]</td>
+</tr>
+<tr>
+<td>TABLE ALIAS</td>
+<td><sup class="footnote-ref"><a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#fn2" id="fnref2">[2]</a></sup>([A-Z]</td>
+</tr>
+<tr>
+<td>TABLE COLUMN COMMENT</td>
+<td>^ENG:.<em>/ FRA:.</em>$</td>
+</tr>
+<tr>
+<td>TABLE COMMENT</td>
+<td>^ENG:.<em>/ FRA:.</em>$</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>{table alias}</td>
+</tr>
+<tr>
+<td>VIEW</td>
+<td>^{app alias}(_</td>
+</tr>
+</tbody>
+</table>
+<h3 id="522-fix-patterns-for-sysper">5.2.2. Fix Patterns for SYSPER </h3>
+<table>
+<thead>
+<tr>
+<th>OBJECT_TYPE</th>
+<th>FIX_PATTERN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTRAINT: PRIMARY KEY</td>
+<td>{table alias}_PK</td>
+</tr>
+<tr>
+<td>CONSTRAINT: UNIQUE KEY</td>
+<td>{table alias}_UK{seq nr}</td>
+</tr>
+<tr>
+<td>CONSTRAINT: FOREIGN KEY</td>
+<td>{child alias}_{parent alias}{_cons role}_FK</td>
+</tr>
+<tr>
+<td>CONSTRAINT: CHECK</td>
+<td>{table alias}_CK{seq nr}</td>
+</tr>
+<tr>
+<td>INDEX: PRIMARY KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>INDEX: FOREIGN KEY</td>
+<td>{ind cons}_I</td>
+</tr>
+<tr>
+<td>INDEX: UNIQUE</td>
+<td>{table alias}_UK{seq nr}_I</td>
+</tr>
+<tr>
+<td>INDEX: NON UNIQUE</td>
+<td>{table alias}_I{seq nr}</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>{table alias}_{triggering event}{trigger_type}_TRG</td>
+</tr>
+</tbody>
+</table>
+<h2 id="53-regular-expressions">5.3. Regular Expressions </h2>
+<h3 id="531-supported-meta-characters">5.3.1. Supported Meta-characters </h3>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Matches any character</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Matches one or more occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Matches zero or one occurrence of the preceding subexpression</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Matches zero or more occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td>{m}</td>
+<td>Matches exactly m occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td>{m,}</td>
+<td>Matches at least m occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td>{m,n}</td>
+<td>Matches at least m, but not more than n occurrences of the preceding subexpression</td>
+</tr>
+<tr>
+<td>[ …… ]</td>
+<td>Matches any character in list ……</td>
+</tr>
+<tr>
+<td>[^ …… ]</td>
+<td>Matches any character not in list ……</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>( …… )</td>
+<td>Treat expression …… as a unit. The subexpression can be a string of literals or a complex expression containing operators.</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>Matches the nth preceding subexpression, where n is an integer from 1 to 9.</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Treat the subsequent meta-character in the expression as a literal.</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Match the subsequent expression only when it occurs at the beginning of a line.</td>
+</tr>
+<tr>
+<td>$</td>
+<td>Match the preceding expression only when it occurs at the end of a line.</td>
+</tr>
+<tr>
+<td>[:class:]</td>
+<td>Match any character belonging to the specified character class. Can be used inside any list expression.</td>
+</tr>
+<tr>
+<td>[.element.]</td>
+<td>Specifies a collating sequence to use in the regular expression. The element you use must be a defined collating sequence, in the current locale.</td>
+</tr>
+<tr>
+<td>[=character=]</td>
+<td>Match characters having the same base character as the character you specify.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="54-predefined-dictionary-entries">5.4. Predefined Dictionary Entries </h2>
+<h3 id="541-dictionary-entries">5.4.1. Dictionary Entries </h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PARAMETER</td>
+<td>APP ALIAS</td>
+<td>&lt;&amp;&amp;app_alias&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>TAB TS</td>
+<td>&lt;&amp;&amp;tab_ts&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>IDX TS</td>
+<td>&lt;&amp;&amp;idx_ts&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>EMAIL SENDER</td>
+<td>AUTOMATED DB QUALITY CHECK <a href="mailto:automated-notifications@nomail.ec.europa.eu">automated-notifications@nomail.ec.europa.eu</a></td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>EMAIL RECIPIENTS</td>
+<td>&lt;&amp;&amp;email_recipients&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>EMAIL CC</td>
+<td>&lt;&amp;&amp;email_cc&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>EMAIL BCC</td>
+<td>&lt;&amp;&amp;email_bcc&gt;</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>EMAIL SERVER</td>
+<td>localhost</td>
+</tr>
+<tr>
+<td>TABLE ALIAS</td>
+<td><table name="">
+<tbody><tr><td><table alias="">
+
+<tbody><tr>
+<td>PLURAL WORD</td>
+<td>data</td>
+<td>data</td>
+</tr>
+<tr>
+<td>PLURAL WORD</td>
+<td>information</td>
+<td>information</td>
+</tr>
+<tr>
+<td>AUDIT COLUMN</td>
+<td>INSERTED BY</td>
+<td>&lt;&amp;&amp;inserted_by&gt;</td>
+</tr>
+<tr>
+<td>AUDIT COLUMN</td>
+<td>INSERTED ON</td>
+<td>&lt;&amp;&amp;inserted_on&gt;</td>
+</tr>
+<tr>
+<td>AUDIT COLUMN</td>
+<td>UPDATED BY</td>
+<td>&lt;&amp;&amp;updated_by&gt;</td>
+</tr>
+<tr>
+<td>AUDIT COLUMN</td>
+<td>UPDATED ON</td>
+<td>&lt;&amp;&amp;updated_on&gt;</td>
+</tr>
+<tr>
+<td>RESERVED WORD</td>
+<td>&lt;keywords from v$reserved_words&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>OBJECT OWNER</td>
+<td><object type=""></object></td>
+<td><object owner=""></object></td>
+</tr>
+</tbody>
+</table>
+<p>Values prefixed with <code>&amp;&amp;</code> are prompted during installation. Reserved words are those that cannot be used as identifiers (from the <code>v$reserved_words</code> view).</p>
+<h2 id="55-list-of-quality-checks">5.5. List of Quality Checks </h2>
+<h3 id="551-qc000-inventory-of-objects-and-statistics-internal-use-only">5.5.1. QC000: Inventory of Objects and Statistics (Internal Use Only) </h3>
+<p>This internal QC makes an inventory of all database objects and computes some statistics per object type. Include and exclude patterns are considered to determine which objects must be included in or excluded from this inventory. This inventory is a versioned subset of the data dictionary views used to report on database changes made between two dates or two runs. "Versioned" means that all changes are tracked like in a source control system.</p>
+<p>The information stored locally includes:</p>
+<ul>
+<li>Object name and object type.</li>
+<li>For object types with source code (package, package body, procedure, function, view, materialized view, trigger, check constraint, type, type body): a checksum computed on all source code lines (changes can be detected but not precisely identified).</li>
+<li>For primary key (PK), unique key (UK), foreign key (FK) constraints and indexes: their list of columns.</li>
+<li>For table/view/mview columns: their type, precision/scale, and optionality.</li>
+</ul>
+<p>The tool can detect the creation and suppression of any database object, as well as any change to the properties or source code listed above. Statistics per object type can be used to compute the error rate of other quality checks.</p>
+<h3 id="552-qc001-each-table-must-have-an-alias">5.5.2. QC001: Each Table Must Have an Alias </h3>
+<p>Table aliases are crucial as they are used in various naming conventions and SQL statements. Therefore, table aliases are mandatory. Aliases cannot easily be derived from table names but can be extracted from constraint names when naming conventions are followed. This tool permits the extraction of table aliases from the names of primary and/or unique keys based on the given extract pattern. As no exceptions are allowed, an error is raised when this rule is violated.</p>
+<h3 id="553-qc002-table-aliases-must-be-unique">5.5.3. QC002: Table Aliases Must Be Unique </h3>
+<p>Since table aliases are used to define constraint names and these must be unique within a schema, table aliases must also be unique. As no exceptions are allowed, an error is raised when this rule is violated.</p>
+<h3 id="554-qc003-not-used">5.5.4. QC003: Not Used </h3>
+<p>This quality check is no longer used.</p>
+<h3 id="555-qc004-each-table-must-have-a-primary-key">5.5.5. QC004: Each Table Must Have a Primary Key </h3>
+<p>According to relational theory, each row of a table must be unique. Therefore, a primary key must be defined in each table to ensure the uniqueness of its records. Primary or unique keys are necessary to create foreign keys and also support the creation of unique indexes. Using technical keys (e.g., based on sequences) instead of business keys allows changes to business keys without needing to update foreign keys in child tables. As no exceptions are allowed, an error is raised when this rule is violated.</p>
+<h3 id="556-qc005-each-table-should-have-at-least-one-foreign-key-to-another-table">5.5.6. QC005: Each Table Should Have at Least One Foreign Key to Another Table </h3>
+<p>This rule reinforces data model quality. Tables without any foreign keys to other tables are exceptional and therefore suspicious. This rule allows for the detection of temporary tables created for backup reasons, which should be excluded from quality checks. Exceptions are allowed (typically for configuration/parameter tables), so a simple warning is raised when this rule is violated.</p>
+<h3 id="557-qc006-not-used">5.5.7. QC006: Not Used </h3>
+<p>This quality check is no longer used.</p>
+<h2 id="56-list-of-quality-checks">5.6. List of Quality Checks </h2>
+<p>Here is the list of provided quality checks:</p>
+<h3 id="561-qc007-each-tablecolumnmview-must-have-a-comment">5.6.1. QC007: Each table/column/mview must have a comment </h3>
+<p>It is a best practice to put a comment on all database objects where it can be defined. Therefore, each table, column, view, and materialized view must have a comment. As no exception is allowed, an error is raised when this rule is violated.</p>
+<h3 id="562-qc008-object-names-must-match-standard-pattern">5.6.2. QC008: Object names must match standard pattern </h3>
+<p>All database objects (tables, views, materialized views, constraints, triggers, indexes, sequences, procedures, functions, packages, package bodies, etc.) must have a name (and an alias when applicable) that follows naming conventions. Having clear naming conventions makes the data model easier to understand. As no exception is allowed, an error is raised when this rule is violated. This check is NOT performed on tables and their secondary object types that do not have an alias defined. Anomalies reported by this tool can be fixed automatically, i.e., objects can be renamed according to the standard (using the so-called fix pattern).</p>
+<h3 id="563-qc009-potentially-missing-foreign-keys">5.6.3. QC009: Potentially missing foreign keys </h3>
+<p>A column that has exactly the same name as the primary column of another table might indicate a missing foreign key (e.g., XXX_ID in table A and XXX_ID in table B where XXX is the alias of table A or B). This check is not performed on composite primary keys (i.e., keys made up of more than one column). A warning message is raised when a candidate is found. Anomalies reported by this quality check can be fixed automatically, i.e., missing foreign keys can be created (using the FK fix pattern).</p>
+<h3 id="564-qc010-foreign-key-columns-must-be-indexed">5.6.4. QC010: Foreign key columns must be indexed </h3>
+<p>For performance reasons, each foreign key must have a corresponding index. Otherwise, some operations like joins and deletion of master records might lead to unacceptable performance. More precisely, there must exist an index such that the foreign key columns are a prefix of the index columns (e.g., if FK has A and B columns, an index on A, B, C is acceptable). As no exception is allowed, an error is raised when this rule is violated. This check is not performed on tables that do not have an alias defined. Anomalies reported by this quality check can be fixed automatically, i.e., missing indexes can be created (using the index fix pattern).</p>
+<h3 id="565-qc011-disabled-database-objects">5.6.5. QC011: Disabled database objects </h3>
+<p>All database objects like constraints and triggers should be enabled. A warning message is raised when this is not the case. Anomalies reported by this quality check can be fixed automatically by enabling the disabled objects.</p>
+<h3 id="566-qc012-invalid-database-objects">5.6.6. QC012: Invalid database objects </h3>
+<p>All database objects like procedures, functions, packages, package bodies, and views should be valid. A warning message is raised when this is not the case. Anomalies reported by this quality check can be fixed automatically by recompiling invalid objects.</p>
+<h3 id="567-qc013-tables-and-indexes-must-be-stored-in-their-respective-tablespace">5.6.7. QC013: Tables and indexes must be stored in their respective tablespace </h3>
+<p>Tables and indexes must be stored in the tablespace identified respectively by TAB TS and IDX TS parameters. An error message is raised when this is not the case. Anomalies cannot be fixed automatically for the time being as objects must be recreated.</p>
+<h3 id="568-qc014-package-bodyspec-should-not-contain-global-variables">5.6.8. QC014: Package body/spec should not contain global variables </h3>
+<p>Packages and package bodies that contain global variables or cursors cannot be hot deployed (i.e., without restarting the application server). Modifying such a package would make existing sessions fall into the following error: ORA-04068: existing state of packages has been discarded. It is therefore recommended to isolate global variables and cursors into specific packages. These specific packages must be excluded from the check by specifying an exclude pattern on the QC014 object type. A warning message is raised when a faulty package is found. Anomalies detected by this quality check cannot be fixed automatically.</p>
+<h3 id="569-qc015-potentially-redundant-indexes">5.6.9. QC015: Potentially redundant indexes </h3>
+<p>An index that is a prefix of another index is potentially useless and consumes storage space for nothing. For example, index I1 on T(c1) is a prefix of index I2 on T(c1,c2) and should therefore normally be dropped, except when there are many values of c2 for a given value of c1 (in which case it might be more performant to keep it). A warning is raised for indexes that are considered redundant. Anomalies reported by this quality check can be fixed automatically, i.e., redundant indexes can be dropped or disabled.</p>
+<h3 id="5610-qc016-missing-audit-columns">5.6.10. QC016: Missing audit columns </h3>
+<p>Every table should have at least four audit columns indicating who created/updated each record and when. These columns should be populated by the application or set via database triggers (preferred). The names of these four audit columns are configured during installation and stored in the AUDIT COLUMN dictionary. Additional audit columns can be specified, when necessary, by adding entries in this dictionary. Anomalies reported by this quality check can be automatically fixed by creating missing audit columns. The format of these columns must be specified via domain patterns.</p>
+<h3 id="5611-qc017-incorrect-data-typelengthoptionality-for-domain-based-columns">5.6.11. QC017: Incorrect data type/length/optionality for domain-based columns </h3>
+<p>The QC tool allows defining domains (as standard data type, data length, and optionality) and to which columns they apply via naming patterns. For example, you might want to check that all columns holding a CODE (i.e., a string) or an ID (i.e., a number) have their name ending with “_CD” or “_ID”. A domain “XYZ” is defined by creating a pattern with the name “DOMAIN: XYZ.” Its include and exclude patterns define to which columns it applies while its check pattern defines its data type, data length, and optionality (e.g., VARCHAR2(30) NOT NULL). An error is raised when a column to which a domain pattern applies does not have the correct data type, data length, and/or optionality. Anomalies reported by this quality check can be fixed automatically by modifying the data type, data length, and/or optionality defined in the fix pattern.</p>
+<h3 id="5612-qc018-foreign-key-and-referenced-columns-must-have-the-same-data-type-and-length">5.6.12. QC018: Foreign key and referenced columns must have the same data type and length </h3>
+<p>Foreign key columns must have the same data type and length as the primary or unique key columns that they reference. Anomalies detected by this quality check can be fixed automatically by modifying the foreign key columns to ensure they have the same data type and length as the columns they reference.</p>
+<h3 id="5613-qc019-plsql-identifiers-must-match-standard-naming-patterns">5.6.13. QC019: PL/SQL identifiers must match standard naming patterns </h3>
+<p>Names of all PL/SQL identifiers must match standard naming patterns. All identifiers in PL/SQL source code (package, package body, procedure, function, trigger, type, and type body) must be named according to the naming conventions. No exception is allowed, so an error is raised when this rule is violated. Reported anomalies can be subsequently fixed automatically, i.e., identifier declarations and references can be renamed according to your configured standards. Be aware that the execution of this specific procedure is by default excluded from the Production environment. A warning message is raised during the installation steps of the QC Utility as a notification. If needed to force the usage of QC019 from Production, it is mandatory to update the QC_PATTERNS table related to Rule QC019 before launching the Quality Check Package. In that case, the action needed is to empty the column exclude_pattern from the qc_patterns table by filtering on the record with Object_Type = ‘QC019’.</p>
+<h3 id="5614-qc020-object-names-must-not-match-anti-patterns">5.6.14. QC020: Object names must not match anti-patterns </h3>
+<p>All database objects (tables, views, materialized views, constraints, triggers, indexes, sequences, procedures, functions, packages, package bodies, etc.) must have a name (and an alias when applicable) that follows naming conventions and do not match defined anti-patterns (if any). For example, you might want to check that column names are not prefixed with the alias of the table they belong to. As no exception is allowed, an error is raised when this rule is violated. This check is NOT performed on tables and their secondary object types that do not have an alias defined. Anomalies reported by this quality check cannot be fixed automatically.</p>
+<h3 id="5615-qc021-duplicate-primaryunique-key-constraints">5.6.15. QC021: Duplicate primary/unique key constraints </h3>
+<p>The set of columns of a primary or unique key constraint should not be equal or a superset of the set of columns of another primary or unique key constraint. Refer to “elementary key normal form” on Wikipedia. For example, if PK(A) is unique, then UK(A,B) is also unique, whatever column B is, but it is not elementary; similarly, if UK(A,B) is unique, UK(B,A) is also unique but completely redundant; it’s likely that UK(B,A) was created for performance reasons. Redundant constraints are created either by mistake, in which case they must be simply dropped, or for performance reasons, in which case they must be replaced with the same indexes created automatically by Oracle for primary/unique constraints. This explains why anomalies reported by this quality check cannot be fixed automatically.</p>
+<h3 id="5616-qc022-standalone-procedures-and-functions-are-not-allowed">5.6.16. QC022: Standalone procedures and functions are not allowed </h3>
+<p>All database procedures and functions must be part of a database package. As no exception is allowed, an error is raised when this rule is violated. The automatic fix consists of deleting them.</p>
+<h2 id="57-apis">5.7. APIs </h2>
+<h3 id="571-general-principle">5.7.1. General Principle </h3>
+<ul>
+<li>Use change scripts that call provided APIs to adapt patterns and parameters stored in the data dictionary.</li>
+<li>Avoid direct modifications to internal tables to facilitate easy reinstallation without losing configurations.</li>
+</ul>
+<h3 id="572-changing-patterns">5.7.2. Changing Patterns </h3>
+<p>You can configure patterns for various object types using the following procedures from the <code>qc_utility_krn</code> package:</p>
+<ol>
+<li><strong>insert_pattern()</strong>: Inserts a new object type and its patterns.</li>
+<li><strong>update_pattern()</strong>: Updates patterns of an object type (supports wildcards).</li>
+<li><strong>upsert_pattern()</strong>: Updates patterns if the object type exists; creates it otherwise.</li>
+<li><strong>delete_pattern()</strong>: Deletes an object type (supports wildcards).</li>
+</ol>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>p_app_alias</code>: Mandatory; use ‘ALL’ for all applications with shared patterns.</li>
+<li><code>p_object_type</code>: Mandatory; supports SQL wildcards (<code>*</code>, <code>_</code>).</li>
+<li><code>p_check_pattern</code>: Optional.</li>
+<li><code>p_anti_pattern</code>: Optional.</li>
+<li><code>p_include_pattern</code>: Optional.</li>
+<li><code>p_exclude_pattern</code>: Optional.</li>
+<li><code>p_fix_pattern</code>: Optional.</li>
+<li><code>p_msg_type</code>: Optional.</li>
+</ul>
+<p><strong>Special Values</strong>:</p>
+<ul>
+<li><code>NULL</code>: Property remains unchanged (equivalent to not specifying the parameter).</li>
+<li><code>'NULL'</code> (as a string): Resets the property to NULL.</li>
+</ul>
+<p><strong>Note</strong>: Optional parameters do not apply to <code>delete_pattern()</code>.</p>
+<h3 id="573-changing-dictionary-entries-parameters">5.7.3. Changing Dictionary Entries (Parameters) </h3>
+<p>Dictionary entries can be managed using the following procedures from the <code>qc_utility_krn</code> package:</p>
+<ol>
+<li><strong>insert_dictionary_entry()</strong>: Inserts a new entry into the dictionary.</li>
+<li><strong>update_dictionary_entry()</strong>: Updates an existing entry (supports wildcards).</li>
+<li><strong>upsert_dictionary_entry()</strong>: Updates the entry if it exists; inserts it otherwise.</li>
+<li><strong>delete_dictionary_entry()</strong>: Deletes a dictionary entry (supports wildcards).</li>
+</ol>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>p_app_alias</code>: Mandatory; use ‘ALL’ for shared parameters.</li>
+<li><code>p_dict_name</code>: Mandatory; supports SQL wildcards.</li>
+<li><code>p_dict_key</code>: Mandatory; supports SQL wildcard.</li>
+<li><code>p_dict_value</code>: Optional.</li>
+<li><code>p_comments</code>: Optional.</li>
+</ul>
+<p><strong>Special Values</strong>:</p>
+<ul>
+<li><code>NULL</code>: Property remains unchanged (equivalent to not specifying the parameter).</li>
+<li><code>'NULL'</code> (as a string): Resets the property to NULL.</li>
+</ul>
+<p><strong>Note</strong>: Optional parameters do not apply to <code>delete_dictionary_entry()</code>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>A-Z <a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>A-Z <a href="file:///tmp/crossnote2024930-18150-18d6qtp.2c9h.html#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</td></tr></tbody></table></td></tr></tbody></table>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

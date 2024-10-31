@@ -1,0 +1,36 @@
+GEN Utility 24.0.3 Release Notes
+Date: October 2024
+
+SUPPORT
+
+You can get support by contacting via email one of the following persons:
+- philippe.debois@ec.europa.eu
+- jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.0.3 - October 2024
+
+Bug fixing:
+- Added explicit AUTHID DEFINER to all packages to avoid warnings during vulnerability scan.
+
+VERSION 24.0.2 - August 2024
+
+Bug fixing:
+- Macros were substituted despite the "#nomacro" directive.
+
+VERSION 24.0.1 - August 2024
+
+Bug fixing:
+- Fixed vulnerabilities identified by Fortify Static Code Analyzer.
+
+VERSION 24.0
+
+Bug fixing:
+- Multi-bytes UTF-8 characters are now properly processed.
+
+VERSION 23.1
+
+Changes:
+- New package GEN_UTILITY_LIC that contains licence terms
+- All existing packages: new short header with licence terms
+
+VERSION 23.0 - Initial version

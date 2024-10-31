@@ -1,0 +1,7 @@
+PROMPT Upgrading package specs...
+@@ARM_MAIN_VAR_AWS.pks: UPPER('&&installation_env') = 'AWS'
+@@ARM_MAIN_VAR_DC.pks: UPPER('&&installation_env') IN ('DC', 'COP')
+@@ARM_MAIN_KRN.pks
+@@ARM_UTIL_KRN.pks
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

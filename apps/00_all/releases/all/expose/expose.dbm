@@ -1,0 +1,4 @@
+check_grantee.sql
+check_sys_privs.sql
+grant_access.sql
+create_synonyms.sql

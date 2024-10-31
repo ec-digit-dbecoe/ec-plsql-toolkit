@@ -1,0 +1,23 @@
+SEC Utility 24.0.1 Release Notes
+Date: October 2024
+
+SUPPORT
+
+You can get support by contacting via email one of the following persons:
+- philippe.debois@ec.europa.eu
+- jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.0.1 - October 2024
+
+Bug fixing:
+- Added explicit AUTHID DEFINER to all package and object types to avoid warnings during vulnerability scan.
+- Remove wrapping and code obfuscation for publication as open source.
+
+VERSION 24.0 - August 2024
+
+Changes:
+- Obfuscated code for security reason.
+
+VERSION 21.0 - December 2021
+
+Initial version

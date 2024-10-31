@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>ec_plsql_toolkit_technical_guide</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./ec_plsql_toolkit_technical_guide_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="ec-plsl-toolkit---technical-guide-v2481">EC PL/SL Toolkit - Technical Guide v24.8.1 </h1>
+<h2 id="author-philippe-debois-european-commission---digit">Author: Philippe Debois (European Commission - DIGIT) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#11-audience">1.1. Audience</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#2-toolkit-home-directory">2. Toolkit home directory</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#21-apps-directory">2.1. Apps directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#22-bin-directory">2.2. Bin directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#23-conf-directory">2.3. Conf directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#24-doc-directory">2.4. Doc directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#25-logs-directory">2.5. Logs directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#26-sql-directory">2.6. Sql directory</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#27-tmp-directory">2.7. Tmp directory</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#3-tools-migration-setup">3. Tools migration setup</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#31-version-specific-setup">3.1. Version specific setup</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#32-version-independent-setup">3.2. Version independent setup</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#321-scripts">3.2.1. Scripts</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#322-parameters">3.2.2. Parameters</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#323-substitution-variables">3.2.3. Substitution variables</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#324-privileges">3.2.4. Privileges</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#33-common-setup">3.3. Common setup</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#331-common-scripts">3.3.1. Common scripts</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#332-common-privileges">3.3.2. Common privileges</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#333-common-substitution-variables">3.3.3. Common substitution variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#4-procedures">4. Procedures</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#41-creating-a-new-version-of-a-tool">4.1. Creating a new version of a tool</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#411-preparing-a-new-version-of-a-tool">4.1.1. Preparing a new version of a tool</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#412-defining-a-release-strategy-and-assigning-a-release-number">4.1.2. Defining a release strategy and assigning a release number</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#413-creating-a-release-folder-and-its-subfolders">4.1.3. Creating a release folder and its subfolders</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#414-populate-install-andor-upgrade-subfolders">4.1.4. Populate install and/or upgrade subfolders</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#415-making-database-objects-inventory-including-checksums">4.1.5. Making database objects inventory including checksums</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#416-cleaning-up-full-release-folders">4.1.6. Cleaning up full release folders</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#417-testing-the-migration">4.1.7. Testing the migration</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#418-updating-release-notes">4.1.8. Updating release notes</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#42-creating-a-new-version-of-the-installer">4.2. Creating a new version of the installer</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#421-declaring-release-number-and-type">4.2.1. Declaring release number and type</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#422-declaring-checksums">4.2.2. Declaring checksums</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#423-script-execution-method">4.2.3. Script Execution Method</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#424-home-directory-of-the-dbm-tool">4.2.4. Home Directory of the DBM Tool</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#425-procedure">4.2.5. Procedure</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#43-making-a-new-version-of-the-toolkit">4.3. Making a new version of the toolkit</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#431-assigning-a-toolkit-version-number">4.3.1. Assigning a toolkit version number</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#432-renaming-the-toolkit-version-folder">4.3.2. Renaming the toolkit version folder</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#433-updating-toolkit-release-notes">4.3.3. Updating toolkit release notes</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#434-building-archives">4.3.4. Building archives</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#44-testing-archives">4.4. Testing archives</a></li>
+<li><a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#45-upload-archives-in-nexus">4.5. Upload archives in Nexus</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-introduction">1. Introduction </h2>
+<h3 id="11-audience">1.1. Audience </h3>
+<p>This guide is intended for Oracle database developers responsible for the development, maintenance, and packaging of the EC PL/SQL toolkit. It explains its content and structure, how to incorporate new versions of the tools, and how to package them. By providing detailed procedures, this guide aims to assist developers in successfully releasing new versions of the toolkit.</p>
+<h2 id="2-toolkit-home-directory">2. Toolkit home directory </h2>
+<p>The home directory of the toolkit (<code>ec_plsql_toolkit</code>) contains the following folders:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Long name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apps</code></td>
+<td>Applications dir</td>
+<td>Contains the material of all tools included in the toolkit.</td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>Binaries dir</td>
+<td>Contains Windows and Linux shell scripts of the installer.</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>Configuration dir</td>
+<td>Contains configuration files of the installer.</td>
+</tr>
+<tr>
+<td><code>doc</code></td>
+<td>Documentation dir</td>
+<td>Contains the documentation of the toolkit.</td>
+</tr>
+<tr>
+<td><code>sql</code></td>
+<td>SQL dir</td>
+<td>Contains the latest version of the SQL scripts of the installer.</td>
+</tr>
+<tr>
+<td><code>tmp</code></td>
+<td>Temporary dir</td>
+<td>Contains temporary files (cleaned up automatically upon startup).</td>
+</tr>
+<tr>
+<td><code>logs</code></td>
+<td>Logs dir</td>
+<td>Contains log files (must be cleaned up manually).</td>
+</tr>
+</tbody>
+</table>
+<p>You will note that all directories except <code>apps</code> and <code>doc</code> are related to the installer of the toolkit (the DBM or <strong>D</strong>ata<strong>B</strong>ase <strong>M</strong>igration tool).</p>
+<p>The home directory also contains the following files:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clean-up</td>
+<td>Shell script to clean-up temporary and logs files before making a zip.</td>
+</tr>
+<tr>
+<td><a href="http://contributing-guidelines.md/">contributing-guidelines.md</a></td>
+<td>Guidelines for contributing to this project.</td>
+</tr>
+<tr>
+<td>dbm-cli</td>
+<td>Main shell script (DBM client).</td>
+</tr>
+<tr>
+<td>dbm-cli.sql</td>
+<td>SQL scripts to execute DBM commands.</td>
+</tr>
+<tr>
+<td>ec-cla.pdf</td>
+<td>Contributor licence agreement.</td>
+</tr>
+<tr>
+<td>LICENCE.txt</td>
+<td>Licence terms.</td>
+</tr>
+<tr>
+<td>migrate-dbm</td>
+<td>Shell script to migrate the DBM tool.</td>
+</tr>
+<tr>
+<td>mkzip</td>
+<td>Shell script to package the toolkit.</td>
+</tr>
+<tr>
+<td>NOTICE.txt</td>
+<td>Licence terms of embedded 3rd party components.</td>
+</tr>
+<tr>
+<td><a href="http://readme.md/">README.md</a></td>
+<td>Readme file.</td>
+</tr>
+<tr>
+<td>set-os</td>
+<td>Shell script to determine current operating system.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-apps-directory">2.1. Apps directory </h3>
+<p>The <code>apps</code> folder contains one subfolder for each tool and a <code>00_all</code> subfolder for material common to all tools. These subfolders are prefixed with a sequence number that reflects the order in which corresponding tools must be installed, taking into account their dependencies.</p>
+<p>An alternate location for the <code>apps</code> folder can be specified by setting the <code>DBM_APPS_DIR</code> environment variable but this possibility is not used for the toolkit.</p>
+<p>The file structure is the following:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>apps
+├── 00_all
+│   └── releases
+|       ├── xx.yy[.zz] # toolkit version
+│       └── all
+│           ├── conceal
+│           ├── config
+│           ├── expose
+│           └── uninstall
+└── &lt;xx_tool&gt;
+    ├── doc
+    ├── demo
+    ├── tuto
+    └── releases
+        ├── xx.yy[.zz] # tool version
+        │   ├── config
+        │   ├── install
+        │   │   └── rollback
+        │   └── upgrade
+        │       └── rollback
+        └── all
+            ├── config
+            ├── precheck
+            ├── setup
+            └── uninstall
+</code></pre><p>Each <code>releases</code> folder contains an <code>all</code> version that holds the material that do not depend on a specific version (i.e., that is common to all versions). This folder also contains a <code>Release-Notes.txt</code> file that documents new features, changes (enhancements), and bug fixes of each release.</p>
+<p>Each version folder (<code>all</code> or <code>xx.yy[.zz]</code>) contains subfolders whose name is dictated by the corresponding installer command plus a <code>config</code> folder containing configuration files.</p>
+<h3 id="22-bin-directory">2.2. Bin directory </h3>
+<p>This directory contains shell scripts that are used by the installer for performing some specific tasks. Two versions of each file are provided, one for Windows (<code>.bat</code> or <code>.cmd</code> extension), one for Linux (no extension but with execute permission).</p>
+<p>Here follows the list of provided files and their usage (only the Linux files are listed):</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delete-file</td>
+<td>Delete a file whose path is passed in parameter.</td>
+</tr>
+<tr>
+<td>get-hashes</td>
+<td>Compute the hash of all files located in the directory passed in parameter.</td>
+</tr>
+<tr>
+<td>plus</td>
+<td>Launch SQL*Plus and execute the script passed in parameter.</td>
+</tr>
+<tr>
+<td>plus-loop</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>read-file</td>
+<td>Read the content of a file passed in parameter.</td>
+</tr>
+<tr>
+<td>read-files</td>
+<td>Read the content of all files in the directory passed in parameter.</td>
+</tr>
+<tr>
+<td>scan-files</td>
+<td>Scan the file system under the directory passed in parameter.</td>
+</tr>
+<tr>
+<td>sqldba</td>
+<td>Launch SQL*Plus (connecting as DBA) and execute the script passed in parameter.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-conf-directory">2.3. Conf directory </h3>
+<p>This directory contains the configuration files of the DBM installer.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dbm_utility.conf</td>
+<td>Configuration file of the DBM installer.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>DBM_CONF_PATH</code> environment variable can be set to store the file in another location.</p>
+<h3 id="24-doc-directory">2.4. Doc directory </h3>
+<p>This directory contains the documentation of the toolkit in several formats (MarkDown, PDF, HTML).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ec_plsql_toolkit_installation_guide</td>
+<td>Installation guide of the toolkit.</td>
+</tr>
+<tr>
+<td>ec_plsql_toolkit_technical_guide</td>
+<td>Technical guide of the toolkit.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-logs-directory">2.5. Logs directory </h3>
+<p>This directory contains the logs of all installer commands that have been executed. It is the responsibility of end-users to clean-up this directory (i.e., log files are never deleted automatically).</p>
+<p>An alternate location can be specified by setting the <code>DBM_LOGS_DIR</code> environment variable.</p>
+<h3 id="26-sql-directory">2.6. Sql directory </h3>
+<p>This folder contains - the latest version of - all SQL scripts of the DBM installer.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>check-dbm.sql</td>
+<td>Check whether the DBM tool is correctly installed.</td>
+</tr>
+<tr>
+<td>dbm_uninstall.sql</td>
+<td>Uninstall all database objects of the DBM tool</td>
+</tr>
+<tr>
+<td>dbm-checksums.sql</td>
+<td>Compute the global checksum of database objects and packages.</td>
+</tr>
+<tr>
+<td>dbm-checksums-detailed.sql</td>
+<td>Compute the checksum of each database object.</td>
+</tr>
+<tr>
+<td>dbm-startup.sql</td>
+<td>Executed at startup of the <code>dbm-cli</code>.</td>
+</tr>
+<tr>
+<td>migrate-dbm.sql</td>
+<td>Perform installation and/or upgrade of the DBM tool.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="27-tmp-directory">2.7. Tmp directory </h3>
+<p>This directory contains the temporary files created by the installer during its operations. It is automatically cleaned up when the <code>dbm-cli</code> shell script is executed. All temporary files are prefixed with a tilde (<code>~</code>) and are created in this folder, except for the <code>~set-os.sql</code> file, which is created in the home directory. The latter file is used to set the operating system and also to detect the first run of <code>dbm-cli</code> after an unzip.</p>
+<p>An alternate location can be specified by setting the <code>DBM_TMP_DIR</code> environment variable.</p>
+<h2 id="3-tools-migration-setup">3. Tools migration setup </h2>
+<p>This section describes how the migration of the tools is configured.</p>
+<h3 id="31-version-specific-setup">3.1. Version specific setup </h3>
+<p>Installation scripts, upgrade scripts, and database object inventory are specific to each version and placed respectively in the <code>install</code>, <code>upgrade</code>, and <code>config</code> subfolders of the <code>xx.yy[.zz]</code> version folder.</p>
+<p>It is recommanded to use changelog files (<code>install.dbm</code> and <code>upgrade.dbm</code>) to tell the installer which script to execute to install or upgrade a tool. This method allows conditional file execution, offers better error recovery, and support rollback in case of migration failure. Master scripts (<code>install.sql</code> and <code>upgrade.sql</code>) inherited from the former pl/sql installer are still in use for some tools and should ideally be converted when a new version is released.</p>
+<p>For now, no <code>rollback</code> subfolder exists, and no rollback scripts are provided. These may be developed in the future if deemed valuable.</p>
+<h3 id="32-version-independent-setup">3.2. Version independent setup </h3>
+<p>Uninstallation scripts, precheck scripts, setup scripts, and some parameters common to all versions are placed respectively in the <code>install</code>, <code>setup</code>, <code>precheck</code>, and <code>config</code> subfolder of the <code>all</code> version folder.</p>
+<h4 id="321-scripts">3.2.1. Scripts </h4>
+<p>Uninstallation scripts drop all database objects and revoke any granted access right. Setup scripts are used by the QC tool only. Precheck scripts are executed before any migration to check prerequisites.</p>
+<h4 id="322-parameters">3.2.2. Parameters </h4>
+<p>The configuration file <code>config/xxx_utility.conf</code> can contain the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xxx_utility.par.app_alias</td>
+<td>Application or tool alias.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.object_name_pattern (*)</td>
+<td>Pattern defining which DB objects belong to the tool.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.object_name_anti_pattern</td>
+<td>Pattern to exclude some DB objects.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.expose_pattern</td>
+<td>Pattern defining which DB objects must be exposed to other schemas.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.expose_anti_pattern</td>
+<td>Pattern to exclude exposure of some DB objects.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.expose_read_only_pattern</td>
+<td>Pattern defining which DB objects must be exposed in read-only mode to other schemas.</td>
+</tr>
+<tr>
+<td>xxx_utility.par.requires</td>
+<td>list of tools it depends on</td>
+</tr>
+</tbody>
+</table>
+<p>(*) mandatory parameter i.e., it must be defined for any tool.</p>
+<p>All patterns are regular expressions that are checked against object types and names via the SQL expression <code>REGEXP_LIKE(object_type||' '||object_name, '&lt;pattern&gt;')</code>. To check that objects do not match anti-patterns, this expression is prefixed with a  <code>NOT</code>.</p>
+<p>The <code>requires</code> parameter is a comma separated list of tools (plus an optional versions) that are required by the current tool and that must be installed beforehand. Tools having a sequence number 20 or above depend on others and should have this parameter defined.</p>
+<h4 id="323-substitution-variables">3.2.3. Substitution variables </h4>
+<p>The configuration file <code>config/xxx_utility.conf</code> can also contain the definition of some substitution variables whose value is supplied by end-user interactively</p>
+<p>Here follows the parameters that can be defined for each substitution variable:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.name</td>
+<td>Variable name.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.descr</td>
+<td>Variable description (used when prompting end-user).</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.seq</td>
+<td>Sequence in which variable value is prompted.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.data_type</td>
+<td>Data type (CHAR or NUMBER).</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.nullable</td>
+<td>Y=optional, N=mandatory.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.convert_value_sql</td>
+<td>SQL expression to convert the entered value.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.default_value_sql</td>
+<td>SQL expression to provide a default value.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.check_value_sql</td>
+<td>SQL expression to check entered value.</td>
+</tr>
+<tr>
+<td>xxx_utility.var.&lt;name&gt;.check_error_msg</td>
+<td>Message displayed in case of check failure.</td>
+</tr>
+</tbody>
+</table>
+<p>The value of a substitution variable can also be passed in command line with the following syntax: `dbm-cli "-xxx_utility.var.&lt;name&gt;.value=&lt;value&gt;".</p>
+<p>The following variables are pre-defined:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+<th>Allowed values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>env</td>
+<td>Environment (Dev, Test, Acceptance, Stress test, Production), derived from schema name.</td>
+<td>D, T, A, S, P</td>
+</tr>
+<tr>
+<td>installation_env</td>
+<td>Installation environment (Data Cener, Cloud on Prem, Amazon Cloud, Others).</td>
+<td>DC, COP, AWS, OTH</td>
+</tr>
+<tr>
+<td>tab_ts</td>
+<td>Tablespace in which tables will be created.</td>
+<td>Any valid tablespace name</td>
+</tr>
+<tr>
+<td>idx_ts</td>
+<td>Tablespace in which indexes will be created.</td>
+<td>Any valid tablespace name</td>
+</tr>
+<tr>
+<td>ut_plsql</td>
+<td>Is the utPLSQL framework installed for unit testing?</td>
+<td>Y, N</td>
+</tr>
+</tbody>
+</table>
+<h4 id="324-privileges">3.2.4. Privileges </h4>
+<p>For tools that require specific system privileges, roles, or grants for their installation and/or operation, a <code>privileges.dbm</code> file is also created in the <code>config</code> subfolder.</p>
+<h3 id="33-common-setup">3.3. Common setup </h3>
+<p>Setup files common to (all versions of) all tools are stored under the <code>apps/00_all/releases/all</code> folder.</p>
+<h4 id="331-common-scripts">3.3.1. Common scripts </h4>
+<p>Scripts that implement expose, conceal, and uninstall commands and that are common to all tools are stored in the <code>expose</code>, <code>conceal</code>, and <code>uninstall</code> subfolders.</p>
+<p>Files for the expose command are the following:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>check_grantee.sql</td>
+<td>Check that grantee is <code>PUBLIC</code> or correspond to an existing schema</td>
+</tr>
+<tr>
+<td>check_sys_privs.sql</td>
+<td>Check that current schema has the necessary privileges to create any or public synonyms (depending on the grantee).</td>
+</tr>
+<tr>
+<td>create_synonyms.sql</td>
+<td>Create private or public synonyms (depending on the grantee).</td>
+</tr>
+<tr>
+<td>expose.dbm</td>
+<td>changelog file listing scripts to execute.</td>
+</tr>
+<tr>
+<td>grant_access.sql</td>
+<td>Grant access to database objects that must be exposed.</td>
+</tr>
+</tbody>
+</table>
+<p>Files for the conceal command are the following:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>check_grantee.sql</td>
+<td>Check that grantee is <code>PUBLIC</code> or correspond to an existing schema</td>
+</tr>
+<tr>
+<td>check_sys_privs.sql</td>
+<td>Check that current schema has the necessary privileges to drop any or public synonyms (depending on the grantee).</td>
+</tr>
+<tr>
+<td>conceal.dbm</td>
+<td>changelog file listing scripts to execute.</td>
+</tr>
+<tr>
+<td>drop_synonyms.sql</td>
+<td>Drop private or public synonyms (depending on the grantee).</td>
+</tr>
+<tr>
+<td>revoke_access.sql</td>
+<td>Revoke access to previously exposed database objects.</td>
+</tr>
+</tbody>
+</table>
+<p>For for the uninstall command are the following:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drop_all_synonyms.sql</td>
+<td>Drop all synonyms on exposed database objects.</td>
+</tr>
+<tr>
+<td>revoke_all_access.sql</td>
+<td>Revoke all grants on exposed database objects.</td>
+</tr>
+<tr>
+<td>uninstall.dbm</td>
+<td>changelog file listing scripts to execute.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="332-common-privileges">3.3.2. Common privileges </h4>
+<p>Privileges that are required to install or operate any tool of the toolkit is defined in the <code>privileges.dbm</code> file. Usually, for installation, the schema must have the system privileges to open a session, query data dictionary views (catalog), and create usual database objects (tables, views, sequences, types, packages).</p>
+<h4 id="333-common-substitution-variables">3.3.3. Common substitution variables </h4>
+<p>Substitution variables that are common to all tools are defined in the <code>all.conf</code> configuration file stored in the <code>config</code> subfolder.</p>
+<p>The following common substitution variables are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>installation_env</td>
+<td>Installation environment (AWS, COP, DC, or OTH).</td>
+</tr>
+<tr>
+<td>tab_ts</td>
+<td>Tablespace in which tables must be created.</td>
+</tr>
+<tr>
+<td>idx_ts</td>
+<td>Tablespace in which indexes must be created.</td>
+</tr>
+</tbody>
+</table>
+<p>Installation environment (AWS=Amazon RDS, COP=Cloud on Premises in EC Data Center, DC=Legacy DB in EC Data Centre, or OTH=Other (e.g., any non-EC DC)) is determined automatically based on a query and should in principle not be modified.</p>
+<p>Tablespaces are by default those that are the most often used by tables and indexes in the current schema. When the schema does not hold any table already, value must be defined by end-user via the <code>configure</code> interactive command, or by passing their value in parameter of the <code>dbm-cli</code> shell script.</p>
+<h2 id="4-procedures">4. Procedures </h2>
+<p>This section describes how to incorporate a new version of a tool into the toolkit and how to package a new version of the toolkit. It also explains the specific steps and additional considerations required to prepare a new version of the DBM tool.</p>
+<h3 id="41-creating-a-new-version-of-a-tool">4.1. Creating a new version of a tool </h3>
+<p>The steps are the following:</p>
+<ul>
+<li>Prepare a new version of a tool.</li>
+<li>Define a release strategy and assign a release number.</li>
+<li>Create a release folder and its subfolders.</li>
+<li>Populate <code>install</code> and/or <code>upgrade</code> subfolders.</li>
+<li>Make database objects inventory including checksums.</li>
+<li>Clean up full release folders</li>
+<li>Test the migration</li>
+<li>Update release notes (while making changes).</li>
+<li>Make a new version of the toolkit.</li>
+</ul>
+<h4 id="411-preparing-a-new-version-of-a-tool">4.1.1. Preparing a new version of a tool </h4>
+<p>Each tool has a home directory, located outside the toolkit's main directory, that contains the latest version or work-in-progress of its materials (source code, database scripts, documentation, data sets, etc.). This is where the new version must be prepared.</p>
+<p>Database objects fall into one of the following two categories: database structure (tables, views, constraints, indexes, sequences, etc.) and database code (packages, procedures, functions, etc.).</p>
+<p>For database structure, separate SQL scripts should be prepared to support both full installation (from scratch) and incremental upgrades. The master script for full installation is commonly named <code>xxx_objects.sql</code> (where <code>xxx</code> is the abbreviation of the tool). These SQL scripts are typically stored in a <code>sql</code> subfolder within the tool's home directory.</p>
+<p>For tools that utilise the conditional statement execution and/or statement-level recovery features, the master script should be named xxx_objects.dbm.sql. The .dbm.sql double extension is used to activate these features. Note that the size of this file must be kept below the limit of 32k and should be split into multiple files if necessary.</p>
+<p>For database code, a single file can be used for both types of migration, provided the <code>CREATE OR REPLACE</code> statement is used to create or replace the database object. These PL/SQL scripts should bear the same name as their corresponding database object, with an extension that reflects their type (e.g., <code>.pks</code> for package specification, <code>.pkb</code> for package body, <code>.prc</code> for procedures, <code>.fnc</code> for functions, etc.). Store these PL/SQL scripts in a <code>plsql</code> subfolder within the tool's home directory.</p>
+<p>To facilitate rollback or recovery in case of migration failure, consider the following recommendations:</p>
+<ul>
+<li>
+<p>Separate DDL and DML operations: Place DDL operations (Data Definition Language) in separate files from DML operations (Data Manipulation Language). This practice helps in isolating schema changes from data changes, making it easier to manage and recover from failures.</p>
+</li>
+<li>
+<p>Use multiple files based on object types: Instead of combining all operations into one large script, organise scripts by object types (e.g., tables, views, constraints, indexes, sequences). This approach enhances clarity and allows for targeted execution and recovery.</p>
+</li>
+<li>
+<p>Tag your SQL statements with an identifier (<code>REM DBM-XXXXX</code>) to allow statement level recovery or condition statement execution.</p>
+</li>
+<li>
+<p>Ensure re-entrant scripts whenever possible: Make scripts re-entrant so that they can be executed multiple times without causing errors or unintended changes. This capability ensures robustness and reliability during deployment and rollback scenarios.</p>
+</li>
+<li>
+<p>Provide rollback scripts whenever possible: Include rollback scripts alongside deployment scripts. Rollback scripts should revert changes made by the deployment scripts, enabling quick and controlled rollback procedures in case of issues.</p>
+</li>
+</ul>
+<h4 id="412-defining-a-release-strategy-and-assigning-a-release-number">4.1.2. Defining a release strategy and assigning a release number </h4>
+<p>A version of a tool can be released to address bugs, implement minor enhancements, introduce new features, or combine any of these objectives.</p>
+<p>Releases are numbered as <code>xx.yy[.zz]</code>, where:</p>
+<ul>
+<li><code>xx</code> denotes the major release number, always corresponding to the year of the release (e.g., 24 for 2024), aligning with Oracle's release numbering.</li>
+<li><code>yy</code> represents the minor release number, a sequential number within the year starting with 0.</li>
+<li><code>zz</code> indicates the bugfix release number and is optional, a sequential number within the minor release starting with 1.</li>
+</ul>
+<p>Depending on the significance and nature (structure and/or code) of the changes, you may choose to provide installation scripts, upgrade scripts, or both. Here are the recommended practices:</p>
+<ul>
+<li>Installation scripts only (very rare): Used for the very first version of a tool or when there are significant changes to the data model that do not allow data migration from a previous version.</li>
+<li>Upgrade scripts only: Applied when only database code is modified (e.g., packages), without any structural changes. This practice can be used for bug fixes and/or minor changes.</li>
+<li>Both types of scripts: Recommended for all other scenarios where both structural changes and code modifications are implemented.</li>
+</ul>
+<p>It's important to note that the Database Management (DBM) tool will determine which scripts to apply based on the content of the target schema.</p>
+<h4 id="413-creating-a-release-folder-and-its-subfolders">4.1.3. Creating a release folder and its subfolders </h4>
+<p>Once the release strategy and version number have been defined, the release materials can be integrated into the toolkit.</p>
+<p>Create a release folder within <code>apps/xx_&lt;tool&gt;/releases</code> named after the defined version number. Within this folder, include the following subfolders based on the defined release strategy:</p>
+<ul>
+<li><code>config</code>: For storing configuration files.</li>
+<li><code>install</code>: For housing installation scripts (include a <code>rollback</code> subfolder if applicable).</li>
+<li><code>upgrade</code>: For storing upgrade scripts (include a <code>rollback</code> subfolder if applicable).</li>
+</ul>
+<p>Alternatively, you can duplicate a previous release folder to ensure that essential files, especially those in the <code>config</code> and <code>install</code> subfolders, are not overlooked. This method helps maintain consistency and completeness across releases.</p>
+<h4 id="414-populate-install-andor-upgrade-subfolders">4.1.4. Populate install and/or upgrade subfolders </h4>
+<p>Copy scripts responsible for full installation in the <code>install</code> subfolder and those responsible for upgrade in the <code>upgrade</code> subfolder. Remember, files containing database code are identical for both installation and upgrade, on the contrary to files related to the database structure.</p>
+<p>To provide better support for rollback in case of migration failure, it is recommended to use the changelogs method of the DBM tool, i.e. to create <code>install.dbm</code> and <code>upgrade.dbm</code> changelog files. This method also allows the conditional execution of files depending on the target environment.</p>
+<h4 id="415-making-database-objects-inventory-including-checksums">4.1.5. Making database objects inventory including checksums </h4>
+<p>The inventory of database objects (stored in the file <code>config/objects.dbm</code>), which includes their checksums, enables validation of the correct installation or upgrade of the tool. It also provides a means to determine the currently installed version of the tool if this information is lost (e.g., due to re-installation of the DBM tool).</p>
+<p>To generate the database objects inventory, execute the <code>dbm-cli</code> shell script while connected to the schema containing the database objects being released. Use the following command: <code>@dbm-cli make &lt;tool&gt; &lt;version&gt;</code>. Here, <code>&lt;tool&gt;</code> refers to the name or abbreviation of the tool, and <code>&lt;version&gt;</code> is the designated target release number. Although the version parameter is optional, it is recommended to explicitly specify it, as the currently known installed version managed by the DBM tool may not be up to date.</p>
+<h4 id="416-cleaning-up-full-release-folders">4.1.6. Cleaning up full release folders </h4>
+<p>The size of the toolkit bundle can grow significantly if all versions of all tools are kept indefinitely. At a minimum, the toolkit should maintain the latest full release and all incremental releases, ensuring users with older versions can upgrade to the latest version seamlessly. Preserving an inventory of all releases is crucial for the DBM tool to accurately identify the currently installed version of each tool and determine necessary upgrades.</p>
+<p>On the other hand, it is useful to be able to reinstall a previous version of the toolkit, for instance, to reproduce a bug reported by an end-user, to test the DBM tool itself, or to revert to a more stable version. Therefore, it also makes sense to include multiple full releases in the bundle, such as those released within the past 12 months. Alternatively, maintaining a history of all toolkit bundles (archives) achieves the same goal.</p>
+<p>Based on these considerations, it is recommended to:</p>
+<ul>
+<li>Keep the full releases of the last past 12 months (i.e., the <code>install</code> folder).</li>
+<li>Keep all incremental releases (i.e., the <code>upgrade</code> folder).</li>
+<li>Keep all inventories and other configuration files (i.e., the <code>config</code> folder).</li>
+</ul>
+<p>For vulnerability assessment and penetration testing, a single version of each file should be provided. The simplest approach is to retain only the <code>install</code> folder of the latest full release and apply any changes from subsequent incremental releases if necessary.</p>
+<h4 id="417-testing-the-migration">4.1.7. Testing the migration </h4>
+<p>Migration should be rigorously tested on a schema that does not already contain the version of the tool being released. Both full installation and incremental upgrades should undergo testing. Testing the full installation of a tool requires its prior uninstallation for accurate evaluation.</p>
+<h4 id="418-updating-release-notes">4.1.8. Updating release notes </h4>
+<p>Update the <code>Release-Notes.txt</code> file located in the <code>releases</code> folder. This file is cumulative and thereby contains the history of all versions since the creation of the tool.</p>
+<p>Add a new section for the release formatted as the following:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>VERSION xx.yy[.zz] - Month YYYY
+
+New features:
+- ...
+
+Changes:
+- ...
+
+Bug fixing:
+- ...
+</code></pre><p>Put <code>- n/a</code> when a section is not applicable.</p>
+<p>Adapt the file header with the correct release number and date:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>XXX Utility xx.yy[.zz] Release Notes
+Date: Month YYYY
+</code></pre><p>To ensure a correct and complete documentation of the release, it is recommended to update this file while the software is being adapted.</p>
+<h3 id="42-creating-a-new-version-of-the-installer">4.2. Creating a new version of the installer </h3>
+<p>The procedure for creating a new version of the DBM installer is similar to that for other tools but includes some minor differences and additional steps.</p>
+<p>The DBM installer can upgrade itself only if its session is not invalidated by one of the database changes. For instance, altering a table referenced in the <code>DBM_UTILITY_VAR</code> package will invalidate it, raising the "ERROR-04068: Existing state of packages has been discarded" exception the next time one of the DBM packages is invoked.</p>
+<p>To circumvent this problem, a migration solution specific to the DBM installer has been developed. This solution takes the form of a SQL script (<code>migrate-dbm.sql</code>) executed with SQL*Plus from a shell script (<code>migrate-dbm[.cmd]</code>).</p>
+<p>This ad-hoc solution can determine which version of the DBM tool is currently installed (thanks to checksums) and apply successive upgrades until the latest available version (or up to the one passed as a parameter to the shell script).</p>
+<p>To achieve this goal, the <code>migrate-dbm.sql</code> script must be adapted for each new release. The version number and upgrade type (full installation and/or incremental upgrade) must be declared. Checksums on database structure and database packages must also be computed and defined in the SQL script itself.</p>
+<h4 id="421-declaring-release-number-and-type">4.2.1. Declaring release number and type </h4>
+<p>Each new release of the DBM tool must be declared in the <code>initially()</code> procedure of the <code>migrate-dbm.sql</code> script as follows.</p>
+<p>If the release includes full installation scripts (i.e., it contains an <code>install</code> subfolder under the version folder), add the following line:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code>      t_ins<span class="token punctuation">(</span><span class="token operator">&lt;</span>ver<span class="token operator">-</span>nbr<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'&lt;ver-code&gt;'</span><span class="token punctuation">;</span>
+</code></pre><p>Where <code>&lt;ver-nbr&gt;</code> is the version number and <code>&lt;ver-code&gt;</code> is the version code. The version code is formatted as <code>xx.yy[.zz]</code> (the bugfix release number being optional). The version number can be computed as <code>xx * 10000 + yy * 100 + zz</code>.</p>
+<p>If a release includes upgrade scripts (i.e., it contains an <code>upgrade</code> subfolder under the version folder), add the following line:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code>      <span class="token comment">-- Initialise versions</span>
+      t_upg<span class="token punctuation">(</span><span class="token operator">&lt;</span>ver<span class="token operator">-</span>nbr<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'&lt;ver-code&gt;'</span><span class="token punctuation">;</span>
+</code></pre><p>Here is an example of how versions 24.0, 24.1, and 24.3 have been declared:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code>      <span class="token comment">-- Initialise versions</span>
+      t_ins<span class="token punctuation">(</span><span class="token number">240000</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'24.0'</span><span class="token punctuation">;</span> <span class="token comment">-- installable only</span>
+      t_ins<span class="token punctuation">(</span><span class="token number">240100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'24.1'</span><span class="token punctuation">;</span>   t_upg<span class="token punctuation">(</span><span class="token number">240100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'24.1'</span><span class="token punctuation">;</span> <span class="token comment">-- installable and upgradable</span>
+                                 t_upg<span class="token punctuation">(</span><span class="token number">240300</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token string">'24.3'</span><span class="token punctuation">;</span> <span class="token comment">-- upgradable only</span>
+</code></pre><p>If you copy/paste code, make sure to change and align version number and version code accordingly!</p>
+<h4 id="422-declaring-checksums">4.2.2. Declaring checksums </h4>
+<p>Two different checksums are computed: one for structural database objects (tables, indexes, constraints, sequences, etc.) and one for procedural database objects (packages, procedures, functions, etc.).</p>
+<p>To compute these two checksums, execute the query contained in the <code>sql/dbm-checksums</code> file while connected to a schema where the database objects of the release have already been deployed.</p>
+<p>Add the following lines of code in the <code>initially()</code> procedure of the <code>sql/migrate-dbm.sql</code> scripts:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code>      <span class="token comment">-- Initialise checksums for objects and packages</span>
+      t_obj_sum<span class="token punctuation">(</span><span class="token operator">&lt;</span>ver<span class="token operator">-</span>nbr<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token operator">&lt;</span>obj<span class="token operator">-</span>checksum<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+      t_pkg_sum<span class="token punctuation">(</span><span class="token operator">&lt;</span>ver<span class="token operator">-</span>nbr<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:=</span> pkg<span class="token operator">-</span>checksum<span class="token punctuation">;</span>
+</code></pre><p>where <code>&lt;obj-checksum&gt;</code> is the checksum of the structure and <code>&lt;pkg-checksum&gt;</code> the checksum of the code.</p>
+<p>Here follows an example of checksums declaration for the two first versions:</p>
+<pre data-role="codeBlock" data-info="plsql" class="language-plsql plsql"><code>      <span class="token comment">-- Initialise checksums for objects and packages</span>
+      t_obj_sum<span class="token punctuation">(</span><span class="token number">240000</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token number">671291450</span><span class="token punctuation">;</span> t_pkg_sum<span class="token punctuation">(</span><span class="token number">240000</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token number">296702143</span><span class="token punctuation">;</span>
+      t_obj_sum<span class="token punctuation">(</span><span class="token number">240100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token number">544776930</span><span class="token punctuation">;</span> t_pkg_sum<span class="token punctuation">(</span><span class="token number">240100</span><span class="token punctuation">)</span> <span class="token operator">:=</span> <span class="token number">1062429868</span><span class="token punctuation">;</span>
+</code></pre><h4 id="423-script-execution-method">4.2.3. Script Execution Method </h4>
+<p>The recommended method to identify the scripts that must be executed to migrate the DBM tool is the changelog file method (i.e., files to be executed are listed in <code>install.dbm</code> and/or <code>upgrade.dbm</code> changelog files).</p>
+<p>To allow this file to be executed from the <code>migrate-dbm.sql</code> script using SQL*Plus, referenced files must all be prefixed with <code>@@</code>. SQL*Plus <code>PROMPT</code> commands can be used to display useful informative messages.</p>
+<h4 id="424-home-directory-of-the-dbm-tool">4.2.4. Home Directory of the DBM Tool </h4>
+<p>Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirely within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit. <strong>This is subject to discussion</strong></p>
+<p>SQL scripts are stored in the <code>sql</code> subfolder, PL/SQL package code in the <code>plsql</code> subfolder, and documentation in the <code>doc</code> subfolder. Refer to the <a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#sql-directory">SQL Directory</a>, <a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#plsql-directory">PLSQL Directory</a>, and <a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#doc-directory">Doc Directory</a> sections for descriptions of the files they contain.</p>
+<p>When the work-in-progress is finalized and released, the files stored in the above subfolders must be copied to the appropriate subfolder under <code>apps/05_dbm_utility</code>. Specifically:</p>
+<ul>
+<li>Documentation should be copied to the <code>doc</code> subfolder.</li>
+<li>The <code>ds_objects.sql</code> script (used to recreate all DB objects) should be copied to the <code>install</code> subfolder.</li>
+<li>Package files should be copied to both the <code>install</code> and <code>upgrade</code> subfolders, depending on the type of release.</li>
+</ul>
+<h4 id="425-procedure">4.2.5. Procedure </h4>
+<p>In addition to the steps described above, all steps outlined in the section <a href="file:///tmp/crossnote2024929-13637-1f8ddio.rq6xi.html#creating-a-new-version-of-a-tool">Creating a New Version of a Tool</a> must also be followed for the DBM tool.</p>
+<h3 id="43-making-a-new-version-of-the-toolkit">4.3. Making a new version of the toolkit </h3>
+<p>Once a new version of a tool has been incorporated in the toolkit, a new bundle (i.e., archive) of the toolkit must be prepared. This also applies when a new version of the DBM tool is released.</p>
+<p>The <code>apps/00_all</code> folder houses not only the common materials for all tools (such as scripts for exposure, concealment, configuration, and uninstallation of any tool) but also includes a version-specific folder representing the release number of the toolkit bundle.</p>
+<h4 id="431-assigning-a-toolkit-version-number">4.3.1. Assigning a toolkit version number </h4>
+<p>The toolkit follows the same release number format (<code>xx.yy[.zz]</code>) and numbering policy as the individual tools it contains.</p>
+<p>The bugfix number <code>zz</code> should be used only if the only changes it brings compared to the previous version are related to bug fixing of one or several tools.</p>
+<h4 id="432-renaming-the-toolkit-version-folder">4.3.2. Renaming the toolkit version folder </h4>
+<p>Contrary to individual tools within the toolkit, only one <code>xx.yy[.zz]</code> release folder needs to be maintained. The recommended approach is to rename the existing release folder to match the newly assigned release number.</p>
+<h4 id="433-updating-toolkit-release-notes">4.3.3. Updating toolkit release notes </h4>
+<p>Release notes of the toolkit follow the same format and update practice as those of individual tools except that:</p>
+<ul>
+<li>There is no "New features" section.</li>
+<li>The "Changes" section contains the list of tools and their version that bring new features and/or changes.</li>
+<li>The "Bug fixing" section contains the list of tools and their version that bring bug fixing only.</li>
+</ul>
+<h4 id="434-building-archives">4.3.4. Building archives </h4>
+<p>To build the archive (zip file), execute the <code>mkzip</code> shell script located in the home directory of the toolkit. This script first executes the <code>cleanup</code> shell script that delete temporary files and log files. It then creates an archive named <code>ec_plsql_toolkit.zip</code> in the parent directory. This archive must be renamed manually to include the toolkit version, its date, and the operating system for which it was created (Windows or Linux). As an example: <code>ec_plsql_toolkit_24_5_Windows_20240528.zip</code>.</p>
+<p>An archive must be built for both Windows and Linux platforms. This is in particular necessary for Linux to preserve the execution mode of bash shell scripts.</p>
+<h3 id="44-testing-archives">4.4. Testing archives </h3>
+<p>It is recommended to test both Windows and Linux archives by unzipping them it onto a file system and initiating the migration process while connected to a database schema that does not already contain the version of the released tools. As a default procedure, uninstall the existing tools, install a previous full release, and then perform the upgrades.</p>
+<p>The migration can be launched via the following commands:</p>
+<ul>
+<li>migrate-dbm # upgrade the DBM tool to its latest version (recommended)</li>
+<li>dbm-cli conceal <code>&lt;tools-list&gt;</code> # if tools were previously exposed</li>
+<li>dbm-cli migrate <code>&lt;tools-list&gt;</code> # migrate tools</li>
+<li>dbm-cli expose <code>&lt;tools-list&gt;</code> # re-expose tools if needed</li>
+</ul>
+<p>Where <code>&lt;tools-list&gt;</code> is a comma separated list of the tools that you want to migrate or <code>all</code> for all tools. To be noted that concealing and re-exposing tools is recommended to take care of dropped or newly created database objects.</p>
+<h3 id="45-upload-archives-in-nexus">4.5. Upload archives in Nexus </h3>
+<p>Upload both archives in the <a href="https://dbecoestore-nexus.devops.tech.ec.europa.eu/">Nexus repository of the DBECoE</a>, under the <code>ec_plsql_toolkit</code> folder of the <code>raw_releases</code> group.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

@@ -1,0 +1,3 @@
+# select * from table(dbm_utility_krn.list_db_objects('^(PACKAGE BODY|PACKAGE) GEN_','Y','^(PACKAGE BODY|PACKAGE) .*_TST$'));
+PACKAGE BODY GEN_UTILITY: 535747050
+PACKAGE GEN_UTILITY: 173146093

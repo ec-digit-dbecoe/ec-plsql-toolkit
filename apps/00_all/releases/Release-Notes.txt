@@ -1,0 +1,83 @@
+EC PL/SQL Tooklit 24.9 Release Notes
+Date: October 2024
+
+SUPPORT
+
+You can get support by contacting via email one of the following persons:
+- philippe.debois@ec.europa.eu
+- jean-jacques.porrovecchio@ec.europa.eu
+
+RELEASE 24.9 - October 2024
+
+Bug Fixing:
+- ALL: Added explicit AUTHID DEFINER to all packages and types to avoid vulnerability warnings.
+- ARM 24.0.1: vulnerability bug fixed
+- DPP 24.2.1: vulnerability bugs fixed, logging bug fixed
+- DBM 24.8.4: Unable to guess current version when some objects are included conditionally.
+
+New features
+- HTTP 24.0: new utility
+- DPP 24.3: monitoring post-actions, HTTP/GitLab requests
+
+RELEASE 24.8 - August 2024
+
+New features:
+- DS 24.2: added support for FF3 Format-Preserving Encryption algorithm.
+- DPP 24.2: logging improvement, data model improvement, reporting mail improvement,
+  methods renaming, increasing of the number of job executions a day, database
+  links check, deployment streamlining, new configuration data management API,
+  new job options.
+
+Bug fixing:
+- Fixed vulnerabilities identified by Fortify Static Code Analyzer
+  (in ARM, DS, DPP, GEN, MAIL, QC, and SQL utilities).
+- DBM 24.8.2: "migrate-dbm" SQL script was looping in case of 2 consecutive incremental releases.
+- GEN 24.0.2: Macros were substituted despite the "#nomacro" directive.
+- DPP 24.2: table space remapping bug fixed, no-drop objects bug fixed, removing
+  the useless client schemas privileges, old file removing bug fixed.
+
+Changes:
+- DBM 24.8: added conditional statements execution + recovery from last executed statement.
+- DBM 24.8.1: names of temporary files are now prefixed with a tilde (~)
+- DBM 24.8.2: "show-current" command now shows whether current version is old or up to date.
+
+RELEASE 24.7 - July 2024
+
+Changes:
+- DBM 24.7: added ability to check privileges required at runtime.
+- New technical guide for the developers of the PL/SQL toolkit.
+- Converted DS User's Guides from MS Word to MarkDown.
+- DBM tool is now installed/upgraded upon first launch of dbm-cli after unzip.
+
+Bug fixing:
+- NLS_LANG is now forced to .UTF8 in shell scripts, even when already set at OS level.
+- Unit of char column length is now explicitly set to CHAR instead of using DB default.
+  Fixed in following utilities:
+  . DBM 24.6.1
+  . DS 24.1.1
+  . LOG 24.0
+  . DOC 24.1.1
+  . MAIL 24.0.1
+  . DPP 24.1.1
+  . QC 24.0
+
+RELEASE 24.6 - June 2024
+
+Changes:
+- DBM Utility 24.6
+- DS Utility 24.1
+- ZIP Utility 24.1
+- DOC Utility 24.1
+
+Bug fixing:
+- Setup of QC Utility was crashing (fixed in the toolkit, no new release of QC).
+- DBM Utility 24.6
+
+RELEASE 24.5 - May 2024
+
+Changes:
+- DBM Utility 24.5
+
+RELEASE 24.x
+
+Releases of the toolkit prior to 24.5 are mostly related to the DBM tool and hold the same release number.

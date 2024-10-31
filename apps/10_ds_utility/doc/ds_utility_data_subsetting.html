@@ -1,0 +1,1741 @@
+<!DOCTYPE html><html><head>
+      <title>ds_utility_data_subsetting</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\deboiph\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+table {
+    font-size: 14px;
+}
+</style>
+<div style="text-align: center; font-size: 36px; font-weight: bold;">
+Data Set Utility<br>Data Subsetting<br>User's Guide v24.2<br>&nbsp;
+</div>
+<div style="font-size: 18px; font-weight: bold;">
+Author: Philippe Debois (European Commission)<br>&nbsp;<br>&nbsp;
+</div>
+<p><span style="font-size: 28px;"><strong>Table of Contents</strong></span></p>
+<ul>
+<li><a href="#1-data-subsetting">1. Data Subsetting</a>
+<ul>
+<li><a href="#11-introduction">1.1. Introduction</a></li>
+<li><a href="#12-the-data-model">1.2. The Data Model</a>
+<ul>
+<li><a href="#121-configuration-tables">1.2.1. Configuration tables</a></li>
+<li><a href="#122-transactional-tables">1.2.2. Transactional tables</a></li>
+</ul>
+</li>
+<li><a href="#13-the-process">1.3. The process</a>
+<ul>
+<li><a href="#131-reference-data">1.3.1. Reference data</a></li>
+<li><a href="#132-master-data">1.3.2. Master data</a></li>
+<li><a href="#133-transactional-data">1.3.3. Transactional data</a></li>
+<li><a href="#134-base-tables">1.3.4. Base tables</a></li>
+<li><a href="#135-referential-integrity">1.3.5. Referential integrity</a></li>
+<li><a href="#136-extraction-of-rowids">1.3.6. Extraction of rowids</a></li>
+<li><a href="#137-data-transportation">1.3.7. Data Transportation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-tutorial">2. Tutorial</a>
+<ul>
+<li><a href="#21-data-model">2.1. Data model</a>
+<ul>
+<li><a href="#211-hr-data-model">2.1.1. HR Data Model</a></li>
+</ul>
+</li>
+<li><a href="#22-case-study-1--data-subsetting-and-transportation">2.2. Case Study 1 – Data Subsetting and Transportation</a>
+<ul>
+<li><a href="#221-data-set-creation">2.2.1. Data set creation</a></li>
+<li><a href="#222-identification-of-base-tables">2.2.2. Identification of base tables</a></li>
+<li><a href="#223-extraction-of-rowids">2.2.3. Extraction of rowids</a></li>
+<li><a href="#224-referential-integrity">2.2.4. Referential integrity</a></li>
+<li><a href="#225-managing-reference-data">2.2.5. Managing reference data</a></li>
+<li><a href="#226-first-scenario--no-extraction-of-reference-data">2.2.6. First scenario – no extraction of reference data</a></li>
+<li><a href="#227-second-scenario--full-extraction-of-reference-data">2.2.7. Second scenario – full extraction of reference data</a></li>
+<li><a href="#228-third-scenario--partial-extraction-of-reference-data">2.2.8. Third scenario – partial extraction of reference data</a></li>
+<li><a href="#229-extracting-rowids">2.2.9. Extracting rowids</a>
+<ul>
+<li><a href="#2291-first-scenario--no-extraction-of-reference-data">2.2.9.1. First scenario – no extraction of reference data</a></li>
+<li><a href="#2292-second-scenario--full-extraction-of-reference-data">2.2.9.2. Second scenario – full extraction of reference data</a></li>
+<li><a href="#2293-third-scenario--partial-extraction-of-reference-data">2.2.9.3. Third scenario – partial extraction of reference data</a></li>
+</ul>
+</li>
+<li><a href="#2210-preview-data-set">2.2.10. Preview data set</a></li>
+<li><a href="#2211-data-set-transportation">2.2.11. Data set transportation</a></li>
+<li><a href="#2212-variants">2.2.12. Variants</a>
+<ul>
+<li><a href="#22121-variant-1">2.2.12.1. Variant 1</a>
+<ul>
+<li><a href="#221211-excluding-columns">2.2.12.1.1. Excluding columns</a></li>
+<li><a href="#221212-forcing-column-value">2.2.12.1.2. Forcing column value</a></li>
+</ul>
+</li>
+<li><a href="#22122-variant-2">2.2.12.2. Variant 2</a></li>
+<li><a href="#22123-variant-3">2.2.12.3. Variant 3</a></li>
+<li><a href="#22124-variant-4">2.2.12.4. Variant 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#23-case-study-2--change-data-capture">2.3. Case Study 2 – Change Data Capture</a>
+<ul>
+<li><a href="#231-create-data-set-definition">2.3.1. Create data set definition</a></li>
+<li><a href="#232-include-captured-tables">2.3.2. Include captured tables</a></li>
+<li><a href="#233-create-database-triggers">2.3.3. Create database triggers</a></li>
+<li><a href="#234-perform-some-operations">2.3.4. Perform some operations</a></li>
+<li><a href="#235-check-captured-operations">2.3.5. Check captured operations</a></li>
+<li><a href="#236-generate-redo-script">2.3.6. Generate redo script</a></li>
+<li><a href="#237-generate-undo-script">2.3.7. Generate undo script</a></li>
+<li><a href="#238-rollback-captured-operations">2.3.8. Rollback captured operations</a></li>
+<li><a href="#239-drop-database-triggers">2.3.9. Drop database triggers</a></li>
+<li><a href="#2310-delete-data-set-definition">2.3.10. Delete data set definition</a></li>
+<li><a href="#2311-variants">2.3.11. Variants</a>
+<ul>
+<li><a href="#23111-synchronous-replication">2.3.11.1. Synchronous replication</a></li>
+<li><a href="#23112-asynchronous-replication">2.3.11.2. Asynchronous replication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-data-subsetting">1. Data Subsetting </h1>
+<h2 id="11-introduction">1.1. Introduction </h2>
+<p>Data subsetting involves selecting and extracting specific portions or subsets of data from a larger dataset based on defined criteria or conditions. This process is valuable in data analysis, management, and various development and testing scenarios.</p>
+<p>Data subsetting helps reduce the complexity of working with large datasets, improves performance by requiring fewer computational resources, and enhances relevance by focusing on data relevant to specific analyses. It can be used to customize data analysis for research questions, protect data privacy by excluding sensitive information, and facilitate data preprocessing.</p>
+<p>In development and testing environments, data subsetting is a common practice to feed non-production databases. It allows developers to work with smaller, representative datasets for coding and debugging, supports quality assurance by creating test environments with relevant data subsets, and populates staging environments for final testing before deployment. Subsetting is also used for educational purposes, to address security and privacy concerns, and for performance testing.</p>
+<p>Overall, data subsetting is a valuable technique for streamlining data handling, improving testing and development processes, and safeguarding data privacy in various data-related contexts.</p>
+<h2 id="12-the-data-model">1.2. The Data Model </h2>
+<p>The data set utility has no GUI and is entirely operated by calling APIs and querying its internal tables, reason why a good understanding of its internal data model is crucial:</p>
+<p><img src="images/002.png" alt=""></p>
+<h3 id="121-configuration-tables">1.2.1. Configuration tables </h3>
+<p><code>DATA SETS</code> are uniquely identified by their <code>SET_ID</code> (<code>SET_PK</code>). Their <code>SET_NAME</code> must also be unique (<code>SET_UK</code>). <code>DATA SETS</code> are defined for one or more <code>TABLES</code> which are uniquely identified by a <code>TABLE_ID</code> (<code>TAB_PK</code>). <code>TABLE_NAME</code> must also be unique within a data set (<code>TAB_UK</code>).</p>
+<p><code>DATA SETS</code> may have one or more foreign key <code>CONSTRAINTS</code> that will be walked through during the extraction or generation process. They are uniquely identified by a <code>CON_ID</code> (<code>CON_PK</code>). Foreign key <code>CONSTRAINTS</code> link source <code>TABLES</code> (<code>CON_TAB_SRC_FK</code>) with destination <code>TABLES</code> (<code>CON_TAB_DST_FK</code>).</p>
+<p>A constraint can be walked through in both directions in which case it will be registered twice with 2 different cardinalities (1-N for master/detail and N-1 for referential integrity). The pair of columns <code>CONSTRAINT_NAME</code> and <code>CARDINALITY</code> is therefore unique within a given data set (<code>DS_CON_UK</code>).</p>
+<p>Sensitive data types are discovered using search <code>PATTERNS</code> and masked using <code>MASKS</code>. As data discovery and data masking are not dependent on a particular data set, they have no link with <code>DATA SETS</code>. <em>See Sensitive Data Discovery and Data Masking User's guide for more information.</em></p>
+<p>For synthetic data generation, <code>TAB COLUMNS</code> define how each column must be generated. <em>See Synthetic Data Generation User's guide for more information.</em></p>
+<h3 id="122-transactional-tables">1.2.2. Transactional tables </h3>
+<p>For tables that are generated or partially extracted, <code>ROWID</code> of generated or extracted records are stored in <code>RECORDS</code>. This table is also used to shuffle records when masking data. <code>TABLES</code> may have one or several <code>RECORDS</code>, identified by a <code>REC_ID</code>. Records are linked to <code>CONSTRAINTS</code> (<code>REC_CON_FK</code>) when they are extracted or generated in the context of a master / detail relationship.</p>
+<p>The masking of columns (<code>DS_MASKS</code>) may require the generation of <code>TOKENS</code> or the generation (via an Oracle sequence or an in-memory sequence) of new <code>IDENTIFIERS</code> (mapped with old ones). <em>See Sensitive Data Discovery and Data Masking User's guide for more information.</em></p>
+<p><code>OUTPUT</code> is used to persist error, warning, and/or information messages as well as SQL scripts.</p>
+<h2 id="13-the-process">1.3. The process </h2>
+<h3 id="131-reference-data">1.3.1. Reference data </h3>
+<p>Reference data can be defined as data that are used to define other data and which are stable over time i.e., which do not change very frequently (e.g., countries, languages, nationalities, etc.). In the HR sample data model (see below), <code>COUNTRIES</code>, <code>REGIONS</code>, and <code>LOCATIONS</code> can be considered as reference data.</p>
+<p>Most reference data do not reference any other data although some exceptions are possible (e.g., reference data organised in a hierarchy, etc.). In the HR data model, <code>LOCATIONS</code> reference <code>COUNTRIES</code> which in turn reference <code>REGIONS</code>. <code>JOBS</code> might also be considered as reference data although their min and max salary values are likely to change more regularly than traditional reference data.</p>
+<p>When defining a data set, you must decide on whether reference data must be extracted in full (all rows), partially (only those referenced) or not at all. This depends on the target schema into which the data set will be imported.</p>
+<p>If the target schema is completely empty, you need at least to import reference data which are referenced by extracted transactional data. Alternatively, you can also decide to import reference data in full.</p>
+<p>If the target schema is not empty, it's likely that reference data are managed via a standard release process and do not need to be extracted as they are in principle already present and up to date. In this case, reference data shall not be extracted at all, assuming source and destination schema are at the same version level.</p>
+<p>To define the extraction strategy, you must therefore know your data model very well and be able to make the distinction between reference data, master data, and transactional data. Using a naming convention to identify reference data is helpful from that perspective (e.g., <code>REF</code> contained in table names).</p>
+<p>To fully extract a reference table, just include the table in the data set with an extraction type equal to "F" which stands for "Full extraction". To exclude reference data from a data set, set the extraction type of the table to "N" which stands for "No extraction". Otherwise, extraction type will be of type "P" which stands for "Partial extraction".</p>
+<h3 id="132-master-data">1.3.2. Master data </h3>
+<p>Master data can be defined as foundational and critical business entities shared across an organisation. Master data are relatively stable but can change from time to time. In the HR sample data model, <code>EMPLOYEES</code> and <code>DEPARTMENTS</code> are considered as key information for the company and are therefore part of the master data.</p>
+<p>Master data are often driving the extraction process. We often want to extract and transport them (and their details) from one environment to another e.g., from production to test. In the first use case, we will be interested in extracting data of <code>EMPLOYEES</code>.</p>
+<h3 id="133-transactional-data">1.3.3. Transactional data </h3>
+<p>Transactional data are related to day-to-day activities and operations. They represent individual transactions or events within an organisation and are highly dynamic and frequently changing. They are generated by the various business processes of the organisation (e.g., customers, orders, bills, etc.). In the HR sample data model, <code>JOB HISTORY</code> is considered as transactional data from an HR perspective.</p>
+<h3 id="134-base-tables">1.3.4. Base tables </h3>
+<p>The first step when defining a data set is to define which key concept you want to extract. The tables and records which are the starting point of the extraction are respectively called base tables and base records. Most of the time, a data set is made up of a single base table although it may sometimes contain several.</p>
+<p>To define a table as the starting point of the extraction process, you must include it in the data set with an extraction type equal to "B" which stands for "Base". To limit the extraction to a subset of your base table, a filter (where clause) should also be defined to precisely identify the base records i.e., the rows that will be retrieved. Alternatively, records can also be selected randomly within a defined limit (maximum number of rows, percentage of the total number of rows, etc.).</p>
+<p>It's likely that you also want to extract detail information of your base records i.e., information from other tables that are linked via one-to-many relationships (1-N). It's also probable that these details have in turn their own details (in case of master-detail-detail relationships) so this is an iterative process. As an example, in the OE schema (Order entry), a <code>CUSTOMER</code> may place several <code>ORDERS</code> which in turn may be composed of several <code>ORDER LINES</code>.</p>
+<p>You can either include these 1-N relationships to the data set yourself (manually) or let the tool discover and add them to the data set for you. This will depend on the specified recursive level passed in parameter. NULL means no automatic discovery/inclusion. 0 means unlimited number of levels. X (with X&gt;=1) means X levels of details.</p>
+<p>Such one-to-many constraints must be of type "B" which stands for "Base extraction". It means that these 1-N links of type "B" will be followed or walked-through during the extraction process to find detail records. Other possible extraction types for constraints are "N" for "None" and "P" for "Partial" (see later).</p>
+<p>Although the automatic discover process of detail information is helpful, its results must be thoroughly checked as some 1-N relationships might be considered as master/detail relationships by the tool while they are not from a conceptual point of view. The <code>detect_true_master_detail_cons()</code> procedure sets some flags that can help to take the right decision.</p>
+<p>True master/detail relationships are also called identifying relationships and have the following characteristics:</p>
+<ul>
+<li>A child record cannot exist without its parent record i.e., the foreign key of the child table is mandatory (meaning that its columns are mandatory); constraints fulfilling this condition have their <code>MD_OPTIONALITY_OK</code> flag set to Y.</li>
+<li>A child record is identified by its parent record plus some additional columns i.e., the foreign key columns of the child table include all primary (or unique) key columns of the parent table; constraints fulfilling this condition have their <code>MD_UID_OK</code> flag set to Y.</li>
+</ul>
+<p>Non-identifying relationships (those that do not meet the two above conditions) should not be considered when extracting details. As an example, a foreign key towards a look-up or reference table is non-identifying (reference records can exist without necessarily being referenced) and should therefore not be used.</p>
+<p>Furthermore, a child table is also expected to contain more records than its parent table (although this is not necessarily always the case, especially if many parents have no child); constraints fulfilling this condition have their <code>MD_CARDINALITY_OK</code> flag set to Y.</p>
+<p>The <code>exclude_constraints()</code> procedure can be invoked to exclude constraints based on the 3 flag described above.</p>
+<h3 id="135-referential-integrity">1.3.5. Referential integrity </h3>
+<p>Once base records and their details have been defined, you need in turn to identify the data that they reference (reference data and/or live data). Not including those many-to-one (N-1) constraints in the data set would result in foreign key violations while importing the data set in the target schema.</p>
+<p>After having defined base tables/records and base constraints for finding details, you must include all referential constraints (N-1) in your data set. The tool can do it automatically for you. By default, the <code>include_referential_cons()</code> procedure will include all referential constraints (N-1) and tables referenced by these constraints with an extraction type "P" for "Partial".</p>
+<h3 id="136-extraction-of-rowids">1.3.6. Extraction of rowids </h3>
+<p>The extraction process consists in identifying rows that must be part of the data set based on its definition. This process is recursive and requires storing candidate rows in a temporary storage. For the sake of limiting the space required by this temporary storage, only the <code>ROWIDS</code> of candidate records are stored in the <code>DS_RECORDS</code> internal table. When a table is fully extracted, no record is stored in that table.</p>
+<h3 id="137-data-transportation">1.3.7. Data Transportation </h3>
+<p>Data sets can be transported via different methods including database link, XML, export/import, data pump, and SQL scripts.</p>
+<h1 id="2-tutorial">2. Tutorial </h1>
+<p>The tutorial should help you to get a better understanding of the data set utility by demonstrating some of its functionalities with concrete use cases that you can reproduce yourself.</p>
+<h2 id="21-data-model">2.1. Data model </h2>
+<h3 id="211-hr-data-model">2.1.1. HR Data Model </h3>
+<p>This tutorial is based on the Oracle Sample Database described in the following document:</p>
+<ul>
+<li><a href="https://docs.oracle.com/cd/E11882_01/server.112/e10831/title.htm">https://docs.oracle.com/cd/E11882_01/server.112/e10831/title.htm</a></li>
+</ul>
+<p>Scripts for installing this sample database can be downloaded directly from GitHub:</p>
+<ul>
+<li><a href="https://github.com/oracle/db-sample-schemas">https://github.com/oracle/db-sample-schemas</a></li>
+</ul>
+<p>Data models (for Oracle Data Modeler) are also available:</p>
+<ul>
+<li><a href="https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html">https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html</a></li>
+</ul>
+<p>Here follows a diagram and a description of the HR data model.</p>
+<p><img src="images/003.png" alt=""></p>
+<p>In the Human Resource (HR) records, each employee has an identification number, e-mail address, job identification code, salary, and manager. Some employees earn commissions in addition to their salary.</p>
+<p>The company also tracks information about jobs within the organization. Each job has an identification code, job title, and a minimum and maximum salary range for the job. Some employees have been with the company for a long time and have held different positions within the company. When an employee resigns, the duration the employee was working, the job identification number, and the department are recorded.</p>
+<p>The sample company is regionally diverse, so it tracks the locations of its warehouses and departments. Each employee is assigned to a department, and each department is identified either by a unique department number or a short name. Each department is associated with one location, and each location has a full address that includes the street name, postal code, city, state or province, and the country code.</p>
+<p>In places where the departments and warehouses are located, the company records details such as the country name, currency symbol, currency name, and the region where the country is located geographically.</p>
+<p>To be noted that this sample HR schema is not the best example in terms of database design. Indeed, many fields (including unique identifiers) are accepting NULL values while they should not in reality.</p>
+<h2 id="22-case-study-1--data-subsetting-and-transportation">2.2. Case Study 1 – Data Subsetting and Transportation </h2>
+<p>The first use case consists of extracting the data of a single employee. The code shown in this section can be found in <code>ds_tutorial_case_1.sql</code>.</p>
+<p>We have chosen Jonathon Taylor (employee id 176) to keep the use case simple, since he is not a manager. Let's have a look at the base record:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> employee <span class="token keyword keyword-to">to</span> be extracted
+
+<span class="token keyword keyword-SELECT">SELECT</span> employee_id<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name<span class="token punctuation">,</span> department_id<span class="token punctuation">,</span> manager_id
+  <span class="token keyword keyword-FROM">FROM</span> employees
+ <span class="token keyword keyword-WHERE">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">176</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>EMPLOYEE_ID</code></strong></th>
+<th style="text-align:left"><strong><code>FIRST_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>LAST_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>DEPARTMENT_ID</code></strong></th>
+<th style="text-align:left"><strong><code>MANAGER_ID</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">176</td>
+<td style="text-align:left">Jonathon</td>
+<td style="text-align:left">Taylor</td>
+<td style="text-align:left">80</td>
+<td style="text-align:left">149</td>
+</tr>
+</tbody>
+</table>
+<p>We will then transport this employee and his detail data into a separate but identical target schema, and we will consider the 3 following scenarios:</p>
+<ol>
+<li>The target schema contains already all reference data.</li>
+<li>The target schema is empty, and all reference data will be transported</li>
+<li>The target schema is empty and only needed reference data will be transported.</li>
+</ol>
+<h3 id="221-data-set-creation">2.2.1. Data set creation </h3>
+<p>The first step is to create a data set definition and give it a unique name (Jonathon Taylor) via the <code>create_data_set_def()</code> function.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   l_set_id :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>create_data_set_def<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span><span class="token string">'set_id='</span><span class="token operator">||</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+
+set_id<span class="token operator">=</span><span class="token number">23</span>
+</code></pre><p>The id returned upon the data set creation is used in all subsequent operations.</p>
+<p>It can also be retrieved from the data set name via the <code>ds_utility_krn.get_data_set_def_by_name()</code> function.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> how <span class="token keyword keyword-to">to</span> get the id <span class="token keyword keyword-of">of</span> a <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span> based <span class="token keyword keyword-on">on</span> its name
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   l_set_id :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span><span class="token string">'set_id='</span><span class="token operator">||</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+
+set_id<span class="token operator">=</span><span class="token number">23</span>
+</code></pre><p>You can check that the data set has been well created by looking in <code>DS_DATA_SETS</code> (one of the internal tables of the tool).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> ds_data_sets <span class="token keyword keyword-WHERE">WHERE</span> name <span class="token operator">=</span> <span class="token string">'Jonathon Taylor'</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="222-identification-of-base-tables">2.2.2. Identification of base tables </h3>
+<p>The second step is to specify which table(s) and row(s) are the starting point of the extraction. In our example, the EMPLOYEE table is defined as the base table (the table from which records will be retrieved first) and filter <code>employee_id=176</code> is applied to limit the extraction to Jonathon Taylor.</p>
+<p>A base table is included in the data set definition via the <code>include_tables()</code> procedure and by specifying "B" as extraction type:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Define base <span class="token keyword keyword-table">table</span> <span class="token operator">and</span> its filter <span class="token operator">+</span> include <span class="token keyword keyword-first">first</span> <span class="token keyword keyword-level">level</span> <span class="token keyword keyword-of">of</span> child <span class="token keyword keyword-tables">tables</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>
+      p_set_id <span class="token operator">=</span><span class="token operator">&gt;</span> l_set_id
+    <span class="token punctuation">,</span> p_table_name <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'EMPLOYEES'</span>
+    <span class="token punctuation">,</span> p_extract_type <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'B'</span> <span class="token comment">-- base table</span>
+    <span class="token punctuation">,</span> p_where_clause <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'employee_id=176'</span>
+    <span class="token punctuation">,</span> p_recursive_level <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span>
+   <span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Extracting data from the only <code>EMPLOYEES</code> table is probably not enough. We may also want to get some details from other tables linked via master-detail or one-to-many relationships like <code>JOB_HISTORY</code>.</p>
+<p>Foreign keys that need to be followed to get detail records can be added manually one by one to the data set via the <code>include_constraints()</code> procedure. Manual inclusion is easy when the schema is small but it becomes quickly cumbersome with real non-trivial schemas.</p>
+<p>Alternatively, detail tables can be included in the data set while including the base table by specifying a value for the <code>p_recursive_level</code> parameter. A value of 1 indicates that we want to include one level of details i.e., the details of EMPLOYEES but not the details of its details.</p>
+<p>Tables that have been included in the data set can be found via the following query.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> included <span class="token keyword keyword-tables">tables</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> set_id<span class="token punctuation">,</span> table_id<span class="token punctuation">,</span> table_name<span class="token punctuation">,</span> extract_type<span class="token punctuation">,</span> pass_count
+  <span class="token keyword keyword-FROM">FROM</span> ds_tables
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> table_id
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>SET_ID</code></strong></th>
+<th style="text-align:left"><strong><code>TABLE_ID</code></strong></th>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_TYPE</code></strong></th>
+<th style="text-align:left"><strong><code>PASS_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left">24</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">B</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left">25</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">P</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left">26</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">P</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>EMPLOYEES</code> table has been selected during the first iteration (inclusion of the base table) and the two other tables during the second iteration (inclusion of detail tables), as indicated by the <code>PASS_COUNT</code> column (read "pass" as "iteration").</p>
+<p>The <code>DS_CONSTRAINTS</code> internal table can also be consulted to see which one-to-many relationships have been followed to find those detail tables.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> constraints followed <span class="token keyword keyword-while">while</span> getting child <span class="token keyword keyword-tables">tables</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> con_id<span class="token punctuation">,</span> constraint_name<span class="token punctuation">,</span> src_table_name
+     <span class="token punctuation">,</span> dst_table_name<span class="token punctuation">,</span> cardinality<span class="token punctuation">,</span> extract_type
+  <span class="token keyword keyword-FROM">FROM</span> ds_constraints
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>CON_ID</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>DST_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CARDINALITY</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_TYPE</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">B</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">B</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">B</td>
+</tr>
+</tbody>
+</table>
+<p>Note that <code>CON_ID</code> is generated from a sequence so you might get different values should you run the tutorial scripts yourself.</p>
+<p>The diagram below shows in <strong>red</strong> the base table from which records will be extracted first as well as the 1-N relationships that will be followed for extracting detail records.</p>
+<p><img src="images/004.png" alt=""></p>
+<p>The <code>JHIST_EMP_FK</code> foreign key between <code>EMPLOYEES</code> and <code>JOB_HISTORY</code> has been included meaning that the job history data of Jonathon Taylor will be extracted.</p>
+<p>The recursive <code>EMP_MANAGER_FK</code> foreign key has also been included meaning that, if Jonathon Taylor is a manager, his subordinates will also be extracted. At this point, we should question ourselves if this is desired or not. Let's keep it as Jonathon Taylor is not a manager anyway.</p>
+<p>The <code>DEPT_MGR_FK</code> foreign key between <code>EMPLOYEES</code> and <code>DEPARTMENTS</code> has also been included meaning that, if Jonathon Taylor is the manager of a department, this latest will be extracted too. This foreign key is in reality the implementation of a 1-1 relationship. Departments may be managed by one and only one employee and an employee may be the manager of one and only one department. Even if it does not seem to be a parent/child relationship, let's keep it as Jonathon Taylor doesn't manage any department anyway.</p>
+<h3 id="223-extraction-of-rowids">2.2.3. Extraction of rowids </h3>
+<p>Extraction of rowids performed at this stage is for the only purpose of this tutorial. It's normally not performed before the next step which consists in including reference constraints.</p>
+<p>The purpose of this step is to identify precisely the rows that will be ultimately extracted by calling the <code>extract_data_set_row_ids()</code> procedure.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Extract rowids <span class="token keyword keyword-of">of</span> records identified so far
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'RS'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Rowcount &amp; SQL</span>
+   ds_utility_krn<span class="token punctuation">.</span>extract_data_set_rowids<span class="token punctuation">(</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The <code>ROWIDs</code> of identified records are stored in the <code>DS_RECORDS</code> internal table.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> records found <span class="token punctuation">(</span><span class="token operator">+</span> via which fk<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> tab<span class="token punctuation">.</span>table_name<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>record_rowid<span class="token punctuation">,</span> con<span class="token punctuation">.</span>constraint_name
+  <span class="token keyword keyword-FROM">FROM</span> ds_records rec
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> ds_tables tab
+    <span class="token keyword keyword-ON">ON</span> tab<span class="token punctuation">.</span>table_id <span class="token operator">=</span> rec<span class="token punctuation">.</span>table_id
+   <span class="token operator">AND</span> tab<span class="token punctuation">.</span>set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> ds_constraints con
+    <span class="token keyword keyword-ON">ON</span> con<span class="token punctuation">.</span>con_id <span class="token operator">=</span> rec<span class="token punctuation">.</span>con_id
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> tab<span class="token punctuation">.</span>table_name
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>RECORD_ROWID</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">AAAYwVACjAABcXvABM</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">AAAYwZACjAABh3XAAI</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">AAAYwZACjAABh3XAAH</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+</tr>
+</tbody>
+</table>
+<p>You can see that the data set is made up of 1 record from the <code>EMPLOYEES</code> table and 2 records from the <code>JOB_HISTORY</code> table both found via the <code>JHIST_EMP_FK</code> foreign key. The <code>RECORD_ROWID</code> column contains <code>ROWIDS</code> (string of 18 characters) of records to be extracted.</p>
+<p>Let's have a look at some extraction statistics from <code>DS_TABLES</code> and <code>DS_CONSTRAINTS</code> tables.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> <span class="token keyword keyword-statistics">statistics</span> <span class="token keyword keyword-on">on</span> <span class="token keyword keyword-tables">tables</span> <span class="token punctuation">(</span>extracted vs total<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> table_name<span class="token punctuation">,</span> source_count<span class="token punctuation">,</span> extract_count
+  <span class="token keyword keyword-FROM">FROM</span> ds_tables
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> table_name
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SOURCE_COUNT</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">107</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>extract_count</code> column shows that 1 row will be extracted from <code>EMPLOYEES</code>, 2 from <code>JOB_HISTORY</code> and none for <code>DEPARTMENTS</code>.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> <span class="token keyword keyword-constraint">constraint</span> <span class="token keyword keyword-statistics">statistics</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> src_table_name<span class="token punctuation">,</span> constraint_name<span class="token punctuation">,</span> dst_table_name<span class="token punctuation">,</span> extract_count
+  <span class="token keyword keyword-FROM">FROM</span> ds_constraints
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>DST_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<p>This confirms that Jonathon Taylor is not the manager of any department (0 rows extracted via <code>DEPT_MGR_FK</code>), he has no subordinates (0 rows extracted via <code>JHIST_EMP_FK</code>), and he has 2 jobs in his career history (2 rows extracted via <code>JHIST_EMP_FK</code>).</p>
+<h3 id="224-referential-integrity">2.2.4. Referential integrity </h3>
+<p>Because of the referential constraints in force, the 3 records identified so far cannot be injected in another HR schema because many-to-one relationships would then be violated. Indeed, each <code>JOB_HISTORY</code> references a <code>DEPARTMENT</code> and a <code>JOB</code>, and each <code>EMPLOYEE</code> is assigned to a <code>JOB</code>.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Include referential constraints <span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>include_referential_cons<span class="token punctuation">(</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Next step therefore consists in extracting referenced data (from tables which are referenced by a foreign key). This is performed by calling the <code>include_referential_cons()</code> procedure.</p>
+<p>The diagram below shows in blue the referential constraints that have been added recursively to the data set definition.</p>
+<p><img src="images/005.png" alt=""></p>
+<p>These referential constraints that have been included can be found via the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> referential constraints <span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> that have been included
+
+<span class="token keyword keyword-SELECT">SELECT</span> src_table_name<span class="token punctuation">,</span> constraint_name<span class="token punctuation">,</span> dst_table_name<span class="token punctuation">,</span> cardinality
+  <span class="token keyword keyword-FROM">FROM</span> ds_constraints
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+   <span class="token operator">AND</span> cardinality <span class="token operator">=</span> <span class="token string">'N-1'</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>DST_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong>CARDINALITY</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">COUNTR_REG_FK</td>
+<td style="text-align:left">REGIONS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">DEPT_LOC_FK</td>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_DEPT_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_JOB_FK</td>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">JHIST_DEPT_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">JHIST_JOB_FK</td>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">N-1</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">LOC_C_ID_FK</td>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">N-1</td>
+</tr>
+</tbody>
+</table>
+<p>You will notice that the recursive foreign key <code>EMP_MANAGER_FK</code> is record twice, once with 1-N cardinality (for getting child records i.e., subordinates) and once with N-1 cardinality (for ensuring referential integrity i.e., for getting the manager). The same applies to the <code>DEPT_MGR_FK</code> constraint.</p>
+<p>The direction a foreign key is walked through is therefore of upmost important. Both directions must be considered as they have each their own purpose (1-N for finding details and N-1 for ensuring referential integrity).</p>
+<h3 id="225-managing-reference-data">2.2.5. Managing reference data </h3>
+<p>The management of reference data depends on the scenario. The <code>update_table_properties()</code> procedure is used to specify the <code>EXTRACT_TYPE</code> property of all reference tables.</p>
+<p>While executing the following block of code, specify one of the following <code>EXTRACT_TYPE</code>: N for None (first scenario), F for Full (second scenario), P for Partial (third scenario).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Specify <span class="token keyword keyword-on">on</span> <span class="token keyword keyword-of">of</span> the <span class="token keyword keyword-following">following</span> extract <span class="token keyword keyword-type">type</span>: N<span class="token punctuation">,</span> F<span class="token punctuation">,</span> P
+REM <span class="token keyword keyword-First">First</span> scenario <span class="token operator">-</span> <span class="token keyword keyword-no">no</span> extraction <span class="token keyword keyword-of">of</span> reference <span class="token keyword keyword-data">data</span> 
+REM <span class="token keyword keyword-Second">Second</span> scenario <span class="token operator">-</span> <span class="token keyword keyword-Full">Full</span> extraction <span class="token keyword keyword-of">of</span> reference <span class="token keyword keyword-data">data</span>
+REM Third scenario <span class="token operator">-</span> <span class="token keyword keyword-Partial">Partial</span> extraction <span class="token keyword keyword-of">of</span> reference <span class="token keyword keyword-data">data</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span>
+      ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   l_extract_type ds_tables<span class="token punctuation">.</span>extract_type<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> <span class="token string">'&amp;extract_type'</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token keyword keyword-IF">IF</span> l_extract_type <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token keyword keyword-THEN">THEN</span>
+      raise_application_error<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20000</span><span class="token punctuation">,</span><span class="token string">'Extract type is mandatory'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-END">END</span> <span class="token keyword keyword-IF">IF</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-IF">IF</span> l_extract_type <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'F'</span><span class="token punctuation">,</span><span class="token string">'P'</span><span class="token punctuation">,</span><span class="token string">'N'</span><span class="token punctuation">)</span> <span class="token keyword keyword-THEN">THEN</span>
+      raise_application_error<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20000</span><span class="token punctuation">,</span><span class="token string">'Extract type must be F, P or N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-END">END</span> <span class="token keyword keyword-IF">IF</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id
+      <span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'REGIONS'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span>l_extract_type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id
+      <span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'COUNTRIES'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span>l_extract_type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id
+      <span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'LOCATIONS'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span>l_extract_type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id
+      <span class="token punctuation">,</span>p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'JOBS'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span>l_extract_type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="226-first-scenario--no-extraction-of-reference-data">2.2.6. First scenario – no extraction of reference data </h3>
+<p>In the first scenario, the target schema already contains all reference data i.e., <code>LOCATIONS</code>, <code>COUNTRIES</code>, <code>REGIONS</code> and <code>JOBS</code>. We therefore need to exclude theses tables from the extraction.</p>
+<p>During the extraction process, constraints which lead to tables marked as not extracted will just be ignored whatever is their extraction type. So <code>DEP_LOC_FK</code> and <code>JHIST_JOB_FK</code> constraints will not be walked through despite their "P" extraction type.</p>
+<h3 id="227-second-scenario--full-extraction-of-reference-data">2.2.7. Second scenario – full extraction of reference data </h3>
+<p>In the second scenario, the target schema is empty and all reference data (<code>LOCATIONS</code>, <code>COUNTRIES</code>, <code>REGIONS</code> and <code>JOBS</code>) will be added to the data set and subsequently transported.</p>
+<p>During the extraction process, constraints which lead to tables marked as fully extracted will just be ignored whatever is their extraction type. So <code>DEP_LOC_FK</code> and JHIST_JOB_FK` constraints will not be walked-through despite their "P" extraction type.</p>
+<h3 id="228-third-scenario--partial-extraction-of-reference-data">2.2.8. Third scenario – partial extraction of reference data </h3>
+<p>In the third scenario, the target schema is empty and only the reference data that are needed (i.e., referenced) to guarantee referential integrity are extracted.</p>
+<h3 id="229-extracting-rowids">2.2.9. Extracting rowids </h3>
+<p>Next step is to extract rowids to take into account changes that have been made to the definition of the data set (inclusion of referential constraints and management of reference data) since the first extraction.</p>
+<p>If an extraction was attempted at this point, it would end up in an error as a loop would be detected in the table dependencies. Indeed, EMPLOYEES depend on DEPARTMENTS which in turn depend on EMPLOYEES. As a concrete example, Steven King (<code>employee_id</code> 100) works in Executive department (<code>department_id</code> 90) which is managed by Steven King (`employee_id 100).</p>
+<p>To prevent this dependency, one of the two constraints (<code>DEPT_MGR_FK</code> or <code>EMP_DEPT_FK</code>) must be declared as <code>DEFERRED</code>:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Defer one <span class="token keyword keyword-constraint">constraint</span> <span class="token keyword keyword-to">to</span> avoid <span class="token keyword keyword-loop">loop</span> <span class="token operator">in</span> dependencies
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPT_MGR_FK'</span><span class="token punctuation">,</span>p_deferred<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEFERRED'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>However, this will not be sufficient as <code>DEPT_MGR_FK</code> is declared as <code>IMMEDIATE</code> in the database while it should also be <code>DEFERRED</code>. It will therefore be necessary to disable it before transporting the data set (cfr. later).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Extract again rowids <span class="token keyword keyword-of">of</span> records <span class="token keyword keyword-of">of</span> the so defined <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'E'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors</span>
+   ds_utility_krn<span class="token punctuation">.</span>extract_data_set_rowids<span class="token punctuation">(</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The number of records extracted from each table is given by the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> <span class="token keyword keyword-statistics">statistics</span> <span class="token keyword keyword-on">on</span> <span class="token keyword keyword-tables">tables</span> <span class="token punctuation">(</span>extracted vs total<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> table_name<span class="token punctuation">,</span> source_count<span class="token punctuation">,</span> extract_count
+  <span class="token keyword keyword-FROM">FROM</span> ds_tables
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> table_name
+<span class="token operator">/</span>
+</code></pre><p>Details on extracted records are given by the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> <span class="token keyword keyword-constraint">constraint</span> <span class="token keyword keyword-statistics">statistics</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> tab<span class="token punctuation">.</span>table_name dst_tab_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>constraint_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>src_table_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>cardinality<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+  <span class="token keyword keyword-FROM">FROM</span> ds_records rec
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> ds_tables tab
+    <span class="token keyword keyword-ON">ON</span> tab<span class="token punctuation">.</span>table_id <span class="token operator">=</span> rec<span class="token punctuation">.</span>table_id
+   <span class="token operator">AND</span> tab<span class="token punctuation">.</span>set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span>
+  <span class="token keyword keyword-LEFT">LEFT</span> <span class="token keyword keyword-OUTER">OUTER</span> <span class="token keyword keyword-JOIN">JOIN</span> ds_constraints con
+    <span class="token keyword keyword-ON">ON</span> con<span class="token punctuation">.</span>con_id <span class="token operator">=</span> rec<span class="token punctuation">.</span>con_id
+ <span class="token keyword keyword-GROUP">GROUP</span> <span class="token keyword keyword-BY">BY</span> tab<span class="token punctuation">.</span>table_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>constraint_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>src_table_name<span class="token punctuation">,</span> con<span class="token punctuation">.</span>cardinality
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span>
+<span class="token operator">/</span>
+</code></pre><p>For each scenario, the following diagram show how many records will be extracted in each table and from which foreign key they come from (<strong>red</strong> = base records + 1-N relationships; <strong>blue</strong> = N-1 relationships; <strong>black</strong> = reference table).</p>
+<h4 id="2291-first-scenario--no-extraction-of-reference-data">2.2.9.1. First scenario – no extraction of reference data </h4>
+<p><img src="images/006.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SOURCE_COUNT</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">25</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">107</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">23</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">REGIONS</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>DST_TAB_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CARDINALITY</code></strong></th>
+<th style="text-align:left"><strong><code>COUNT(*)</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">EMP_DEPT_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2292-second-scenario--full-extraction-of-reference-data">2.2.9.2. Second scenario – full extraction of reference data </h4>
+<p><img src="images/007.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SOURCE_COUNT</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">25</td>
+<td style="text-align:left">25</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">107</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">19</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">23</td>
+<td style="text-align:left">23</td>
+</tr>
+<tr>
+<td style="text-align:left">REGIONS</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>DST_TAB_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CARDINALITY</code></strong></th>
+<th style="text-align:left"><strong><code>COUNT(*)</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">EMP_DEPT_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2293-third-scenario--partial-extraction-of-reference-data">2.2.9.3. Third scenario – partial extraction of reference data </h4>
+<p><img src="images/008.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SOURCE_COUNT</code></strong></th>
+<th style="text-align:left"><strong><code>EXTRACT_COUNT</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">25</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">107</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">23</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">REGIONS</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>DST_TAB_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CONSTRAINT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>SRC_TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>CARDINALITY</code></strong></th>
+<th style="text-align:left"><strong><code>COUNT(*)</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">LOC_C_ID_FK</td>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">EMP_DEPT_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">DEPT_MGR_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">EMP_MANAGER_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">(null)</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">EMP_JOB_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS</td>
+<td style="text-align:left">JHIST_JOB_FK</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">JHIST_EMP_FK</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">1-N</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS</td>
+<td style="text-align:left">DEPT_LOC_FK</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">REGIONS</td>
+<td style="text-align:left">COUNTR_REG_FK</td>
+<td style="text-align:left">COUNTRIES</td>
+<td style="text-align:left">N-1</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2210-preview-data-set">2.2.10. Preview data set </h3>
+<p>The data set can be previewed before its transportation to another schema via ad-hoc views created by the <code>create_views()</code> procedure. View names are created by adding a <code>_V</code> suffix to underlying table names.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> views <span class="token keyword keyword-to">to</span> pre<span class="token operator">-</span><span class="token keyword keyword-view">view</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'EWIDSR'</span><span class="token punctuation">;</span> <span class="token comment">-- Show all msgs</span>
+   ds_utility_krn<span class="token punctuation">.</span>create_views<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_view_suffix<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'_V'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>VIEW_NAME</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">COUNTRIES_V</td>
+</tr>
+<tr>
+<td style="text-align:left">DEPARTMENTS_V</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES_V</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY_V</td>
+</tr>
+<tr>
+<td style="text-align:left">JOBS_V</td>
+</tr>
+<tr>
+<td style="text-align:left">LOCATIONS_V</td>
+</tr>
+<tr>
+<td style="text-align:left">REGIONS_V</td>
+</tr>
+</tbody>
+</table>
+<p>You then just need to query each view to see which records will be extracted:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> countries_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> departments_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> employees_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> job_history_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> jobs_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> locations_v<span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> regions_v<span class="token punctuation">;</span>
+</code></pre><p>In all scenarios, the following 4 employees and 2 departments that will be extracted:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>EMPLOYEE_ID</code></strong></th>
+<th style="text-align:left"><strong><code>FIRST_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>LAST_NAME</code></strong></th>
+<th style="text-align:left"><strong>…</strong></th>
+<th style="text-align:left"><strong><code>MANAGER_ID</code></strong></th>
+<th style="text-align:left"><strong><code>DEPARTMENT_ID</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">Steven</td>
+<td style="text-align:left">King</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">90</td>
+</tr>
+<tr>
+<td style="text-align:left">145</td>
+<td style="text-align:left">John</td>
+<td style="text-align:left">Russell</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">100</td>
+<td style="text-align:left">80</td>
+</tr>
+<tr>
+<td style="text-align:left">149</td>
+<td style="text-align:left">Eleni</td>
+<td style="text-align:left">Zlotkey</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">100</td>
+<td style="text-align:left">80</td>
+</tr>
+<tr>
+<td style="text-align:left">176</td>
+<td style="text-align:left">Jonathon</td>
+<td style="text-align:left">Taylor</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">149</td>
+<td style="text-align:left">80</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>DEPARTMENT_ID</code></strong></th>
+<th style="text-align:left"><strong><code>DEPARTMENT_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>MANAGER_ID</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">90</td>
+<td style="text-align:left">Executive</td>
+<td style="text-align:left">100</td>
+</tr>
+<tr>
+<td style="text-align:left">80</td>
+<td style="text-align:left">Sales</td>
+<td style="text-align:left">145</td>
+</tr>
+</tbody>
+</table>
+<p>Jonathon (id=176) is the employee that we wanted to extract; Eleni (id=149) is his manager and Steven (id=100) the manager of Eleni. Steven and John are the respective managers of executive (id=90) and sales (id=80) departments. While we wanted to extract only 1 employee, 4 will be extracted for preventing referential constraints <code>EMP_MANAGER_FK</code> and <code>DEPT_MGR_FK</code> from being violated. Detail information (e.g., job history) of these 3 additional employees will not be extracted though.</p>
+<p>Once the data set has been checked, views can be deleted via the <code>delete_views()</code> procedure and by passing exactly the same parameters:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> views created <span class="token keyword keyword-to">to</span> pre<span class="token operator">-</span><span class="token keyword keyword-view">view</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>drop_views<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_view_suffix<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'_V'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="2211-data-set-transportation">2.2.11. Data set transportation </h3>
+<p>Data set can be transported to the target schema via different methods. For this use case, we will demonstrate transportation via a test database link (which is supposed to exist already), possibility after an intermediary XML extraction.</p>
+<p>Before transporting the data set to the target schema, triggers must be disabled as the transactional data they normally generate (e.g., `JOB_HISTORY) are already contained in the data set. The need for this action depends on your database and business logic.</p>
+<p>Then, the target database link property of each table must be set via the following:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Define target <span class="token keyword keyword-database">database</span> link
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_target_db_link<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>As explained in section <a href="#229-extracting-rowids">2.2.9. Extracting rowids</a>, <code>DEPT_MGR_FK</code> constraint must be disabled (or changed to <code>DEFERRED</code>) in the target schema before launching the data transfer.</p>
+<p>The data set can then after be transported via the database link in the following way:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'ES'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors &amp; SQL</span>
+   ds_utility_krn<span class="token punctuation">.</span>handle_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DIRECT-EXECUTE'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The above data transfer will succeed for the first 2 scenarios.</p>
+<p>Unfortunately, the transfer of <code>COUNTRIES</code> in the 3<sup>rd</sup> scenario will fail on the following exception: "ORA-01410: invalid rowid". This is because partial extraction is based on <code>ROWIDS</code> and <code>COUNTRIES</code> is an Index Organized Table (IOT) that has logical <code>ROWIDS</code> which are not properly handled in DMLs that involve database links. As a reminder, IOT data are stored within their index and therefore do not have physical <code>ROWIDS</code>. You can make the distinction between logical and physical <code>ROWIDS</code> by looking at their format (e.g., logical: <code>*BCJENTSCVUV+</code> compared to physical: <code>AAAYWVACJAABCXVAAA</code>).</p>
+<p>One possible solution would be to transform the <code>COUNTRIES</code> table into a normal table. Alternatively, an extraction in XML followed by a transfer via database link can also do the trick.</p>
+<p>Here is how to do it:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Export <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span> <span class="token keyword keyword-to">to</span> XML
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'ES'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors &amp; SQL</span>
+   ds_utility_krn<span class="token punctuation">.</span>export_data_set_to_xml<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Import">Import</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span> <span class="token keyword keyword-from">from</span> XML <span class="token punctuation">(</span><span class="token keyword keyword-into">into</span> target <span class="token keyword keyword-schema">schema</span> via dblink<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>import_data_set_from_xml<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="2212-variants">2.2.12. Variants </h3>
+<p>Let's consider some variants of the test case to demonstrate some other functionality.</p>
+<h4 id="22121-variant-1">2.2.12.1. Variant 1 </h4>
+<p>We have seen with this first test case that, while we were interested to extract the information of a single specific person, 3 other persons (some managers) were extracted too. This is because the <code>EMP_MANAGER_FK</code> and <code>DEPT_MGR_FK</code> constraints have been included in the data set to ensure its referential integrity.</p>
+<p>To prevent the management staff from being extracted, you can change the extraction type of these 2 constraints to N:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Change the extract <span class="token keyword keyword-type">type</span> <span class="token keyword keyword-of">of</span> the <span class="token number">2</span> constraints <span class="token keyword keyword-to">to</span> N<span class="token punctuation">)</span>o extraction
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMP_MGR_FK'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPT_MGR_FK'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Alternatively, you can just delete these 2 constraints from the data set:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Alternatively<span class="token punctuation">,</span> remove these <span class="token number">2</span> constraints <span class="token keyword keyword-from">from</span> the <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>exclude_constraints<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMP_MANAGER_FK'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>exclude_constraints<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPT_MGR_FK'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>If you extract again the rowids after having executed one of the two above piece of code, you will notice that only 1 person is indeed extracted.</p>
+<p>However, this is not sufficient. Indeed, this will not prevent the <code>employees.manager_id</code> and <code>departments.manager_id</code> columns from being extracted with values referencing persons that have not been extracted. Insertion will therefore fail due to violated foreign key constraints.</p>
+<p>The only way to avoid such constraint violation is to reset these columns to NULL while extracting records. Note that this is possible only if these columns are optional, which is well the case (although <code>departments.manager_id</code> should be mandatory in light of its comment).</p>
+<p>This can be achieved in 2 different ways.</p>
+<h5 id="221211-excluding-columns">2.2.12.1.1. Excluding columns </h5>
+<p>For each table, you can specify the list of columns that you want to extract via the columns list property. This property can be updated by calling the <code>update_table_properties()</code> procedure. Rather than listing the columns that you want to keep (which may be painful), you can exclude some columns via the special syntax: <code>* BUT &lt;comma-separated-list-of-columns-to-exclude&gt;</code></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Exclude manager_id <span class="token keyword keyword-columns">columns</span> <span class="token keyword keyword-from">from</span> the extraction
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMPLOYEES'</span><span class="token punctuation">,</span> p_columns_list<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'* BUT manager_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPARTMENTS'</span><span class="token punctuation">,</span> p_columns_list<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'* BUT manager_id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The list of columns defined for each table is also used when creating views. If you create views after the execution of the above piece of code, you will notice that the <code>manager_id</code> column is not present in both <code>EMPLOYEES_V</code> and <code>DEPARTMENTS_V</code> views.</p>
+<h5 id="221212-forcing-column-value">2.2.12.1.2. Forcing column value </h5>
+<p>As of v23.3, forcing column value must be performed using SQL data masking.</p>
+<h4 id="22122-variant-2">2.2.12.2. Variant 2 </h4>
+<p>In the original use case, 4 persons have been extracted (the targeted person, his manager and the manager of 2 departments). However, only the details (e.g., jobs) of the first person have been extracted. This is because other persons are not defined as part of the base records but they have been extracted to ensure referential integrity.</p>
+<p>In this variant, let's suppose that we want also to include the details of the line managers. To achieve this, we just need to change the extraction type of the <code>EMP_MANAGER_FK</code> constraint from <strong>P</strong>artial to <strong>B</strong>ase for cardinality N-1. The targeted person as well as all ascending managers of the hierarchy (until no one is found) will then be included in the base records as well as their details (e.g., jobs).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Change the extraction <span class="token keyword keyword-type">type</span> <span class="token keyword keyword-of">of</span> EMP_MANAGER_FK <span class="token keyword keyword-to">to</span> B <span class="token keyword keyword-for">for</span> N<span class="token operator">-</span><span class="token number">1</span> direction
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMP_MANAGER_FK'</span>
+      <span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N-1'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'B'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>If you extract rowids after having executed the above piece of code, you will notice that all employees (i.e., 107 records) have been selected. This is because the <code>EMP_MANAGER_FK</code> constraint is twice in the data set (once for each direction) with a <strong>B</strong>ase extraction type. For a given person, his manager will be selected but also his subordinates. As this process is repeated recursively until no more person is selected, all staff will be selected in the end (they are all descendant of employee id 100).</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Change the extraction <span class="token keyword keyword-type">type</span> <span class="token keyword keyword-of">of</span> EMP_MANAGER_FK <span class="token keyword keyword-to">to</span> N <span class="token keyword keyword-for">for</span> <span class="token number">1</span><span class="token operator">-</span>N direction
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_constraint_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_constraint_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMP_MANAGER_FK'</span>
+      <span class="token punctuation">,</span> p_cardinality<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'1-N'</span><span class="token punctuation">,</span> p_extract_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'N'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Let's now suppose that we interested by managers but not their subordinates. To implement this rule, we just need to change the extraction type of the <code>EMP_MANAGER_FK</code> constraint and 1-N cardinality to <strong>N</strong>one.</p>
+<p>If you extract again rowids after having executed the above piece of code, 4 persons will be extracted (the targeted person + his boss + the boss of his boss + the manager of the department for which he worked according to his job history). The job history of these 3 managers should be extracted too (but it's unfortunately not the case as they do not have any).</p>
+<h4 id="22123-variant-3">2.2.12.3. Variant 3 </h4>
+<p>Let's suppose that you want to delete employee Jonathon Taylor and his details (e.g., job history). To achieve this goal, you just need to include in your data set the targeted person and the 1-N constraints, which correspond to the first step (identification of base records and its details). The second step (inclusion of referential constraints) is not needed in this case. Once the rowids have been extracted, the follow code allows you to delete the data set from the source schema:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Delete">Delete</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token keyword keyword-IF">IF</span> l_set_id <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword keyword-THEN">THEN</span>
+      ds_utility_krn<span class="token punctuation">.</span>delete_data_set_def<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-END">END</span> <span class="token keyword keyword-IF">IF</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Before deleting the data set, you may want to generate a backup script in order to restore it at a later stage. This can be achieved via the following block of code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Generate a script <span class="token keyword keyword-to">to</span> <span class="token keyword keyword-restore">restore</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-after">after</span> their deletion
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>delete_output<span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>handle_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PREPARE-SCRIPT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+   <span class="token comment">-- To check results: SELECT text FROM ds_output ORDER BY line</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The generated script is available in the <code>DS_OUTPUT</code> table.</p>
+<h4 id="22124-variant-4">2.2.12.4. Variant 4 </h4>
+<p>Let's now suppose that you want to transport your data set via export/import or data pump utility. To achieve this, you need to create security policies on the tables of your data set which will hide records that are not part of it.</p>
+<p>Security policies can be created via the following block of code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> security policy
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'E'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors</span>
+   ds_utility_krn<span class="token punctuation">.</span>create_policies<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Once created, queries on employees and job history tables will return respectively 1 and 2 rows. You can then proceed with exporting your schema (in full or only the tables of your data set). Once rows have been exported, you can drop security policies with the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> policies
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>drop_policies<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Note that, if you have several data sets involving the same table, you should not create multiple security policies. It would indeed mean that only the data that intersect (i.e., those common to both data sets) would be shown. Should you want to export several data sets in a once, create a single security policy (without passing any data set in parameter) and set the <code>visible_flag</code> property to Y for each data set that you want to expose.</p>
+<h2 id="23-case-study-2--change-data-capture">2.3. Case Study 2 – Change Data Capture </h2>
+<p>The second use case demonstrates the change data capture functionality. It shows how to capture DML operations made to some tables via triggers, how to generate redo and undo scripts and how to rollback recorded operations. The code shown in this section can be found in <code>ds_tutorial_case_2.sql</code>.</p>
+<h3 id="231-create-data-set-definition">2.3.1. Create data set definition </h3>
+<p>The first step is to create a data set definition by calling the <code>create_data_set_def()</code> function.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> <span class="token operator">or</span> <span class="token keyword keyword-replace">replace</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span> definition
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token keyword keyword-IF">IF</span> l_set_id <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword keyword-THEN">THEN</span>
+      ds_utility_krn<span class="token punctuation">.</span>clear_data_set_def<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-ELSE">ELSE</span>
+      ds_utility_krn<span class="token punctuation">.</span>create_data_set_def<span class="token punctuation">(</span>p_set_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-END">END</span> <span class="token keyword keyword-IF">IF</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>The above code reuses the data set definition if it already exists (and clears its content) or create a new one otherwise.</p>
+<h3 id="232-include-captured-tables">2.3.2. Include captured tables </h3>
+<p>Second step is to add the tables for which you want to capture DML operations to the data set definition by calling the <code>include_tables()</code> procedure.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Define <span class="token keyword keyword-tables">tables</span> <span class="token keyword keyword-for">for</span> which DML operations must be captured
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMPLOYEES'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'JOB_HISTORY'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>include_tables<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPARTMENTS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>You can check tables included in your data set with the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> included <span class="token keyword keyword-tables">tables</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> set_id<span class="token punctuation">,</span> table_id<span class="token punctuation">,</span> table_name
+  <span class="token keyword keyword-FROM">FROM</span> ds_tables
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> table_id
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>SET_ID</code></strong></th>
+<th style="text-align:left"><strong><code>TABLE_ID</code></strong></th>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">122</td>
+<td style="text-align:left">249</td>
+<td style="text-align:left">EMPLOYEES</td>
+</tr>
+<tr>
+<td style="text-align:left">122</td>
+<td style="text-align:left">250</td>
+<td style="text-align:left">JOB_HISTORY</td>
+</tr>
+<tr>
+<td style="text-align:left">122</td>
+<td style="text-align:left">251</td>
+<td style="text-align:left">DEPARTMENTS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="233-create-database-triggers">2.3.3. Create database triggers </h3>
+<p>Third step consists to create database triggers (one for each captured table) by calling the <code>create_triggers()</code> procedure.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>create_triggers<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>You can check created triggers via the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> created triggers
+
+<span class="token keyword keyword-SELECT">SELECT</span> table_name<span class="token punctuation">,</span> trigger_name <span class="token keyword keyword-FROM">FROM</span> user_triggers <span class="token keyword keyword-WHERE">WHERE</span> trigger_name <span class="token operator">LIKE</span> <span class="token string">'%DS%'</span> <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> <span class="token number">1</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>TRIGGER_NAME</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">POST_IUD_DS122_TAB251</td>
+</tr>
+<tr>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">POST_IUD_DS122_TAB249</td>
+</tr>
+<tr>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">POST_IUD_DS122_TAB250</td>
+</tr>
+</tbody>
+</table>
+<p>Note that trigger names contain data set and table ids.</p>
+<h3 id="234-perform-some-operations">2.3.4. Perform some operations </h3>
+<p>Let's now perform some inserts, updates, and deletes.</p>
+<p>Create a new "data technologies" department (#300):</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> a department
+
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> departments <span class="token punctuation">(</span>
+   department_id<span class="token punctuation">,</span> department_name
+<span class="token punctuation">)</span> <span class="token keyword keyword-VALUES">VALUES</span> <span class="token punctuation">(</span>
+   <span class="token number">300</span><span class="token punctuation">,</span> <span class="token string">'Data technlologies'</span>
+<span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><p>Create 2 employees (#301 and #301) in that department (#300 being the manager of #301):</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Create">Create</span> <span class="token number">2</span> employees
+
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> employees <span class="token punctuation">(</span>
+   employee_id<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name
+<span class="token punctuation">,</span> email<span class="token punctuation">,</span> hire_date<span class="token punctuation">,</span> job_id
+<span class="token punctuation">,</span> department_id
+<span class="token punctuation">)</span> <span class="token keyword keyword-VALUES">VALUES</span> <span class="token punctuation">(</span>
+   <span class="token number">300</span><span class="token punctuation">,</span> <span class="token string">'Albert'</span><span class="token punctuation">,</span> <span class="token string">'Camus'</span>
+<span class="token punctuation">,</span> <span class="token string">'acamus@hotmail.com'</span><span class="token punctuation">,</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'01/01/2020'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'IT_PROG'</span>
+<span class="token punctuation">,</span> <span class="token number">300</span>
+<span class="token punctuation">)</span>
+<span class="token operator">/</span>
+
+<span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> employees <span class="token punctuation">(</span>
+   employee_id<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name
+<span class="token punctuation">,</span> email<span class="token punctuation">,</span> hire_date<span class="token punctuation">,</span> job_id
+<span class="token punctuation">,</span> department_id<span class="token punctuation">,</span> manager_id
+<span class="token punctuation">)</span> <span class="token keyword keyword-VALUES">VALUES</span> <span class="token punctuation">(</span>
+   <span class="token number">301</span><span class="token punctuation">,</span> <span class="token string">'Alphonse'</span><span class="token punctuation">,</span> <span class="token string">'Daudet'</span>
+<span class="token punctuation">,</span> <span class="token string">'adaudet@hotmail.com'</span><span class="token punctuation">,</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'01/01/2020'</span><span class="token punctuation">,</span><span class="token string">'DD/MM/YYYY'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'IT_PROG'</span>
+<span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">300</span>
+<span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><p>Update department #300 to make employee #300 his manager:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Update">Update</span> department
+
+<span class="token keyword keyword-UPDATE">UPDATE</span> departments
+   <span class="token keyword keyword-SET">SET</span> manager_id <span class="token operator">=</span> <span class="token number">300</span>
+<span class="token keyword keyword-WHERE">WHERE</span> department_id <span class="token operator">=</span> <span class="token number">300</span>
+<span class="token operator">/</span>
+</code></pre><p>Delete employee #176 and the 2 job in his history:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Delete">Delete</span> one employee <span class="token operator">and</span> its job history
+
+<span class="token keyword keyword-DELETE">DELETE</span> job_history
+<span class="token keyword keyword-WHERE">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">176</span>
+<span class="token operator">/</span>
+
+<span class="token keyword keyword-DELETE">DELETE</span> employees
+<span class="token keyword keyword-WHERE">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">176</span>
+<span class="token operator">/</span>
+</code></pre><p>Let's commit these changes and check the data:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Commit">Commit</span> changes
+
+<span class="token keyword keyword-COMMIT">COMMIT</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="235-check-captured-operations">2.3.5. Check captured operations </h3>
+<p>All above operations have been captured via the previously created database triggers.</p>
+<p>Let's check them via the following query:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> captured operations
+
+<span class="token keyword keyword-SELECT">SELECT</span> rec<span class="token punctuation">.</span>seq<span class="token punctuation">,</span> tab<span class="token punctuation">.</span>table_name<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>operation
+     <span class="token punctuation">,</span> rec<span class="token punctuation">.</span>record_data<span class="token punctuation">,</span> rec<span class="token punctuation">.</span>record_data_old
+  <span class="token keyword keyword-FROM">FROM</span> ds_records rec
+ <span class="token keyword keyword-INNER">INNER</span> <span class="token keyword keyword-JOIN">JOIN</span> ds_tables tab
+    <span class="token keyword keyword-ON">ON</span> tab<span class="token punctuation">.</span>table_id <span class="token operator">=</span> rec<span class="token punctuation">.</span>table_id
+   <span class="token operator">AND</span> tab<span class="token punctuation">.</span>set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> rec<span class="token punctuation">.</span>seq
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>SEQ</code></strong></th>
+<th style="text-align:left"><strong><code>TABLE_NAME</code></strong></th>
+<th style="text-align:left"><strong><code>OPERATION</code></strong></th>
+<th style="text-align:left"><strong><code>RECORD_DATA</code></strong></th>
+<th style="text-align:left"><strong><code>RECORD_DATA_OLD</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">I</td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">I</td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">I</td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">DEPARTMENTS</td>
+<td style="text-align:left">U</td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">D</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">JOB_HISTORY</td>
+<td style="text-align:left">D</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">EMPLOYEES</td>
+<td style="text-align:left">D</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>&lt;ROWSET&gt;...&lt;/ROWSET&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can see which operation (Insert, Update, Delete) has been performed on which table and what were the data before (<code>record_data_old</code>) and after (<code>record_data</code>). For inserts, there is no old data. For deletes, there is no new data. For updates, both old and new data are stored in the XML. The order in which these operations have been performed is indicated by the seq column.</p>
+<h3 id="236-generate-redo-script">2.3.6. Generate redo script </h3>
+<p>You can generate a script that replays captured operations by calling the <code>gen_captured_data_set_script()</code> pipeline function.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> <span class="token keyword keyword-TABLE">TABLE</span><span class="token punctuation">(</span>ds_utility_krn<span class="token punctuation">.</span>gen_captured_data_set_script<span class="token punctuation">(</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>COLUMN_VALUE</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">INSERT INTO departments...</td>
+</tr>
+<tr>
+<td style="text-align:left">INSERT INTO employees...</td>
+</tr>
+<tr>
+<td style="text-align:left">INSERT INTO employees...</td>
+</tr>
+<tr>
+<td style="text-align:left">UPDATE departments...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE job_history...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE job_history...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE employees...</td>
+</tr>
+</tbody>
+</table>
+<p>The generated script (see <code>dept_emp_capture_redo.sql</code>) contains the same SQL statements that those executed on the HR schema.</p>
+<h3 id="237-generate-undo-script">2.3.7. Generate undo script </h3>
+<p>You can generate a script that rolls back captured operations by calling the <code>gen_captured_data_set_script()</code> pipelined function with 'Y' for the undo parameter:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Generate an UNDO script <span class="token punctuation">(</span>output <span class="token operator">is</span> saved <span class="token operator">in</span> dept_emp_capture_undo<span class="token punctuation">.</span><span class="token keyword keyword-sql">sql</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> <span class="token keyword keyword-TABLE">TABLE</span><span class="token punctuation">(</span>ds_utility_krn<span class="token punctuation">.</span>gen_captured_data_set_script<span class="token punctuation">(</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'Y'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left"><strong><code>COLUMN_VALUE</code></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">INSERT INTO employees...</td>
+</tr>
+<tr>
+<td style="text-align:left">INSERT INTO job_history...</td>
+</tr>
+<tr>
+<td style="text-align:left">INSERT INTO job_history...</td>
+</tr>
+<tr>
+<td style="text-align:left">UPDATE departments...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE employees...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE employees...</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE departments...</td>
+</tr>
+</tbody>
+</table>
+<p>The generate script (see <code>dept_emp_capture_undo.sql</code>) performs reverse operations in reverse order. A record which was inserted is deleted. A record which was deleted is inserted back. A record which was updated is updated back to its old values.</p>
+<h3 id="238-rollback-captured-operations">2.3.8. Rollback captured operations </h3>
+<p>Another useful possibility is to rollback captured operations by calling the <code>rollback_captured_data_set()</code> procedure.</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Rollback">Rollback</span> <span class="token keyword keyword-all">all</span> captured operations
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>rollback_captured_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>You can check the data via the following queries:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> <span class="token keyword keyword-data">data</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> departments <span class="token keyword keyword-WHERE">WHERE</span> department_id<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> employees <span class="token keyword keyword-WHERE">WHERE</span> department_id<span class="token operator">=</span><span class="token number">300</span> <span class="token operator">OR</span> employee_id<span class="token operator">=</span><span class="token number">176</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> job_history <span class="token keyword keyword-WHERE">WHERE</span> employee_id<span class="token operator">=</span><span class="token number">176</span><span class="token punctuation">;</span>
+</code></pre><p>You will notice that department #300 and its 2 employees have been deleted and employee #176 has been restored as well as his job history.</p>
+<p>By default, captured records are deleted after their rollback but you can decide otherwise via the <code>p_delete_flag</code> parameter. Also note that data capture is temporarily disabled during this operation.</p>
+<h3 id="239-drop-database-triggers">2.3.9. Drop database triggers </h3>
+<p>When you are done, database triggers can be dropped by calling the <code>drop_triggers()</code> procedure:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> triggers created <span class="token keyword keyword-to">to</span> capture <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>drop_triggers<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="2310-delete-data-set-definition">2.3.10. Delete data set definition </h3>
+<p>The last step consists to delete the data set definition by calling the <code>delete_data_set_def()</code> procedure:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> triggers created <span class="token keyword keyword-to">to</span> capture <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>drop_triggers<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Delete">Delete</span> <span class="token keyword keyword-data">data</span> <span class="token keyword keyword-set">set</span> definition
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>delete_data_set_def<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><h3 id="2311-variants">2.3.11. Variants </h3>
+<h4 id="23111-synchronous-replication">2.3.11.1. Synchronous replication </h4>
+<p>You may want to replicate synchronously the operations made in one schema to another schema through a database link.</p>
+<p>You first need to change the capture mode property of the data set definition to <code>SYNC</code> after its creation (<code>SYNC</code> meaning that changes will be replicated synchronously):</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Set">Set</span> capture <span class="token keyword keyword-mode">mode</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_data_set_def_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_capture_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EXP'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> capture <span class="token keyword keyword-mode">mode</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> ds_data_sets <span class="token keyword keyword-WHERE">WHERE</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><p>You also need to set the target database link of captured tables after their inclusion in the data set and before creating the triggers:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Set">Set</span> target <span class="token keyword keyword-database">database</span> link
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EMPLOYEES'</span><span class="token punctuation">,</span> p_target_db_link<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'JOB_HISTORY'</span><span class="token punctuation">,</span> p_target_db_link<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_table_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DEPARTMENTS'</span><span class="token punctuation">,</span> p_target_db_link<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> target db link
+
+<span class="token keyword keyword-SELECT">SELECT</span> set_id<span class="token punctuation">,</span> table_id<span class="token punctuation">,</span> table_name<span class="token punctuation">,</span> target_db_link
+  <span class="token keyword keyword-FROM">FROM</span> ds_tables
+ <span class="token keyword keyword-WHERE">WHERE</span> set_id <span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span>
+ <span class="token keyword keyword-ORDER">ORDER</span> <span class="token keyword keyword-BY">BY</span> table_id
+<span class="token operator">/</span>
+</code></pre><p>All DML operations made on these 3 tables will then be replicated to the schema referenced by the "test" database link.</p>
+<p>Script <code>dept_emp_capture_undo.sql</code> can be used to restore the data to their initial state.</p>
+<p>Note that synchronous replication have the following drawbacks:</p>
+<ul>
+<li>If the target database is not available, the transaction in the source database will fail;</li>
+<li>The transaction which also covers the replication will take longer to complete.</li>
+</ul>
+<h4 id="23112-asynchronous-replication">2.3.11.2. Asynchronous replication </h4>
+<p>To avoid these drawbacks, you may rather want to perform an asynchronous replication.</p>
+<p>You first need to change the capture mode property of the data set definition to <code>ASYN</code> after its creation:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Set">Set</span> capture <span class="token keyword keyword-mode">mode</span>
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>update_data_set_def_properties<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span> p_capture_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'ASYN'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> capture <span class="token keyword keyword-mode">mode</span>
+
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> ds_data_sets <span class="token keyword keyword-WHERE">WHERE</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span>
+<span class="token operator">/</span>
+</code></pre><p>A <code>DBMS JOB</code> will be automatically scheduled the first time an operation is captured and will execute asynchronously a few seconds after the commit of the current transaction. The job will appear furtively in the <code>USER_JOBS</code> view and will disappear once executed. Here is how to get the list of capture forwarding jobs (the first line of code contains a comment starting with DS):</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Check">Check</span> created job
+
+<span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> user_jobs <span class="token keyword keyword-WHERE">WHERE</span> what <span class="token operator">LIKE</span> <span class="token string">'--DS%'</span>
+<span class="token operator">/</span>
+</code></pre><p>As for synchronous replication, target database link of included tables must be set prior to (re)creating triggers.</p>
+<p>Note that there is currently no logging mechanism i.e., if the replication job fails, it will do it silently. However, operations that have not been successfully replicated will remain in the <code>DS_RECORDS</code> table. Once the issue has been resolved, a job can be rescheduled manually via the following code:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM Re<span class="token operator">-</span>launch a job manually
+
+<span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'dept-emp-capture'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>create_capture_forwarding_job<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Note that the <code>DBMS JOB</code> won't start before the transaction is committed (hence the final commit).</p>
+<p>Script <code>dept_emp_capture_undo.sql</code> can be used to restore the data to their initial state.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,7 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(PACKAGE BODY|PACKAGE|TABLE) LOG_', p_obj_name_anti_pattern=>'^(PACKAGE BODY|PACKAGE) LOG_.*_TST$', p_checksum=>'Y', p_condition=>'Y', p_public=>'N', p_app_code=>'log_utility', p_ver_code=>'24.0.1'))
+CONSTRAINT LOU_PK: 94067048
+INDEX LOU_PK: 570218564
+PACKAGE BODY LOG_UTILITY: 749217953
+PACKAGE LOG_UTILITY: 684187048
+PACKAGE LOG_UTILITY_LIC: 39807822
+TABLE LOG_OUTPUT: 238306833

@@ -1,0 +1,14 @@
+PROMPT starting modification 4
+Prompt Table DPP_OPTIONS_ALLOWED_VALUES
+
+Prompt Insert of row #31
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'TIMEOUT_MONITORING' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #32
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'TIMEOUT_MONITORING' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);

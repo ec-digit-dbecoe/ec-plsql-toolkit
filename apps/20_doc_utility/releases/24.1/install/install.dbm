@@ -1,0 +1,10 @@
+doc_objects.sql
+DOC_UTILITY.pks
+DOC_UTILITY_VAR.pks
+DOC_UTILITY_EXT_TPL.pks
+DOC_UTILITY_LIC.pks
+DOC_UTILITY_EXT_TPL.pkb
+doc_generate.sql
+DOC_UTILITY.pkb
+DOC_UTILITY_VAR.pkb
+doc_recompile.sql

@@ -1,0 +1,36 @@
+#!/bin/bash
+# Usage: get-hsh.sh directory cmd_id op
+# $1 is directory
+# $2 is cmd_id
+# $3 is op (set-hashes or chk-hashes)
+# $4 is apps dir
+
+# Set the directory to the given subdir of the current working directory or to an absolute path
+dir="$1"
+
+# Resolve the directory path if it's relative
+if ! cd "$dir"; then
+    echo "Invalid directory path: $dir"
+    exit 1
+fi
+dir=$(pwd)
+cd - >/dev/null  # Return to previous directory
+
+echo "BEGIN"
+echo "    NULL;"
+
+# Loop through files in the directory
+find "$dir" -type f | while IFS= read -r filePath; do
+
+        relativePath="${filePath#$dir/}"
+
+        # Calculate MD5 hash for the file
+        md5hash=$(md5sum "$filePath" | awk '{print $1}')
+
+	# Output the hash and file path
+        echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_text=>'$md5hash $1/$relativePath');"
+done
+
+echo "    dbm_utility_krn.parse_hashes(p_cmd_id=>'$2', p_op=>'$3', p_apps_dir=>'$4');"
+echo "END;"
+echo "/"

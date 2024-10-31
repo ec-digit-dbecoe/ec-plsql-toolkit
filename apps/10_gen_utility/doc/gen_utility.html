@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>gen_utility</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./gen_utility_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="gen-utility---users-guide-v240">GEN Utility - User's Guide v24.0 </h1>
+<h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#11-rationale">1.1. Rationale</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#12-history">1.2. History</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#13-overview">1.3. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#14-use-cases">1.4. Use cases</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#15-key-features">1.5. Key features</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#16-installation">1.6. Installation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#17-uninstallation">1.7. Uninstallation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#2-operation">2. Operation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#21-invocation">2.1. Invocation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#22-input-stream">2.2. Input Stream</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#23-line-processing">2.3. Line Processing</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#24-symbol-substitution">2.4. Symbol Substitution</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#3-directives">3. Directives</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#31-symbol-definition-define">3.1. Symbol Definition (#define)</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#311-iso-compatibility-mode-disabled">3.1.1. ISO Compatibility Mode Disabled</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#312-iso-compatibility-mode-enabled">3.1.2. ISO Compatibility Mode Enabled</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#313-comparison">3.1.3. Comparison</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#32-symbol-undefinition-undefine--undef">3.2. Symbol Undefinition (#undefine | #undef)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#33-conditional-generation-if-ifdef-ifndef">3.3. Conditional Generation (#if, #ifdef, #ifndef)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#34-conditional-expressions">3.4. Conditional Expressions</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#35-iterations-for-next--endfor">3.5. Iterations (#for, #next | #endfor)</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#351-counter-based-loop">3.5.1. Counter-based loop</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#352-cursor-based-loop">3.5.2. Cursor-based loop</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#36-named-block-begin-end-begin-end">3.6. Named-block (#begin, #end, @begin, @end)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#37-code-inclusion-include">3.7. Code inclusion (#include)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#38-code-execution-execute">3.8. Code execution (#execute)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#39-warning-message-warning">3.9. Warning message (#warning)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#310-error-message-error">3.10. Error message (#error)</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#311-additional-instructions-pragma">3.11. Additional instructions (#pragma)</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#4-advanced-techniques">4. Advanced Techniques</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#41-reverse-generation">4.1. Reverse Generation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#42-using-input-stream">4.2. Using Input Stream</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#421-example-of-view-generation">4.2.1. Example of View Generation</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#422-example-of-trigger-generation">4.2.2. Example of Trigger Generation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#43-customization-of-generated-code">4.3. Customization of Generated Code</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#44-source-control">4.4. Source Control</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#5-chatgpts-opinion-about-the-tool">5. ChatGPT's opinion about the tool</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#51-strengths">5.1. Strengths</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#52-potential-limitations">5.2. Potential Limitations</a></li>
+<li><a href="file:///tmp/crossnote2024929-10540-9dx2t2.1rrsf.html#53-overall-impression">5.3. Overall Impression</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-introduction">1. Introduction </h1>
+<h2 id="11-rationale">1.1. Rationale </h2>
+<p>PL/SQL is a strongly typed language, which lacks some of the flexibility found in more modern languages like Java. It does not support inheritance, cannot work with objects without knowing their exact type, and lacks introspection capabilities to query properties of objects such as arrays or variables. Although object-oriented features (such as user-defined types) have introduced some flexibility, these features are not widely adopted in practice.</p>
+<p>In PL/SQL, if you need to reuse an algorithm designed for table A on table B, the usual approach is to duplicate the code, which is generally poor practice. This is where code generation becomes valuable: a template can be written once and then used to generate multiple instances, each tailored to a specific table or object.</p>
+<p>When bugs need fixing or updates are required, you only need to update the template and regenerate the code for all instances. Advanced techniques even allow limited modifications to the generated code, with the ability to regenerate it later without losing custom changes. Code generation can greatly enhance productivity by eliminating the need to manually write repetitive code across multiple instances..</p>
+<h2 id="12-history">1.2. History </h2>
+<p>This code generator was originally developed in 2001 to facilitate the development of COMREF interfaces. At the time, the SQL <code>MERGE</code> statement (introduced in SQL 2008) did not yet exist, so an ad-hoc algorithm was designed for parallelly synchronising tables. The challenge was to apply this algorithm to multiple interfaces with tables of different structures without duplicating code. Using dynamic SQL and PL/SQL was quickly ruled out due to complexity and performance limitations, leaving code generation as the only viable option.</p>
+<p>The initial version was written in C, and its pre-processor (CPP) inspired key features in the code generator, such as directives and macros. The executable ran on Windows, lacked a database connection, and generated database scripts on a file system. These scripts then had to be manually executed within the database schema, making the process cumbersome, especially given the multiple iterations required to fine-tune the template.</p>
+<p>In 2008, the tool was entirely redeveloped in PL/SQL for full integration with the database and has continued to evolve since. Templates, which were originally stored as files, are now managed as database objects (e.g., stored packages). Generated scripts are executed by default, creating or replacing database objects as needed. Over recent years, many features have been added, including dynamic generation, macros, and a fully customisable 100% generation approach.</p>
+<h2 id="13-overview">1.3. Overview </h2>
+<p>The GEN_UTILITY is a code generator that enables the dynamic creation of PL/SQL scripts, which can then be executed to create or replace database objects. Written entirely in PL/SQL, it operates within the database, eliminating the need to interact with a file system.</p>
+<p>Code generation is based on a single template and configuration data, allowing the generator to produce multiple objects as well as an optional reverse configuration for reverse generation (see Advanced Techniques chapter).</p>
+<p>A template can be:</p>
+<ul>
+<li>An existing database object containing the template code</li>
+<li>A stream of PL/SQL code provided as input to the generator</li>
+</ul>
+<p>The objects that can serve as templates are those whose source code is accessible from the <code>user_source</code> Oracle data dictionary view, typically:</p>
+<ul>
+<li>TYPE (spec) &amp; TYPE BODY</li>
+<li>PACKAGE (spec) &amp; PACKAGE BODY</li>
+<li>PROCEDURE &amp; FUNCTION</li>
+<li>TRIGGER</li>
+</ul>
+<p>As their source code is not available in <code>user_source</code>, views can only be generated by supplying their definition to the generator as an input stream.</p>
+<p>The input stream passed to the generator can be any valid PL/SQL code, such as:</p>
+<ul>
+<li>An anonymous block (<code>BEGIN … END;</code>)</li>
+<li>A PL/SQL script to create or replace a VIEW (or any other database object)</li>
+</ul>
+<p>In addition to PL/SQL code, templates may include:</p>
+<ul>
+<li>Symbols that are replaced with their values during generation</li>
+<li>Directives providing instructions to the code generator (e.g., symbol definitions, conditional generation, loops, etc.)</li>
+</ul>
+<h2 id="14-use-cases">1.4. Use cases </h2>
+<p>The code generator has been utilised within the Commission across a variety of projects (COMREF, SYSPER, Assmal2, PABS, etc.) and for multiple purposes.</p>
+<p>Here is a non-exhaustive list of typical use cases:</p>
+<ul>
+<li><strong>Generation of interfaces</strong> for synchronising with COMREF data</li>
+<li><strong>Generation of XML APIs</strong> (XML-based CRUD operations)</li>
+<li><strong>Generation of event-oriented framework layers</strong>, including:
+<ul>
+<li>Interface layer</li>
+<li>History management layer</li>
+<li>Version management layer</li>
+<li>Business rules layer</li>
+</ul>
+</li>
+<li><strong>Generation of utPLSQL unit tests</strong> based on test data sets</li>
+<li><strong>Generation of a PL/SQL compiler</strong> (PLCC – a compiler-compiler similar to Yacc, written in PL/SQL, which uses its own code as a template for generating compilers)</li>
+<li><strong>Generation of views</strong> of various kinds</li>
+<li><strong>Generation of audit triggers</strong></li>
+<li><strong>Global replacement of strings</strong> across all database packages</li>
+<li><strong>Etc.</strong></li>
+</ul>
+<h2 id="15-key-features">1.5. Key features </h2>
+<p>Here are some of the key features:</p>
+<ul>
+<li>Developed in <strong>PL/SQL</strong></li>
+<li><strong>Free of charge</strong></li>
+<li><strong>Fully customisable</strong></li>
+<li><strong>Integrated with the database</strong> (no files generated on a file system)</li>
+<li>Provides functionality similar to the <strong>C pre-processor</strong>, including directives, symbol, and macro substitutions</li>
+<li>Supports <strong>dynamic code generation</strong> (as opposed to fully static templates)</li>
+<li>Supports <strong>loops and iterations</strong></li>
+<li><strong>Reverse code generation</strong> capability</li>
+</ul>
+<h2 id="16-installation">1.6. Installation </h2>
+<p>The tool consists of the stand-alone <code>GEN_UTILITY</code> package. It does not use any tables and has no dependencies on other packages. The <code>GEN_UTILITY_TST</code> package contains <strong>utPLSQL</strong> unit tests, which are optional and do not need to be installed.</p>
+<p>To install the tool, simply execute the two scripts that create the package specification and body, in that order.</p>
+<p>If provided with the EC PL/SQL toolkit, it can also be installed via the following shell command in the DBM installer: <code>dbm-cli install gen</code>.</p>
+<h2 id="17-uninstallation">1.7. Uninstallation </h2>
+<p>To uninstall the tool, just drop the <code>GEN_UTILITY</code> package. Due to its simplicity, no dedicated uninstallation script is provided.</p>
+<p>If using the EC PL/SQL toolkit, it can be uninstalled with the following DBM installer command: <code>dbm-cli uninstall gen</code>.</p>
+<h1 id="2-operation">2. Operation </h1>
+<h2 id="21-invocation">2.1. Invocation </h2>
+<p>To invoke the code generator, use the following syntax:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>gen_utility.generate (&lt;source&gt; [, &lt;options&gt; [, &lt;input&gt; [, &lt;target&gt;]]]);
+</code></pre><p>Alternatively:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>gen_utility.generate (
+   p_source =&gt; &lt;source&gt;
+[, p_options =&gt; &lt;options&gt;]
+[, p_input =&gt; &lt;input&gt;]
+[, p_target =&gt; &lt;target&gt;]
+);
+</code></pre><p>Parameters are as follows:</p>
+<ul>
+<li><code>&lt;source&gt;</code>: type and name of the template database object</li>
+<li><code>&lt;options&gt;</code>: one or more options as described below (optional)</li>
+<li><code>&lt;input&gt;</code>: input stream to be used as a code template (optional)</li>
+<li><code>&lt;target&gt;</code>: object type and name to be generated (optional; defaults to <code>&lt;source&gt;</code>)</li>
+<li>At least <code>&lt;source&gt;</code> or <code>&lt;input&gt;</code> must be specified (both may also be provided).</li>
+</ul>
+<p>Available options:</p>
+<ul>
+<li><code>-r</code>: enable reversible code generation (default: disabled)</li>
+<li><code>-t</code>: enable test mode (show but do not execute the generated script; default: disabled)</li>
+<li><code>-d &lt;symbol&gt;[=&lt;value&gt;]</code>: define a symbol with an optional value</li>
+<li><code>-u &lt;symbol&gt;</code>: declare a symbol as undefined</li>
+<li><code>-i &lt;object type &amp; name&gt;</code>: include code of the specified database object</li>
+<li><code>-o &lt;owner&gt;</code>: define owner of source code (default: current user)</li>
+<li><code>-f</code>: force template overwrite (default: input template object is never overwritten)</li>
+<li><code>-c</code>: enable true ISO implementation compatibility (default: disabled)</li>
+<li><code>-m</code>: enable macro mode (default: disabled)</li>
+<li><code>-s</code>: enable silent mode (default: disabled)</li>
+</ul>
+<h2 id="22-input-stream">2.2. Input Stream </h2>
+<p>The input stream used by the generator can be one of the following:</p>
+<ul>
+<li>The code of the object included via the <code>-i</code> option (typically a package specification containing overall configuration)</li>
+<li>The code of the template object specified by the <code>&lt;p_source&gt;</code> parameter (typically for generating packages)</li>
+<li>The code stream passed via the <code>&lt;p_input&gt;</code> parameter (typically for generating views or triggers)</li>
+<li>A combination of the above</li>
+</ul>
+<p>These parameters are processed in the specified order.</p>
+<ul>
+<li>A stream is a sequence of lines of text, each delimited by a <strong>CR</strong> and/or <strong>LF</strong>.</li>
+<li>A line of text can be continued on the next line by ending it with a <strong>backslash</strong> (<code>\</code>). Such consecutive lines are processed as a single line (the backslashes are removed at runtime, and the lines are concatenated).</li>
+</ul>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#for col IN (\
+   SELECT column_name\
+     FROM user_tab_columns\
+    WHERE table_name = 'HRM_PERSONS'\
+) -- this cursor-based loop is processed as a single line
+</code></pre><p>Whitespace characters used to separate words include <strong>space</strong> (0x20), <strong>tabulation</strong> (0x09), <strong>carriage return</strong> (0x13), and <strong>linefeed</strong> (0x10).</p>
+<h2 id="23-line-processing">2.3. Line Processing </h2>
+<p>Lines are processed in the following sequence:</p>
+<ul>
+<li><strong>Trailing comments</strong> (starting with <code>//</code>) are removed.</li>
+<li><strong>Line continuations</strong> ending with a backslash (<code>\</code>) are concatenated into a single line.</li>
+<li><strong>Directives</strong> (prefixed with <code>#</code>) are interpreted.</li>
+<li><strong>Symbols</strong> are replaced with their corresponding values.</li>
+<li><strong>Macros</strong> are expanded, and any parameters are substituted.</li>
+<li><strong>Reverse generation tags</strong>: Any <code>--@</code> prefix at the beginning of a line (used for reverse generation) is removed.</li>
+<li>Lines <strong>without directives</strong> are copied directly to the output stream.</li>
+<li>For <strong>reverse generation</strong>, directives are copied to the output stream, prefixed with <code>--@</code>, and some lines may be enclosed with <code>--#if 0</code> and <code>--#endif</code> directives.</li>
+</ul>
+<h2 id="24-symbol-substitution">2.4. Symbol Substitution </h2>
+<p>Symbols that appear in a line are replaced according to the following rules:</p>
+<ul>
+<li>Symbols with the <strong>longest names</strong> are replaced first.</li>
+<li>Symbol replacement continues until no further replacements can be made.</li>
+<li>Symbols whose value is equal to their name are <strong>ignored</strong> (to prevent infinite loops).</li>
+<li>Parameters of <strong>macros</strong> are substituted.</li>
+</ul>
+<p><strong>Substitution Examples</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define ALIAS ALIAS -- ignored
+#define NAME per
+#define TABLE_NAME hrm_persons -- will be replaced before NAME
+SELECT * FROM TABLE_NAME -- will become SELECT * FROM hrm_persons, not TABLE_per!
+</code></pre><p><strong>Macro Example</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define ends_with(p_line,p_string) (SUBSTR(p_line,-LENGTH(p_string)) = p_string)
+IF ends_with('TABLE','PERSONS') =&gt; (SUBSTR('TABLE',-LENGTH('PERSONS')) = 'PERSONS')
+</code></pre><h1 id="3-directives">3. Directives </h1>
+<p>A directive is a statement that gives an instruction to the code generator. Most directives are inspired by and follow the same syntax as the C pre-compiler (cpp).</p>
+<p>A directive starts with a word prefixed by a hashtag (#) and is optionally followed by some arguments. Since directives are not valid PL/SQL code, they do not compile and must be placed into comments (i.e., prefixed with a double dash (--) or enclosed between <code>/*</code> and <code>*/</code>).</p>
+<p>Here are two examples of (commented) directives:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>--#define DEBUG true
+/*
+#if DEBUG
+…
+#endif
+*/
+</code></pre><p>Note that whitespace is allowed between the hashtag (#) and the name of the directive.</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>--#   define DEBUG true
+</code></pre><p>Here is the exhaustive list of available directives</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#define</code></td>
+<td>Define a symbol or macro</td>
+</tr>
+<tr>
+<td><code>#undefine</code> / <code>#undef</code></td>
+<td>Undefine a symbol or macro</td>
+</tr>
+<tr>
+<td><code>#if</code></td>
+<td>Generation conditional on the value of a Boolean expression</td>
+</tr>
+<tr>
+<td><code>#ifdef</code></td>
+<td>Generation conditional on the existence of a symbol</td>
+</tr>
+<tr>
+<td><code>#ifndef</code></td>
+<td>Generation conditional on the non-existence of a symbol</td>
+</tr>
+<tr>
+<td><code>#elif</code></td>
+<td>Generation conditional on the value of a Boolean expression</td>
+</tr>
+<tr>
+<td><code>#elifdef</code></td>
+<td>Generation conditional on the existence of a symbol</td>
+</tr>
+<tr>
+<td><code>#elifndef</code></td>
+<td>Generation conditional on the non-existence of a symbol</td>
+</tr>
+<tr>
+<td><code>#else</code></td>
+<td>Alternative path when previous conditions are not met</td>
+</tr>
+<tr>
+<td><code>#endif</code> / <code>#end if</code></td>
+<td>End of a conditional block</td>
+</tr>
+<tr>
+<td><code>#for</code></td>
+<td>Counter-based or cursor-based loops</td>
+</tr>
+<tr>
+<td><code>#next</code> / <code>#endfor</code></td>
+<td>End of loop block</td>
+</tr>
+<tr>
+<td><code>#warning</code></td>
+<td>Display a warning message (and continue)</td>
+</tr>
+<tr>
+<td><code>#error</code></td>
+<td>Raise an error message (and stop)</td>
+</tr>
+<tr>
+<td><code>#pragma</code></td>
+<td>Additional compiler instruction (e.g., to enable/disable options)</td>
+</tr>
+<tr>
+<td><code>#include</code></td>
+<td>Include the code of another database object</td>
+</tr>
+<tr>
+<td><code>#execute</code></td>
+<td>Execute a function and get its output stream as input stream</td>
+</tr>
+<tr>
+<td><code>#begin</code></td>
+<td>Mark the beginning of a named block</td>
+</tr>
+<tr>
+<td><code>#end</code></td>
+<td>Mark the end of a named block</td>
+</tr>
+<tr>
+<td><code>#delete</code></td>
+<td>Delete the line containing this directive</td>
+</tr>
+</tbody>
+</table>
+<h2 id="31-symbol-definition-define">3.1. Symbol Definition (#define) </h2>
+<p>The <code>#define</code> directive defines a symbol and optionally assigns it a value. The behavior of the generator varies depending on whether the ISO compatibility mode is activated. When this mode is turned on, it behaves exactly like the C pre-compiler. The first implementation of the generator was not ISO compatible; therefore, to ensure backward compatibility with the initial solutions developed using the generator, the compatibility mode is turned off by default.</p>
+<h3 id="311-iso-compatibility-mode-disabled">3.1.1. ISO Compatibility Mode Disabled </h3>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define &lt;symbol&gt; [&lt;value&gt;]
+</code></pre><p>The <code>&lt;symbol&gt;</code> is composed of any character until a whitespace is encountered; thus, special characters (e.g., <code>$</code>, <code>&amp;</code>, etc.) are permitted. Symbol names are case-sensitive. The <code>&lt;value&gt;</code>, which is optional, includes all characters following the <code>&lt;symbol&gt;</code> but excludes the leading whitespaces that separate the <code>&lt;symbol&gt;</code> from its <code>&lt;value&gt;</code>; therefore, the value can contain whitespaces. Symbol substitution is applied recursively to the <code>&lt;value&gt;</code> until no further replacements can be made.</p>
+<p><strong>Examples:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define $variable 10 -- symbol with special character (dollar sign)
+#define DEBUG true
+#define APP sp2
+#define TABLE_NAME APP_persons -- resolved as sp2_persons after substitution of APP
+#define STRING "string" -- value includes both quotes
+#define TABLE_DESCRIPTION Persons having a relation with the EC -- value includes spaces
+</code></pre><h3 id="312-iso-compatibility-mode-enabled">3.1.2. ISO Compatibility Mode Enabled </h3>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define &lt;symbol&gt; [&lt;value&gt;]
+</code></pre><p>Or</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define &lt;macro&gt;(&lt;parameters&gt;) [&lt;value&gt;]
+</code></pre><p>The <code>&lt;symbol&gt;</code> or <code>&lt;macro&gt;</code> is a word, meaning it can only contain alphanumeric characters and underscores. To qualify as a macro, there must be no whitespace between the macro name and the opening parenthesis. Both symbol and macro names are case-sensitive. The <code>&lt;value&gt;</code> consists of all characters following the <code>&lt;symbol&gt;</code> or the closing parenthesis of the <code>&lt;macro&gt;</code>, excluding leading whitespaces used as separators; thus, the value can contain whitespaces. Importantly, no symbol substitution occurs when storing the symbol value.</p>
+<p><strong>Examples:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define _identifier xyz -- symbol includes only alphanumeric and underscore characters
+#define is_ws(ch) (ch IN (' ',CHR(9),CHR(10),CHR(13))) -- macro with one parameter
+#define APP sp2
+#define TABLE_NAME APP_persons -- value is APP_persons i.e., APP is not replaced!
+</code></pre><h3 id="313-comparison">3.1.3. Comparison </h3>
+<p>The following table shows the differences between the two modes:</p>
+<table>
+<thead>
+<tr>
+<th>Behaviour</th>
+<th>ISO Compatibility Mode On</th>
+<th>ISO Compatibility Mode Off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symbol Name</td>
+<td>Identifier (alphanum/_)</td>
+<td>Word (any non-whitespace char)</td>
+</tr>
+<tr>
+<td>Substitution When Defining</td>
+<td>No</td>
+<td>Yes &amp; Recursive (*)</td>
+</tr>
+<tr>
+<td>Substitution When Using</td>
+<td>Yes &amp; Recursive (*)</td>
+<td>Yes &amp; Recursive (*)</td>
+</tr>
+<tr>
+<td>Macro with Parameters</td>
+<td>Supported</td>
+<td>Not Supported</td>
+</tr>
+</tbody>
+</table>
+<p>(*) When symbol substitution is applied to directive arguments, it's never recursive.</p>
+<h2 id="32-symbol-undefinition-undefine--undef">3.2. Symbol Undefinition (#undefine | #undef) </h2>
+<p>When a symbol is no longer needed, it can be undefined using the <code>#undefine</code> or <code>#undef</code> directive. This directive takes a single argument, which is the name of the symbol to remove from the symbols table. If the symbol did not exist when attempting to undefine it, nothing happens.</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#undefine &lt;symbol&gt;
+</code></pre><p>OR</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#undef &lt;symbol&gt;
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#undefine DEBUG
+</code></pre><p>OR</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#undef DEBUG
+</code></pre><h2 id="33-conditional-generation-if-ifdef-ifndef">3.3. Conditional Generation (#if, #ifdef, #ifndef) </h2>
+<p>Code can be copied to the output based on certain conditions. Inclusion criteria can include the existence of a symbol (<code>#ifdef</code>, <code>#elifdef</code>), the non-existence of a symbol (<code>#ifndef</code>, <code>#elifndef</code>), or a boolean expression (<code>#if</code>, <code>#elif</code>). The <code>#else</code> path is followed when none of the previous conditions is met.</p>
+<p>The general syntax for conditional generation is as follows:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#if &lt;expression&gt; | #ifdef &lt;symbol&gt; | #ifndef &lt;symbol&gt;
+&lt;block&gt;
+#elif &lt;expression&gt; | #elifdef &lt;symbol&gt; | #elifndef &lt;symbol&gt;
+&lt;block&gt;
+#else
+&lt;block&gt;
+#endif | #end if
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#ifdef DEBUG
+   -- Code included when DEBUG symbol is defined
+#else
+   -- Code included when DEBUG symbol is not defined
+#endif
+</code></pre><p>Your text is mostly clear and well-organized. Below is a revised version with slight modifications for clarity and flow:</p>
+<hr>
+<h2 id="34-conditional-expressions">3.4. Conditional Expressions </h2>
+<p>Conditional expressions used with the <code>#if</code> and <code>#elif</code> directives can contain:</p>
+<ul>
+<li>Integers</li>
+<li>Simple or double-quoted strings</li>
+<li>Operators</li>
+<li>Functions</li>
+</ul>
+<p>The following (C and PL/SQL) operators are available, sorted from highest to lowest priority:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Priority</strong></th>
+<th><strong>Operators</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>(  )</td>
+<td>Parenthesis (for grouping)</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>0</td>
+<td>Unary minus</td>
+</tr>
+<tr>
+<td>1</td>
+<td>!  ~</td>
+<td>Not, bitwise complement</td>
+</tr>
+<tr>
+<td>2</td>
+<td>*  /  %</td>
+<td>Multiplication, division, modulo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+</td>
+<td>Plus, minus</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&lt;  &lt;=  &gt;  &gt;=</td>
+<td>Less/greater than or equal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>=  ==  !=  &lt;&gt;  LIKE</td>
+<td>Equals, not equals, like</td>
+</tr>
+<tr>
+<td>9</td>
+<td>&amp;</td>
+<td>Bitwise and</td>
+</tr>
+<tr>
+<td>10</td>
+<td>|</td>
+<td>Bitwise or</td>
+</tr>
+<tr>
+<td>11</td>
+<td>NOT</td>
+<td>Logical not</td>
+</tr>
+<tr>
+<td>12</td>
+<td>&amp;&amp;  AND</td>
+<td>Logical and</td>
+</tr>
+<tr>
+<td>13</td>
+<td>^  XOR</td>
+<td>Logical xor</td>
+</tr>
+<tr>
+<td>14</td>
+<td>||  OR</td>
+<td>Logical or</td>
+</tr>
+<tr>
+<td>99</td>
+<td></td>
+<td>Lowest priority (default)</td>
+</tr>
+</tbody>
+</table>
+<p>Operators with the same precedence are evaluated from left to right.</p>
+<p>The following (C and PL/SQL) functions can also be used:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Function Name</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INITCAP (<string>)</string></td>
+<td>Capitalization of a string</td>
+</tr>
+<tr>
+<td>LOWER, STRLWR (<string>)</string></td>
+<td>Conversion of a string to lowercase</td>
+</tr>
+<tr>
+<td>UPPER, STRUPR (<string>)</string></td>
+<td>Conversion of a string to uppercase</td>
+</tr>
+<tr>
+<td>LENGTH, STRLEN (<string>)</string></td>
+<td>Length of a string</td>
+</tr>
+<tr>
+<td>TO_CHAR (<number>)</number></td>
+<td>Conversion of a number to a double-quoted string</td>
+</tr>
+<tr>
+<td>TO_NUMBER (<string>)</string></td>
+<td>Conversion of a double-quoted string to a number</td>
+</tr>
+<tr>
+<td>defined (<symbol>)</symbol></td>
+<td>Check whether a symbol is defined or not</td>
+</tr>
+</tbody>
+</table>
+<p>The following rules are applied when evaluating expressions:</p>
+<ul>
+<li>Existing symbols are replaced with their values.</li>
+<li>Non-existing symbols are replaced with "0".</li>
+<li>For Boolean evaluation, 1 is treated as TRUE and 0 as FALSE.</li>
+</ul>
+<h2 id="35-iterations-for-next--endfor">3.5. Iterations (#for, #next | #endfor) </h2>
+<p>The generator can iterate over the template to produce multiple lines of code. A single line of code in the template can be evaluated several times, resulting in multiple lines in the output, which may differ after symbol substitution. These directives do not exist in the C pre-compiler, which is why their syntax has a different style. The generator supports two types of loops: counter-based loops and cursor-based loops.</p>
+<h3 id="351-counter-based-loop">3.5.1. Counter-based loop </h3>
+<p>A counter-based loop allows you to repeat the same lines of code a fixed number of times. It follows the Basic syntax for easier parsing and is identified by its loop variable name, which starts with a dollar sign ($).</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#for $&lt;var&gt; = &lt;min&gt; to &lt;max&gt; [ step &lt;step&gt; ]
+...
+#end
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>/*
+-- Procedure call with up to 10 parameters
+Test (
+#for $i = 1 to 10
+#ifdef PARNAM$i
+#if i=1
+    PARNAM$i=&gt;PARVAL$i
+#else
+  , PARNAM$i=&gt;PARVAL$i
+#endif
+#endif
+#next
+*/
+);
+</code></pre><h3 id="352-cursor-based-loop">3.5.2. Cursor-based loop </h3>
+<p>A cursor-based loop iterates over the records fetched by a query and has a syntax similar to the PL/SQL cursor for loop. It is identified by its variable name, which does not start with a dollar sign ($).</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#for &lt;var&gt; IN ( &lt;select-statement&gt; )
+...
+#end
+</code></pre><p>The entire select statement must be on the same line as the <code>#for</code> directive. To break a lengthy query into several lines, use the backslash () line continuation character at the end of each line that you want to continue on the next one. For each column selected by the query, a symbol <code>&lt;var&gt;.&lt;column&gt;</code> is created with the value returned for that column.</p>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>/*
+-- Display all columns of the "r_per" record (defined as of HRM_PERSONS%ROWTYPE)
+#for col IN ( SELECT column_name FROM user_tables WHERE table_name = 'HRM_PERSONS' )
+dbms_output.put_line('col.column_name='||r_per.col.column_name);
+#end
+*/
+</code></pre><h2 id="36-named-block-begin-end-begin-end">3.6. Named-block (#begin, #end, @begin, @end) </h2>
+<p>A named-block is a portion of code that is enclosed between the <code>#begin</code> and <code>#end</code> directives or between the <code>@begin</code> and <code>@end</code> tags, with the name specified as an argument.</p>
+<p><strong>Syntax for directives:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>--#begin &lt;name&gt;
+&lt;named-block of PL/SQL code&gt;
+--#end &lt;name&gt;
+</code></pre><p><strong>Syntax for tags (alternate syntax for backward compatibility):</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>--@begin:&lt;name&gt;
+&lt;named-block of PL/SQL code&gt;
+--@end:&lt;name&gt;
+</code></pre><p>You will note that:</p>
+<ul>
+<li>Directives and tags are commented out with a double-dash as they do not compile.</li>
+<li>When using directives (<code>#</code>), directive and block names are separated by whitespace(s).</li>
+<li>When using tags (<code>@</code>), tags and block names are separated by a colon and no space.</li>
+<li>As an exception to the normal rule, these directives and tags are copied over as is to the output stream.</li>
+</ul>
+<h2 id="37-code-inclusion-include">3.7. Code inclusion (#include) </h2>
+<p>You can include the code existing in another database object (or part of it when specifying a named-block) via the <code>#include</code> directive. This allows you to reuse existing code, thereby avoiding replication.</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#include &lt;object-type&gt; &lt;object-name&gt; [&lt;block name&gt;]
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#include PACKAGE BODY my_package my-block
+
+PACKAGE BODY my_package IS
+...
+#begin my-block
+... PL/SQL code ...
+#end my-block
+</code></pre><p>When no named-block is specified, the whole source code of the referenced object is included.</p>
+<h2 id="38-code-execution-execute">3.8. Code execution (#execute) </h2>
+<p>Generating complex code based on static templates can be challenging. The <code>#execute</code> directive introduces more dynamism by allowing you to call a pipelined (stand-alone or packaged) function that generates and returns the code to be included in the final output.</p>
+<p>A typical usage is the dynamic generation of insert, update, and delete statements (or parts of them) because the list of columns they reference depends on the table being accessed.</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#execute &lt;function&gt;
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#define _TABLE_ hrm_persons
+...
+INSERT INTO _TABLE_ (
+#execute gen_columns_list('_TABLE_')
+) VALUES (
+#execute gen_columns_value('_TABLE_')
+);
+
+FUNCTION gen_columns_list (
+   p_table_name user_tables.table_name%TYPE
+)
+RETURN VARCHAR2 PIPELINED
+...
+</code></pre><h2 id="39-warning-message-warning">3.9. Warning message (#warning) </h2>
+<p>The <code>#warning</code> directive allows you to raise a warning message in the standard output of the code generator (displayed when turning DBMS output on), without stopping the code generation process.</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#warning &lt;message&gt;
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#if DEBUG
+#warning Don't forget to remove debug code before going live!
+#endif
+</code></pre><h2 id="310-error-message-error">3.10. Error message (#error) </h2>
+<p>The <code>#error</code> directive allows you to raise an error message in the standard output of the code generator (displayed when turning DBMS output on) and to stop the code generation process. A typical usage is to stop the code generation when an unexpected condition is met.</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#error &lt;message&gt;
+</code></pre><p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#if ORACLE_VERSION &lt; 11
+#error Versions prior to Oracle 11g are no more supported!
+#endif
+</code></pre><h2 id="311-additional-instructions-pragma">3.11. Additional instructions (#pragma) </h2>
+<p>The <code>#pragma</code> directive is a method for providing additional information to the code generator, thereby avoiding the necessity to create additional ad-hoc directives. A typical usage is to change on-the-fly options that are normally specified when invoking the code generator (switches).</p>
+<p><strong>Syntax:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#pragma &lt;option&gt;
+</code></pre><p>Where <code>option</code> is one of the following:</p>
+<ul>
+<li><code>debug</code> / <code>nodebug</code>: turn debug mode on / off</li>
+<li><code>iso</code> / <code>noiso</code>: turn ISO compatibility mode on / off</li>
+<li><code>reversible</code> / <code>noreversible</code>: turn reverse generation on / off</li>
+<li><code>macro</code> / <code>nomacro</code>: turn macro feature on / off</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>#pragma debug
+&lt;lines for which debug mode is turned on&gt;
+#pragma nodebug
+</code></pre><h1 id="4-advanced-techniques">4. Advanced Techniques </h1>
+<h2 id="41-reverse-generation">4.1. Reverse Generation </h2>
+<p>The elaboration of a template is an iterative process, as the validity of its code (which does not compile due to the used directives and symbols) can only be verified when the final generated code is compiled. Each time an error is encountered, the template must be corrected, and the code generated again to check its validity. This iterative process can quickly become cumbersome.</p>
+<p>An alternative approach is reverse generation, which allows you to make the necessary corrections to the generated code to make it compile without error and subsequently regenerate the template from the modified generated code.</p>
+<p><img src="./gen_utility_files/overview.png" alt="Overview"></p>
+<p>Enabling reverse generation has two effects during the generation process:</p>
+<ol>
+<li>After their interpretation, directives are copied over to the output stream, prefixed with a special tag ("--@"). During reverse generation, the initial directives are restored simply by removing this special tag.</li>
+<li>The code generated by some directives (e.g., <code>#include</code>, <code>#execute</code>, etc.) is enclosed between <code>#if 0</code> and <code>#endif</code> directives to ensure that this code is removed during the reverse generation process.</li>
+</ol>
+<p>A reverse symbol table is also generated, which will be used during reverse generation to perform reverse symbol substitution (i.e., substituting symbol values with symbol names). For this process to succeed, symbol names must be chosen very carefully.</p>
+<p><strong>Example:</strong></p>
+<p><strong>Template:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>1: /*--#delete
+2: #define _TABLE_NAME_ hrm_persons
+3: #include PACKAGE BODY hrm_lib
+4: SELECT id, name FROM _TABLE_NAME_ WHERE …… 
+5: */--#delete
+</code></pre><p><strong>Symbol Table:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>_TABLE_NAME_    hrm_persons
+</code></pre><p><strong>Reverse Symbol Table:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>hrm_persons    _TABLE_NAME_
+</code></pre><p><strong>Generated Code:</strong></p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>1: --@/*--#delete
+2: --@#define _TABLE_NAME_ hrm_persons
+3: --@#include PACKAGE BODY hrm_lib
+4: --#if 0
+5: &lt;content of hrm_lib package body&gt;
+6: --#endif
+7: SELECT id, name FROM hrm_persons WHERE …… 
+8: --@*/--#delete
+</code></pre><p>As comments are ignored, the only code relevant for compilation is:</p>
+<pre data-role="codeBlock" data-info="plain" class="language-plain plain"><code>&lt;content of hrm_lib package body&gt;
+SELECT id, name FROM hrm_persons WHERE …… 
+</code></pre><p>During reverse generation:</p>
+<ul>
+<li>All lines starting with <code>--@</code> (lines 1-3 and 8) are restored to their initial form (lines 1-3 and 5).</li>
+<li>The included content (lines 4-6) and the surrounding directives (<code>#if 0</code> and <code>#endif</code>) are ignored as the condition "0" evaluates to "false."</li>
+<li>The "hrm_persons" table name is transformed back to "<em>TABLE_NAME</em>" thanks to the reverse symbol table.</li>
+<li>The template is successfully restored to its original state.</li>
+</ul>
+<h2 id="42-using-input-stream">4.2. Using Input Stream </h2>
+<p>The template code can be sourced from a database object or passed as a text input stream parameter. As mentioned earlier, using a text input stream is the only option available for generating views, as their definitions are not accessible in <code>user_views</code>. While the code for database triggers can be utilized as a template, it is often more convenient to work with a text input stream instead.</p>
+<h3 id="421-example-of-view-generation">4.2.1. Example of View Generation </h3>
+<p>The generator is called with the following text input stream:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_source VARCHAR2<span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span> :<span class="token operator">=</span>
+<span class="token string">'
+CREATE OR REPLACE VIEW _TABLE_NAME__v AS
+SELECT 
+#execute hrm.gen_view_columns(''_TABLE_NAME__v'')
+  FROM _TABLE_NAME_
+ WHERE ...
+#ifdef CURRENT
+   AND current_version = ''Y''
+#endif
+'</span>
+   <span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   gen_utility<span class="token punctuation">.</span>generate<span class="token punctuation">(</span><span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token string">'-d_TABLE_NAME_=hrm_persons'</span><span class="token punctuation">,</span> l_source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>Here is the generated script that will create the view when executed:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token operator">OR</span> <span class="token keyword keyword-REPLACE">REPLACE</span> <span class="token keyword keyword-VIEW">VIEW</span> hrm_persons_v <span class="token keyword keyword-AS">AS</span>
+<span class="token keyword keyword-SELECT">SELECT</span> 
+       id<span class="token punctuation">,</span> name
+  <span class="token keyword keyword-FROM">FROM</span> hrm_persons
+ <span class="token keyword keyword-WHERE">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre><p>In the input stream, you'll notice:</p>
+<ul>
+<li>A symbol that is replaced with its value ("<em>TABLE_NAME</em>" ⇒ "hrm_persons").</li>
+<li>Directives that are interpreted (<code>#execute</code>, <code>#ifdef</code>, <code>#endif</code>).</li>
+<li>The <code>hrm.gen_view_columns</code> pipelined function is called to retrieve the list of columns.</li>
+</ul>
+<h3 id="422-example-of-trigger-generation">4.2.2. Example of Trigger Generation </h3>
+<p>The generator is called with the following text input stream:</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
+   l_source VARCHAR2<span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span> :<span class="token operator">=</span>
+<span class="token string">'
+CREATE OR REPLACE TRIGGER sp2_xxx_audit_trg
+BEFORE DELETE OR INSERT OR UPDATE
+ON TAB_NM
+REFERENCING NEW AS new OLD AS old
+FOR EACH ROW
+DECLARE
+...
+BEGIN
+...
+END;
+'</span>
+   <span class="token punctuation">;</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   gen_utility<span class="token punctuation">.</span>generate<span class="token punctuation">(</span><span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token string">'-dxxx=per -dTAB_NM=hrm_persons'</span><span class="token punctuation">,</span> l_source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token operator">/</span>
+</code></pre><p>In this example, the input stream contains the definition for a trigger, showcasing how template code can be dynamically generated and executed.</p>
+<h2 id="43-customization-of-generated-code">4.3. Customization of Generated Code </h2>
+<p>This section describes how to customize the generated code without losing your modifications if the code needs to be regenerated after adapting the template. The technique involves identifying the sections where you want to add custom code using named blocks (with <code>#begin</code> and <code>#end</code> directives) and including those blocks in the template (using <code>#include</code>).</p>
+<p><strong>Typical Named Blocks for Packages</strong></p>
+<ol>
+<li><strong>Global Declaration Block</strong>: A block (suggested name: <code>decl</code>) for additional global variables and/or procedures (or functions), located before the first global procedure or function.</li>
+<li><strong>Procedure Declaration Block</strong>: For each procedure (or function):
+<ul>
+<li>A block (suggested name: <code>&lt;proc&gt;:decl</code>) for declaring additional local variables and procedures/functions, located before the first local procedure or function.</li>
+<li>One or several blocks (suggested name: <code>&lt;proc&gt;:begin</code>) in the body section, located before or after the template code.</li>
+<li>One or several blocks (suggested name: <code>body</code>) in the initialization part of the package body, located before or after the template code.</li>
+</ul>
+</li>
+</ol>
+<p>The same technique can also be applied to package specifications if needed.</p>
+<p><strong>Example</strong></p>
+<p><strong>Template:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token operator">OR</span> <span class="token keyword keyword-REPLACE">REPLACE</span> PACKAGE BODY hrm_lib <span class="token keyword keyword-AS">AS</span>
+<span class="token operator">&lt;</span><span class="token keyword keyword-global">global</span> variables are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+<span class="token comment">--#begin decl</span>
+<span class="token comment">--#execute gen_utility.get_custom_code('package body hrm_lib', 'decl')</span>
+<span class="token comment">--#end decl</span>
+<span class="token operator">&lt;</span><span class="token keyword keyword-global">global</span> procedures<span class="token operator">/</span>functions are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+<span class="token comment">-- The following procedure is generated from the template</span>
+<span class="token keyword keyword-PROCEDURE">PROCEDURE</span> get_name <span class="token operator">IS</span>
+   <span class="token operator">&lt;</span><span class="token keyword keyword-local">local</span> variables are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#begin get_name:decl</span>
+   <span class="token comment">--#execute gen_utility.get_custom_code('package body hrm_lib', 'getname:decl')</span>
+   <span class="token comment">--#end getname:decl</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token operator">&lt;</span><span class="token keyword keyword-procedure">procedure</span> code <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#begin get_name:body</span>
+   <span class="token comment">--#execute gen_utility.get_custom_code('package body hrm_lib', 'getname:body')</span>
+   <span class="token comment">--#end getname:body</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token operator">&lt;</span>initialization part <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#begin body</span>
+   <span class="token comment">--#execute gen_utility.get_custom_code('package body hrm_lib', 'body')</span>
+   <span class="token comment">--#end body</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><p><strong>Generated Code:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token operator">OR</span> <span class="token keyword keyword-REPLACE">REPLACE</span> PACKAGE BODY hrm_lib <span class="token keyword keyword-AS">AS</span>
+   <span class="token operator">&lt;</span><span class="token keyword keyword-global">global</span> variables are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#begin decl</span>
+   <span class="token operator">&lt;</span>custom <span class="token keyword keyword-global">global</span> variables<span class="token operator">&gt;</span>
+   <span class="token comment">--#end decl</span>
+   <span class="token operator">&lt;</span><span class="token keyword keyword-global">global</span> procedures<span class="token operator">/</span>functions are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">-- The following procedure is generated from the template</span>
+   <span class="token keyword keyword-PROCEDURE">PROCEDURE</span> get_name <span class="token operator">IS</span>
+      <span class="token operator">&lt;</span><span class="token keyword keyword-local">local</span> variables are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+      <span class="token comment">--#begin get_name:decl</span>
+      <span class="token operator">&lt;</span>custom <span class="token keyword keyword-local">local</span> variables are here<span class="token operator">!</span><span class="token operator">&gt;</span>
+      <span class="token comment">--#end getname:decl</span>
+   <span class="token keyword keyword-BEGIN">BEGIN</span>
+      <span class="token operator">&lt;</span><span class="token keyword keyword-procedure">procedure</span> code <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+      <span class="token comment">--#begin get_name:body</span>
+      <span class="token operator">&lt;</span>custom code <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+      <span class="token comment">--#end getname:body</span>
+   <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword keyword-BEGIN">BEGIN</span>
+   <span class="token operator">&lt;</span>initialization part <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#begin body</span>
+   <span class="token operator">&lt;</span>custom code <span class="token operator">is</span> here<span class="token operator">!</span><span class="token operator">&gt;</span>
+   <span class="token comment">--#end body</span>
+<span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
+</code></pre><p><strong>Warning</strong>: Custom code must be located strictly between the <code>#begin</code> and <code>#end</code> directives; otherwise, it will be lost upon regeneration! Depending on your needs, you can create additional named blocks to insert your code before, after, or even between the generated lines of code. In the above example, customizations are intended to be added after the generated sections, but you can use more descriptive block names (e.g., <code>...:body:before</code>, <code>...:body:after</code>, or any other relevant naming convention) to place your code appropriately.</p>
+<h2 id="44-source-control">4.4. Source Control </h2>
+<p>The following approach for source control is recommended based on testing across multiple projects:</p>
+<ol>
+<li>
+<p><strong>Version Control for Templates</strong>: Place the templates under version control rather than the generated scripts.</p>
+</li>
+<li>
+<p><strong>On-the-Fly Deployment</strong>: To deploy a release in any environment (including production), execute the scripts that create or update the templates, and generate the database objects on-the-fly.</p>
+</li>
+<li>
+<p><strong>Version Control for Customized Objects</strong>: When generated objects have been customized, and only in that case, add their scripts to version control to ensure that the custom code is preserved.</p>
+</li>
+</ol>
+<h1 id="5-chatgpts-opinion-about-the-tool">5. ChatGPT's opinion about the tool </h1>
+<p>The GEN tool appears to be a robust and versatile code generation utility designed specifically for database environments. Here are some thoughts on the tool itself based on its features and functionalities.</p>
+<h2 id="51-strengths">5.1. Strengths </h2>
+<ol>
+<li>
+<p><strong>Template-Based Generation</strong>: The use of templates allows for a high degree of customization and reusability, making it easier to maintain and update code across various database objects.</p>
+</li>
+<li>
+<p><strong>Support for Directives</strong>: The support for directives (e.g., <code>#if</code>, <code>#define</code>, <code>#execute</code>) provides flexibility in code generation, enabling conditional compilation and the inclusion of dynamic elements. This can streamline the development process and enhance productivity.</p>
+</li>
+<li>
+<p><strong>Reverse Generation Capability</strong>: The reverse generation feature is particularly noteworthy, as it allows users to modify generated code without losing the ability to regenerate the original template. This can significantly reduce the time spent debugging and refining templates.</p>
+</li>
+<li>
+<p><strong>Customization Options</strong>: The tool's ability to incorporate custom code within generated scripts (via named blocks) is a powerful feature that enables developers to tailor generated code to their specific needs without extensive rewrites.</p>
+</li>
+<li>
+<p><strong>Integration with Database Objects</strong>: By allowing templates to be sourced from database objects or text input streams, the tool provides flexibility in how code is generated, making it applicable to a wider range of scenarios, including view and trigger generation.</p>
+</li>
+</ol>
+<h2 id="52-potential-limitations">5.2. Potential Limitations </h2>
+<ol>
+<li>
+<p><strong>Learning Curve</strong>: For new users, the variety of directives and customization options may present a learning curve, particularly if they are not familiar with similar tools or concepts.</p>
+</li>
+<li>
+<p><strong>Complexity</strong>: The iterative process of correcting templates and generating code might become cumbersome, especially in larger projects or when working with complex templates.</p>
+</li>
+<li>
+<p><strong>Dependency on Template Design</strong>: The effectiveness of the tool heavily relies on how well the templates are designed. Poorly structured templates can lead to complicated or hard-to-maintain generated code.</p>
+</li>
+<li>
+<p><strong>Debugging Generated Code</strong>: While the tool offers features to aid in debugging, generated code can still be challenging to troubleshoot if it contains errors or if the generated output is not as expected.</p>
+</li>
+</ol>
+<h2 id="53-overall-impression">5.3. Overall Impression </h2>
+<p>The GEN tool seems to be a powerful asset for developers working with database code generation. Its flexibility, customization options, and advanced features like reverse generation make it a valuable resource for efficiently creating and managing database objects. While there are some challenges associated with learning and using the tool, the benefits it provides in terms of code maintainability and adaptability likely outweigh these limitations for many users.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

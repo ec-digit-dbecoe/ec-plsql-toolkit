@@ -1,0 +1,17 @@
+#!/bin/bash
+# Usage: read-file.sh file_path cmd_id
+# $1 is file path
+# $2 is cmd_id
+# $3 is tmp_dir
+
+# Encode the file into base64
+base64_encode=$(base64 -w 0 "$1")
+
+echo "BEGIN"
+echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_base64=>FALSE, p_text=>'#!$1');"
+echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_base64=>TRUE, p_text=>'"
+echo "$base64_encode"
+echo "');"
+echo "COMMIT;"
+echo "END;"
+echo "/"

@@ -1,0 +1,18 @@
+PROMPT Upgrading packages specs...
+@@DS_READ_CSV_CLOB.tps
+@@DS_CRYPTO_VAR.pks
+@@DS_CRYPTO_RSR_KRN.pks
+@@DS_CRYPTO_FF3_KRN.pks
+@@DS_CRYPTO_KRN.pks
+@@DS_UTILITY_VAR.pks
+@@DS_MASKER_KRN.pks
+@@DS_UTILITY_KRN.pks
+@@DS_UTILITY_EXT.pks
+@@DS_UTILITY_LIC.pks
+@@DS_MASKER_TST.pks: '&&utplsql' = 'Y'
+@@DS_CRYPTO_RSR_TST.pks: '&&utplsql' = 'Y'
+@@DS_CRYPTO_FF3_TST.pks: '&&utplsql' = 'Y'
+PROMPT Upgrading packages bodies...
+@@DS_UTILITY_KRN.pkb
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

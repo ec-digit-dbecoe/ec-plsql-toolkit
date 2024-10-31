@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024928-21733-g53xit.hsamc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>dbm_utility</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./dbm_utility_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="data-base-migration-utility---users-guide-v2485">Data Base Migration Utility - User's Guide v24.8.5 </h1>
+<h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#11-overview">1.1. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#12-purpose">1.2. Purpose</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#13-key-features">1.3. Key Features</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#2-quick-start">2. Quick Start</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#21-pre-requisites">2.1. Pre-requisites</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#211-database-platform">2.1.1. Database Platform</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#212-installer-platform">2.1.2. Installer Platform</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#213-system-privileges">2.1.3. System privileges</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#22-unzip">2.2. Unzip</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#221-set-environment-variables">2.2.1. Set environment variables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#222-install-or-upgrade">2.2.2. Install or upgrade</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#23-launch">2.3. Launch</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#24-configure">2.4. Configure</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#25-migrate">2.5. Migrate</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#3-execution-mode-and-usage">3. Execution mode and usage</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#31-execution-mode">3.1. Execution mode</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#32-usage">3.2. Usage</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#4-commands">4. Commands</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#41-commands-overview">4.1. Commands Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#42-list-of-commands">4.2. List of commands</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#43-configure">4.3. Configure</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#44-precheck">4.4. Precheck</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#45-migrate--install--upgrade">4.5. Migrate / Install / Upgrade</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#46-validate">4.6. Validate</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#47-check-files">4.7. Check files</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#48-rollback">4.8. Rollback</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#49-make-inventory">4.9. Make inventory</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#410-show--guess--set-current">4.10. Show / Guess / Set current</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#411-uninstall">4.11. Uninstall</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#412-scan-files">4.12. Scan files</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#413-read-config">4.13. Read config</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#414-display">4.14. Display</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#415-setup">4.15. Setup</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#416-create--drop-restore-point">4.16. Create / Drop restore point</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#417-flashback-database">4.17. Flashback database</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#418-expose--conceal">4.18. Expose / Conceal</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#5-folder-structure-and-versioning">5. Folder Structure and Versioning</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#51-folder-structure">5.1. Folder Structure</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#52-versioning">5.2. Versioning</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#6-scripts-execution-methods">6. Scripts Execution Methods</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#61-changelog-file">6.1. Changelog File</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#62-master-script">6.2. Master Script</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#63-file-naming-conventions">6.3. File Naming Conventions</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#7-configuration-files">7. Configuration Files</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#71-parameters">7.1. Parameters</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#72-variable-definitions">7.2. Variable Definitions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#73-application-dependencies">7.3. Application dependencies</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#8-database-object-inventory">8. Database Object Inventory</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#81-overview">8.1. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#82-generating-the-inventory">8.2. Generating the Inventory</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#83-checksum-computation">8.3. Checksum Computation</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#84-conditional-database-objects">8.4. Conditional database objects</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#9-conditional-file-execution">9. Conditional file execution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#91-overview">9.1. Overview</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#92-conditional-file-execution-in-detail">9.2. Conditional File Execution in Detail</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#921-creating-the-filesdbm-file">9.2.1. Creating the "files.dbm" File</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#922-specifying-conditions">9.2.2. Specifying Conditions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#923-substitution-variables">9.2.3. Substitution Variables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#924-evaluating-conditions">9.2.4. Evaluating Conditions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#10-privileges-management">10. Privileges management</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#101-creating-the-privilegesdbm-file">10.1. Creating the "privileges.dbm" file</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#102-file-location">10.2. File location</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#103-file-format">10.3. File format</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1031-privilege-usage">10.3.1. Privilege usage</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1032-privilege-types">10.3.2. Privilege types</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1033-grant-type">10.3.3. Grant type</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1034-privilege">10.3.4. Privilege</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1035-object">10.3.5. Object</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1036-admingrant-option">10.3.6. Admin/Grant option</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1037-any-privileges">10.3.7. ANY privileges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#11-migration-failure-recovery">11. Migration Failure Recovery</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#111-file-level-recovery">11.1. File Level Recovery</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#112-statement-level-recovery">11.2. Statement Level Recovery</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#113-conditional-statement-execution">11.3. Conditional Statement Execution</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#114-statement-tag-format">11.4. Statement Tag Format</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#115-jump-to-statement-option">11.5. Jump-to-Statement Option</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#116-skip-file-option">11.6. Skip-File Option</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#12-data-model">12. Data Model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#121-data-structure-diagram">12.1. Data Structure Diagram</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#122-tables-description">12.2. Tables description</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1221-applications">12.2.1. Applications</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1222-versions">12.2.2. Versions</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1223-files">12.2.3. Files</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1224-variables">12.2.4. Variables</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1225-parameters">12.2.5. Parameters</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1226-commands">12.2.6. Commands</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1227-streams">12.2.7. Streams</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#13-glossary">13. Glossary</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#131-release">13.1. Release</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#132-version">13.2. Version</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#133-migration">13.3. Migration</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1331-installation-migration">13.3.1. Installation Migration</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1332-upgrade-migration">13.3.2. Upgrade Migration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#14-annexes">14. Annexes</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#141-commands">14.1. Commands</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1411-end-users-commands">14.1.1. End-users' commands</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1412-internal-commands">14.1.2. Internal commands</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#142-options">14.2. Options</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1421-shell-script-options">14.2.1. Shell script options</a></li>
+<li><a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#1422-command-options">14.2.2. Command options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-introduction">1. Introduction </h2>
+<h3 id="11-overview">1.1. Overview </h3>
+<p>The DBM Utility is a database migration tool designed specifically for Oracle database developers. Similar to popular tools like Liquibase or Flyway, it operates primarily using SQL*Plus, shell scripts, and some database objects (some PL/SQL packages for business logic and some tables for data persistence). The utility is compatible with both Windows and Linux-based operating systems.</p>
+<h3 id="12-purpose">1.2. Purpose </h3>
+<p>The primary purpose of the DBM Utility is to streamline the process of migrating database objects within Oracle databases. Originally intended as the migration tool for the EC PL/SQL toolkit, it can also be used for migrating database objects of any Oracle-based application.</p>
+<h3 id="13-key-features">1.3. Key Features </h3>
+<ul>
+<li><strong>Automatic Application Detection:</strong> The tool can automatically detect applications, their versions, and associated properties by scanning the file system. This includes identifying full releases, incremental updates, rollback capabilities, validation requirements, and more.</li>
+<li><strong>Flexible Execution Methods:</strong> Three execution methods are supported for deploying migration scripts: based on a changelog file (similar to Liquibase), file naming conventions (similar to Flyway), or a master script (similar to SQL*Plus). This allows developers to choose the method that best suits their deployment strategy.</li>
+<li><strong>Comprehensive Version Management:</strong> The tool keeps track of installed versions and facilitates seamless migration to newer releases or specific versions. It employs checksums to ensure the integrity of database objects during installation and to determine the currently installed release.</li>
+<li><strong>Simplified Configuration:</strong> Configuration files allow for the definition of parameters and variable definitions at different levels in the file hierarchy, providing flexibility and ease of customisation.</li>
+<li><strong>Conditional File Execution</strong>: Execute files conditionally by defining SQL expressions with variables, enabling execution based on specific conditions like the current database environment.</li>
+<li><strong>Dependency Management</strong>: Manages dependencies between applications or tools deployed with the DBM tool, ensuring that dependencies are satisfied before installation. Supports dependencies between applications and specific versions of dependent applications.</li>
+<li><strong>Database Object Inventory</strong>: Generates and saves an inventory of database objects, used for validating application migrations or determining the version of an installed application. The inventory is saved in a designated file and includes a checksum for each object.</li>
+<li><strong>Prerequisite Checks</strong>: Supports pre-migration checks by allowing users to specify scripts in a "precheck" folder. These scripts raise exceptions if prerequisites are not met, preventing migration from proceeding if necessary conditions are not satisfied.</li>
+<li><strong>Rollback mechanism</strong>: In the event of a migration failure, the tool offers a rollback mechanism to revert any changes made by executed scripts. This is achieved by executing companion rollback scripts provided by end-users, ensuring that the database can be restored to its previous state before the migration attempt.</li>
+<li><strong>Restore Point Management</strong>: the tool provides commands to create and drop restore points before migrating schemas of a Cloud on Premise (CoP) database. This allows users to create a restore point for potential database flashbacks in case of major migration failure.</li>
+<li><strong>Access Management</strong>: With this tool, you can effortlessly expose or conceal database objects to/from other schemas. It facilitates the creation or removal of private or public synonyms and the granting or revoking of corresponding access rights.</li>
+<li><strong>Multi-Schema Installation</strong>: The tool can be centrally installed and accessed by other schemas, or it can be installed separately in multiple schemas.</li>
+</ul>
+<p>In essence, the DBM Utility simplifies database migration tasks by automating discovery, execution, object tracking, and version management processes, making it a valuable asset for Oracle database developers seeking efficient and reliable migration solutions.</p>
+<h2 id="2-quick-start">2. Quick Start </h2>
+<h3 id="21-pre-requisites">2.1. Pre-requisites </h3>
+<h4 id="211-database-platform">2.1.1. Database Platform </h4>
+<p>The EC PL/SQL toolkit requires an Oracle database version 19c or above. Note that it has not been tested on Oracle 21c yet.</p>
+<p>The database can be hosted in the EC Data Centre, in the EC Cloud on Prem (CoP), or in the Amazon cloud (AWS).</p>
+<p>All files are UTF-8 so NLS_LANG should be set accordingly via shell commands like <code> export NLS_LANG=.UTF8</code> on Linux or <code>set NLS_LANG=.UTF8</code> on Windows.</p>
+<h4 id="212-installer-platform">2.1.2. Installer Platform </h4>
+<p>The installer (the DBM tool) requires the following:</p>
+<ul>
+<li>A Windows laptop or server OR a Linux machine (to execute Windows or Linux shell scripts).</li>
+<li>A file system to unzip the supplied archive.</li>
+<li>SQL*Plus (any version compatible with the target database).</li>
+<li>A connection to the database via SQL*Net or JDBC.</li>
+</ul>
+<h4 id="213-system-privileges">2.1.3. System privileges </h4>
+<p>The tool offers two installation options: centrally in a dedicated schema for shared access by other schemas, or separately in multiple schemas. Central installation is recommended. In this setup, the schema requires "CREATE PUBLIC SYNONYM" and "GRANT PUBLIC SYNONYM" system privileges to expose or conceal its database objects to other schemas.</p>
+<h3 id="22-unzip">2.2. Unzip </h3>
+<p>The DBM tool is part of the EC PL/SQL toolkit.</p>
+<p>Unzip the distributed archive (<code>ec_plsql_toolkit</code>) into the folder of your choice. This action will create a sub-folder named <code>ec-plsql-toolkit</code>.</p>
+<h4 id="221-set-environment-variables">2.2.1. Set environment variables </h4>
+<p>Define the below environment variables as appropriate. Those that are mandatory are marked with an asterisk.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*DBM_USERNAME</td>
+<td>Schema username</td>
+</tr>
+<tr>
+<td>*DBM_PASSWORD</td>
+<td>Schema password</td>
+</tr>
+<tr>
+<td>*DBM_DATABASE</td>
+<td>Schema database</td>
+</tr>
+<tr>
+<td>DBA_USERNAME</td>
+<td>CoP admin username</td>
+</tr>
+<tr>
+<td>DBA_PASSWORD</td>
+<td>CoP admin password</td>
+</tr>
+<tr>
+<td>DBA_DATABASE</td>
+<td>CoP admin database</td>
+</tr>
+<tr>
+<td>DBM_CONF_PATH</td>
+<td>Path of the configuration file</td>
+</tr>
+<tr>
+<td>DBM_APPS_DIR</td>
+<td>Alternate location for apps dir</td>
+</tr>
+<tr>
+<td>DBM_LOGS_DIR</td>
+<td>Alternate location for logs dir</td>
+</tr>
+<tr>
+<td>DBM_TMP_DIR</td>
+<td>Alternate location for tmp dir</td>
+</tr>
+</tbody>
+</table>
+<p>The first three environment variables allow the DBM tool to connect to the schema in which it must be installed. The DBM tool will connect to the schema using the following connect string: <code>"$DBM_USERNAME/$DBM_PASSWORD@$DBM_DATABASE"</code>.</p>
+<p>The following three environment variables are used by the installer to connect to the admin account of a Cloud on Prem database for the purpose of creating and dropping restore points, as well as for flash-backing the database in the event of a migration failure. This optional feature is exclusively accessible in Cloud on Prem databases.</p>
+<p>Other environment variables allow you to define an alternate location for the configuration file (<code>conf/dbm_utility.conf</code> by default), the application folder (<code>apps</code> by default), the folder where logs are stored (<code>logs</code> by default), and the folder where temporary files are created (<code>tmp</code> by default).</p>
+<p>Environment variables can be defined using the following syntax:</p>
+<ul>
+<li>Under Windows: <code>C:&gt; set VARIABLE=value</code></li>
+<li>Under Linux: <code>$ export VARIABLE=value</code></li>
+</ul>
+<h4 id="222-install-or-upgrade">2.2.2. Install or upgrade </h4>
+<p>The DBM tool can be installed and/or upgraded by executing the <code>migrate-dbm</code> script while being located in the <code>ec_plsql_installer</code> folder.</p>
+<p>This script will install and/or upgrade the DBM tool to its latest available version. Tables, views, and packages of the DBM tool created in the schema can be easily identified by their name, all prefixed with <code>DBM_</code>.</p>
+<p>Due to the dependencies between its shell scripts and its database objects, this upgrade is mandatory before launching the DBM client. It is recommended to do it each time a new archive of the EC PL/SQL toolkit is deployed.</p>
+<h3 id="23-launch">2.3. Launch </h3>
+<p>To launch the command-line client (CLI) of the DBM tool, execute the <code>dbm-cli</code> shell script in the command prompt or terminal while being located in the <code>ec_plsql_toolkit</code> folder.</p>
+<p>Upon startup, you will encounter the following screen:</p>
+<p><img src="./dbm_utility_files/startup-screen.png" alt="Startup screen"></p>
+<p>Note that the information displayed may vary depending on the version of SQL*Plus and the database version you are connected to.</p>
+<p>Once SQL*Plus is connected to your schema, it initiates the "startup.sql" script situated in the "sql" folder. This script scans the file system under the "apps" folder to identify managed applications or tools and their respective versions. Additionally, it reads all configuration files ("*.conf"), "database objects inventories" ("objects.dbm") and files inventories ("files.dbm") associated with each version of application or tool.</p>
+<p>The prompt "DBM-CLI&gt;" then invites you to execute one DBM command.</p>
+<h3 id="24-configure">2.4. Configure </h3>
+<p>Before proceeding with the migration, you need to configure the substitution variables that are referenced in the migration scripts, if not already done before. To proceed, just type <code>@dbm-cli configure</code> and follow the instructions. You will be requested to enter a value for each substitution variable. Entered value are persisted in the database making this step optional for the next migration.</p>
+<h3 id="25-migrate">2.5. Migrate </h3>
+<p>The next step is to launch the installation or upgrade of all managed applications or tools by typing <code>@dbm-cli migrate</code>. Based on what is already installed in the connected schema, the DBM tool will determine for each application or tool whether to perform a full install or to upgrade exiting database objects.</p>
+<p>As a final step, you may wish to grant access to database objects of managed applications or tools to other schemas by executing <code>@dbm-cli expose</code>. This action grants access to other schemas and creates synonyms for easy access.</p>
+<h2 id="3-execution-mode-and-usage">3. Execution mode and usage </h2>
+<p>The DBM Utility provides both interactive and batch modes for executing commands via the <code>dbm-cli</code> shell script. Depending on the parameters passed to <code>dbm-cli</code>, users can choose their preferred mode of operation.</p>
+<h3 id="31-execution-mode">3.1. Execution mode </h3>
+<p><strong>Interactive Mode:</strong></p>
+<ul>
+<li>In interactive mode, users can enter commands one by one until they decide to exit the tool.</li>
+<li>The tool remains active and responsive to user input until the user chooses to exit, typically by using the "exit" command of SQL*Plus.</li>
+</ul>
+<p><strong>Batch Mode:</strong></p>
+<ul>
+<li>In batch mode, users can pass a single command along with optional parameters directly to the <code>dbm-cli</code> shell script.</li>
+<li>This mode is suitable for automated or scripted operations, allowing for the execution of commands without user interaction.</li>
+</ul>
+<p>You can also execute several commands by separating them with a slash (<code>/</code>), but this feature is considered experimental (i.e., not all combinations of commands are currently supported).</p>
+<h3 id="32-usage">3.2. Usage </h3>
+<p><strong>Usage of the dbm-cli Shell Script:</strong></p>
+<pre data-role="codeBlock" data-info="plaintext" class="language-plaintext plaintext"><code>Data Base Migration Utility
+Usage: dbm-cli [options] [command]
+
+Commands (use help command to get full list)
+   migrate &lt;app&gt;      migrate an application
+   rollback &lt;app&gt;     rollback a failed migration
+   uninstall &lt;app&gt;    uninstall an application
+   validate &lt;app&gt;     validate a migration
+   help               display all dbm-cli commands
+
+Options (format: -option or "-parameter=value")
+   apps_dir=&lt;path&gt;    applications directory
+   conf_path=&lt;file&gt;   configuration file path
+   help               this help
+   noexit             do not exit after executing command
+   silent             run silently
+</code></pre><p><strong>Commands:</strong></p>
+<ul>
+<li>The available commands include <code>migrate</code>, <code>rollback</code>, <code>uninstall</code>, <code>validate</code>, and <code>help</code>.</li>
+<li>Users can use the <code>help</code> command to get a full list of available <code>dbm-cli</code> commands.</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li>Users can specify additional options using the <code>-option</code> or <code>"-parameter=value"</code> format. On Windows, parameter name and value must be enclosed in double quotes.</li>
+<li>Options include <code>apps_dir</code> for specifying the applications directory (full or relative path), <code>conf_path</code> for providing the configuration file path, <code>help</code> for displaying help information, and <code>noexit</code> for preventing the tool from exiting after executing a command.</li>
+</ul>
+<p>By offering both interactive and batch modes, along with a variety of commands and options, the Database Migration Utility provides flexibility and convenience for managing database migrations efficiently.</p>
+<h2 id="4-commands">4. Commands </h2>
+<p>The DBM Utility offers a range of commands to facilitate database migration tasks. Each command serves a specific purpose and can be invoked via the command-line interface (CLI) client.</p>
+<p>To execute a command, type <code>@dbm-cli &lt;command&gt;</code> in the CLI and press Enter. The command will be passed to the "dbm-cli.sql" script for execution, which in turn will call the "dbm_utility_krn" package driving all commands.</p>
+<p>Commands can also accept options and parameters, with the general syntax being:</p>
+<pre data-role="codeBlock" data-info="SQL*Plus" class="language-sql*plus SQL*Plus"><code>@dbm-cli &lt;command&gt; [&lt;options&gt;] [&lt;parameters&gt;]
+</code></pre><p>Options and parameters are described with the commands to which they apply.</p>
+<p>Additionally, multiple commands can be executed at once, both interactively and in batch mode. To do this, separate your commands with a slash ("/"). On Linux, as slashes are used in paths, you must add a space before it.</p>
+<p>As an example, the following sequence of commands install an application, expose it to other schemas, then show installed applications:</p>
+<pre data-role="codeBlock" data-info="SQL*Plus" class="language-sql*plus SQL*Plus"><code>@dbm-cli install &lt;app&gt; / expose &lt;app&gt; / show
+</code></pre><p>For commands that accept an application as parameter, several applications can be specified by separating them with a comma, as in the following example:</p>
+<pre data-role="codeBlock" data-info="SQL*Plus" class="language-sql*plus SQL*Plus"><code>@dbm-cli install &lt;app1&gt;, &lt;app2&gt;, &lt;app3&gt;
+</code></pre><p>Finally, applications can be referenced either by their code, either by their alias.</p>
+<h3 id="41-commands-overview">4.1. Commands Overview </h3>
+<p>Below is a comprehensive list of available commands along with their functionalities:</p>
+<ul>
+<li><strong>Configure:</strong> Configures an application by defining values for substitution variables or placeholders used in migration scripts.</li>
+<li><strong>Migrate / Install / Upgrade:</strong> Migrates database objects of an application to the latest version, installing or upgrading as necessary.</li>
+<li><strong>Validate:</strong> Validates the current version of an application, ensuring the integrity of migrated database objects.</li>
+<li><strong>Check File:</strong> Checks the checksum of files executed successfully during migration to detect tampering or modification.</li>
+<li><strong>Rollback:</strong> Rolls back a failed migration by executing rollback scripts, if available.</li>
+<li><strong>Make an inventory:</strong> Make and save the inventory of all database objects belonging to an application.</li>
+<li><strong>Show / Guess / Set Current:</strong> Show, guess or set the current version of an application.</li>
+<li><strong>Uninstall:</strong> Uninstalls an application by executing uninstallation scripts.</li>
+<li><strong>Scan Files:</strong> Requests a new scan of the file system to detect any changes made during tool operation.</li>
+<li><strong>Read Config:</strong> Requests a new reading of configuration files to reflect any changes made during tool operation.</li>
+<li><strong>Display:</strong> Displays applications, versions, scripts, files, parameters, and variables loaded into the internal memory of the tool during startup.</li>
+<li><strong>Setup:</strong> Setup an application by executing application specific scripts.</li>
+<li><strong>Create / Drop Restore Point:</strong> Create or drop a restore point (CoP databases only).</li>
+<li><strong>Flashback database to restore point:</strong> Flashback a database to a restore point previously created in case of major migration failure.</li>
+<li><strong>Expose / Conceal</strong>: expose/conceal an application by creating/dropping public synonyms and granting/revoking access rights.</li>
+</ul>
+<p>These commands provide users with comprehensive control over the database migration process, enabling efficient and reliable management of database objects across different applications and versions.</p>
+<h3 id="42-list-of-commands">4.2. List of commands </h3>
+<p>To get the list of available commands, type <code>@dbm-cli help</code>. You will get the following screen:</p>
+<p><img src="./dbm_utility_files/help-screen.png" alt="Help screen"></p>
+<p>Commands and their options do not need to be fully typed; they can be abbreviated by providing only the first 3, 4 or 5 characters (or any longer prefix), depending on each command and option.</p>
+<p>When no application is specified, the command is executed for all applications found on the file system. When no version is specified, the command is executed for the currently installed version.</p>
+<h3 id="43-configure">4.3. Configure </h3>
+<p>Before migrating an application, you may need to configure it i.e., define a value for each of the substitution variables or placeholders that are used in the migration scripts. To configure an application, enter <code>@dbm-cli configure &lt;application&gt;</code>. When no application is given or if "all" is specified, the configuration is launched for all applications.</p>
+<p>Substitution variables, including how their values are requested from end-users and how they are validated, are specified in the configuration files (*.conf). The value of substitution variables entered by end-users are stored in the database itself.</p>
+<p>The abbreviation of the "configure" command is "conf".</p>
+<h3 id="44-precheck">4.4. Precheck </h3>
+<p>Before proceeding with the migration of an application, you can check whether the preconditions or prerequisites are met by invoking <code>@dbm-cli precheck &lt;application&gt;</code>. All scripts placed in the "precheck" folder will be executed. Furthermore, required system/object privileges and/or roles specified in "privileges.dbm" files will also be checked. Note that these verifications are automatically performed before any migration unless the "-nopre[check]" option and/or "-nopriv[ileges]" options are specified respectively.</p>
+<p>The abbreviation of the "precheck" command is "pre".</p>
+<h3 id="45-migrate--install--upgrade">4.5. Migrate / Install / Upgrade </h3>
+<p>General syntax: <code>@dbm-cli install [&lt;options&gt;] &lt;application&gt; [&lt;version&gt;]</code></p>
+<p>To migrate the database objects of an application to the latest version, type <code>@dbm-cli migrate &lt;application&gt;</code>. When no application is specified or if "all" is specified, all applications are migrated to their respective latest release.</p>
+<p>Migrating an application involves installing it if it's not yet installed and upgrading it if it's already installed. During installation, the scripts from the latest full release (found in the "install" folder) are executed. During an upgrade, the scripts from all intermediary incremental releases up to the latest one (located in the "upgrade" folders) are executed.</p>
+<p>The "install" command installs the latest full release of apps that are not installed yet (so it does not upgrade already installed apps). Subsequent upgrades are also performed to the latest available version unless the <code>-noupgrade</code> option (or its <code>-noup</code> shortcut) is specified.</p>
+<p>The "upgrade" command upgrades only apps that are already installed (so it does not install any non-installed app).</p>
+<p>The "migrate" command performs both installation and upgrade, without any distinction between applications that are already installed and those that are not.</p>
+<p>A validation is automatically performed  after each migration unless the <code>-novalidate</code> option (or its <code>-noval</code> shortcut) is specified.</p>
+<p>When migrating a single application, you have the flexibility to migrate to a specific release, which may not be the latest one (for instance, opting for a more stable version). You can achieve this by specifying the version number along with the application name, as <code>@dbm-cli migrate &lt;application&gt; &lt;version&gt;</code> Moreover, if you wish to test migrations incrementally (i.e., one version at a time), you can specifically request an upgrade to the "next" available version as <code>@dbm-cli migrate &lt;application&gt; next</code>. This can be performed for either a single application or for all applications collectively.</p>
+<p>The scripts executed depend on the chosen execution method (as detailed later). When a changelog file is used, a "show errors" SQL*Plus command is executed after compiling each package specification and body, provided the "show_compilation_errors" parameter is set to "true" or "yes". This allows immediate identification of the location of the error.</p>
+<p>The abbreviations of the "migrate", "install" and "upgrade" commands are respectively "mig", "ins" and "upg".</p>
+<h3 id="46-validate">4.6. Validate </h3>
+<p>To validate the current version of an application, enter <code>@dbm-cli validate &lt;application&gt;</code>. If no application is specified or if "all" is specified, each current version of every application is validated.</p>
+<p>The validation process involves executing any SQL script located in the "validate" folder(s) within the current version folder and/or within the "all" version folder. The validation fails when an exception is raised by one of the scripts.</p>
+<p>When a database object inventory is provided in an "objects.dbm" file, the tool verifies the existence and validity of all listed database objects after the migration. Invalid objects are recomputed before the validation when the "recompile_invalid_objects" parameter is set to "yes" or "true". If a checksum is associated with a database object in the inventory file, the tool also verifies the correctness of the checksum. If an object is missing, invalid, or if a checksum is incorrect, the validation fails and raises an exception. The "object_name_pattern" parameter specifies which database objects should be considered. The computation of checksums is specific to each object type and enables detection of changes in the most critical properties of the objects.</p>
+<p>Although end-users can manually request a validation, it is automatically triggered after each migration, occurring once per version.</p>
+<p>The abbreviation of the "validate" command is "val".</p>
+<h3 id="47-check-files">4.7. Check files </h3>
+<p>The checksum of any file executed successfully is stored in one of the internal tables of the tool. End-user can request to check whether these files haven't changed on the file system since their execution by invoking <code>@dbm-cli check-files &lt;application&gt; &lt;version&gt;</code>. When no application or no version is specified, files of all applications or versions are checked. An exception is raised if a file previously executed is tampered or missing.</p>
+<p>The abbreviation of the "check-files" command is "check".</p>
+<h3 id="48-rollback">4.8. Rollback </h3>
+<p>This command enables you to rollback a failed migration under the condition that rollback scripts have been provided in a "rollback" subfolder. Files executed during a migration, along with their outcomes, are registered in the database. The rollback process involves executing the corresponding rollback scripts in reverse order of their execution, beginning with the one that failed. To proceed, execute <code>@dbm-cli rollback &lt;application&gt;</code>. Rollback cannot be applied to multiple applications, so "all" is not a valid option. No version can be specified either. Rollback will fail if any of the executed scripts lack equivalents in the "rollback" subfolder or if their execution fails.</p>
+<p>The abbreviation of the "rollback" command is "roll".</p>
+<h3 id="49-make-inventory">4.9. Make inventory </h3>
+<p>The inventory of database objects, which is used when validating the migration of an application or determining the version of an installed application, can be built and saved by invoking the following command: <code>@dbm-cli make-inventory &lt;application&gt;</code>.</p>
+<p>The inventory will be saved into the following file: <code>apps/&lt;application&gt;/releases/&lt;version&gt;/config/objects.dbm</code>. The query used to generate the inventory is placed in the first line as a comment. Additionally, a checksum is computed and stored for each database object, and any existing database object conditions are preserved.</p>
+<p>The abbreviation of the "make-inventory" command is "make".</p>
+<h3 id="410-show--guess--set-current">4.10. Show / Guess / Set current </h3>
+<p>When the migration tool is installed in a schema that already contains the database objects of an application, the tool can try to guess which version of this application is installed by comparing the objects inventory of each release (and their checksum if any) with the database object installed in the schema (and their checksum). To proceed, type <code>@dbm-cli guess-current [options] &lt;application&gt;</code>.</p>
+<p>Available options:</p>
+<ul>
+<li><code>-best[-guess]</code>: find the best matching version when no exact match is found.</li>
+<li><code>-set[-current]</code>: set the current version of the application to the found version.</li>
+</ul>
+<p>By default, the tool performs an exact match and does not change the current version of an application.</p>
+<p>End-user can also manually define which version of the application is currently installed. To proceed, type <code>@dbm-cli set-current &lt;application&gt; &lt;version&gt;</code>.</p>
+<p>You can also ask the tool to display which version of each application is currently installed by typing the following command: <code>@dbm-cli show-current &lt;application&gt;</code>.</p>
+<p>The abbreviations of the "show-current", "guess-current", and "set-current" commands are respectively "show", "guess", and "set".</p>
+<h3 id="411-uninstall">4.11. Uninstall </h3>
+<p>To uninstall an application, execute <code>@dbm-cli uninstall [&lt;options&gt;] &lt;application&gt;</code>. If no application is specified or if "all" is specified, all applications are uninstalled by executing the SQL scripts located in the "uninstall" folder(s). These scripts may be version-specific, in which case they are located under each version folder, or version-independent, in which case they are located under the "all" version folder.</p>
+<p>Sometimes, the DBM tool may incorrectly report that an application is not installed, although some database objects are still present. This situation can prevent you from dropping them via the uninstall command. In such cases, you can force the DBM tool to execute the uninstall scripts by specifying the <code>-force</code> option. For example:</p>
+<pre data-role="codeBlock" data-info="SQL*Plus" class="language-sql*plus SQL*Plus"><code>@dbm-cli uninstall -force &lt;application&gt;
+</code></pre><p>The abbreviation of the "uninstall" command is "uninst".</p>
+<h3 id="412-scan-files">4.12. Scan files </h3>
+<p>The file system is scanned during the tool's startup. Consequently, if a file is created, modified, or deleted while the tool is running, it will not be detected. To address this, you can request a new scan of the file system by executing <code>@dbm-cli scan-files</code>. Alternatively, you can exit SQL*Plus and relaunch <code>dbm-cli</code>.</p>
+<p>The abbreviation of the "scan-files" command is "scan".</p>
+<h3 id="413-read-config">4.13. Read config </h3>
+<p>Configuration files ("*.conf"), database objects inventories ("objects.dbm"), and files inventories ("files.dbm") are read during the tool's startup. Consequently, if such files are created, modified, or deleted while the tool is running, they will not be detected. To address this, you can request a new reading of configuration files by executing <code>@dbm-cli read-config</code>. Alternatively, you can exit SQL*Plus and relaunch <code>dbm-cli</code>.</p>
+<p>The abbreviation of the "read-config" command is "read".</p>
+<h3 id="414-display">4.14. Display </h3>
+<p>This command allows you to see and check applications, versions, scripts, files, parameters, variables, etc. that have been loaded into the internal memory of the tool during startup. To proceed, execute <code>@dbm-cli display &lt;application&gt; &lt;version&gt;</code>. When no version is specified, all versions are displayed. When no application is given, all applications are displayed.</p>
+<p>The abbreviation of the "display" command is "disp".</p>
+<h3 id="415-setup">4.15. Setup </h3>
+<p>This command performs the setup of an application by executing the scripts located in the "setup" folder. To proceed, execute <code>@dbm-cli setup &lt;application&gt;</code>.</p>
+<h3 id="416-create--drop-restore-point">4.16. Create / Drop restore point </h3>
+<p>Prior to migrating schemas on a CoP database, it's advisable to create a restore point as a precautionary measure against significant migration failures. This can be accomplished by running the command: <code>@dbm-cli create-restore-point</code>. Once the restore point is no longer required, it can be removed by executing <code>@dbm-cli drop-restore-point</code>.</p>
+<p>This command is exclusive to EC CoP (Cloud on Premise) databases and necessitates the prior definition of environment variables to connect to the <code>C##APPDBA</code> schema. The required variables include <code>DBA_USERNAME</code>, <code>DBA_PASSWORD</code>, and <code>DBA_DATABASE</code>. Additionally, it's important to establish an SSH tunnel to the database server before launching the tool.</p>
+<p>The abbreviation of the <code>create-restore-point</code> and <code>drop-restore-point</code> commands are respectively "create" and "drop".</p>
+<h3 id="417-flashback-database">4.17. Flashback database </h3>
+<p>In case of major migration failure, you can restore/flashback the database to the previously created restore point by executing <code>@dbm-cli flashback-database</code>. Note that this operation is asynchronous and can take a while to complete. There is currently no way to know whether it is started, completed, and its outcome (success/failure). This operation does not drop the restore point so don't forget to do it once the flashback is complete.</p>
+<p>This command is exclusive to EC CoP (Cloud on Premise) databases and necessitates the prior definition of environment variables to connect to the <code>C##APPDBA</code> schema. The required variables include <code>DBA_USERNAME</code>, <code>DBA_PASSWORD</code>, and <code>DBA_DATABASE</code>. Additionally, it's important to establish an SSH tunnel to the database server before launching the tool.</p>
+<p>The abbreviation of the "flashback-database" command is "flash".</p>
+<h3 id="418-expose--conceal">4.18. Expose / Conceal </h3>
+<p>The "expose" command makes the database objects of an application available to public or to another schema by granting public or private access rights to them and by creating public or private synonyms for them. Scripts that create synonyms and grant access rights must be located within the "expose" folder of the application. Exposing an application is performed by executing the command <code>@db-cli expose &lt;application&gt; [&lt;schema&gt;]</code> where "schema" can be either PUBLIC or the name of an existing schema. When no schema is given, application is by default exposed to PUBLIC.  When no application is specified or when "all" is explicitly mentioned, all applications with exposure scripts are exposed, thereby making their contents accessible.</p>
+<p>The "conceal" command functions inversely, concealing database objects previously exposed by an application. This process involves dropping either public or private synonyms and revoking corresponding access rights. Scripts responsible for dropping synonyms and revoking access rights should be located within the "conceal" folder of the application. Concealing an application is performed by executing the command <code>@db-cli conceal &lt;application&gt; [&lt;schema&gt;]</code> where "schema" can be either PUBLIC or the name of an existing schema. When no schema is given, all existing expositions (public and/or private) are canceled. When no application is specified or when "all" is explicitly mentioned, all applications with conceal scripts are concealed, resulting in their contents becoming inaccessible.</p>
+<h2 id="5-folder-structure-and-versioning">5. Folder Structure and Versioning </h2>
+<h3 id="51-folder-structure">5.1. Folder Structure </h3>
+<p>Upon startup of DBM-CLI, the file system is scanned, starting with the "apps" directory, to discover applications for which migrations are provided, the releases that are available, their  characteristics (e.g., incremental or full, support for rollback, etc.), the configuration files and the SQL scripts to be executed. This information is derived from the file structure and some naming conventions.</p>
+<p>The folder structure under the "apps" folder is the following:</p>
+<p><img src="./dbm_utility_files/folder-structure.png" alt="Folder structure"></p>
+<p>Each application managed by the tool possesses a dedicated folder within the "apps" directory, with the application code derived from the folder name. Additionally, a special directory named "all" can be established to accommodate materials common to all applications, such as shared configuration files. You can use numerical prefixes in the application folder names to instruct the tool to process them in a certain order.<br>
+&lt;&gt;<br>
+Under each application folder resides a "releases" folder that contains the various releases. Release numbers are derived from the folder name. Similarly, a designated "all" folder can be created to house materials common to all releases of an application, such as scripts for uninstalling the application or configuration settings independent of specific releases.</p>
+<p>Every operation applicable to a release is represented by a dedicated folder within the release folder. These folders are named after the respective commands, including "install," "upgrade," "validate," and "uninstall," and contain all necessary scripts for the associated operation. Additionally, a "config" folder may be created to contain release-specific configuration files.</p>
+<p>In certain scenarios, it may be necessary to verify certain prerequisites before executing a migration. For example, you might need to ensure that the schema has specific privileges. This can be accomplished by placing one or more scripts in a "precheck" folder. These scripts should raise an exception if the prerequisite conditions are not met, thereby preventing the migration from proceeding.</p>
+<p>For operations that support rollback functionality, such as install or upgrade, a dedicated "rollback" folder may exist within its respective folder. This folder signifies the operation's ability to be reverted and includes the necessary scripts for rollback execution.</p>
+<p>Here is an example of file structure showing 5 applications. Application folders are numbered to sequence them. For the LOG utility, 3 versions are provided (1.0, 1.0.1, and 23.0). Version 1.0 is a full release (as indicated by the "install" folder). Version 1.0.1 is an incremental release (as indicated by the "upgrade" folder). Upgrade to version 1.0.1 can be rolled back (as indicated by the "rollback" sub-folder). Uninstallation is independent from the version installed, reason why the "uninstall" folder is located under the special "ALL" version. Each version has a "config" folder that holds version specific configuration (e.g., the inventory of database objects).</p>
+<p><img src="./dbm_utility_files/file-system.png" alt="File system structure"></p>
+<h3 id="52-versioning">5.2. Versioning </h3>
+<p>A release number is structured as follows: "xx.yy.zz", where each number comprises one or two digits at most. The "xx" denotes the mandatory major release number, while "yy" and "zz" represent the optional minor and bugfix release numbers, respectively. These components are separated by dots. Valid examples of release numbers include: 1, 1.0, 1.0.1, 23.0.</p>
+<p>The alphanumeric representation of the release number described above is referred to as the version code. Internally, this code undergoes transformation into a numeric value known as the version number. This transformation enables proper ordering of versions during deployment. For instance, the aforementioned releases are converted into 10000, 10000, 10001, and 230000, correspondingly, using the following formula: <code>xx * 100^2 + yy * 100 + zz</code>.</p>
+<h2 id="6-scripts-execution-methods">6. Scripts Execution Methods </h2>
+<p>Three distinct methods are at your disposal to guide the tool in determining which scripts within each folder to execute and their sequence of execution. These methods include one based on a changelog file, one based on a master script, and one based on file naming conventions. They are presented below in their order of precedence.</p>
+<h3 id="61-changelog-file">6.1. Changelog File </h3>
+<p>Similarly to Liquibase, you have the option to specify the list of scripts to execute by arranging them in the desired order within a changelog file named "install.dbm" or "upgrade.dbm". These files are placed in the "install" or "upgrade" folder, respectively. When such a file exists, it takes precedence over the two other methods.</p>
+<p>Here is an example of such an "install.dbm" file:</p>
+<p><img src="./dbm_utility_files/install-dbm.png" alt="install.dbm example"></p>
+<p>The files listed will be executed in the specified sequence, prioritising the creation of database objects followed by package specifications and bodies.</p>
+<p>This file can easily be created in the following way:</p>
+<ul>
+<li>Under Windows: <code>dir/b &gt; install.dbm</code></li>
+<li>Under Linux: <code>ls -1 &gt; install.dbm</code></li>
+</ul>
+<p>Files order can then be adapted using an editor of your choice.</p>
+<p>This method also allows specifying a run condition, which is a conditional expression involving variables or parameters. This expression is evaluated to determine whether the file should be executed or not.</p>
+<p>Here is an example of a "upgrade.dbm" file:</p>
+<p><code>dbm_objects.sql</code><br>
+<code>DBM_UTILITY_VAR.pks</code><br>
+<code>DBM_UTILITY_KRN.pks</code><br>
+<code>DBM_UTILITY_KRN.pkb</code><br>
+<code>dbm_public_synonyms.sql: '&amp;&amp;public' = 'true'</code><br>
+<code>dbm_public_grants.sql: '&amp;&amp;public' = 'true'</code></p>
+<p>The last 2 scripts will be executed only if the "public" variable or parameter is set to "true".</p>
+<p>SQL*Plus master scripts (e.g., <code>install.sql</code>) can be used as changelog files by simply renaming them (e.g., to <code>install.dbm</code>). All SQL*plus commands that they contain will be ignored except the <code>PROMPT</code> command that can be used to display a message before executing a file. Any <code>@</code> preceding file names are allowed but ignored.</p>
+<h3 id="62-master-script">6.2. Master Script </h3>
+<p>Alternatively, you can opt to create a master script that executes your files utilising the <code>@@</code> command of SQL*Plus. Any other SQL*Plus command can also be used (e.g., "prompt" to display information messages). This master script must be named "install.sql" or "upgrade.sql" depending on the operation to be performed. When such a file exists, it is the only one executed and it takes precedence over the naming convention method.</p>
+<p>Here is the "install.sql" file corresponding to the above example:</p>
+<p><img src="./dbm_utility_files/install-sql.png" alt="Install.sql example"></p>
+<p>Note that "@@" is used rather than "@" or the "start" command to instruct SQL*Plus that files are located in the same directory as the master script.</p>
+<p>Also note that changelog files take precedence over master scripts. Therefore, master scripts will be ignored if changelog files are present (for example, <code>install.sql</code> will be ignored if <code>install.dbm</code> is found).</p>
+<h3 id="63-file-naming-conventions">6.3. File Naming Conventions </h3>
+<p>Similarly to Flyway, you can define the execution order of files within a directory by incorporating a sequence number into their names. Only files with extensions such as ".sql", ".pks", ".pls", ".pkb", ".plb", and "java" will be executed, while all other files will be disregarded.</p>
+<p>Here is an example of how to name files for the above described example:</p>
+<p><img src="./dbm_utility_files/file-naming.png" alt="File naming example"></p>
+<p>It is recommended to leave gaps in the numbering to ease the potential addition of new files in the future.</p>
+<h2 id="7-configuration-files">7. Configuration Files </h2>
+<p>The configuration files containing parameters and substitution variable definitions can be situated at different levels in the file hierarchy, depending on the application and/or version to which they apply.</p>
+<p>Structured akin to Java property files, configuration files comprise key-value pairs. The key is made-up of several components separated by dots, beginning with the application code to which it pertains ("all" for parameters or variables common to all applications).</p>
+<p>Comment lines, denoted by a "#" at the beginning, are disregarded.</p>
+<h3 id="71-parameters">7.1. Parameters </h3>
+<p>A line describing a parameter must follow this format: <code>&lt;application&gt;.par.&lt;par-name&gt;=&lt;par-value&gt;</code></p>
+<p>Here are some parameters defined for the DBM tool:</p>
+<ul>
+<li><code>dbm_utility.par.object_name_pattern=^DBM_.*$</code>: defines the name pattern of DBM database objects (used to find database objects that need to be validated against the inventory).</li>
+<li><code>dbm_utility.par.show_compilation_errors=true</code>: specifies that the tool must show errors when compiling package specifications and package bodies, valid for all applications.</li>
+<li><code>dbm_utility.par.recompile_invalid_objects=true</code>: specifies that the tool must recompile invalid objects before validating a release, valid for all applications.</li>
+</ul>
+<p>The default value of parameters can be overwritten for a specific application or version by redefining them in a file located at a lower level in the file hierarchy.</p>
+<h3 id="72-variable-definitions">7.2. Variable Definitions </h3>
+<p>A line describing a substitution variable must follow this format: <code>&lt;application&gt;.var.&lt;var-name&gt;.&lt;property-name&gt;=value</code>.</p>
+<p>Where property name is one of the following:</p>
+<ul>
+<li>"name": name of the variable.</li>
+<li>"descr": description of the variable, used as prompt.</li>
+<li>"seq": sequence specifying display/processing order.</li>
+<li>"data_type": data type the value must comply with (CHAR, NUMBER or DATE).</li>
+<li>"nullable": indicates whether a value is optional or not (Y/N).</li>
+<li>"convert_value_sql": SQL statement converting entered value.</li>
+<li>"check_value_sql": SQL statement checking value validity.</li>
+<li>"default_value_sql": SQL statement providing a default value.</li>
+<li>"check_error_msg": error message raised when value is invalid.</li>
+</ul>
+<p>Here follows the example of the definition of a "tab_ts" variable that holds the name of the tablespace in which tables must be created:</p>
+<p><img src="./dbm_utility_files/var-example.png" alt="Variable example"></p>
+<p>This variable is referenced in the migration scripts as <code>&amp;&amp;tab_ts</code>. It will be substituted with its actual value when the script executes.</p>
+<h3 id="73-application-dependencies">7.3. Application dependencies </h3>
+<p>When deploying multiple applications or tools using the DBM tool, dependencies between them may arise. For instance, application A might need to be installed after application B is already present. Dependencies can also extend to specific versions of these applications. For example, version X of application A may necessitate the presence of version Y of application B.</p>
+<p>Dependencies must be declared by creating a "requires" parameter in the configuration of the dependant application (in the folder of a specific version or of the "all" version) as what follows:</p>
+<p><code>&lt;dependent-app&gt;.par.requires=&lt;dependency-app&gt; &lt;dependency-ver&gt;</code></p>
+<p>Example: to declare that <code>ds_utility v23.0</code> depends on <code>log_utility v23.0</code>, the following line must be added to "ds_utility.conf" located in "apps/ds_utility/releases/23.0/config":</p>
+<p><code>ds_utility.par.requires=log_utility 23.0</code></p>
+<p>Version and name of the dependency application are separated with a space.</p>
+<h2 id="8-database-object-inventory">8. Database Object Inventory </h2>
+<h3 id="81-overview">8.1. Overview </h3>
+<p>A database inventory includes a comprehensive list of database objects including packages, package bodies, procedures, functions, types, type bodies, triggers, java sources, keys, constraints, indexes, views, materialised views, tables, and sequences. This inventory is stored in an "objects.dbm" file associated with each release. Following release deployment, the DBM tool verifies the existence and validity of all listed database objects in the database. Only objects whose names match the regular expression pattern associated with the application are considered (cfr. "object_name_pattern" parameter described above). Additionally, an optional checksum capturing the most important properties of each database object can be computed and stored in the inventory. A condition can also be specified e.g., to tell that an object only exists is some environments.</p>
+<p>An error is raised if an object from the inventory is missing in the database or if its checksum does not match, indicating an unexpected modification. A warning is issued if a database object is found missing in the inventory, suggesting a potential oversight during inventory creation.</p>
+<p>Moreover, this inventory serves as a reference for determining the current installed version of the application when the DBM tool is installed in a schema already containing the database objects of the application.</p>
+<p>Inventory files, named "objects.dbm," are required to be situated in the "config" directory of each application version. These files comprise one line for each database object, formatted as what follows:</p>
+<p><code>&lt;object-type&gt; &lt;object-name&gt;[: [&lt;checksum&gt;] [&lt;condition&gt;]]</code>.</p>
+<p>Here is an example of a database objects inventory file:</p>
+<p><img src="./dbm_utility_files/objects-dbm.png" alt="Database object inventory"></p>
+<p>Comment lines, denoted by a "#" at the beginning, are disregarded.</p>
+<h3 id="82-generating-the-inventory">8.2. Generating the Inventory </h3>
+<p>This inventory can be generated using the <code>list_db_objects()</code> pipelined function. It accepts the database object name pattern as the first parameter and a flag indicating whether the checksum should be computed or not as the second parameter. An anti-pattern can also be specified to exclude some database objects.</p>
+<p>In the example above, the query executed to generate the inventory is placed in a comment at the first line of the file.</p>
+<h3 id="83-checksum-computation">8.3. Checksum Computation </h3>
+<p>Here's a summary of how the checksum is computed for each object type:</p>
+<ul>
+<li>
+<p>For packages, package bodies, procedures, functions, types, type bodies, triggers, and java sources, the checksum is computed based on the following properties:</p>
+<ul>
+<li>Object type</li>
+<li>Object name</li>
+<li>Source code text (excluding trailing whitespace and newlines)</li>
+<li>Object status</li>
+</ul>
+</li>
+<li>
+<p>For PK, UK and FK constraints, the checksum is computed based on:</p>
+<ul>
+<li>Constraint name</li>
+<li>Constraint type</li>
+<li>Table name</li>
+<li>Columns list</li>
+</ul>
+</li>
+<li>
+<p>For check constraints, the checksum is computed based on:</p>
+<ul>
+<li>Constraint name</li>
+<li>Constraint search condition (excluding trailing whitespace and newlines)</li>
+</ul>
+</li>
+<li>
+<p>For indexes, the checksum is computed based on:</p>
+<ul>
+<li>Index name</li>
+<li>Uniqueness</li>
+<li>Table name</li>
+<li>Column lists</li>
+</ul>
+</li>
+<li>
+<p>For views, the checksum is computed based on:</p>
+<ul>
+<li>View name</li>
+<li>View text (excluding trailing whitespace and newlines)</li>
+</ul>
+</li>
+<li>
+<p>For materialised views, the checksum is computed based on:</p>
+<ul>
+<li>Materialised view name</li>
+<li>Materialised view query text (excluding trailing whitespace and newlines)</li>
+</ul>
+</li>
+<li>
+<p>For tables, the checksum is computed based on:</p>
+<ul>
+<li>Object type</li>
+<li>Object name</li>
+<li>Column names, data types, precision, scale, length, nullability (sorted alphabetically);<br>
+Note that column positions are not used so as to have the same checksum when installing and upgrading.</li>
+<li>Object status</li>
+</ul>
+</li>
+<li>
+<p>For sequences, the checksum is computed based on sequence attributes such as increment by, min value, max value, cycle flag, cache size, order flag, keep value, scale flag, sharded flag, and session flag.</p>
+</li>
+</ul>
+<p>These checksums help identify changes or differences in the properties of database objects, facilitating database management, version control, and change tracking. Checksum computation is designed to be independent from the type of migration (full installation vs incremental upgrade).</p>
+<h3 id="84-conditional-database-objects">8.4. Conditional database objects </h3>
+<p>For each database object, you can specify a conditional expression. The evaluation of this expression (TRUE or FALSE) determines whether the database object is expected to exist or not. A common scenario is to specify that an object should only exist in certain environments.</p>
+<p>Syntax of conditional expressions for database objects are the same as for conditional file execution (see section  <a href="file:///tmp/crossnote2024928-21733-g53xit.hsamc.html#9-conditional-execution">9. Conditional execution</a>).</p>
+<p>Here follows an example of a unit test package (<code>DS_CRYPTO_TST</code>) that exists only in the "dev" environment.</p>
+<p>With checksum:</p>
+<p><code>PACKAGE BODY DS_CRYPTO_TST: 807219452 '&amp;&amp;env' = 'dev'</code><br>
+<code>PACKAGE DS_CRYPTO_TST: 943970027 '&amp;&amp;env' = 'dev'</code></p>
+<p>Without checksum:</p>
+<p><code>PACKAGE BODY DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'</code><br>
+<code>PACKAGE DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'</code></p>
+<p>Note that when no checksum is specified, the conditional expression shall not start with a digit.</p>
+<h2 id="9-conditional-file-execution">9. Conditional file execution </h2>
+<h3 id="91-overview">9.1. Overview </h3>
+<p>One of the key features of the migration tool is its ability to execute files conditionally based on specified criteria. With this feature, users can define conditions under which certain migration scripts should be executed, allowing for greater flexibility and control over the migration process.</p>
+<p>For instance, users can specify conditions in a "files.dbm" file located within the directory of each script. These conditions are SQL expressions that determine whether the associated script should be executed. The tool evaluates these expressions and executes the script only if the conditions are met.</p>
+<p>This feature provides users with the capability to tailor the migration process to specific environments or circumstances. For example, scripts intended for development environments can be set to execute only in those environments, ensuring that production environments remain unaffected.</p>
+<p>By enabling conditional execution, the migration tool empowers users to automate and streamline the migration process while maintaining control over script execution based on their unique requirements and environments.</p>
+<h3 id="92-conditional-file-execution-in-detail">9.2. Conditional File Execution in Detail </h3>
+<p>In this section, we delve deeper into the mechanics of conditional execution, providing a step-by-step guide on how to leverage this feature effectively.</p>
+<h4 id="921-creating-the-filesdbm-file">9.2.1. Creating the "files.dbm" File </h4>
+<p>To enable conditional execution for a specific file, create a "files.dbm" file within the directory where the file is located.</p>
+<h4 id="922-specifying-conditions">9.2.2. Specifying Conditions </h4>
+<p>Each line in the "files.dbm" file must follow a specific format: <code>&lt;file&gt;: &lt;condition&gt;</code>.</p>
+<ul>
+<li><code>&lt;file&gt;</code> represents the name of the file to be executed conditionally (without path).</li>
+<li><code>&lt;condition&gt;</code> is a conditional expression (without the surrounding SQL syntax).</li>
+</ul>
+<p>Example: <code>script.sql: '&amp;&amp;env' = 'dev'</code></p>
+<h4 id="923-substitution-variables">9.2.3. Substitution Variables </h4>
+<p>Conditions can contain substitution variables, such as &amp;&amp;env, which must be enclosed in single quotes when compared to a string. Substitution variables enable dynamic condition evaluation based on environment-specific parameters.</p>
+<h4 id="924-evaluating-conditions">9.2.4. Evaluating Conditions </h4>
+<p>The tool first substitutes the variables then evaluates the conditional expression specified in each condition line via the following SQL statement: <code>SELECT 'x' FROM dual WHERE &lt;condition&gt;</code>. If the expression evaluates to true (i.e., the condition is met), the associated script will be executed. If the expression evaluates to false, the script will not be executed.</p>
+<p>By understanding the structure of the "files.dbm" file and how conditions are evaluated, users can effectively control the execution of migration scripts based on their specified criteria and requirements.</p>
+<h2 id="10-privileges-management">10. Privileges management </h2>
+<p>This section describes how to specify the privileges that a schema must have before migrating or operating an application.</p>
+<h3 id="101-creating-the-privilegesdbm-file">10.1. Creating the "privileges.dbm" file </h3>
+<h3 id="102-file-location">10.2. File location </h3>
+<p>To enable automatic checking of privileges, create a "privileges.dbm" file in the "config" folder of an application version (or under "all" when applicable to all versions).</p>
+<h3 id="103-file-format">10.3. File format </h3>
+<p>The format of each line in the "privileges.dbm" file is the following:</p>
+<p><code>&lt;privilege_usage&gt; &lt;privilege-type&gt; [DIRECT] &lt;oracle-privilege&gt; [ON &lt;object_type&gt; &lt;object_owner&gt;.&lt;object_name&gt;] [WITH ADMIN|GRANT OPTION][: &lt;condition&gt;]</code></p>
+<p>Examples:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>MIGRATE ROLEPRIV DC_RESOURCE: '&amp;&amp;installation_env' in ('DC', 'COP')
+MIGRATE SYSPRIV DIRECT CREATE TABLE
+MIGRATE TABPRIV DIRECT EXECUTE ON PACKAGE SYS.DBMS_AQ: '&amp;&amp;installation_env' in ('AWS', 'COP')
+OPERATE SYSPRIV DIRECT CREATE TABLE
+</code></pre><h4 id="1031-privilege-usage">10.3.1. Privilege usage </h4>
+<p>The following privilege usages are supported:</p>
+<ul>
+<li>MIGRATE: privileges that the schema in which the application will be installed must have.</li>
+<li>OPERATE: privileges that the schema from which the application is run must have.</li>
+</ul>
+<p>These schemas can be the same or can be different.</p>
+<p>Privileges used to MIGRATE an application are checked by the DBM tool when running the precheck, migrate, install, and upgrade commands.</p>
+<p>Privileges used to OPERATE must be checked by the application itself, by invoking the <code>check_runtime_privileges()</code> procedure with the application code passed in parameter. For an application that is based on database packages, it is recommended to make this call in the initialisation section of its main package. The package initialisation will fail until the required privileges have been granted to the connected user.</p>
+<h4 id="1032-privilege-types">10.3.2. Privilege types </h4>
+<p>The following types of privileges are supported:</p>
+<ul>
+<li>SYSPRIV: System privileges (those found in <code>USER_SYS_PRIVS</code> and <code>ROLE_SYS_PRIVS</code> views).</li>
+<li>TABPRIV: Table/object privileges (those found in <code>USER_TAB_PRIVS</code> and <code>ROLE_TAB_PRIVS</code> views).</li>
+<li>ROLEPRIV: Roles (those found in <code>USER_ROLE_PRIVS</code> and <code>ROLE_ROLE_PRIVS</code> views).</li>
+</ul>
+<h4 id="1033-grant-type">10.3.3. Grant type </h4>
+<p>The schema can be granted privileges/roles directly or receive them via a role. The <code>DIRECT</code> keyword indicates that the privilege must be granted directly. Privileges required within a package/procedure/function must typically be granted directly. This property can be checked in the data dictionary views using the <code>inherited</code> column. The value <code>YES</code> indicates a privilege received through a role.</p>
+<h4 id="1034-privilege">10.3.4. Privilege </h4>
+<p>The name of the Oracle system privilege, table/object privilege, or role is then specified.</p>
+<h4 id="1035-object">10.3.5. Object </h4>
+<p>For table/object privileges, the type, owner and name of the object must be specified. The object type is used for checking the corresponding ANY privileges (see below). Valid object types are TABLE, VIEW, MVIEW, SEQUENCE, PACKAGE, PROCEDURE, FUNCTION, and TYPE.</p>
+<h4 id="1036-admingrant-option">10.3.6. Admin/Grant option </h4>
+<p>You can specify whether the tool must check whether the privilege can be delegated further or not with the <code>WITH ADMIN OPTION</code> (for system privileges and roles) or <code>WITH GRANT OPTION</code> (for table/object privileges). These properties can be checked in the data dictionary views using the <code>admin_option</code> and <code>grantable</code> columns respectively.</p>
+<h4 id="1037-any-privileges">10.3.7. ANY privileges </h4>
+<p>System privileges that include the keyword <code>ANY</code> provide broad administrative capabilities across the entire database, allowing the user to perform actions on objects in any schema. These privileges often supersede more specific privileges that are limited to certain schemas or objects.</p>
+<p>To verify if a specific privilege has been granted, the DBM tool not only checks for that particular privilege but also checks if a superseding <code>ANY</code> privilege has been granted.</p>
+<p>For system privileges, the superseding privilege contains the additional <code>ANY</code> keyword in its name compared to the superseded privilege, as in the following examples:</p>
+<ul>
+<li><code>ALTER ANY TABLE</code> supersedes <code>ALTER TABLE</code>.</li>
+<li><code>...</code></li>
+<li><code>CREATE ANY CONTEXT</code> supersedes <code>CREATE CONTEXT</code>.</li>
+</ul>
+<p>For table/object privileges, here are the superseding <code>ANY</code> privileges that are checked and the object types to which they apply:</p>
+<ul>
+<li><code>SELECT ANY TABLE</code> applies to <code>TABLE</code>, <code>VIEW</code>, <code>MVIEW</code>, and <code>SEQUENCE</code>.</li>
+<li><code>INSERT ANY TABLE</code> applies to <code>TABLE</code> and <code>VIEW</code>.</li>
+<li><code>UPDATE ANY TABLE</code> applies to <code>TABLE</code> and <code>VIEW</code>.</li>
+<li><code>DELETE ANY TABLE</code> applies to <code>TABLE</code> and <code>VIEW</code>.</li>
+<li><code>ALTER ANY TABLE</code> applies to <code>TABLE</code> and <code>VIEW</code>.</li>
+<li><code>INDEX ANY TABLE</code> applies to <code>TABLE</code>.</li>
+<li><code>REFERENCES ANY TABLE</code> applies to <code>TABLE</code>.</li>
+<li><code>EXECUTE ANY PROCEDURE</code> applies to <code>PACKAGE</code>, <code>PROCEDURE</code>, <code>FUNCTION</code>, and <code>TYPE</code>.</li>
+<li><code>ALTER ANY SEQUENCE</code> applies to <code>SEQUENCE</code>.</li>
+</ul>
+<h2 id="11-migration-failure-recovery">11. Migration Failure Recovery </h2>
+<p>Recovery from a migration failure can be performed at the file level or the statement level.</p>
+<h3 id="111-file-level-recovery">11.1. File Level Recovery </h3>
+<p>During a migration (installation or upgrade), the DBM tool tracks which files have been successfully executed. If a failure occurs, relaunching the migration will skip the already executed files and resume from the script that failed, assuming it has been corrected. This approach works only if the script can be re-executed without error or if the actions performed have been rolled back.</p>
+<h3 id="112-statement-level-recovery">11.2. Statement Level Recovery </h3>
+<p>A more detailed recovery option is available at the statement level for SQL scripts containing multiple DDL or DML statements. This functionality applies to SQL scripts with the <code>.dbm.sql</code> double extension. Each statement in the file must be marked with a statement identifier formatted as <code>DBM-XXXXX</code>, where <code>XXXXX</code> is a sequential number between 1 and 99999. This tag should be placed in a <code>REM[ARK]</code> above each statement. You can include a comment after the statement identifier, which is ignored by the DBM tool. It is recommended to leave gaps in the numbering (e.g., numbering by multiples of 10) to allow for future additions.</p>
+<p>For such <code>.dbm.sql</code> files, the DBM tool records the last executed statement. If a failure occurs, the migration will resume from the statement that failed. A temporary file (prefixed with <code>~</code>), stored in the same folder as the original script, is created where successfully executed statements are replaced with blank lines. This temporary file is automatically deleted upon successful execution. For technical reasons, the size of these SQL scripts must be limited to 32k. Large files can be split into multiple files if necessary.</p>
+<p>Note that multiple SQL statements and/or SQL*Plus commands can be included between two tags. In case of re-execution, all these statements will be re-executed.</p>
+<h3 id="113-conditional-statement-execution">11.3. Conditional Statement Execution </h3>
+<p>The DBM tool supports the conditional execution of SQL statements using the described tags. To use this feature, add a colon (<code>:</code>) after the statement ID (or its comment) and specify a condition using the same syntax as for conditional file execution.</p>
+<h3 id="114-statement-tag-format">11.4. Statement Tag Format </h3>
+<p>The general format of a statement tag is: <code>REM[ARK] DBM-99999 [&lt;comment&gt;] [: &lt;condition&gt;]</code>.</p>
+<p>Example: The SQL statements following the tag will be executed only in Cloud on Prem DBs.</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>REMARK DBM-12345 - Only in CoP DBs: '&amp;&amp;install_env' = 'COP'
+INSERT INTO ... VALUES (...);
+COMMIT;
+</code></pre><h3 id="115-jump-to-statement-option">11.5. Jump-to-Statement Option </h3>
+<p>When relaunching a migration after a failure, the end-user can skip certain statements in a SQL script by jumping directly to a specific statement ID. This can be done using the <code>-jump[-to-statement]=XXXXX</code> option of the <code>migrate</code> command, where <code>XXXXX</code> is the statement ID. This option is useful for skipping statements that cannot be re-executed.</p>
+<h3 id="116-skip-file-option">11.6. Skip-File Option </h3>
+<p>During a migration, the end-user can choose to skip a specific file using the <code>-skip[-file]=&lt;file&gt;</code> option of the <code>migrate</code> command. The file name can be specified with or without its relative path, which is relative to the <code>apps</code> folder.</p>
+<p>This option is particularly useful for skipping a script that makes structural changes while still executing scripts that perform code upgrades.</p>
+<h2 id="12-data-model">12. Data Model </h2>
+<p>This sections described the internal data model of the DBM tool.</p>
+<h3 id="121-data-structure-diagram">12.1. Data Structure Diagram </h3>
+<p><img src="./dbm_utility_files/dbm-dsd.png" alt="Data structure diagram"></p>
+<p>All database objects are prefixed with DBM.</p>
+<h3 id="122-tables-description">12.2. Tables description </h3>
+<h4 id="1221-applications">12.2.1. Applications </h4>
+<p>The tool supports the migration of one or several applications identified by a code. The optional sequence indicates the order in which application are migrated. A dummy "all" application can be created when variables common to all applications are defined.</p>
+<p>The version of an application currently installed is indicated by "ver_code". When migrating, this version will not changed until the next one is successfully installed and validated.</p>
+<p>The version status ("ver_status") is one of the following:</p>
+<ul>
+<li>VALID: current version is valid (migration succeeded and version is valid).</li>
+<li>INVALID: current version is invalid (migration or validation failed).</li>
+<li>MIGRATING: current version is migrating to next one.</li>
+</ul>
+<p>The full pathname of the application folder is indicated by "home_dir".</p>
+<h4 id="1222-versions">12.2.2. Versions </h4>
+<p>An application can have one or multiple versions, each identified by a code and a number. A dummy "all" version (numbered 0) can be created when configuration files or scripts common to all versions are defined.</p>
+<p>The version code ("ver_code") follows the format "xx.yy.zz", where "xx" represents the major version number, "yy" indicates the minor version number, and "zz" denotes the bugfix version number. A valid version code must adhere to the regular expression: <code>^[0-9]{1,2}(\.[0-9]{1,2}){0,2}$</code>.</p>
+<p>The version number ("ver_nbr") is computed from the version code using the formula: <code>xx * 10^2 + yy * 10 + zz</code>. In cases where "yy" or "zz" doesn't exist in the code, they are considered zero in the formula.</p>
+<p>Version status ("ver_status") is one of the following:</p>
+<ul>
+<li>PAST: past version.</li>
+<li>PREVIOUS: previous version migrated from.</li>
+<li>CURRENT: current version.</li>
+<li>NEXT: next version to migrate to.</li>
+<li>FUTURE: future version.</li>
+</ul>
+<p>Next operation type ("next_op_type") indicates the anticipated action for this version and can be one of the following:</p>
+<ul>
+<li>INSTALL: install next (full) version.</li>
+<li>UPGRADE: upgrade to next version (increment).</li>
+<li>UNINSTALL: uninstall version (after uninstall failure).</li>
+<li>ROLLBACK: rollback version (after upgrade failure).</li>
+</ul>
+<p>Last operation type ("last_op_type") indicates the action executed most recently and can be one of the following:</p>
+<ul>
+<li>INSTALL</li>
+<li>UPGRADE</li>
+<li>VALIDATE</li>
+<li>ROLLBACK INSTALL</li>
+<li>ROLLBACK UPGRADE</li>
+<li>UNINSTALL</li>
+<li>FORCE CURRENT</li>
+</ul>
+<p>Last operation status ("last_op_status") indicates the status of the action executed most recently and can be one of the following:</p>
+<ul>
+<li>ONGOING: operation is still ongoing.</li>
+<li>SUCCESS: last operation succeeded.</li>
+<li>ERROR: last operation failed.</li>
+</ul>
+<p>Last operation date ("last_op_date") indicates the date an time when the status of the last operation was last modified.</p>
+<p>Remaining fields are flags indicating whether the version can be installed, upgraded, validated and/or rolled back.</p>
+<h4 id="1223-files">12.2.3. Files </h4>
+<p>During installation or migration to a specific version, the DBM tool registers the files or scripts that are applied, along with the outcome of their execution and their hash. This registration enables the tool to detect any tampering with the executed files or scripts at a later stage.</p>
+<p>Files are uniquely identified by their path within the system and are designated for a specific type of migration, which is determined based on the folder in which they are located. Typically, files are categorised into two migration types: INSTALL or UPGRADE, based on the purpose they serve within the migration process.</p>
+<p>File status denotes the current state or condition of a particular file within the system and can be one of the following:</p>
+<ul>
+<li>MISSING: file is missing on the file system.</li>
+<li>TAMPERED: file has changed since its last execution.</li>
+<li>NORMAL: file is neither missing, neither tampered.</li>
+</ul>
+<p>Run status ("run_status") denotes the current state or outcome of the execution of a particular file and can be one of the following:</p>
+<ul>
+<li>ONGOING: script is currently executing.</li>
+<li>SUCCESS: script execution completed successfully.</li>
+<li>ERROR: script execution ended with an error.</li>
+<li>ROLLED BACK: changes resulting from the script execution were rolled back.</li>
+</ul>
+<p>Run date ("run_date") indicates the date an time when the run status was last modified.</p>
+<h4 id="1224-variables">12.2.4. Variables </h4>
+<p>Substitution variables, known as placeholders in Liquibase and Flyway, are SQL*Plus symbolic names (e.g., <code>&amp;&amp;var</code>) used in scripts that are replaced with specific values during their execution. They are defined for individual applications or globally across all applications. Before applying any migration, their values must be defined using the "configure" command to prevent any end-user interaction during script execution.</p>
+<p>Variables in the context of an application have unique names. The following properties are used during the interactive configuration:</p>
+<p>"seq": defines the order in which end-users are prompted to enter values.<br>
+"descr": describes the variable, serving as a prompt.<br>
+"data_type": specifies the data type (CHAR, NUMBER, DATE) for input validation.<br>
+"nullable": indicates whether a value is optional.<br>
+"convert_value_sql": SQL statement applied to the entered value (e.g., conversion to uppercase).<br>
+"check_value_sql": SQL statement used to validate the value.<br>
+"default_value_sql": SQL statement providing a default value.<br>
+"check_error_msg": error message displayed if the value check fails.<br>
+"value": the actual value stored in the database.</p>
+<h4 id="1225-parameters">12.2.5. Parameters </h4>
+<p>Parameters, used for configuring applications, have the following properties:</p>
+<p>"name": name of the parameter.<br>
+"value": actual value of the parameter.</p>
+<h4 id="1226-commands">12.2.6. Commands </h4>
+<p>A command refers to a specific action or operation that can be executed via the command-line interface (CLI). These commands facilitate database migration tasks such as installing, upgrading, validating, rolling back, configuring, and uninstalling applications and their associated versions.</p>
+<p>A command is uniquely identified by an ID ("cmd_id") generated from a sequence. The command line entered by the end-user is recorded along with its start and end date and time. The "log_file_name" specifies the path of the file where the command's screen output is logged.</p>
+<p>The status of a command can be one of the following:</p>
+<ul>
+<li>ONGOING: the command is currently executing.</li>
+<li>SUCCESS: the command completed successfully.</li>
+<li>FAILURE: the commend ended with an error.</li>
+</ul>
+<p>The "exit_code" is set to zero upon successful completion and to a non-zero value otherwise. On Windows, it corresponds to the Oracle exception number raised during the command execution. However, on Linux, due to OS limitations, it is set to 1, and the log file must be consulted to retrieve the actual exception.</p>
+<h4 id="1227-streams">12.2.7. Streams </h4>
+<p>In the context of the DBM tool, streams facilitate the exchange of information between the SQL*Plus script ("dbm-cli.sql") executed when an end-user initiates a command and the main DBM_UTILITY_KRN package responsible for executing all commands. These streams serve as channels through which instructions, such as SQL*Plus commands like "start" or "host," are sent from the package to SQL*Plus via the input stream. Subsequently, the output stream transmits the results of the SQLPlus command back to the package. This bidirectional flow of data enables seamless communication and coordination between the SQL*Plus script and the core functionality of the DBM tool. Streams are temporary in nature and are automatically deleted upon the completion of a command.</p>
+<p>A stream, categorised as either IN or OUT via its "type", consists of lines of text, each uniquely numbered for processing purpose.</p>
+<h2 id="13-glossary">13. Glossary </h2>
+<h3 id="131-release">13.1. Release </h3>
+<p>In the context of database migration, a release refers to a specific version of the database schema or structure that is deployed or made available for users. It represents a snapshot of the database configuration at a particular point in time, often including schema changes, data updates, and new features. A release may encompass more than one version.</p>
+<h3 id="132-version">13.2. Version </h3>
+<p>A version in database migration denotes a distinct iteration or variant of the database schema or structure. Versions may indicate changes, updates, or enhancements made to the database, often identified by a unique number or designation. Each version may include modifications to the schema, data model, or stored procedures. Not all versions are necessarily released.</p>
+<h3 id="133-migration">13.3. Migration </h3>
+<p>Migration in the context of database management refers to the process of transferring or transitioning from one database schema or structure to another. It involves tasks such as schema modifications, data transformation, and application updates to facilitate a smooth transition from the existing database version to the new one.</p>
+<h4 id="1331-installation-migration">13.3.1. Installation Migration </h4>
+<p>Installation migration involves deploying a new version or release of the database schema from scratch. It includes tasks such as initial setup, configuration, and data loading to establish the new database environment.</p>
+<h4 id="1332-upgrade-migration">13.3.2. Upgrade Migration </h4>
+<p>Upgrade migration entails transitioning from an older version of the database schema to a newer version while preserving existing data and configurations. It involves upgrading database components and ensuring compatibility with existing applications and systems.</p>
+<h2 id="14-annexes">14. Annexes </h2>
+<h3 id="141-commands">14.1. Commands </h3>
+<p>This section gives a list of all dbm-cli available commands and their shortcut. It is recommended to specify full commands in scripts and to reserve shortcuts for the interactive mode.</p>
+<h4 id="1411-end-users-commands">14.1.1. End-users' commands </h4>
+<p>Here follows the list of commands (and their shortcut) available to end-users:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>check[-files]</code></td>
+<td>check tampering of executed files with checksums.</td>
+</tr>
+<tr>
+<td><code>conc[eal]</code></td>
+<td>hide application(s) to public/private schema</td>
+</tr>
+<tr>
+<td><code>conf[igure]</code></td>
+<td>configure application(s)</td>
+</tr>
+<tr>
+<td><code>create[-restore-point]</code></td>
+<td>create a restore point for subsequent flashback</td>
+</tr>
+<tr>
+<td><code>disp[lay]</code></td>
+<td>display application(s) information</td>
+</tr>
+<tr>
+<td><code>drop[-restore-point]</code></td>
+<td>drop a previously created restore point</td>
+</tr>
+<tr>
+<td><code>exp[ose]</code></td>
+<td>expose application(s) to public/private schema</td>
+</tr>
+<tr>
+<td><code>flash[back-database]</code></td>
+<td>restore a database to last created restore point</td>
+</tr>
+<tr>
+<td><code>guess[-current]</code></td>
+<td>guess currently installed version of application(s)</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>get list of commands</td>
+</tr>
+<tr>
+<td><code>ins[tall]</code></td>
+<td>install application(s)</td>
+</tr>
+<tr>
+<td><code>make[-inventory]</code></td>
+<td>make an inventory of db objects with checksums</td>
+</tr>
+<tr>
+<td><code>mig[rate]</code></td>
+<td>install and/or upgrade application(s)</td>
+</tr>
+<tr>
+<td><code>pre[check]</code></td>
+<td>perform pre-migration checks</td>
+</tr>
+<tr>
+<td><code>roll[back]</code></td>
+<td>rollback a migration using provided scripts</td>
+</tr>
+<tr>
+<td><code>set[-current]</code></td>
+<td>set the current version of an application</td>
+</tr>
+<tr>
+<td><code>setup</code></td>
+<td>set-up application(s)</td>
+</tr>
+<tr>
+<td><code>show[-current]</code></td>
+<td>show current version of application(s)</td>
+</tr>
+<tr>
+<td><code>uninst[all]</code></td>
+<td>uninstall application(s)</td>
+</tr>
+<tr>
+<td><code>upg[rade]</code></td>
+<td>upgrade application(s)</td>
+</tr>
+<tr>
+<td><code>val[idate]</code></td>
+<td>validate application(s)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1412-internal-commands">14.1.2. Internal commands </h4>
+<p>Here follows the list of internal commands (and their shortcut) for internal use only:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec[ute]</code></td>
+<td>execute command(s) upon startup</td>
+</tr>
+<tr>
+<td><code>load[-cache]</code></td>
+<td>load cache from database</td>
+</tr>
+<tr>
+<td><code>noop</code></td>
+<td>do nothing</td>
+</tr>
+<tr>
+<td><code>read[-config]</code></td>
+<td>read configuration files</td>
+</tr>
+<tr>
+<td><code>save[-cache]</code></td>
+<td>save cache into database</td>
+</tr>
+<tr>
+<td><code>scan[-files]</code></td>
+<td>scan the file system</td>
+</tr>
+<tr>
+<td><code>start[up]</code></td>
+<td>dbm-cli startup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="142-options">14.2. Options </h3>
+<h4 id="1421-shell-script-options">14.2.1. Shell script options </h4>
+<p>Here follows the list of the <code>dbm-cli</code> shell script options.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-silent</code></td>
+<td>Run silently</td>
+</tr>
+<tr>
+<td><code>-noscan</code></td>
+<td>Do not scan file system for a quick startup (experimental)</td>
+</tr>
+<tr>
+<td><code>-nosplash</code></td>
+<td>Do not display the splash screen</td>
+</tr>
+<tr>
+<td><code>-noexit</code></td>
+<td>Do not exit after command execution</td>
+</tr>
+<tr>
+<td><code>-trace</code></td>
+<td>Trace calls (for debugging purpose)</td>
+</tr>
+<tr>
+<td><code>-debug</code></td>
+<td>Show debugging information</td>
+</tr>
+<tr>
+<td><code>-apps_dir=&lt;path&gt;</code></td>
+<td>Alternate location of <code>apps</code> folder</td>
+</tr>
+<tr>
+<td><code>-logs_dir=&lt;path&gt;</code></td>
+<td>Alternate location of <code>logs</code> folder</td>
+</tr>
+<tr>
+<td><code>-tmp_dir=&lt;path&gt;</code></td>
+<td>Alternate location of <code>tmp</code> folder</td>
+</tr>
+<tr>
+<td><code>-conf_path=&lt;path&gt;</code></td>
+<td>Alternate path of configuration file <code>conf/dbm_utility.conf</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="1422-command-options">14.2.2. Command options </h4>
+<p>Here follows the list of command options and their shortcut:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"all"</td>
+<td><code>-debug</code></td>
+<td>Show debug information</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-show[-errors]</code></td>
+<td>show compilation errors</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-stop[-on-warning]</code></td>
+<td>stop on SQL*Plus warning in case of compilation error</td>
+</tr>
+<tr>
+<td>guess</td>
+<td><code>-best</code></td>
+<td>Guess best version</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-set</code></td>
+<td>Set version to guessed one</td>
+</tr>
+<tr>
+<td>help</td>
+<td><code>-int[ernal]</code></td>
+<td>Show internal commands</td>
+</tr>
+<tr>
+<td>migrate</td>
+<td><code>-jump[-to-statement]=&lt;stmd-id&gt;</code></td>
+<td>Skip statements before given statement id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-noval[idate]</code></td>
+<td>Do not validate after migrate</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-noup[grade]</code></td>
+<td>Do not apply upgrades after install</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-nopre[checks]</code></td>
+<td>Do not execute pre-checks</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-nopri[vileges]</code></td>
+<td>Do not check privileges</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-skip-file=&lt;file&gt;</code></td>
+<td>Skip file with given name or relative path</td>
+</tr>
+<tr>
+<td>show</td>
+<td><code>-a[ll]</code></td>
+<td>Show apps of all schemas</td>
+</tr>
+</tbody>
+</table>
+<p>Note: options of <code>migrate</code> command also applies to <code>install</code> and <code>upgrade</code> commands.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

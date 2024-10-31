@@ -1,0 +1,27 @@
+#!/bin/bash
+# Usage: find-files.sh directory cmd_id
+# $1 is directory
+# $2 is cmd_id
+
+# Set the directory to the given subdir of the current working directory or to an absolute path
+dir="$1"
+
+# Resolve the directory path if it's relative
+if ! cd "$dir"; then
+    echo "Invalid directory path: $dir"
+    exit 1
+fi
+dir=$(pwd)
+cd - >/dev/null  # Return to previous directory
+
+echo "BEGIN"
+
+# Loop through files recursively
+find "$dir" -type f | while IFS= read -r filePath; do
+    relativePath="${filePath#$dir/}"
+    echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_text=>'$relativePath');"
+done
+
+echo "    dbm_utility_krn.parse_files(p_cmd_id=>'$2');"
+echo "END;"
+echo "/"

@@ -1,0 +1,1 @@
+arm_toolkit.java: UPPER('&&installation_env') IN ('DC', 'COP')

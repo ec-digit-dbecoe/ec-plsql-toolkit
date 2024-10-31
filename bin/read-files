@@ -1,0 +1,39 @@
+#!/bin/bash
+# Usage: read-files.sh directory pattern cmd_id
+# $1 is directory
+# $2 is pattern
+# $3 is cmd_id
+# $4 is tmp_dir
+
+# Set the directory to the given subdir of the current working directory or to an absolute path
+dir="$1"
+
+# Resolve the directory path if it's relative
+if ! cd "$dir"; then
+    echo "Invalid directory path: $dir"
+    exit 1
+fi
+dir=$(pwd)
+cd - >/dev/null  # Return to previous directory
+
+echo "BEGIN"
+
+# Loop through files recursively
+find "$dir" -type f -name "$2" | while IFS= read -r filePath; do
+
+    relativePath="${filePath#$dir/}"
+
+    if [ -e "$filePath" ]; then
+    base64_encode=$(base64 "$filePath")
+
+        echo "    dbm_utility_krn.output_line(p_cmd_id=>'$3', p_type=>'OUT', p_base64=>FALSE, p_text=>'#!$relativePath');"
+        echo "    dbm_utility_krn.output_line(p_cmd_id=>'$3', p_type=>'OUT', p_base64=>TRUE, p_text=>'"
+        echo "$base64_encode"
+        echo "');"
+
+    fi
+done
+
+echo "COMMIT;"
+echo "END;"
+echo "/"

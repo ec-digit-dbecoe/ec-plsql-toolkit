@@ -1,0 +1,194 @@
+
+/* file generated via excel utility */
+PROMPT starting modification 5
+Prompt Table DPP_OPTION_ALLOWED_VALUES
+
+Prompt Insert of row #1
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'BLOCK' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #2
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'BLOCK' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #3
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'CONSTRAINTS' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #4
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EMAIL_RESULT' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #5
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EMAIL_RESULT' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #6
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EXEC_POSTFIX' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #7
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EXEC_POSTFIX' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #8
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EXEC_PREFIX' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #9
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'EXEC_PREFIX' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #10
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'JOBS' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #11
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'LOCK_SCHEMA' , 'YES' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #12
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'LOCK_SCHEMA' , 'NO' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #13
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'METALINK_429846_1_CORRECTION' , 'YES' , SYSDATE , SYSDATE , 
+   USER , USER
+);
+
+Prompt Insert of row #14
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'METALINK_429846_1_CORRECTION' , 'NO' , SYSDATE , SYSDATE , 
+   USER , USER
+);
+
+Prompt Insert of row #15
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'MV' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #16
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'PL_SQL_SOURCE' , 'DROP' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #17
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'PRIVATE_DB_LINKS' , 'DROP' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #18
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'RECOMPILE_PL_SQL' , 'YES' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #19
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'RECOMPILE_PL_SQL' , 'NO' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #20
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'RECYCLEBIN' , 'PURGE' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #21
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'SEGMENT_ATTRIBUTES' , 'IGNORE' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #22
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'SEQUENCES' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #23
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'SIMULATION_IMPORT' , 'YES' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #24
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'SIMULATION_IMPORT' , 'NO' , SYSDATE , SYSDATE , USER , 
+   USER
+);
+
+Prompt Insert of row #25
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'STORAGE' , 'IGNORE' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #26
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'SYNONYMS' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #27
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'TABLES' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #28
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'TRIGGERS' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #29
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'TYPES' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);
+
+Prompt Insert of row #30
+INSERT INTO dpp_option_allowed_values ( 
+   OTN_NAME, OAV_VALUE, DATE_CREAT, DATE_MODIF, USER_CREAT, USER_MODIF
+) VALUES ( 'VIEWS' , 'DROP' , SYSDATE , SYSDATE , USER , USER
+);

@@ -1,0 +1,2 @@
+#!/bin/bash
+sqlplus -L -S $DBM_CONNECT $1

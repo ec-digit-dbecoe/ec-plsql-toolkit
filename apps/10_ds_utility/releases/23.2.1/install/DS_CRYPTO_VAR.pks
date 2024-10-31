@@ -1,0 +1,35 @@
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE "DS_CRYPTO_VAR" wrapped 
+a000000
+369
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+9
+685 316
+x89+cx3IiHwdZ5IQaXUgfYN6pJMwgzuJwcDrZ44COs2wVOV+5wijLZBw82dhkbrbJZ6hRuMb
+5uaWvdznRt/SGQVQErtidJCI/22oAeNir4W0HeqqIQogvAASv+pFdR4vmWUppLgjl2pz1hD/
+ab9Y48ld/mZGVGHRtotvgRgWGy3bfvqkl7btkXsYyfpEMcoYG/pMFPa32FH0QADf0eRrcPsC
+rnGEpW3goCfzWkPW+HzxC+ze9OyU543eSXdbI5EWddisQcg8C5Eq8DQsGoGIADhXdecEPgrr
+VB1ZzjXU/KN0Yw3dp3Bgo65q7V/ucMV1f3ZZW4JA1juUuPWzX/UYYOIWq8+Jv9bbetvgSnjT
+KnnrCcMxPU0jtkmhUlzwBUj34PeuycNsC+zXOnofmRye8qxcvQmQFo0bGQV9kXaIJDgGGvpe
+V9GrE3s73iPHbhvOp5HFVYPf7+9Hfk8qEkp116HAvGnDi5+Jw/ApTnTr7Jq+DtmHUxEI8WP/
+wrlDAO3VK+Kj7cnNRYH93zOBIMUodEgcg8IyMAUzpNq/OHgzcJYzOCTLj8rL7nxKjxZK7lfc
+jxTc7iH/j1b/7nrRj2bR7mXij8Xi7ntIBm9Ihsu5Bhy5hvscBvMchr1BBohBhkSHBpSHhrIZ
+BqRgpRwspfNPpYgPpZSapZC25Z3xLRPd5zr2qtPPE2QkPZ+4r/hZ/SsCePGZboKDMJelAKV3
+87VPXyr1evk4+Ei4rKrMoGtCql/ksNecKvRa6LeCflXtVLl+5pFornSRHWM=
+
+/
+

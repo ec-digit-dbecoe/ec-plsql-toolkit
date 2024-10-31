@@ -1,0 +1,7 @@
+PROMPT Creating package specifications...
+@@GEN_UTILITY.pks
+@@GEN_UTILITY_TST.pks: '&&utplsql' = 'Y'
+@@GEN_UTILITY_LIC.pks
+PROMPT Creating package bodies...
+@@GEN_UTILITY.pkb
+@@GEN_UTILITY_TST.pkb: '&&utplsql' = 'Y'

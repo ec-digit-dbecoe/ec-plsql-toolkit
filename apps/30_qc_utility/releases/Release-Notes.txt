@@ -1,0 +1,89 @@
+QC Utility 24.0.2 Release Notes
+Date: October 2024
+
+SUPPORT
+
+You can get support by contacting via email one of the following persons:
+- philippe.debois@ec.europa.eu
+- jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.0.2 - October 2024
+
+Bug fixing:
+- Added explicit AUTHID DEFINER to all packages to avoid warnings during vulnerability scan.
+
+VERSION 24.0.1 - August 2024
+
+Bug fixing:
+- Fixed vulnerabilities identified by Fortify Static Code Analyzer.
+
+VERSION 24.0
+
+Bug fixing:
+- Table checksum was wrong when default unit for char column length was CHAR.
+  Unit of char column length is now explicitly set to CHAR for all columns.
+
+VERSION 23.2.1
+
+Bug Fixing:
+- QC000: Updates to database objects were no more detected (since v1.2) while ok for created/dropped objects
+
+VERSION 23.2
+
+New Features:
+- Added support for PROCEDURE, FUNCTION and LABEL identifiers
+
+Bug Fixing:
+- Some identifiers were not detected by QC019 (query was refactored)
+
+VERSION 23.1
+
+Changes:
+- Included short header with licence terms in each existing package spec and body
+- New package QC_UTLITY_LIC containing licence terms
+
+VERSION 23.0
+
+New Features:
+- QC022: Standalone procedures and functions are not allowed
+
+VERSION 22.1
+
+New Features:
+- Added support for quality check multiple apps and schemas
+
+VERSION 22.0
+
+Bug Fixing:
+-  Changes related to "app_alias" parameter (optional)
+-  Correction of performance problem related to QC019 (PLScope compiling)
+-  Changes of the defaulted routine QC019 depending on the environment involved
+-  Changes in QC_UTILITY_KRN package to return the version from QC_SCHEMA_VERSION table
+-  Corrections in the documentation section "3.Quick Start"
+
+VERSION 21.1
+
+New Features:
+- QC021: Redundant primary/unique key constraints
+
+VERSION 21.0
+
+New Features:
+- QC020: Object names must not match anti-patterns
+- Added APIs to manipulate object type patterns and dictionary entries
+
+Changes:
+- QC008: Added check of not null constraint names (requires Oracle 12c)
+
+VERSION 20.0.2
+
+Bug Fixing:
+- QC019: Naming conventions were applied to record fields while they should not
+
+VERSION 20.0.1
+
+Bug Fixing:
+- Replaced "db_unique_name" (returning CDB) with "db_name" (returning PDB)
+- Fixed some non-compliances with Trivadis guidelines reported by SonarQube
+- Invalid objects were wrongly reported by QC012 as filtering patterns were not used
+

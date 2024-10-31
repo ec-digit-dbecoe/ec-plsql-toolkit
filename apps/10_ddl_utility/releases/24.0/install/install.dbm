@@ -1,0 +1,6 @@
+PROMPT Creating package specs...
+@@DDL_UTILITY.PKS
+@@DDL_UTILITY_TST.pks: '&&utplsql' = 'Y'
+PROMPT Creating package bodies...
+@@DDL_UTILITY.PKB
+@@DDL_UTILITY_TST.pkb: '&&utplsql' = 'Y'

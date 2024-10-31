@@ -1,0 +1,39 @@
+SQL Utility 24.0.3 Release Notes
+Date: October 2024
+
+SUPPORT
+
+You can get support by contacting via email one of the following persons:
+- philippe.debois@ec.europa.eu
+- jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.0.3 - October 2024
+
+Bug fixing:
+- Added explicit AUTHID DEFINER to all packages to avoid warnings during vulnerability scan.
+
+VERSION 24.0.2
+
+Bug fixing:
+- Fixed vulnerabilities identified by Fortify Static Code Analyzer.
+
+VERSION 24.0.1
+
+Bug fixing:
+- Table checksum was wrong when default unit for char column length was CHAR.
+  Unit of char column length is now explicitly set to CHAR for all columns.VERSION 24.0
+
+VERSION 24.0
+
+Changes:
+- Functions normalise_columns_list() and format_columns_list() are now exposed.
+
+VERSION 23.0
+
+Changes:
+- New package SQL_UTILITY_LIC with licence terms
+- Added short header to each package spec and body with licence terms
+
+VERSION 1.0
+
+Initial version

@@ -1,0 +1,3 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(PACKAGE BODY|PACKAGE) ZIP_', p_obj_name_anti_pattern=>'^$', p_checksum=>'Y', p_condition=>'Y', p_public=>'N', p_app_code=>'zip_utility', p_ver_code=>'24.0'))
+PACKAGE BODY ZIP_UTILITY_KRN: 538587186
+PACKAGE ZIP_UTILITY_KRN: 153220645

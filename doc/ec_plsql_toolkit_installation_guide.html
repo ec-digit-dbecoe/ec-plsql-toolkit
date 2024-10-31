@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>ec_plsql_toolkit_installation_guide</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./ec_plsql_toolkit_installation_guide_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="ec-plsl-toolkit----installation-guide-v249">EC PL/SL Toolkit -  Installation Guide v24.9 </h1>
+<h2 id="author-philippe-debois-european-commission---digit">Author: Philippe Debois (European Commission - DIGIT) </h2>
+<h1 id="table-of-contents">Table of Contents </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#1-audience">1. Audience</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#2-introduction">2. Introduction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#core-utilities">Core Utilities</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#supporting-utilities">Supporting Utilities</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#3-quick-start">3. Quick start</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#31-pre-requisites">3.1. Pre-requisites</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#311-database-platform">3.1.1. Database Platform</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#312-installer-platform">3.1.2. Installer Platform</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#313-system-privileges">3.1.3. System privileges</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#32-installation-procedure">3.2. Installation procedure</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#321-create-the-target-schema">3.2.1. Create the target schema</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#323-set-environment-variables">3.2.3. Set environment variables</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#327-managing-migration-failure">3.2.7. Managing Migration Failure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#328-log-files">3.2.8. Log files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-audience">1. Audience </h2>
+<p>This guide is intended for operations teams who will deploy the EC PL/SQL toolkit into one or several database schemas. It gives a short description of the various tools of the toolkit and explains how to quickly install or upgrade them using the Data Base Migration tool (DBM).</p>
+<h2 id="2-introduction">2. Introduction </h2>
+<p>The EC PL/SQL toolkit is a suite of PL/SQL tools or utilities that have been developed within the Commission, by database experts, for database developers. They have been developed over the years to fulfil concrete needs of real information system development projects.</p>
+<p>Here follows the list of tools included in the toolkit together with a short description and link(s) to their documentation.</p>
+<h3 id="core-utilities">Core Utilities </h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Name</th>
+<th>Short Description</th>
+<th>Manual(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DBM</td>
+<td>Data Base Migration Utility</td>
+<td>Database migration tool similar to Liquibase and Flyway but more database developer oriented.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/05_dbm_utility/doc/dbm_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>DOC</td>
+<td>Mail Merge Utility</td>
+<td>Produce documents based on templates and access data based on the DAPL language.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/20_doc_utility/doc/doc_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>DPP</td>
+<td>Data Pump Utility</td>
+<td>Add-on to the Oracle Data Pump utility.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/30_dpp_utility/doc/dpp_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>DS</td>
+<td>Data Set Utility</td>
+<td>Data sub-setting and transportation, Sensitive data discovery and masking, Synthetic data generator, Change data capture.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_data_masking.md">Data Masking</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_data_subsetting.md">Data Subsetting</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_synthetic_data_generation.md">Synthetic Data Generation</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_ref_manual.md">Reference Manual</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_demo.md">Demo Guide</a></td>
+</tr>
+<tr>
+<td>GEN</td>
+<td>Code Generator</td>
+<td>PL/SQL code generator to boost developer's productivity and industrialise solutions.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_gen_utility/doc/gen_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>QC</td>
+<td>Quality Check Utility</td>
+<td>Check database design best practices amongst which naming conventions of database objects.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/30_qc_utility/doc/qc_utility.md">User's Guide</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="supporting-utilities">Supporting Utilities </h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Name</th>
+<th>Short Description</th>
+<th>Manual(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARM</td>
+<td>Archive Management Utility</td>
+<td>Utility to pack several files into a single one to ease data transportation (used by the DPP).</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_arm_utility/doc/arm_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>DDL</td>
+<td>DDL Utility</td>
+<td>Miscellaneous useful DDL routines.</td>
+<td>none</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>Logging Utility</td>
+<td>Library to log error, warning, information, and debug messages.</td>
+<td>none</td>
+</tr>
+<tr>
+<td>MAIL</td>
+<td>Mailing Utility</td>
+<td>Send emails with attachments from within the database.</td>
+<td>none</td>
+</tr>
+<tr>
+<td>SEC</td>
+<td>Security Utility</td>
+<td>Solution to store password securely into the database.</td>
+<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_sec_utility/doc/sec_utility.md">User's Guide</a></td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>SQL Utility</td>
+<td>Miscellaneous useful  SQL routines.</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ZIP</td>
+<td>Zip Utility</td>
+<td>Read and write standard zip files.</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-quick-start">3. Quick start </h2>
+<p>This section explains how to quickly install or upgrade the above described tools in a central schema of a database and how to expose them to other schemas using public synonyms and grants.</p>
+<h3 id="31-pre-requisites">3.1. Pre-requisites </h3>
+<h4 id="311-database-platform">3.1.1. Database Platform </h4>
+<p>The EC PL/SQL toolkit requires an Oracle database version 19c or above. Note that it has not been tested on Oracle 21c and 23ai yet.</p>
+<p>The database can be hosted in a Data Centre (DC), in a Cloud on Prem (CoP), or in the Amazon cloud (AWS).</p>
+<p>All files are UTF-8 so NLS_LANG should be set accordingly via shell commands like <code>export NLS_LANG=.UTF8</code> on Linux or <code>set NLS_LANG=.UTF8</code> on Windows.</p>
+<h4 id="312-installer-platform">3.1.2. Installer Platform </h4>
+<p>The installer (the DBM tool) requires the following:</p>
+<ul>
+<li>A MS Windows OR a Linux machine (to execute Windows or Linux shell scripts).</li>
+<li>A file system to unzip the supplied archive or clone the git repository.</li>
+<li>SQL*Plus (any version compatible with the target database).</li>
+<li>A connection to the database via SQL*Net or JDBC.</li>
+</ul>
+<h4 id="313-system-privileges">3.1.3. System privileges </h4>
+<p>Depending on the tool and the database platform (DC, CoP, AWS), the schema where the toolkit is installed must have the following privileges or system privileges. Note that the DBM tool will check the grant of those privileges prior to proceeding with the installation.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>DB Platform</th>
+<th>System privileges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALL</td>
+<td>ALL</td>
+<td>CREATE PUBLIC SYNONYM, DROP PUBLIC SYNONYM</td>
+</tr>
+<tr>
+<td>ARM</td>
+<td>AWS</td>
+<td>EXECUTE ON RDS_FILE_UTIL.</td>
+</tr>
+<tr>
+<td>DPP</td>
+<td>AWS</td>
+<td>ADMINISTER DATABASE TRIGGER, ADVISOR, ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK, ALTER USER, CHANGE NOTIFICATION, CREATE ANY CONTEXT, CREATE ANY PROCEDURE, CREATE DATABASE LINK, CREATE JOB, CREATE PROCEDURE, CREATE SEQUENCE, CREATE SESSION, CREATE SYNONYM, CREATE TABLE, CREATE TRIGGER, CREATE VIEW, DEBUG CONNECT SESSION, DEQUEUE ANY QUEUE, DROP ANY CLUSTER, DROP ANY CONTEXT, DROP ANY DIMENSION, DROP ANY INDEX, DROP ANY INDEXTYPE, DROP ANY LIBRARY, DROP ANY MATERIALIZED VIEW, DROP ANY OPERATOR, DROP ANY PROCEDURE, DROP ANY SEQUENCE, DROP ANY SQL PROFILE, DROP ANY SYNONYM, DROP ANY TABLE, DROP ANY TRIGGER, DROP ANY TYPE, DROP ANY VIEW, ENQUEUE ANY QUEUE, EXECUTE ANY PROCEDURE, EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, EXEMPT REDACTION POLICY, FLASHBACK ANY TABLE, GRANT ANY OBJECT PRIVILEGE, MANAGE ANY QUEUE, MANAGE SCHEDULER, RESTRICTED SESSION, SELECT ANY DICTIONARY, SELECT ANY TABLE, UNLIMITED TABLESPACE.</td>
+</tr>
+<tr>
+<td></td>
+<td>CoP</td>
+<td>ADMINISTER DATABASE TRIGGER, ADVISOR, ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK, ALTER USER, CHANGE NOTIFICATION, CREATE ANY CONTEXT, CREATE ANY PROCEDURE, CREATE DATABASE LINK, CREATE JOB, CREATE PROCEDURE, CREATE SEQUENCE, CREATE SESSION, CREATE SYNONYM, CREATE TABLE, CREATE TRIGGER, CREATE VIEW, DEBUG CONNECT SESSION, DEQUEUE ANY QUEUE, DROP ANY CLUSTER, DROP ANY CONTEXT, DROP ANY DIMENSION, DROP ANY INDEX, DROP ANY INDEXTYPE, DROP ANY LIBRARY, DROP ANY MATERIALIZED VIEW, DROP ANY OPERATOR, DROP ANY PROCEDURE, DROP ANY SEQUENCE, DROP ANY SQL PROFILE, DROP ANY SYNONYM, DROP ANY TABLE, DROP ANY TRIGGER, DROP ANY TYPE, DROP ANY VIEW, ENQUEUE ANY QUEUE, EXECUTE ANY PROCEDURE, EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, EXEMPT REDACTION POLICY, FLASHBACK ANY TABLE, GRANT ANY OBJECT PRIVILEGE, MANAGE ANY QUEUE, MANAGE SCHEDULER, RESTRICTED SESSION, SELECT ANY DICTIONARY, SELECT ANY TABLE.</td>
+</tr>
+<tr>
+<td></td>
+<td>DC</td>
+<td>ADVISOR, ALTER DATABASE LINK, CREATE ANY CONTEXT, CREATE ANY PROCEDURE, CREATE DATABASE LINK, CREATE JOB, CREATE PROCEDURE, CREATE SEQUENCE, CREATE SESSION, CREATE SYNONYM, CREATE TABLE, CREATE TRIGGER, CREATE VIEW, DEBUG CONNECT SESSION, DEQUEUE ANY QUEUE, DROP ANY CLUSTER, DROP ANY CONTEXT, DROP ANY DIMENSION, DROP ANY INDEX, DROP ANY MATERIALIZED VIEW, DROP ANY OPERATOR, DROP ANY PROCEDURE, DROP ANY SEQUENCE, DROP ANY SQL PROFILE, DROP ANY SYNONYM, DROP ANY TABLE, DROP ANY TRIGGER, DROP ANY TYPE, DROP ANY VIEW, ENQUEUE ANY QUEUE, EXECUTE ANY PROCEDURE, MANAGE ANY QUEUE, MANAGE SCHEDULER, RESTRICTED SESSION, SELECT ANY DICTIONARY, SELECT ANY TABLE.</td>
+</tr>
+<tr>
+<td>SEC</td>
+<td>ALL</td>
+<td>EXECUTE ON DBMS_CRYPTO, UTL_ENCODE, UTL_I18N, UTL_RAW.</td>
+</tr>
+<tr>
+<td>MAIL</td>
+<td>ALL</td>
+<td>EXECUTE ON UTL_SMTP, UTL_MAIL, UTL_TCP, UTL_RAW.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-installation-procedure">3.2. Installation procedure </h3>
+<h4 id="321-create-the-target-schema">3.2.1. Create the target schema </h4>
+<p>Create the central schema where the toolkit will be installed and grant it all the privileges described above. The tables and indexes of the DBM tool will be created in the default tablespace. If necessary, modify the tablespace settings accordingly.</p>
+<h4 id="322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository </h4>
+<p>Unzip the distributed archive (<code>ec-plsql-toolkit.zip</code>) into the folder of your choice. This action will create a sub-folder named <code>ec-plsql-toolkit</code>.</p>
+<p>Alternatively, clone the git repository via the following commands:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ec_plsql_toolkit
+<span class="token builtin class-name">cd</span> ec_plsql_toolkit
+<span class="token function">git</span> clone <span class="token string">"https://&lt;path-to-toolkit-repo&gt;.git"</span>
+</code></pre><h4 id="323-set-environment-variables">3.2.3. Set environment variables </h4>
+<p>Define the following environment variables as appropriate.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Mandatory?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DBM_USERNAME</td>
+<td>Schema username</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>DBM_PASSWORD</td>
+<td>Schema password</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>DBM_DATABASE</td>
+<td>Schema database</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>DBA_USERNAME</td>
+<td>CoP admin username</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBA_PASSWORD</td>
+<td>CoP admin password</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBA_DATABASE</td>
+<td>CoP admin database</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBM_CONF_PATH</td>
+<td>Path of the configuration file</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBM_APPS_DIR</td>
+<td>Alternate location for apps dir</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBM_LOGS_DIR</td>
+<td>Alternate location for logs dir</td>
+<td>N</td>
+</tr>
+<tr>
+<td>DBM_TMP_DIR</td>
+<td>Alternate location for tmp dir</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p>The first three environment variables that must always be defined allow the installer to connect to the schema in which the toolkit must be installed. The DBM tool will connect to the schema using the following connect string: <code>"$DBM_USERNAME/$DBM_PASSWORD@$DBM_DATABASE"</code>.</p>
+<p>The following three DBA environment variables are used by the installer to connect to the admin account of a Cloud on Prem database for the purpose of creating and dropping restore points, as well as for flash-backing the database in the event of a migration failure. This optional feature is exclusively accessible in Cloud on Prem databases.</p>
+<p>Other environment variables allow you to define an alternate location for the configuration file (<code>conf/dbm_utility.conf</code> by default), the application folder (<code>apps</code> by default), the folder where logs are stored (<code>logs</code> by default), and the folder where temporary files are created (<code>tmp</code> by default).</p>
+<p>Environment variables can be defined using the following syntax:</p>
+<ul>
+<li>Under Windows: <code>C:&gt; set VARIABLE=value</code></li>
+<li>Under Linux: <code>$ export VARIABLE=value</code></li>
+</ul>
+<h4 id="324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool </h4>
+<p>The DBM tool, which is the installer of the EC PL/SQL toolkit, must be first installed and/or upgraded by executing the <code>migrate-dbm</code> script while being located in the <code>ec_plsql_installer</code> folder.</p>
+<p>This script will install and/or upgrade the DBM tool to its latest available version. Tables, views, and packages of the DBM tool created in the schema can be easily identified by their name, all prefixed with <code>DBM_</code>.</p>
+<p>Due to the dependencies between its shell scripts and its database objects, this upgrade is mandatory before launching the DBM client. It is recommended to do it each time a new archive of the toolkit is deployed.</p>
+<h4 id="325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit </h4>
+<p>To install or upgrade the toolkit, execute the <code>dbm-cli</code> shell script while being located in the <code>ec-plsql-toolkit</code> folder. The <code>DBM-CLI&gt;</code> prompt indicates that the tool is ready to receive commands.</p>
+<p>First, execute the <code>migrate</code> command to install and/or upgrade all tools of the toolkit. This single command installs the tools that are not installed yet (e.g., upon first invocation), and upgrades those that are possibly already present.</p>
+<p>Then execute the <code>expose</code> command to expose the tools to other schemas i.e., to create public synonyms and grant necessary privileges. When done, type <code>exit</code> to leave SQL*Plus.</p>
+<pre data-role="codeBlock" data-info="SQL*Plus" class="language-sql*plus SQL*Plus"><code>DBM-CLI&gt; @dbm-cli migrate
+DBM-CLI&gt; @dbm-cli expose
+DBM-CLI&gt; exit
+</code></pre><p>Note: all dbm-cli commands must be passed to the <code>dbm-cli.sql</code> SQL script using the <code>@</code>, <code>@@</code>, or <code>start</code> command of SQL*PLus. If you want to expose only a single tool, pass its name as a parameter of the <code>expose</code> command  (e.g., <code>expose dpp_utility</code>). To expose several tools, repeat this command as necessary.</p>
+<p>See the DBM Utility User's guide for a more detailed description of the various available commands.</p>
+<h4 id="326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit </h4>
+<p>To install or upgrade the toolkit from a pipeline, simply pass the command to execute as a parameter of the <code>dbm-cli</code> shell script:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>dbm-cli migrate
+dbm-cli expose
+</code></pre><p>You can even execute both operations with a single command line:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>dbm-cli migrate / expose
+</code></pre><p>Upon completion, the exit code of the <code>dbm-cli</code> shell script will be set to zero in case of success and non-zero in case of failure. You can check the following variables depending on your operating system:</p>
+<ul>
+<li>For Windows: <code>%ERRORLEVEL%</code></li>
+<li>For Linux: <code>$?</code></li>
+</ul>
+<h4 id="327-managing-migration-failure">3.2.7. Managing Migration Failure </h4>
+<p>For Cloud on Prem databases, the DBM tool provides a built-in feature for managing migration failures through the "flashback database to restore point" functionality. To utilise this feature:</p>
+<ol>
+<li>Before executing the <code>migrate</code> command, run the <code>create-restore-point</code> command to create a restore point.</li>
+<li>In the event of a migration failure, execute the <code>flashback-database</code> command to rollback the database to the previously created restore point.</li>
+<li>If necessary, restore points can be dropped using the <code>drop-restore-point</code> command.</li>
+</ol>
+<p>Alternatively, it is recommended to export the schema containing the toolkit before proceeding with its migration. This allows for the restoration of the schema in case of failure. It's important to note that uninstalling and re-installing the tools could result in the loss of end-users' data stored in internal tables of each tool.</p>
+<p>In future releases, rollback scripts might also be provided for the migration of each tool, allowing for the rollback of failed migrations without any risk of data loss. However, such scripts are not available at this time.</p>
+<h4 id="328-log-files">3.2.8. Log files </h4>
+<p>The output of each command displayed on the screen is also sent to a log file stored in the <code>logs</code> sub-folder (or in the folder specified by the <code>DBM_LOGS_DIR</code> environment variable).</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

@@ -1,0 +1,9 @@
+set define off
+set define on
+rem PROMPT Creating database objects...
+rem @@gen_objects
+set define off
+PROMPT Creating package specifications...
+@@GEN_UTILITY.pks
+PROMPT Creating package bodies...
+@@GEN_UTILITY.pkb

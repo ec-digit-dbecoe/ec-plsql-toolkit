@@ -1,0 +1,6 @@
+dbm_objects.sql
+DBM_UTILITY_VAR.pks
+DBM_UTILITY_KRN.pks
+DBM_UTILITY_KRN.pkb
+dbm_public_synonyms.sql: '&&public' = 'true'
+dbm_public_grants.sql: '&&public' = 'true'

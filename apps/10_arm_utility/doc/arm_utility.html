@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>arm_utility</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./arm_utility_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="arm-utility---users-guide-v2401">ARM Utility - User's Guide v24.0.1 </h1>
+<h2 id="author-jean-marc-malmedy-european-commission">Author: Jean-Marc Malmedy (European Commission) </h2>
+<h1 id="table-of-content">Table of content </h1>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#1-generalities">1. Generalities</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#2-description-of-the-solution">2. Description of the solution</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3-technical-implementation">3. Technical implementation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#31-arm_main_var-package">3.1. ARM_MAIN_VAR package</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#311-exceptions">3.1.1. Exceptions</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#312-code-generation">3.1.2. Code generation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#32-arm_util_krn-package">3.2. ARM_UTIL_KRN package</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#321-procedures-and-functions">3.2.1. Procedures and functions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3211-get_file_names-function">3.2.1.1. GET_FILE_NAMES function</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#322-code-generation">3.2.2. Code generation</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33-arm_main_krn-package">3.3. ARM_MAIN_KRN package</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#331-procedures-and-functions">3.3.1. Procedures and functions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3311-raise_error-procedure">3.3.1.1. RAISE_ERROR procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3312-log_msg-procedure">3.3.1.2. LOG_MSG procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3313-set_directory-procedure">3.3.1.3. SET_DIRECTORY procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3314-init_log_file-procedure">3.3.1.4. INIT_LOG_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3315-close_log_file-procedure">3.3.1.5. CLOSE_LOG_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3316-compress_file-procedure">3.3.1.6. COMPRESS_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3317-uncompress_file-procedure">3.3.1.7. UNCOMPRESS_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3318-reset_files-procedure">3.3.1.8. RESET_FILES procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#3319-add_file-procedure">3.3.1.9. ADD_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33110-build_file_list-procedure">3.3.1.10. BUILD_FILE_LIST procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33111-concat_file-function">3.3.1.11. CONCAT_FILE function</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33112-concat_file-procedure">3.3.1.12. CONCAT_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33113-concat_files-procedure">3.3.1.13. CONCAT_FILES procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33114-extract_file-procedure">3.3.1.14. EXTRACT_FILE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33115-extract_files-procedure">3.3.1.15. EXTRACT_FILES procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33116-save_manifest-procedure">3.3.1.16. SAVE_MANIFEST procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33117-load_manifest-procedure">3.3.1.17. LOAD_MANIFEST procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33118-create_archive-procedure">3.3.1.18. CREATE_ARCHIVE procedure</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#33119-extract_archive_content-procedure">3.3.1.19. EXTRACT_ARCHIVE_CONTENT procedure</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#332-code-generation">3.3.2. Code generation</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#333-unit-tests">3.3.3. Unit tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#4-using-the-solution">4. Using the solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#41-compressed-archive-file-creation">4.1. Compressed archive file creation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#411-manual-use">4.1.1. Manual use</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#412-automated-use">4.1.2. Automated use</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#42-data-files-extraction">4.2. Data files extraction</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#421-manual-use">4.2.1. Manual use</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#422-automated-use">4.2.2. Automated use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#5-installation">5. Installation</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#51-pre-requisites">5.1. Pre-requisites</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#52-privileges-and-roles">5.2. Privileges and roles</a>
+<ul>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#521-system-privileges">5.2.1. System privileges</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#522-roles">5.2.2. Roles</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#523-objects-privileges">5.2.3. Objects privileges</a></li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#524-database-directories">5.2.4. Database directories</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2024930-18150-1gjtin5.hdgth.html#53-installation-procedure">5.3. Installation procedure</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-generalities">1. Generalities </h1>
+<p>Natively, the creation of ZIP archive files is not supported by Oracle databases. However, there is a need to be able to group and compress several files in a single archive file.</p>
+<p>There are several third-party implementations of the ZIP format in PL/SQL. None of them was considered being mature enough to be used in the DBCC developments and flows because of a lack of reliability or maintainability.</p>
+<p>Therefore, the Archive Manager internal solution has been developed. It makes it possible to group and compress several files in a single archive file and the solution is based on Oracle native functionalities only. No third-party piece of software is used in this solution.</p>
+<p>The solution is based on the <em>UTL_COMPRESS</em> native PL/SQL package of Oracle. This package (un)compresses binary or character streams in LZIP format. It is not intended to compress several files in one single archive file. That means that some developments are needed in order to achieve the final goal.</p>
+<h1 id="2-description-of-the-solution">2. Description of the solution </h1>
+<p>For the creation of a compressed archive file that contains several data (or text) files, the ARM_Utillity works as follows:</p>
+<ol>
+<li>All data files are concatenated in a temporary binary file.</li>
+<li>A manifest file is created. This file contains the list of all data files that are concatenated in the temporary binary file and their exact sizes in bytes.</li>
+<li>The temporary binary files, which is the concatenation of all data files, is compressed using the <em>UTL_COMPRESS</em> native PL/SQL package.</li>
+<li>The temporary binary file is deleted.</li>
+<li>The compressed archive file and the manifest file must be kept together when the archive needs to be copied or moved and uncompressed in another system.</li>
+</ol>
+<p>The manifest file content looks like this:</p>
+<p>plain data_file_001.dat:123456<br>
+data_file_002.dat:78901<br>
+data_file_003.dat:4563478</p>
+<p>For the extraction of the data files from a compressed archive file, the ARM_Utility works as follows:</p>
+<ol>
+<li>The archive file is uncompressed in order to extract the temporary binary file where all data files are concatenated.</li>
+<li>Using the manifest file containing the data files names and sizes, the data files are extracted from the temporary binary file and recreated with their initial names.</li>
+<li>The temporary binary file is deleted.</li>
+<li>A log file can eventually be produced.</li>
+</ol>
+<h1 id="3-technical-implementation">3. Technical implementation </h1>
+<h2 id="31-arm_main_var-package">3.1. ARM_MAIN_VAR package </h2>
+<p>This package contains the declaration of all types, variables and exceptions that are used by the packages that implement the logic.</p>
+<h3 id="311-exceptions">3.1.1. Exceptions </h3>
+<p>The following exceptions are declared in this package and can be raised by the packages implementing the logic:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Exception</th>
+<th style="text-align:left">Error code</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ge_inv_orcl_dir_name</td>
+<td style="text-align:left">-20000</td>
+<td style="text-align:left">Invalid Oracle directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_src_dir</td>
+<td style="text-align:left">-20001</td>
+<td style="text-align:left">Invalid source directory</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_dst_dir</td>
+<td style="text-align:left">-20002</td>
+<td style="text-align:left">Invalid destination directory</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_src_file</td>
+<td style="text-align:left">-20003</td>
+<td style="text-align:left">Invalid source file name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_dst_file</td>
+<td style="text-align:left">-20004</td>
+<td style="text-align:left">Invalid destination file name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_file_name</td>
+<td style="text-align:left">-20005</td>
+<td style="text-align:left">Invalid file name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_dir_name</td>
+<td style="text-align:left">-20006</td>
+<td style="text-align:left">Invalid directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_file_prefix</td>
+<td style="text-align:left">-20007</td>
+<td style="text-align:left">Invalid data file prefix</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_dir_not_exist</td>
+<td style="text-align:left">-20008</td>
+<td style="text-align:left">Directory does not exist</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_file_not_open</td>
+<td style="text-align:left">-20009</td>
+<td style="text-align:left">File not open</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_no_file_to_concat</td>
+<td style="text-align:left">-20010</td>
+<td style="text-align:left">No data files to be concatenated</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_file_size</td>
+<td style="text-align:left">-20011</td>
+<td style="text-align:left">Invalid data file size</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_no_file_to_extract</td>
+<td style="text-align:left">-20012</td>
+<td style="text-align:left">No data file to be extracted</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_inv_manifest_file_name</td>
+<td style="text-align:left">-20013</td>
+<td style="text-align:left">Invalid manifest file name</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_manifest_format</td>
+<td style="text-align:left">-20014</td>
+<td style="text-align:left">Invalid manifest file format</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_dump_file_size_missing</td>
+<td style="text-align:left">-20015</td>
+<td style="text-align:left">Data file size missing</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_src_dir_not_exist</td>
+<td style="text-align:left">-20016</td>
+<td style="text-align:left">Source directory does not exist</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_src_file_not_exist</td>
+<td style="text-align:left">-20017</td>
+<td style="text-align:left">Source file does not exist</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_dst_dir_not_exist</td>
+<td style="text-align:left">-20018</td>
+<td style="text-align:left">Destination directory does not exist</td>
+</tr>
+<tr>
+<td style="text-align:left">ge_orcl_dir_not_exist</td>
+<td style="text-align:left">-20199 (on AWSimplementation)<br>or<br>-29352 (on Data Center implementation</td>
+<td style="text-align:left">Oracle directory does not exist</td>
+</tr>
+</tbody>
+</table>
+<h3 id="312-code-generation">3.1.2. Code generation </h3>
+<p>Because some application error codes are different on an AWS implementation and a Data Center or a COP implementation, two versions of the <em>ARM_MAIN_VAR</em> packages need to be produced.</p>
+<p>Those different versions are generated using the GEN_Utility or Code Generator.</p>
+<p>A single version of the package is maintained in the <em>ARM_MAIN_VAR.pks</em> PL/SQL script. It contains the application error codes for AWS and for the Data Center and the COP. The needed final version of the package, depending on the target environment, is produced using the Code Generator. When the <em>ENVDC</em> variable is set, the Code Generator produces the <em>ARM_MAIN_VAR_DC.pks</em> PL/SQL script for the Data Center and COP databases. When the <em>ENVAWS</em> variable is set, the Code Generator produces the <em>ARM_MAIN_VAR_AWS.pks</em> package for the AWS databases.</p>
+<p>Because the <em>ARM_MAIN_VAR</em> package contains only declarations of types, variables and exceptions, it is only made of a header. This package has no body.</p>
+<h2 id="32-arm_util_krn-package">3.2. ARM_UTIL_KRN package </h2>
+<p>This package implements low level functionalities allowing to retrieve a list of files in an Oracle database directory</p>
+<p>Because the implementation is different depending on the environment (an AWS database or a Data Center or COP database), those low-level services are isolated in a dedicated package.</p>
+<h3 id="321-procedures-and-functions">3.2.1. Procedures and functions </h3>
+<h4 id="3211-get_file_names-function">3.2.1.1. GET_FILE_NAMES function </h4>
+<p>This public function returns the list of file names stored in an Oracle directory.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">name of the Oracle directory containing the files</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_name_filter</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">an optional name prefix the files must matches in order to be returned</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return value:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">nested table of VARCHAR2</td>
+<td style="text-align:left">the list of names</td>
+</tr>
+</tbody>
+</table>
+<h3 id="322-code-generation">3.2.2. Code generation </h3>
+<p>The implementation of the low-level services being different in AWS or Data Center or COP databases, two different versions of the package are needed.</p>
+<p>Actually, the package specifications are unique for both environments and are implemented in the <em>ARM_UTIL_KRN.pks</em> PL/SQL script.</p>
+<p>The package body is maintained in a single <em>ARM_UTIL_KRN.pkb</em> PL/SQL script and contains both implementations for the AWS and Data Center or COP environments. The final package, dedicated for one of those environments, is generated using the GEN_Utility or Code Generator.</p>
+<p>When the <em>ENVDC</em> variable is set, the <em>ARM_UTIL_KRN_DC.pkb</em> script is produced. This must be executed in a Data Center or COP database. When the <em>ENVAWS</em> variable is set, the <em>ARM_UTIL_KRN_AWS.pkb</em> script is produced. This must be executed in an AWS database.</p>
+<h2 id="33-arm_main_krn-package">3.3. ARM_MAIN_KRN package </h2>
+<p>This package is the kernel of the solution and implements its logic.</p>
+<h3 id="331-procedures-and-functions">3.3.1. Procedures and functions </h3>
+<h4 id="3311-raise_error-procedure">3.3.1.1. RAISE_ERROR procedure </h4>
+<p>This private procedure adds an error code and the corresponding message to the log file if it is enabled and raises the corresponding application error.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_code</td>
+<td style="text-align:left">SIMPLE_INTEGER</td>
+<td style="text-align:left">application error code</td>
+</tr>
+<tr>
+<td style="text-align:left">p_message</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">error message</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3312-log_msg-procedure">3.3.1.2. LOG_MSG procedure </h4>
+<p>This procedure adds a message to the log file if it is enabled.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_message</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">The message to be added to the log file.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3313-set_directory-procedure">3.3.1.3. SET_DIRECTORY procedure </h4>
+<p>This procedure stores the name of the current Oracle directory. This directory is the one where the data files, archive file, manifest file, …… are stored or generated.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">The directory name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3314-init_log_file-procedure">3.3.1.4. INIT_LOG_FILE procedure </h4>
+<p>This procedure initializes and opens the log file which is optional.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_log_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">log file name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3315-close_log_file-procedure">3.3.1.5. CLOSE_LOG_FILE procedure </h4>
+<p>This procedure closes the previously opened log file.</p>
+<p>This procedure accepts no parameters.</p>
+<h4 id="3316-compress_file-procedure">3.3.1.6. COMPRESS_FILE procedure </h4>
+<p>This procedure compresses a single file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_src_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Source file directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_src_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Source file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_dst_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Destination file directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_dst_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Destination file name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3317-uncompress_file-procedure">3.3.1.7. UNCOMPRESS_FILE procedure </h4>
+<p>This procedure uncompresses a single file.</p>
+<p><strong>Parameters=</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_src_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Compressed file directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_src_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Compressed file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_dst_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Destination file directory name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_dst_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Destination file name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3318-reset_files-procedure">3.3.1.8. RESET_FILES procedure </h4>
+<p>This procedure resets the list of files to be concatenated. This list reflects the content of the manifest file.</p>
+<p>This procedure accepts no parameters.</p>
+<h4 id="3319-add_file-procedure">3.3.1.9. ADD_FILE procedure </h4>
+<p>This procedure adds a new item to the list of files to be concatenated.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Name of the file to be added</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_size</td>
+<td style="text-align:left">PLS_INTEGER</td>
+<td style="text-align:left">Size of the file in bytes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33110-build_file_list-procedure">3.3.1.10. BUILD_FILE_LIST procedure </h4>
+<p>This procedure browses a directory in order to identify the items that must be added to the list of files to be concatenated. The scanned directory is the one initialized by the <em>set_directory</em> procedure.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_file_name_prefix</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">The prefix the file names must match in order to be added to the list</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_extension</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">An optional extension the file names must match in order to be added to the list</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33111-concat_file-function">3.3.1.11. CONCAT_FILE function </h4>
+<p>This private function concatenates a single data file to the already open temporary file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_archive</td>
+<td style="text-align:left">SYS.UTL_FILE.FILE_TYPE</td>
+<td style="text-align:left">Handle of the archive file the data files must be concatenated in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Oracle directory containing the data file</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">The name of the data file that must be concatenated in the archive file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return value:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PLS_INTEGER</td>
+<td style="text-align:left">Size of the data file in bytes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33112-concat_file-procedure">3.3.1.12. CONCAT_FILE procedure </h4>
+<p>This private procedure simply calls the <em>concat_file</em> function without returning the file size.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_archive</td>
+<td style="text-align:left">SYS.UTL_FILE.FILE_TYPE</td>
+<td style="text-align:left">Handle of the archive file the data files must be concatenated in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Oracle directory containing the data file</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">The name of the data file that must be concatenated in the archive file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33113-concat_files-procedure">3.3.1.13. CONCAT_FILES procedure </h4>
+<p>This procedure concatenates the data files in a single file. The data files that are concatenated are the ones that were passed to the <em>add_file</em> procedure or that were automatically added by the <em>build_file_list</em> procedure.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Name of the concatenated file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33114-extract_file-procedure">3.3.1.14. EXTRACT_FILE procedure </h4>
+<p>This private procedure extracts a single data file from the already open temporary file all data files are concatenated in.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_archive</td>
+<td style="text-align:left">SYS.UTL_FILE.FILE_TYPE</td>
+<td style="text-align:left">Handle of the archive file the data files are concatenated in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Oracle directory the data file must be extracted in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Data file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_size</td>
+<td style="text-align:left">PLS_INTEGER</td>
+<td style="text-align:left">Size of the data file in bytes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33115-extract_files-procedure">3.3.1.15. EXTRACT_FILES procedure </h4>
+<p>This procedure extracts the data files from the non-compressed concatenated archive file. The data files that are extracted are the ones that were passed to the <em>add_file</em> procedure.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Name of the concatenated file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33116-save_manifest-procedure">3.3.1.16. SAVE_MANIFEST procedure </h4>
+<p>This procedure saves the manifest file in the directory that was passed to the <em>set_directory</em> procedure.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_manifest_fname</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Name of the manifest file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33117-load_manifest-procedure">3.3.1.17. LOAD_MANIFEST procedure </h4>
+<p>This procedure loads the manifest file in the directory that was passed to the <em>set_directory</em> procedure. A call to the <em>add_file</em> procedure is then made for each data file mentioned in the manifest file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_manifest_fname</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Name of the manifest file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33118-create_archive-procedure">3.3.1.18. CREATE_ARCHIVE procedure </h4>
+<p>This procedure automates the full process of the compressed archive file creation. The procedure calls the lower-level service procedures described above. The produced result is the compressed archive file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Directory all files must be read from or created in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_prefix</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Prefix the data file names must match in order to be archived</td>
+</tr>
+<tr>
+<td style="text-align:left">p_file_extension</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Optional extension the data file names must match in order to be archived</td>
+</tr>
+<tr>
+<td style="text-align:left">p_concat_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Temporary non-compressed concatenated file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_archive_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Compressed archive file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_manifest_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Manifest file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_verbose</td>
+<td style="text-align:left">BOOLEAN</td>
+<td style="text-align:left">Optional boolean parameter indicating whether the process must be executed in verbose mode (the DBMS_Output must be activated in order to check the result)</td>
+</tr>
+<tr>
+<td style="text-align:left">p_log_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Optional name of the log file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="33119-extract_archive_content-procedure">3.3.1.19. EXTRACT_ARCHIVE_CONTENT procedure </h4>
+<p>This procedure automates the full process of the data files extraction from the compressed archive file. The procedure calls the lower-level service procedures described above. The produced result is the uncompressed data files.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_directory</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Directory all files must be read from or created in</td>
+</tr>
+<tr>
+<td style="text-align:left">p_archive_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Compressed archive file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_manifest_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Manifest file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_concat_file</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Temporary non-compressed concatenated file name</td>
+</tr>
+<tr>
+<td style="text-align:left">p_verbose</td>
+<td style="text-align:left">BOOLEAN</td>
+<td style="text-align:left">Optional boolean parameter indicating whether process must be executed in verbose mode (the DBMS_Output must be activated in order to check the result)</td>
+</tr>
+<tr>
+<td style="text-align:left">p_log_file_name</td>
+<td style="text-align:left">VARCHAR2</td>
+<td style="text-align:left">Optional name of the log file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="332-code-generation">3.3.2. Code generation </h3>
+<p>There is a single implementation of the code that is valid for the AWS environments and for the Data Center or COP environments.</p>
+<p>The package header is implemented in the <em>ARM_MAIN_KRN.pks</em> PL/SQL script and the package body is implemented in the <em>ARM_MAIN_KRN.pkb</em> PL/SQL script.</p>
+<p>However, the package must be prepared for the execution of the unit test scripts. In order to be able to execute all unit test scripts, the procedures and functions that are tested must be public. That is why the private procedures and functions are declared in the package header for the execution of the unit test scripts. They are removed from the package header afterwards.</p>
+<p>The GEN_Utility or Code Generator is used to prepare the package for the unit tests execution. When the code generator is executed with the <em>UNITTEST</em> variable set, the private functions and procedures are declared in the package header. They are then made public. When the code generator is executed without this variable, the private procedures and functions are removed from the package header.</p>
+<h3 id="333-unit-tests">3.3.3. Unit tests </h3>
+<p>The <em>ARM_MAIN_KRN</em> package is validated with some unit test scripts. Those tests must be executed with the utPLSQL package.</p>
+<p>The unit tests scripts are implemented in the <em>ARM_MAIN_TST</em> package. The package header is implemented in the <em>ARM_MAIN_TST.pks</em> PL/SQL script and the package body is implemented in the <em>ARM_MAIN_TST.pkb</em> PL/SQL script.</p>
+<h1 id="4-using-the-solution">4. Using the solution </h1>
+<p>For the creation of a compressed archive file containing the data files, the <em>ARM_MAIN_KRN</em> package can be used manually or in an automated way.</p>
+<h2 id="41-compressed-archive-file-creation">4.1. Compressed archive file creation </h2>
+<h3 id="411-manual-use">4.1.1. Manual use </h3>
+<p>For the manual use, all the steps are executed by manually invoking the low-level service procedures and functions described above. Those steps and procedure calls are:</p>
+<ol>
+<li><em>set_directory</em>: This procedure is called once to initialize the directory name all files are read from or created in.</li>
+<li><em>init_log_file</em>: If a log file needs to be created, this procedure is called once in order to initialize the log file.</li>
+<li><em>reset_files</em>: This procedure is called once in order to reset the list of data files to be concatenated in a single non-compressed file.</li>
+<li>Defining the list of files to be concatenated:
+<ol>
+<li><em>add_file</em>: This procedure is called for each data file that must be concatenated.</li>
+<li><em>build_file_list</em>: If the data files that must be concatenated can be identified by their name, this procedure can be called once instead of all calls to the <em>add_file</em> procedure.</li>
+</ol>
+</li>
+<li><em>concat_files</em>: This procedure is called once in order to concatenate all data files defined at the previous step in a single non-compressed file.</li>
+<li><em>compress_file</em>: This procedure is called once in order the compress the concatenated file produced at the previous step in a compressed archive file.</li>
+<li><em>save_manifest</em>: This procedure is called once in order to save the manifest file containing the list of data files archived in the compressed file.</li>
+<li><em>close_log_file</em>: This procedure is called once to close the log file if needed.</li>
+</ol>
+<h3 id="412-automated-use">4.1.2. Automated use </h3>
+<p>The <em>create_archive</em> procedure is called once in order to create the compressed archive file. It automates the execution of all steps described in the previous chapter.</p>
+<h2 id="42-data-files-extraction">4.2. Data files extraction </h2>
+<p>For the extraction of the data files from the compressed archive file, the <em>ARM_MAIN_KRN</em> package can also be used manually or in an automated way.</p>
+<h3 id="421-manual-use">4.2.1. Manual use </h3>
+<p>For the manual use, all the steps are executed by manually invoking the low-level service procedures and functions described above. Those steps and procedure calls are:</p>
+<ol>
+<li><em>set_directory</em>: This procedure is called once to initialize the directory name all files are read from or created in.</li>
+<li><em>init_log_file</em>: If a log file needs to be created, this procedure is called once in order to initialize the log file.</li>
+<li><em>uncompress_file</em>: This procedure is called once in order to uncompress the compressed archive file to extract the non-compressed concatenated file.</li>
+<li><em>reset_files</em>: This procedure is called once in order to reset the list of data files to be extracted from the single non-compressed file.</li>
+<li>Defining the list of files to be extracted:
+<ol>
+<li><em>add_file</em>: This procedure is called for each data file that must be extracted. Knowing the name and size of each data file is needed.</li>
+<li><em>load_manifest</em>: This procedure loads the manifest file and calls the <em>add_file</em> procedure for each data file mentioned in the manifest file. Manually calling the <em>add_file</em> procedure is then not needed anymore.</li>
+</ol>
+</li>
+<li><em>extract_files</em>: This procedure is called once in order to extract the data files from the non-compressed concatenated file produced at the previous step.</li>
+<li><em>close_log_file</em>: This procedure is called once to close the log file if needed.</li>
+</ol>
+<h3 id="422-automated-use">4.2.2. Automated use </h3>
+<p>The <em>extract_archive_content</em> procedure is called once in order to extract the data files from the compressed archive file. It automates the execution of all steps described in the previous chapter.</p>
+<h1 id="5-installation">5. Installation </h1>
+<h2 id="51-pre-requisites">5.1. Pre-requisites </h2>
+<p>The ARM_Utility is a low-level service designed to be integrated or used in any development or higher-level services.</p>
+<p>Therefore, it does not depend on any other tool or utility.</p>
+<h2 id="52-privileges-and-roles">5.2. Privileges and roles </h2>
+<h3 id="521-system-privileges">5.2.1. System privileges </h3>
+<p>The database schema user the ARM_Utility needs to be installed in must be granted with the following system privileges:</p>
+<ul>
+<li><em>create session</em></li>
+<li><em>select any dictionary</em></li>
+<li><em>create table</em></li>
+<li><em>create view</em></li>
+<li><em>create trigger</em></li>
+<li><em>create procedure</em></li>
+<li><em>create type</em></li>
+<li><em>unlimited tablespace</em></li>
+</ul>
+<h3 id="522-roles">5.2.2. Roles </h3>
+<p>The database schema user the ARM_Utility needs to be installed in must be granted with the following role, only if the installation environment is a Data Center or a COP (Cloud On Premise) database:</p>
+<ul>
+<li><em>javauserpriv</em></li>
+</ul>
+<p>No special role is required if the installation environment is an AWS database.</p>
+<h3 id="523-objects-privileges">5.2.3. Objects privileges </h3>
+<p>The database schema user the ARM_Utility needs to be installed in must be granted with the execute privilege on the following packages:</p>
+<ul>
+<li><em>sys.utl_compress</em></li>
+<li><em>sys.utl_file</em></li>
+<li><em>sys.dbms_lob</em></li>
+<li><em>sys.utl_raw</em></li>
+<li><em>rdsadmin.rds_file_util</em>, only if the installation environment is an AWS database.</li>
+</ul>
+<h3 id="524-database-directories">5.2.4. Database directories </h3>
+<p>The ARM_Utility reads, creates and deletes files in database directories. The database schema user the ARM_Utility is installed in must then have read and write privileges on all directories archive files must be managed in.</p>
+<p>However, the read and write privileges on those directories are not required for the installation of the utility. Those privileges can be granted afterwards. Those privileges are only needed for the use of the utility.</p>
+<h2 id="53-installation-procedure">5.3. Installation procedure </h2>
+<p>The ARM_Utility is now integrated in the <strong>DBCoE PL/SQL Toolkit</strong> and is then deployed and upgraded using the DBM_Utility deployment tool.</p>
+<p>The DBM_Utility is able to determinate the type of environment (AWS, Data Center or Cloud on Premise) and automatically deploys the right scripts. No parameters must then be passed to the installer.</p>
+<p>Once the <strong>DBCoE PL/SQL Toolkit</strong> is downloaded, the ARM_Utility can be installed using the following commands:</p>
+<ul>
+<li>Deploying the ARM_Utility: <code>@dbm-cli install arm_utility</code></li>
+<li>Migrating to the the last version of the ARM_Utility: <code>@dbm-cli migrate arm_utility</code></li>
+<li>Uninstalling the ARM_Utility: <code>@dbm-cli uninstall arm_utility</code></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>

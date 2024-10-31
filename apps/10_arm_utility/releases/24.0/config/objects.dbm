@@ -1,0 +1,8 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(JAVA SOURCE|PACKAGE BODY|PACKAGE) ARM_', p_obj_name_anti_pattern=>'^(PACKAGE BODY|PACKAGE) ARM_.*_TST$', p_checksum=>'Y', p_condition=>'Y', p_public=>'Y', p_app_code=>'arm_utility', p_ver_code=>'24.0'))
+JAVA SOURCE ARM_TOOLKIT: 183034138 UPPER('&&installation_env') IN ('DC', 'COP')
+PACKAGE ARM_MAIN_KRN: 185215024 
+PACKAGE ARM_MAIN_VAR 
+PACKAGE ARM_UTILITY_LIC: 943300033 
+PACKAGE ARM_UTIL_KRN 
+PACKAGE BODY ARM_MAIN_KRN: 738841468 
+PACKAGE BODY ARM_UTIL_KRN

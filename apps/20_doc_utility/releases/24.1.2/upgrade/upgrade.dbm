@@ -1,0 +1,6 @@
+PROMPT Upgrading package specs...
+@@DOC_UTILITY.pks
+@@DOC_UTILITY_EXT_TPL.pks
+@@DOC_UTILITY_VAR.pks
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

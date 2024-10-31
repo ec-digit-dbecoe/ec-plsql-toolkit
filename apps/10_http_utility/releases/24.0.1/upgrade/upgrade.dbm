@@ -1,0 +1,6 @@
+PROMPT Upgrading package specs...
+@@HTTP_UTILITY_KRN.pks
+@@HTTP_UTILITY_LIC.pks
+@@HTTP_UTILITY_VAR.pks
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

@@ -1,0 +1,1 @@
+This directory contains logs of all executed dbm-cli commands.

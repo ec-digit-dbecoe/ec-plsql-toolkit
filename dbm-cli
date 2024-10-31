@@ -1,0 +1,107 @@
+#!/bin/bash
+
+if [ "$1" = "-help" ]; then
+    echo "Data Base Migration Utility"
+    echo "Usage: dbm-cli [options] [commands]"
+    echo "."
+    echo "Main commands (use help command to get the full list)"
+    echo "    migrate <app>      migrate an application"
+    echo "    rollback <app>     rollback a failed migration"
+    echo "    uninstall <app>    uninstall an application"
+    echo "    validate <app>     validate a migration"
+    echo "    help               display all dbm-cli commands"
+    echo "When more than one command, separate them with a /"
+    echo "."
+    echo "Options (format: -option or \"-parameter=value\")"
+    echo "    apps_dir=<path>    applications directory"
+    echo "    conf_path=<file>   configuration file path"
+    echo "    help               this help"
+    echo "    noexit             do not exit after executing command"
+    echo "    silent             run silently"
+    echo "."
+    exit 0
+fi
+
+export PATH=$PATH:.
+
+# Check if DBM_USERNAME is not set, then prompt user
+if [ -z "$DBM_USERNAME" ]; then
+    read -p "Enter username: " DBM_USERNAME
+fi
+
+# Check if DBM_PASSWORD is not set, then prompt user
+if [ -z "$DBM_PASSWORD" ]; then
+    read -s -p "Enter password: " DBM_PASSWORD
+    echo
+fi
+
+# Check if DBM_DATABASE is not set, then prompt user
+if [ -z "$DBM_DATABASE" ]; then
+    read -p "Enter database: " DBM_DATABASE
+fi
+
+export DBM_CONNECT="$DBM_USERNAME/$DBM_PASSWORD@$DBM_DATABASE"
+export DBA_CONNECT="$DBA_USERNAME/$DBA_PASSWORD@$DBA_DATABASE"
+DBM_ERROR=
+
+export NLS_LANG=.UTF8
+
+# Set DBM_CONF_PATH if not set
+if [ -z "$DBM_CONF_PATH" ]; then
+    export DBM_CONF_PATH=conf/dbm_utility.conf
+fi
+
+# Set DBM_APPS_DIR if not set
+if [ -z "$DBM_APPS_DIR" ]; then
+    export DBM_APPS_DIR=apps
+fi
+
+# Set DBM_TMP_DIR if not set
+if [ -z "$DBM_TMP_DIR" ]; then
+    export DBM_TMP_DIR=tmp
+fi
+
+# Set DBM_LOGS_DIR if not set
+if [ -z "$DBM_LOGS_DIR" ]; then
+    export DBM_LOGS_DIR=logs
+fi
+
+# Install/Upgrade upon first launch after unzip
+if [ ! -e "~set-os.sql" ]; then
+   echo INSTALLING/UPGRADING DBM TOOL...
+   migrate-dbm
+   DBM_ERROR=$?
+   if [ "$DBM_ERROR" -ne 0 ]; then
+      echo "!!! FATAL ERROR WHILE INSTALLING/UPGRADING DBM UTILITY !!!"
+      exit 1
+   fi
+fi
+
+while true; do
+    rm $DBM_TMP_DIR/*.sql > /dev/null 2>&1
+    # Execute SQLPlus command
+    sqlplus -L $DBM_CONNECT @sql/dbm-startup.sql $*
+    DBM_ERROR=$?
+    echo ERROR_LEVEL=$DBM_ERROR
+    case $DBM_ERROR in
+        0)
+            exit 0
+            ;;
+        255)
+            echo "!!! DBM UTILITY NEEDS TO BE INSTALLED !!!"
+            migrate-dbm
+            DBM_ERROR=$?
+            if [ "$DBM_ERROR" -ne 0 ]; then
+               echo "!!! FATAL ERROR WHILE INSTALLING DBM UTILITY !!!"
+               exit 1
+            fi
+            ;;
+        254)
+            echo "!!! FATAL ERROR, DBM UTILITY NOT INSTALLED PROPERLY !!!"
+            exit 1
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+done

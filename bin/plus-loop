@@ -1,0 +1,12 @@
+#!/bin/bash
+while true; do
+    sqlplus -L -S $DBM_CONNECT $1 $2 $3 $4 $5 $6 $7 $8 $9
+    DBM_ERROR=$?
+    case $DBM_ERROR in
+        0)
+            ;;
+        *)
+            break
+            ;;
+    esac
+done

@@ -1,0 +1,6 @@
+PROMPT Upgrading package specs...
+@@MAIL_UTILITY_KRN.pks
+@@MAIL_UTILITY_LIC.pks
+@@MAIL_UTILITY_VAR.pks
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

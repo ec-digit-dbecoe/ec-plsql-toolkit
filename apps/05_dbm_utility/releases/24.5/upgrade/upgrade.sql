@@ -1,0 +1,9 @@
+PROMPT Upgrading database objects
+@@dbm_objects.sql
+PROMPT Installing Package spec DBM_UTILITY_VAR...
+@@DBM_UTILITY_VAR.pks
+PROMPT Installing Package spec DBM_UTILITY_KRN...
+@@DBM_UTILITY_KRN.pks
+PROMPT Installing Package Body DBM_UTILITY_KRN...
+@@DBM_UTILITY_KRN.pkb
+show errors

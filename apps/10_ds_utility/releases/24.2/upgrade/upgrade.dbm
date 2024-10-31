@@ -1,0 +1,19 @@
+Prompt Migrating Java classes...
+@@FF3_CYPHER.sql
+@@DS_FF3_CYPHER.sql
+Prompt Migrating package specifications...
+@@DS_CRYPTO_VAR.pks
+@@DS_CRYPTO_FF3_KRN.pks
+@@DS_CRYPTO_RSR_KRN.pks
+@@DS_CRYPTO_KRN.pks
+@@DS_MASKER_TST.pks: '&&utplsql' = 'Y'
+@@DS_CRYPTO_RSR_TST.pks: '&&utplsql' = 'Y'
+@@DS_CRYPTO_FF3_TST.pks: '&&utplsql' = 'Y'
+Prompt Migrating package bodies...
+@@DS_CRYPTO_FF3_KRN.pkb
+@@DS_CRYPTO_RSR_KRN.pkb
+@@DS_CRYPTO_KRN.pkb
+@@DS_UTILITY_KRN.pkb
+@@DS_MASKER_TST.pkb: '&&utplsql' = 'Y'
+@@DS_CRYPTO_RSR_TST.pkb: '&&utplsql' = 'Y'
+@@DS_CRYPTO_FF3_TST.pkb: '&&utplsql' = 'Y'

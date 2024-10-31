@@ -1,0 +1,7 @@
+PROMPT Recompiling package specs...
+@@DPP_INJ_VAR.pks
+@@DPP_ITF_VAR.pks
+@@DPP_SEC_VAR.pks
+@@DPP_UTILITY_LIC.pks
+PROMPT Recompiling invalid objects...
+@@recompile_invalid_objects.sql

@@ -1,0 +1,6 @@
+# select * from table(dbm_utility_krn.list_db_objects(p_obj_name_pattern=>'^(PACKAGE BODY|PACKAGE) GEN_', p_obj_name_anti_pattern=>'^$', p_checksum=>'Y', p_condition=>'Y', p_public=>'N', p_app_code=>'gen_utility', p_ver_code=>'24.0.1'))
+PACKAGE BODY GEN_UTILITY: 573453370
+PACKAGE BODY GEN_UTILITY_TST: 886801929 '&&utplsql' = 'Y'
+PACKAGE GEN_UTILITY: 390012461
+PACKAGE GEN_UTILITY_LIC: 623397859
+PACKAGE GEN_UTILITY_TST: 971682418 '&&utplsql' = 'Y'

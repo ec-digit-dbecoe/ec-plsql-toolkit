@@ -1,0 +1,4 @@
+check_grantee.sql
+check_sys_privs.sql
+revoke_access.sql
+drop_synonyms.sql
