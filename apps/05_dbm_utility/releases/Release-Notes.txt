@@ -1,10 +1,17 @@
-DBM Utility 24.8.5 Release Notes
-Date: October 2024
+DBM Utility 24.9 Release Notes
+Date: November 2024
 
 SUPPORT
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.9 - November 2024
+
+Changes:
+- Remove 24kb file size limit for files read using base64 encoding (*.sql, *.dbm).
+- New "conditional-statement-exec" parameter allowing to disable this functionality.
+  (file extension ".dbm.sql" that was enabling this feature is no more supported)
 
 VERSION 24.8.4 - October 2024
 

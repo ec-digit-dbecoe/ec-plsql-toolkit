@@ -1,17 +1,44 @@
 #!/bin/bash
-# Usage: read-file.sh file_path cmd_id
+# Usage: read-file.sh file_path cmd_id tmp_dir
 # $1 is file path
 # $2 is cmd_id
 # $3 is tmp_dir
 
-# Encode the file into base64
-base64_encode=$(base64 -w 0 "$1")
+file_path="$1"
+cmd_id="$2"
+tmp_dir="$3"
+
+chunk_size=20480  # 20KB chunk size
+chunk_count=0     # Initialize chunk counter
 
 echo "BEGIN"
-echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_base64=>FALSE, p_text=>'#!$1');"
-echo "    dbm_utility_krn.output_line(p_cmd_id=>'$2', p_type=>'OUT', p_base64=>TRUE, p_text=>'"
-echo "$base64_encode"
-echo "');"
+echo "    dbm_utility_krn.output_line(p_cmd_id=>$cmd_id, p_type=>'OUT', p_base64=>FALSE, p_text=>'#!$file_path');"
+
+# Initialize the offset for reading in chunks
+offset=0
+
+# Read the file in chunks and encode each chunk in base64
+while true; do
+    # Extract a chunk from the file
+    chunk=$(dd if="$file_path" bs=1 skip=$offset count=$chunk_size 2>/dev/null | base64 -w 64)
+
+    # Break the loop if no more data is read (end of file)
+    if [[ -z "$chunk" ]]; then
+        break
+    fi
+
+    # Output the encoded chunk as a separate dbm_utility_krn.output_line command
+    echo "    dbm_utility_krn.output_line(p_cmd_id=>$cmd_id, p_type=>'OUT', p_base64=>TRUE, p_chunk=>$chunk_count, p_text=>'"
+    echo "$chunk"
+    echo "');"
+
+    # Increment the chunk count
+    chunk_count=$((chunk_count + 1))
+
+    # Increase the offset by chunk size for the next read
+    offset=$((offset + chunk_size))
+done
+
 echo "COMMIT;"
 echo "END;"
 echo "/"

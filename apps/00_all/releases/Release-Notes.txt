@@ -1,11 +1,16 @@
-EC PL/SQL Tooklit 24.9 Release Notes
-Date: October 2024
+EC PL/SQL Tooklit 24.10 Release Notes
+Date: November 2024
 
 SUPPORT
 
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+RELEASE 24.10 - November 2024
+
+Changes:
+- DBM 24.9: removed 32k file size limit for scripts and configuration files.
 
 RELEASE 24.9 - October 2024
 

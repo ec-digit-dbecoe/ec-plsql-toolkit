@@ -6016,7 +6016,6 @@ TABLE,COLUMN,NESTED TABLE
         ,p_name IN VARCHAR2
       )
       IS
-         l_cursor INTEGER;
          l_count INTEGER;
          l_err INTEGER;
       BEGIN
@@ -6038,14 +6037,20 @@ TABLE,COLUMN,NESTED TABLE
 --               dbms_output.put_line(t_lines(i));
 --            END LOOP;
             -- Execute statement
-            l_cursor := sys.dbms_sql.open_cursor;
+            DECLARE
+               l_cursor INTEGER;
             BEGIN
+               l_cursor := sys.dbms_sql.open_cursor;
                sys.dbms_sql.parse(l_cursor, t_lines, t_lines.FIRST, t_lines.LAST, TRUE, sys.dbms_sql.native);
                l_count := sys.dbms_sql.execute(l_cursor);
---            EXCEPTION
---               WHEN OTHERS THEN NULL; -- error reported later below
+               sys.dbms_sql.close_cursor(l_cursor);
+            EXCEPTION
+               WHEN OTHERS THEN
+                  IF dbms_sql.is_open(l_cursor) THEN
+                     sys.dbms_sql.close_cursor(l_cursor);
+                  END IF;
+                  RAISE;
             END;
-            sys.dbms_sql.close_cursor(l_cursor);
             -- Show error messages
             l_err := show_errors(p_owner,p_type,p_name);
             assert(l_err=0,'compile_source','Compilation of :1 :2 :3 failed',NULL,p_owner,p_type,p_name);

@@ -31,6 +31,8 @@ REM Proceed
 VARIABLE l_script VARCHAR2(255)
 VARIABLE l_nxt_ver_code VARCHAR2(10)
 VARIABLE l_nxt_ver_nbr NUMBER
+VARIABLE l_tgt_ver_code VARCHAR2(10)
+VARIABLE l_tgt_ver_nbr NUMBER
 VARIABLE l_action VARCHAR2(10)
 VARIABLE l_nxt_obj_sum NUMBER;
 VARIABLE l_nxt_pkg_sum NUMBER;
@@ -390,21 +392,22 @@ DECLARE
       l_ver_nbr l_ver_nbr_type;
    BEGIN
       -- Initialise versions
-      t_ins(240000) := '24.0';
-      t_ins(240100) := '24.1';   t_upg(240100) := '24.1';
-      t_ins(240200) := '24.2';   t_upg(240200) := '24.2';
-                                 t_upg(240300) := '24.3';
-                                 t_upg(240400) := '24.4';
-      t_ins(240500) := '24.5';   t_upg(240500) := '24.5';
-      t_ins(240600) := '24.6';   t_upg(240600) := '24.6';
-      t_ins(240601) := '24.6.1'; t_upg(240601) := '24.6.1';
-      t_ins(240700) := '24.7'  ; t_upg(240700) := '24.7';
-      t_ins(240800) := '24.8'  ; t_upg(240800) := '24.8';
-                                 t_upg(240801) := '24.8.1';
-                                 t_upg(240802) := '24.8.2';
-                                 t_upg(240803) := '24.8.3';
-                                 t_upg(240804) := '24.8.4';
-                                 t_upg(240805) := '24.8.5';
+      t_all(240000) := '24.0';   --t_ins(240000) := '24.0';
+      t_upg(240100) := '24.1';   --t_ins(240100) := '24.1';
+      t_upg(240200) := '24.2';   --t_ins(240200) := '24.2';
+      t_upg(240300) := '24.3';
+      t_upg(240400) := '24.4';
+      t_upg(240500) := '24.5';   --t_ins(240500) := '24.5';
+      t_upg(240600) := '24.6';   --t_ins(240600) := '24.6';
+      t_upg(240601) := '24.6.1'; --t_ins(240601) := '24.6.1';
+      t_upg(240700) := '24.7';   --t_ins(240700) := '24.7';
+      t_upg(240800) := '24.8';   --t_ins(240800) := '24.8';
+      t_upg(240801) := '24.8.1';
+      t_upg(240802) := '24.8.2';
+      t_upg(240803) := '24.8.3';
+      t_upg(240804) := '24.8.4';
+      t_upg(240805) := '24.8.5'; t_ins(240805) := '24.8.5';
+      t_upg(240900) := '24.9';   t_ins(240900) := '24.9'  ;
       -- Initialise checksums for objects and packages (computed with "sql/dbm_checksums.sql");
       t_obj_sum(240000) := 671291450;  t_pkg_sum(240000) := 296702143;
       t_obj_sum(240100) := 544776930;  t_pkg_sum(240100) := 1062429868;
@@ -421,6 +424,7 @@ DECLARE
       t_obj_sum(240803) := 343620986;  t_pkg_sum(240803) := 237393621;
       t_obj_sum(240804) := 343620986;  t_pkg_sum(240804) := 130171331;
       t_obj_sum(240805) := 343620986;  t_pkg_sum(240805) := 434686173;
+      t_obj_sum(240900) := 343620986;  t_pkg_sum(240900) := 733453529;
       -- Initially lookup arrays
       l_ver_nbr := t_ins.FIRST;
       WHILE l_ver_nbr IS NOT NULL LOOP
@@ -538,7 +542,7 @@ BEGIN
          dbms_output.put_line('Current version forced to "'||l_cur_ver_code||'" by end-user');
       END IF;
       assert(NOT l_tgt_ver_nbr < l_cur_ver_nbr, 'ERROR: Target version "'||l_tgt_ver_code||'" is anterior to current version "'||l_cur_ver_code||'"!');
-      assert(NOT l_tgt_ver_nbr = l_cur_ver_nbr, 'INFO: Target version "'||l_tgt_ver_code||'" is already installed (this is not an error)');
+      assert(NOT l_tgt_ver_nbr = l_cur_ver_nbr, 'INFO: Target version "'||l_tgt_ver_code||'" is already installed (this is a normal end, not an error)');
       l_nxt_ver_code := t_all(t_all.NEXT(l_cur_ver_nbr));
       dbms_output.put_line('Next version is "'||l_nxt_ver_code||'"');
       assert(a_upg.EXISTS(l_nxt_ver_code), 'ERROR: No script is available to upgrade to version "'||l_nxt_ver_code||'"!');
@@ -550,6 +554,8 @@ BEGIN
    :l_script := 'apps/05_dbm_utility/releases/'||l_nxt_ver_code||'/'||l_nxt_action||'/'||l_nxt_action||'.'||l_ext;
    :l_nxt_ver_code := l_nxt_ver_code;
    :l_action := l_nxt_action;
+   :l_tgt_ver_nbr := l_tgt_ver_nbr;
+   :l_tgt_ver_code := l_tgt_ver_code;
    :l_nxt_ver_nbr := l_nxt_ver_nbr;
    :l_nxt_ver_code := l_nxt_ver_code;
    :l_nxt_obj_sum := t_obj_sum(l_nxt_ver_nbr);
@@ -594,7 +600,7 @@ DECLARE
    IS
    BEGIN
       IF NOT p_condition THEN
-         raise_application_error(-20000,p_text);
+         raise_application_error(CASE WHEN p_text LIKE 'INFO:%' THEN -20735 ELSE -20000 END,p_text);
       END IF;
    END;
    -- Get objects and packages checksums
@@ -876,16 +882,6 @@ BEGIN
    assert(NVL(l_obj_sum,0) = NVL(:l_nxt_obj_sum,0), 'ERROR: Invalid objects checksum after migration to version "'||:l_nxt_ver_code||'"');
    assert(NVL(l_pkg_sum,0) = NVL(:l_nxt_pkg_sum,0), 'ERROR: Invalid packages checksum after migration to version "'||:l_nxt_ver_code||'"');
    dbms_output.put_line('Migration to version "'||:l_nxt_ver_code||'" ended successfully.');
-EXCEPTION
-   WHEN OTHERS THEN
-       dbms_output.put_line(SQLERRM||CHR(10)||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
-       dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility', p_ver_status=>'INVALID');
-       COMMIT;
-       RAISE;
-END;
-/
-
-BEGIN
    dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility');
    UPDATE dbm_versions SET ver_status = ver_status WHERE app_code = 'dbm_utility' and ver_code = :l_nxt_ver_code;
    IF SQL%NOTFOUND THEN
@@ -895,6 +891,13 @@ BEGIN
    dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility', p_ver_code=>:l_nxt_ver_code, p_ver_status=>'VALID');
    dbms_output.put_line('Current version of "dbm_utility" set to "'||:l_nxt_ver_code||'"');
    COMMIT;
+   assert(NOT :l_nxt_ver_nbr = :l_tgt_ver_nbr, 'INFO: Target version "'||:l_tgt_ver_code||'" reached (this is a normal end, not an error)');
+EXCEPTION
+   WHEN OTHERS THEN
+       dbms_output.put_line(SQLERRM||CHR(10)||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+       dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility', p_ver_status=>'INVALID');
+       COMMIT;
+       RAISE;
 END;
 /
 
