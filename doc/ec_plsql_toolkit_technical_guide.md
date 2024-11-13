@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# EC PL/SL Toolkit - Technical Guide v24.8.1
+# EC PL/SL Toolkit v24.9 - Technical Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission - DIGIT)
@@ -55,7 +55,7 @@
 
 ### 1.1. Audience
 
-This guide is intended for Oracle database developers responsible for the development, maintenance, and packaging of the EC PL/SQL toolkit. It explains its content and structure, how to incorporate new versions of the tools, and how to package them. By providing detailed procedures, this guide aims to assist developers in successfully releasing new versions of the toolkit.
+This guide is intended for Oracle database developers of the EC responsible for the development, maintenance, and packaging of the EC PL/SQL toolkit. It explains its content and structure, how to incorporate new versions of the tools, and how to package them. By providing detailed procedures, this guide aims to assist EC developers in successfully releasing new versions of the toolkit.
 
 ## 2. Toolkit home directory
 
@@ -91,7 +91,7 @@ The home directory also contains the following files:
 
 ### 2.1. Apps directory
 
-The `apps` folder contains one subfolder for each tool and a `00_all` subfolder for material common to all tools. These subfolders are prefixed with a sequence number that reflects the order in which corresponding tools must be installed, taking into account their dependencies.
+The `apps` folder contains one subfolder for each tool and a `00_all` subfolder for material common to all tools. These sub-folders are prefixed with a sequence number that reflects the order in which the tools must be installed, taking into account their dependencies.
 
 An alternate location for the `apps` folder can be specified by setting the `DBM_APPS_DIR` environment variable but this possibility is not used for the toolkit.
 
@@ -400,13 +400,15 @@ To generate the database objects inventory, execute the `dbm-cli` shell script w
 
 The size of the toolkit bundle can grow significantly if all versions of all tools are kept indefinitely. At a minimum, the toolkit should maintain the latest full release and all incremental releases, ensuring users with older versions can upgrade to the latest version seamlessly. Preserving an inventory of all releases is crucial for the DBM tool to accurately identify the currently installed version of each tool and determine necessary upgrades.
 
-On the other hand, it is useful to be able to reinstall a previous version of the toolkit, for instance, to reproduce a bug reported by an end-user, to test the DBM tool itself, or to revert to a more stable version. Therefore, it also makes sense to include multiple full releases in the bundle, such as those released within the past 12 months. Alternatively, maintaining a history of all toolkit bundles (archives) achieves the same goal.
+On the other hand, it is useful to be able to reinstall a previous version of the toolkit, for instance, to reproduce a bug reported by an end-user, to test the DBM tool itself, or to revert to a more stable version. Maintaining a history of all toolkit bundles (archives) achieves thi goal.
 
-Based on these considerations, it is recommended to:
+It is recommended to:
 
-- Keep the full releases of the last past 12 months (i.e., the `install` folder).
-- Keep all incremental releases (i.e., the `upgrade` folder).
-- Keep all inventories and other configuration files (i.e., the `config` folder).
+- Keep 2 full releases (i.e., the `install` folder for 2 releases).
+- Keep all incremental releases (i.e., all `upgrade` folders).
+- Keep all inventories and other configuration files (i.e., all `config` folders).
+
+`install` folders that are removed from the toolkit bundle must be archived in the `ec_plsql_toolkit_archive` folder using the `git mv` command so as to be able to restore them when necessary. This archive folder as the same structure as the `ec_plsql_toolkit` folder.
 
 For vulnerability assessment and penetration testing, a single version of each file should be provided. The simplest approach is to retain only the `install` folder of the latest full release and apply any changes from subsequent incremental releases if necessary.
 
@@ -518,7 +520,7 @@ To allow this file to be executed from the `migrate-dbm.sql` script using SQL\*P
 
 #### 4.2.4. Home Directory of the DBM Tool
 
-Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirely within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit. **This is subject to discussion**
+Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirel, its date, y within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit. **This is subject to discussion**
 
 SQL scripts are stored in the `sql` subfolder, PL/SQL package code in the `plsql` subfolder, and documentation in the `doc` subfolder. Refer to the [SQL Directory](#sql-directory), [PLSQL Directory](#plsql-directory), and [Doc Directory](#doc-directory) sections for descriptions of the files they contain.
 
@@ -558,7 +560,7 @@ Release notes of the toolkit follow the same format and update practice as those
 
 #### 4.3.4. Building archives
 
-To build the archive (zip file), execute the `mkzip` shell script located in the home directory of the toolkit. This script first executes the `cleanup` shell script that delete temporary files and log files. It then creates an archive named `ec_plsql_toolkit.zip` in the parent directory. This archive must be renamed manually to include the toolkit version, its date, and the operating system for which it was created (Windows or Linux). As an example: `ec_plsql_toolkit_24_5_Windows_20240528.zip`.
+To build the archive (zip file), execute the `mkzip` shell script located in the home directory of the toolkit. This script first executes the `cleanup` shell script that delete temporary files and log files. It then creates an archive named `ec_plsql_toolkit.zip` in the parent directory. This archive must be renamed manually to include the toolkit version and the operating system for which it was created (Windows or Linux). As an example: `ec_plsql_toolkit_24_5_Windows.zip`. Date and time is no more mentioned in the archive name.
 
 An archive must be built for both Windows and Linux platforms. This is in particular necessary for Linux to preserve the execution mode of bash shell scripts.
 

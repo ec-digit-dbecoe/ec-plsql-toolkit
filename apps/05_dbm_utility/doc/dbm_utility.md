@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Base Migration Utility - User's Guide v24.8.5
+# Data Base Migration Utility v24.9 - User's Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -11,16 +11,18 @@
   - [1.2. Purpose](#12-purpose)
   - [1.3. Key Features](#13-key-features)
 - [2. Quick Start](#2-quick-start)
-  - [2.1. Pre-requisites](#21-pre-requisites)
+  - [2.1. Check pre-requisites](#21-check-pre-requisites)
     - [2.1.1. Database Platform](#211-database-platform)
     - [2.1.2. Installer Platform](#212-installer-platform)
     - [2.1.3. System privileges](#213-system-privileges)
-  - [2.2. Unzip](#22-unzip)
-    - [2.2.1. Set environment variables](#221-set-environment-variables)
-    - [2.2.2. Install or upgrade](#222-install-or-upgrade)
-  - [2.3. Launch](#23-launch)
-  - [2.4. Configure](#24-configure)
-  - [2.5. Migrate](#25-migrate)
+  - [2.2. Get the DBM tool](#22-get-the-dbm-tool)
+    - [2.2.1. Archive distribution](#221-archive-distribution)
+    - [2.2.2. OSS distribution](#222-oss-distribution)
+  - [2.3. Set environment](#23-set-environment)
+  - [2.4. Install/Upgrade the DBM tool](#24-installupgrade-the-dbm-tool)
+  - [2.5. Launch the DBM tool](#25-launch-the-dbm-tool)
+  - [2.6. Configure applications](#26-configure-applications)
+  - [2.7. Install/Upgrade applications](#27-installupgrade-applications)
 - [3. Execution mode and usage](#3-execution-mode-and-usage)
   - [3.1. Execution mode](#31-execution-mode)
   - [3.2. Usage](#32-usage)
@@ -137,15 +139,13 @@ In essence, the DBM Utility simplifies database migration tasks by automating di
 
 ## 2. Quick Start
 
-### 2.1. Pre-requisites
+### 2.1. Check pre-requisites
 
 #### 2.1.1. Database Platform
 
-The EC PL/SQL toolkit requires an Oracle database version 19c or above. Note that it has not been tested on Oracle 21c yet.
+The EC PL/SQL toolkit requires an Oracle database version 19c or above. Note that it has not been tested on Oracle 21c and Oracle 23ai yet.
 
-The database can be hosted in the EC Data Centre, in the EC Cloud on Prem (CoP), or in the Amazon cloud (AWS).
-
-All files are UTF-8 so NLS_LANG should be set accordingly via shell commands like ` export NLS_LANG=.UTF8` on Linux or `set NLS_LANG=.UTF8` on Windows.
+The database can be hosted in the EC Data Centre, in the EC Cloud on Prem (CoP), in the Amazon cloud (AWS), or in any other location (OTH).
 
 #### 2.1.2. Installer Platform
 
@@ -158,35 +158,41 @@ The installer (the DBM tool) requires the following:
 
 #### 2.1.3. System privileges
 
-The tool offers two installation options: centrally in a dedicated schema for shared access by other schemas, or separately in multiple schemas. Central installation is recommended. In this setup, the schema requires "CREATE PUBLIC SYNONYM" and "GRANT PUBLIC SYNONYM" system privileges to expose or conceal its database objects to other schemas.
+The tool offers two installation options: centrally in a dedicated schema for shared access by other schemas, or separately in multiple schemas. Central installation is recommended. In this setup, the schema require
+Unzip the distributed archive (`ec_plsql_toolkit`) into the folder of your choice. s "CREATE PUBLIC SYNONYM" and "GRANT PUBLIC SYNONYM" system privileges to expose or conceal its database objects to other schemas.
 
-### 2.2. Unzip
+### 2.2. Get the DBM tool
 
-The DBM tool is part of the EC PL/SQL toolkit.
+The DBM tool is part of the EC PL/SQL toolkit whose code is either distributed as an archive (`ec_plsql_toolkit.zip`), either made available as an open source software on the `code.europa.eu` and `github.com` platforms.
 
-Unzip the distributed archive (`ec_plsql_toolkit`) into the folder of your choice. This action will create a sub-folder named `ec-plsql-toolkit`.
+#### 2.2.1. Archive distribution
 
+The `ec_plsql_toolkit.zip` archive can be unzipped into any folder of your choice. This action will create a sub-folder named `ec-plsql-toolkit` from which the DBM tool can be launched.
 
-#### 2.2.1. Set environment variables
+#### 2.2.2. OSS distribution
 
-Define the below environment variables as appropriate. Those that are mandatory are marked with an asterisk.
+To get access to the code of the DBM tool, clone the `ec-plsql-toolkit` repository from `code.europa.eu` or `github.com` using the `git clone <repo>.git` command.
 
-| Name           |  Description                    |
-| -------------- | ------------------------------- |
-| *DBM_USERNAME  | Schema username |
-| *DBM_PASSWORD  | Schema password |
-| *DBM_DATABASE  | Schema database |
-|  DBA_USERNAME  | CoP admin username |
-|  DBA_PASSWORD  | CoP admin password |
-|  DBA_DATABASE  | CoP admin database |
-|  DBM_CONF_PATH | Path of the configuration file  |
-|  DBM_APPS_DIR  | Alternate location for apps dir |
-|  DBM_LOGS_DIR  | Alternate location for logs dir |
-|  DBM_TMP_DIR   | Alternate location for tmp dir  |
+### 2.3. Set environment
+
+Define the following environment variables as appropriate.
+
+| Name          |  Description                    | Mandatory? |
+| ------------- | ------------------------------- | - |
+| DBM_USERNAME  | Schema username | Y |
+| DBM_PASSWORD  | Schema password | Y |
+| DBM_DATABASE  | Schema database | Y |
+| DBA_USERNAME  | CoP admin username | N |
+| DBA_PASSWORD  | CoP admin password | N |
+| DBA_DATABASE  | CoP admin database | N |
+| DBM_CONF_PATH | Path of the configuration file  | N |
+| DBM_APPS_DIR  | Alternate location for apps dir | N |
+| DBM_LOGS_DIR  | Alternate location for logs dir | N |
+| DBM_TMP_DIR   | Alternate location for tmp dir  | N |
 
 The first three environment variables allow the DBM tool to connect to the schema in which it must be installed. The DBM tool will connect to the schema using the following connect string: `"$DBM_USERNAME/$DBM_PASSWORD@$DBM_DATABASE"`.
 
-The following three environment variables are used by the installer to connect to the admin account of a Cloud on Prem database for the purpose of creating and dropping restore points, as well as for flash-backing the database in the event of a migration failure. This optional feature is exclusively accessible in Cloud on Prem databases.
+The following three environment variables are used by the installer to connect to the admin account of a Cloud on Prem database for the purpose of creating and dropping restore points, as well as for flash-backing the database in the event of a migration failure. This optional feature is available exclusively in EC Cloud on Prem databases.
 
 Other environment variables allow you to define an alternate location for the configuration file (`conf/dbm_utility.conf` by default), the application folder (`apps` by default), the folder where logs are stored (`logs` by default), and the folder where temporary files are created (`tmp` by default).
 
@@ -195,17 +201,17 @@ Environment variables can be defined using the following syntax:
 - Under Windows: `C:> set VARIABLE=value`
 - Under Linux: `$ export VARIABLE=value`
 
-#### 2.2.2. Install or upgrade
+### 2.4. Install/Upgrade the DBM tool
 
 The DBM tool can be installed and/or upgraded by executing the `migrate-dbm` script while being located in the `ec_plsql_installer` folder.
 
-This script will install and/or upgrade the DBM tool to its latest available version. Tables, views, and packages of the DBM tool created in the schema can be easily identified by their name, all prefixed with `DBM_`.
+This script will install and/or upgrade the DBM tool to the latest available version. Tables, views, and packages of the DBM tool created in the schema can be easily identified by their name, all prefixed with `DBM_`.
 
-Due to the dependencies between its shell scripts and its database objects, this upgrade is mandatory before launching the DBM client. It is recommended to do it each time a new archive of the EC PL/SQL toolkit is deployed.
+Due to the dependencies between shell scripts and database objects, this upgrade is mandatory before launching the DBM tool. It is recommended to do it each time a new version of the EC PL/SQL toolkit is deployed.
 
-### 2.3. Launch
+### 2.5. Launch the DBM tool
 
-To launch the command-line client (CLI) of the DBM tool, execute the `dbm-cli` shell script in the command prompt or terminal while being located in the `ec_plsql_toolkit` folder.
+To launch the command-line client (CLI) of the DBM tool, execute the `dbm-cli` shell script from a terminal window while being located in the `ec_plsql_toolkit` folder.
 
 Upon startup, you will encounter the following screen:
 
@@ -213,15 +219,15 @@ Upon startup, you will encounter the following screen:
 
 Note that the information displayed may vary depending on the version of SQL\*Plus and the database version you are connected to.
 
-Once SQL\*Plus is connected to your schema, it initiates the "startup.sql" script situated in the "sql" folder. This script scans the file system under the "apps" folder to identify managed applications or tools and their respective versions. Additionally, it reads all configuration files ("\*.conf"), "database objects inventories" ("objects.dbm") and files inventories ("files.dbm") associated with each version of application or tool.
+Once SQL\*Plus is connected to your schema, it initiates the "startup.sql" script situated in the "sql" folder. This script scans the file system under the "apps" folder to identify managed applications or tools and their respective versions. Additionally, it reads all configuration files ("\*.conf"), "database objects inventories" ("objects.dbm"), files inventories ("files.dbm"), and privileges inventories ("privileges*.dbm") associated with each version of each application or tool.
 
 The prompt "DBM-CLI>" then invites you to execute one DBM command.
 
-### 2.4. Configure
+### 2.6. Configure applications
 
 Before proceeding with the migration, you need to configure the substitution variables that are referenced in the migration scripts, if not already done before. To proceed, just type `@dbm-cli configure` and follow the instructions. You will be requested to enter a value for each substitution variable. Entered value are persisted in the database making this step optional for the next migration.
 
-### 2.5. Migrate
+### 2.7. Install/Upgrade applications
 
 The next step is to launch the installation or upgrade of all managed applications or tools by typing `@dbm-cli migrate`. Based on what is already installed in the connected schema, the DBM tool will determine for each application or tool whether to perform a full install or to upgrade exiting database objects.
 
@@ -852,9 +858,9 @@ During a migration (installation or upgrade), the DBM tool tracks which files ha
 
 ### 11.2. Statement Level Recovery
 
-A more detailed recovery option is available at the statement level for SQL scripts containing multiple DDL or DML statements. This functionality applies to SQL scripts with the `.dbm.sql` double extension. Each statement in the file must be marked with a statement identifier formatted as `DBM-XXXXX`, where `XXXXX` is a sequential number between 1 and 99999. This tag should be placed in a `REM[ARK]` above each statement. You can include a comment after the statement identifier, which is ignored by the DBM tool. It is recommended to leave gaps in the numbering (e.g., numbering by multiples of 10) to allow for future additions.
+A more detailed recovery option is available at the statement level for SQL scripts containing multiple DDL or DML statements. This functionality applies to SQL scripts having a `.sql` extension. Each statement in the file must be marked with a statement identifier formatted as `DBM-XXXXX`, where `XXXXX` is a sequential number between 1 and 99999. This tag should be placed in a `REM[ARK]` above each statement. You can include a comment after the statement identifier, which is ignored by the DBM tool. It is recommended to leave gaps in the numbering (e.g., numbering by multiples of 10) to allow for future additions.
 
-For such `.dbm.sql` files, the DBM tool records the last executed statement. If a failure occurs, the migration will resume from the statement that failed. A temporary file (prefixed with `~`), stored in the same folder as the original script, is created where successfully executed statements are replaced with blank lines. This temporary file is automatically deleted upon successful execution. For technical reasons, the size of these SQL scripts must be limited to 32k. Large files can be split into multiple files if necessary.
+For such `.sql` files, the DBM tool records the last executed statement. If a failure occurs, the migration will resume from the statement that failed. A temporary file (prefixed with `~`), stored in the same folder as the original script, is created where successfully executed statements are replaced with blank lines. This temporary file is automatically deleted upon successful execution.
 
 Note that multiple SQL statements and/or SQL\*Plus commands can be included between two tags. In case of re-execution, all these statements will be re-executed.
 

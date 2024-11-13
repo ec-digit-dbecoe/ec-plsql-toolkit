@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html -->
+<!-- saved from url=(0053)file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>ec_plsql_toolkit_installation_guide</title>
       
@@ -26,36 +26,36 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="ec-plsl-toolkit----installation-guide-v249">EC PL/SL Toolkit -  Installation Guide v24.9 </h1>
+<h1 id="ec-plsl-toolkit-v2410---installation-guide">EC PL/SL Toolkit v24.10 - Installation Guide </h1>
 <h2 id="author-philippe-debois-european-commission---digit">Author: Philippe Debois (European Commission - DIGIT) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#1-audience">1. Audience</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#2-introduction">2. Introduction</a>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#1-audience">1. Audience</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#2-introduction">2. Introduction</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#core-utilities">Core Utilities</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#supporting-utilities">Supporting Utilities</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#core-utilities">Core Utilities</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#supporting-utilities">Supporting Utilities</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#3-quick-start">3. Quick start</a>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#3-quick-start">3. Quick start</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#31-pre-requisites">3.1. Pre-requisites</a>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#31-pre-requisites">3.1. Pre-requisites</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#311-database-platform">3.1.1. Database Platform</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#312-installer-platform">3.1.2. Installer Platform</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#313-system-privileges">3.1.3. System privileges</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#311-database-platform">3.1.1. Database Platform</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#312-installer-platform">3.1.2. Installer Platform</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#313-system-privileges">3.1.3. System privileges</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#32-installation-procedure">3.2. Installation procedure</a>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#32-installation-procedure">3.2. Installation procedure</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#321-create-the-target-schema">3.2.1. Create the target schema</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#323-set-environment-variables">3.2.3. Set environment variables</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#327-managing-migration-failure">3.2.7. Managing Migration Failure</a></li>
-<li><a href="file:///tmp/crossnote2024930-18150-br5ogv.tlzbs.html#328-log-files">3.2.8. Log files</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#321-create-the-target-schema">3.2.1. Create the target schema</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#323-set-environment-variables">3.2.3. Set environment variables</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#327-managing-migration-failure">3.2.7. Managing Migration Failure</a></li>
+<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#328-log-files">3.2.8. Log files</a></li>
 </ul>
 </li>
 </ul>
