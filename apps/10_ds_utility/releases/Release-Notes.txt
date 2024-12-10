@@ -1,11 +1,21 @@
-DS Utility 24.2.1 Release Notes
-Date: October 2024
+DS Utility 24.2.2 Release Notes
+Date: December 2024
 
 SUPPORT
 
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.2.1 - December 2024
+
+Changes:
+- When no PK is found, use any UK as an alternative.
+
+Bug fixing:
+- Fixed error "NULL index table key value" when using "differed remote sequence" masking.
+- Fixed typo in one p_delete_flag parameter of insert_mask() procedure.
+- Fixed error raised when inserting records involed in a recursive foreign key.
 
 VERSION 24.2.1 - October 2024
 

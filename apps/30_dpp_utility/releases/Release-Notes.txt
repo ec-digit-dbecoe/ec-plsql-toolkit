@@ -1,5 +1,5 @@
-DPP Utility 24.3.1 Release Notes
-Date: October 2024
+DPP Utility 24.3.2 Release Notes
+Date: November 2024
 
 SUPPORT
 
@@ -7,6 +7,17 @@ You can get support by contacting via email one of the following persons:
 - jean-marc.malmedy@ext.ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
 - philippe.debois@ec.europa.eu
+
+VERSION 24.3.2 - November 2024
+
+New features:
+- n/a
+
+Changes:
+- n/a
+
+Bug fixing:
+- The default recipient email address is correctly used
 
 VERSION 24.3.1 - October 2024
 

@@ -1,4 +1,4 @@
-EC PL/SQL Tooklit 24.10 Release Notes
+EC PL/SQL Tooklit 24.10.1 Release Notes
 Date: November 2024
 
 SUPPORT
@@ -7,10 +7,24 @@ You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
 
+RELEASE 24.10.1 - November 2024
+
+New features:
+- n/a
+
+Changes:
+- n/a
+
+Bug Fixing:
+- DPP 24.3.2: default email recipient address correctly used
+
 RELEASE 24.10 - November 2024
 
 Changes:
 - DBM 24.9: removed 32k file size limit for scripts and configuration files.
+
+Bug Fixing:
+- DS 24.2.2: fixed issue with differed remote sequence masking + regression.
 
 RELEASE 24.9 - October 2024
 
