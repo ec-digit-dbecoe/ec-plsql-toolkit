@@ -53,7 +53,7 @@ export DATETIME=`date +%Y%m%d%H%M%S`
 export DBM_SRC_VER_CODE=$2
 
 while true; do
-    rm $DBM_TMP_DIR/*.sql > /dev/null 2>&1
+    rm $DBM_TMP_DIR/~*.sql > /dev/null 2>&1
     # Execute SQLPlus command
     sqlplus -L $DBM_CONNECT @sql/migrate-dbm $1 $DBM_SRC_VER_CODE | tee $DBM_LOGS_DIR/$DATETIME-migrate-dbm_utility.log
     DBM_ERROR=${PIPESTATUS[0]}

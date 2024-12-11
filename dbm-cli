@@ -78,7 +78,7 @@ if [ ! -e "~set-os.sql" ]; then
 fi
 
 while true; do
-    rm $DBM_TMP_DIR/*.sql > /dev/null 2>&1
+    rm $DBM_TMP_DIR/~*.sql > /dev/null 2>&1
     # Execute SQLPlus command
     sqlplus -L $DBM_CONNECT @sql/dbm-startup.sql $*
     DBM_ERROR=$?

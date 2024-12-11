@@ -55,7 +55,7 @@ set DBM_SRC_VER_CODE=%2
 
 for /f %%i in ('powershell -ExecutionPolicy Bypass -Command "& { Get-Date -Format 'yyyyMMddHHmmss' }"') do set "DATETIME=%%i"
 :again
-del %DBM_TMP_DIR%\*.sql 1>nul 2>nul
+del %DBM_TMP_DIR%\~*.sql 1>nul 2>nul
 @echo off
 rem sqlplus -L %DBM_CONNECT% @sql\migrate-dbm %*
 powershell -Command "& { $output = sqlplus -L '%DBM_CONNECT%' @sql/migrate-dbm %1 %DBM_SRC_VER_CODE% 2>&1; $exitcode = $LASTEXITCODE; $output | Tee-Object -FilePath \"$env:DBM_LOGS_DIR\$env:DATETIME-migrate-dbm_utility.log\" -Append; if ($exitcode -eq 0 -and $output -match 'glogin\.sql') { $exitcode = 1 }; exit $exitcode; }"

@@ -1,10 +1,16 @@
-DBM Utility 24.9 Release Notes
-Date: November 2024
+DBM Utility 24.10 Release Notes
+Date: December 2024
 
 SUPPORT
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 24.10 - December 2024
+
+New Features:
+- Added ability to import/export app's configuration data
+
 
 VERSION 24.9 - November 2024
 

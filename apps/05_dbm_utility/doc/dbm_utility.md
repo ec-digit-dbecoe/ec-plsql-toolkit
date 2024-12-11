@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Base Migration Utility v24.9 - User's Guide
+# Data Base Migration Utility v24.10 - User's Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -45,6 +45,13 @@
   - [4.16. Create / Drop restore point](#416-create--drop-restore-point)
   - [4.17. Flashback database](#417-flashback-database)
   - [4.18. Expose / Conceal](#418-expose--conceal)
+  - [4.19. Export / Import](#419-export--import)
+    - [4.19.1. Exporting Data](#4191-exporting-data)
+    - [4.19.2. Importing Data](#4192-importing-data)
+    - [4.19.3. Export/Import for All Applications](#4193-exportimport-for-all-applications)
+    - [4.19.4. Supported Options](#4194-supported-options)
+    - [4.19.5. File Naming and Storage](#4195-file-naming-and-storage)
+    - [4.19.6. Implementation Details](#4196-implementation-details)
 - [5. Folder Structure and Versioning](#5-folder-structure-and-versioning)
   - [5.1. Folder Structure](#51-folder-structure)
   - [5.2. Versioning](#52-versioning)
@@ -488,6 +495,67 @@ The "expose" command makes the database objects of an application available to p
 
 The "conceal" command functions inversely, concealing database objects previously exposed by an application. This process involves dropping either public or private synonyms and revoking corresponding access rights. Scripts responsible for dropping synonyms and revoking access rights should be located within the "conceal" folder of the application. Concealing an application is performed by executing the command `@db-cli conceal <application> [<schema>]` where "schema" can be either PUBLIC or the name of an existing schema. When no schema is given, all existing expositions (public and/or private) are canceled. When no application is specified or when "all" is explicitly mentioned, all applications with conceal scripts are concealed, resulting in their contents becoming inaccessible.
 
+### 4.19. Export / Import
+
+The `export` and `import` commands enable the backup and restoration of application data using SQL scripts. These commands are particularly useful before upgrading an application (to safeguard against potential failures) or for transferring data between environments.
+
+#### 4.19.1. Exporting Data
+
+To export the data of a specific application, execute:
+
+```sql
+@dbm-cli export <application>
+```
+
+This command runs all scripts located in the `export` subfolder of the application.
+
+#### 4.19.2. Importing Data
+
+To import the data of a specific application, execute:
+
+```sql
+dbm-cli import <application>
+```
+
+This command runs all scripts located in the `import` subfolder of the application.
+
+#### 4.19.3. Export/Import for All Applications
+
+If no application is specified, or if `all` is explicitly provided, the data of all applications is exported or imported.
+
+#### 4.19.4. Supported Options
+
+Both commands support the following options:
+
+- **`-verbose`**: Enables detailed informational messages in the logs (disabled by default).
+- **`-path=<path>`**: Specifies the storage location for the data file. The default location is the `tmp` directory.
+- **`-date[=<format>]`**: Appends a date to the data file name. By default, no date is added. The default date format is `YYMMDD`.
+- **`-time[=<format>]`**: Appends a time to the data file name. By default, no time is added. The default time format is `YYMMDDHHMMSS`.
+
+#### 4.19.5. File Naming and Storage
+
+The exported or imported data file is named as follows:
+
+```plaintext
+<app>[_<datetime>].<extension>
+```
+
+- `<app>`: Application name.
+- `<datetime>`: Optional date and/or time, based on the specified options.
+- `<extension>`: Depends on the tool used for exporting data.
+
+The file is stored in the directory specified by `<path>`.
+
+#### 4.19.6. Implementation Details
+
+The implementation of these commands is application-specific. Common approaches include:
+
+1. **SQL Script Generation**: For example, the EC PL/SQL toolkit uses a dataset utility to extract data and generate a SQL script. This script can later be executed to import the data back. In this case, the file extension is `.sql`.
+   
+2. **Third-Party Tools**: Commands may invoke external tools (e.g., Oracle `exp`/`imp`) using SQL\*Plus's `host` command. For such cases, the data file extension is typically `.dmp`.
+
+These flexible options ensure compatibility with a range of use cases and tools.
+
 ## 5. Folder Structure and Versioning
 
 ### 5.1. Folder Structure
@@ -499,7 +567,7 @@ The folder structure under the "apps" folder is the following:
 ![Folder structure](dbm_utility_files/folder-structure.png)
 
 Each application managed by the tool possesses a dedicated folder within the "apps" directory, with the application code derived from the folder name. Additionally, a special directory named "all" can be established to accommodate materials common to all applications, such as shared configuration files. You can use numerical prefixes in the application folder names to instruct the tool to process them in a certain order.
-<>
+
 Under each application folder resides a "releases" folder that contains the various releases. Release numbers are derived from the folder name. Similarly, a designated "all" folder can be created to house materials common to all releases of an application, such as scripts for uninstalling the application or configuration settings independent of specific releases.
 
 Every operation applicable to a release is represented by a dedicated folder within the release folder. These folders are named after the respective commands, including "install," "upgrade," "validate," and "uninstall," and contain all necessary scripts for the associated operation. Additionally, a "config" folder may be created to contain release-specific configuration files.
@@ -1063,10 +1131,12 @@ Here follows the list of commands (and their shortcut) available to end-users:
 | `create[-restore-point]` | create a restore point for subsequent flashback |
 | `disp[lay]` | display application(s) information |
 | `drop[-restore-point]` | drop a previously created restore point |
-| `exp[ose]` | expose application(s) to public/private schema |
+| `expos[e]` | expose application(s) to public/private schema |
+| `expor[t]` | export application's data |
 | `flash[back-database]` | restore a database to last created restore point |
 | `guess[-current]` | guess currently installed version of application(s) |
 | `help` | get list of commands |
+| `imp[ort]` | import application's data |
 | `ins[tall]` | install application(s) |
 | `make[-inventory]` | make an inventory of db objects with checksums |
 | `mig[rate]` | install and/or upgrade application(s) |
@@ -1118,18 +1188,20 @@ Here follows the list of command options and their shortcut:
 
 | Command | Option | Description |
 | ------- | ------ | ----------- |
-| "all"   | `-debug` | Show debug information |
+| `<all>`  | `-debug` | Show debug information |
 |         | `-show[-errors]` | show compilation errors |
 |         | `-stop[-on-warning]` | stop on SQL*Plus warning in case of compilation error |
+| export / import  | `-verb[ose]` | Display detailed info |
+|         | `-path=<path>` | Directory where data files are stored |
+|         | `-date[=<format>]` | Append date to data file name |
+|         | `-time[=<format>]` | Append time to data file name |
 | guess   | `-best` | Guess best version |
 |         | `-set`  | Set version to guessed one |
 | help    | `-int[ernal]` | Show internal commands |
-| migrate | `-jump[-to-statement]=<stmd-id>` | Skip statements before given statement id |
+| migrate / install / upgrade | `-jump[-to-statement]=<stmd-id>` | Skip statements before given statement id |
 |         | `-noval[idate]` | Do not validate after migrate |
 |         | `-noup[grade]`  | Do not apply upgrades after install |
 |         | `-nopre[checks]`  | Do not execute pre-checks |
 |         | `-nopri[vileges]`  | Do not check privileges |
 |         | `-skip-file=<file>`  | Skip file with given name or relative path |
 | show    | `-a[ll]`  | Show apps of all schemas |
-
-Note: options of `migrate` command also applies to `install` and `upgrade` commands.

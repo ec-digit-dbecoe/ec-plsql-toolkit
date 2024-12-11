@@ -408,6 +408,7 @@ DECLARE
       t_upg(240804) := '24.8.4';
       t_upg(240805) := '24.8.5'; t_ins(240805) := '24.8.5';
       t_upg(240900) := '24.9';   t_ins(240900) := '24.9'  ;
+      t_upg(241000) := '24.10';  t_ins(241000) := '24.10' ;
       -- Initialise checksums for objects and packages (computed with "sql/dbm_checksums.sql");
       t_obj_sum(240000) := 671291450;  t_pkg_sum(240000) := 296702143;
       t_obj_sum(240100) := 544776930;  t_pkg_sum(240100) := 1062429868;
@@ -425,6 +426,7 @@ DECLARE
       t_obj_sum(240804) := 343620986;  t_pkg_sum(240804) := 130171331;
       t_obj_sum(240805) := 343620986;  t_pkg_sum(240805) := 434686173;
       t_obj_sum(240900) := 343620986;  t_pkg_sum(240900) := 733453529;
+      t_obj_sum(241000) := 873193532;  t_pkg_sum(241000) := 214173488;
       -- Initially lookup arrays
       l_ver_nbr := t_ins.FIRST;
       WHILE l_ver_nbr IS NOT NULL LOOP
@@ -490,8 +492,8 @@ BEGIN
    ELSE
       -- DBM may need an upgrade
       IF l_tgt_ver_code IS NULL THEN
-         l_tgt_ver_code := a_upg.LAST;
-         l_tgt_ver_nbr := a_upg(l_tgt_ver_code);
+         l_tgt_ver_nbr := t_upg.LAST;
+         l_tgt_ver_code := t_upg(l_tgt_ver_nbr);
          dbms_output.put_line('Computed target version is "'||l_tgt_ver_code||'" (latest release)');
       END IF;
       IF l_src_ver_code IS NULL THEN

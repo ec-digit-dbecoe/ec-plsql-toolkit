@@ -1,4 +1,4 @@
-DS Utility 24.2.2 Release Notes
+DS Utility 24.2.3 Release Notes
 Date: December 2024
 
 SUPPORT
@@ -7,7 +7,13 @@ You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
 
-VERSION 24.2.1 - December 2024
+VERSION 24.2.3 - December 2024
+
+Bug fixing:
+- 'NULL' string was wrongly replaced with NULL value when exporting data set as script.
+- Constraints and indexes where sometimes displayed several times on Graphviz graphs.
+
+VERSION 24.2.2 - December 2024
 
 Changes:
 - When no PK is found, use any UK as an alternative.

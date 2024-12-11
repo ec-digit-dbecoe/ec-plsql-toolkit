@@ -70,7 +70,7 @@ if not exist "~set-os.sql" (
 )
 
 :again
-del %DBM_TMP_DIR%\*.sql 1>nul 2>nul
+del %DBM_TMP_DIR%\~*.sql 1>nul 2>nul
 sqlplus -L %DBM_CONNECT% @sql\dbm-startup.sql %*
 set DBM_ERROR=%ERRORLEVEL%
 echo ERRORLEVEL=%DBM_ERROR%
