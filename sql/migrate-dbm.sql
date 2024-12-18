@@ -479,8 +479,8 @@ BEGIN
       -- DBM must be installed
       IF l_tgt_ver_code IS NULL THEN
          -- No target version specified, take latest full release
-         l_tgt_ver_code := a_ins.LAST;
-         l_tgt_ver_nbr := a_upg(l_tgt_ver_code);
+         l_tgt_ver_nbr := t_ins.LAST;
+         l_tgt_ver_code := t_ins(l_tgt_ver_nbr);
          dbms_output.put_line('Computed target version is "'||l_tgt_ver_code||'" (latest full release)');
       ELSE
          -- Target version specified, check if installable

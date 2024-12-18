@@ -165,8 +165,7 @@ The installer (the DBM tool) requires the following:
 
 #### 2.1.3. System privileges
 
-The tool offers two installation options: centrally in a dedicated schema for shared access by other schemas, or separately in multiple schemas. Central installation is recommended. In this setup, the schema require
-Unzip the distributed archive (`ec_plsql_toolkit`) into the folder of your choice. s "CREATE PUBLIC SYNONYM" and "GRANT PUBLIC SYNONYM" system privileges to expose or conceal its database objects to other schemas.
+The tool offers two installation options: centrally in a dedicated schema for shared access by other schemas, or separately in multiple schemas. Central installation is recommended. In this setup, the schema requires "CREATE PUBLIC SYNONYM" and "GRANT PUBLIC SYNONYM" system privileges to expose or conceal its database objects to other schemas.
 
 ### 2.2. Get the DBM tool
 
