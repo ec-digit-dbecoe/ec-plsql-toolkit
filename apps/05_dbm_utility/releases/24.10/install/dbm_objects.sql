@@ -741,6 +741,8 @@ CREATE OR REPLACE VIEW dbm_versions(
 , setupable
 , exposable
 , concealable
+, exportable
+, importable
 , deleted_flag
 )
 AS
@@ -762,6 +764,8 @@ SELECT app_code
      , setupable
      , exposable
      , concealable
+     , exportable
+     , importable
      , deleted_flag
   FROM dbm_versions$
  WHERE owner = SYS_CONTEXT('USERENV', 'SESSION_USER')
