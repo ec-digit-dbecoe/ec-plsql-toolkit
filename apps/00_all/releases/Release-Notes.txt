@@ -1,11 +1,19 @@
-EC PL/SQL Tooklit 24.11 Release Notes
-Date: December 2024
+EC PL/SQL Tooklit 25.0 Release Notes
+Date: January 2024
 
 SUPPORT
 
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+RELEASE 25.0 - January 2025
+
+Bug Fixing:
+- DS  25.0: Bug fixing (tool was not properly working when installed in a central schema).
+- DBM 25.0: Bug fixing (see DBM release notes for details).
+  WARNING: DBM tool now requires SELECT ANY DICTIONARY system privilege to install!!!
+  WARNING: All tools must always be concealed then exposed again after their migration.
 
 RELEASE 24.11 - December 2024
 

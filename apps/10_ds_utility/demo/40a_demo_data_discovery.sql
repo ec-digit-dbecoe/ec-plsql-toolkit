@@ -4,11 +4,15 @@ REM All rights reserved (C)opyright 2024 by Philippe Debois
 REM 
 
 CLEAR SCREEN
+set serveroutput on size 999999
 PAUSE Discover sensitive data?
 exec ds_utility_krn.set_message_filter('EWI');
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 exec ds_utility_krn.discover_sensitive_data(p_rows_sample_size=>200, p_full_schema=>TRUE, p_table_name=>'DEMO%', p_commit=>TRUE);
 
 PAUSE Check results?

@@ -8,6 +8,7 @@ REM Scenario 1: CDC without replication (NONE)
 REM
 PAUSE Configure change data capture?
 CLEAR SCREEN
+set serveroutput on size 999999
 
 REM Create and configure data set
 begin

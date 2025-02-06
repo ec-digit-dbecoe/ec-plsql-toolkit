@@ -9,6 +9,8 @@ REM (uncomment commented lines for debugging)
 REM
 PAUSE Start of scenario 1
 CLEAR SCREEN
+set serveroutput on size 999999
+
 --exec ds_utility_krn.set_message_filter('EWIS');
 --exec ds_utility_krn.set_test_mode(TRUE);
 exec ds_utility_krn.transport_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'),p_method=>'DIRECT-EXECUTE',p_mode=>'I',p_db_link=>'DBCC_DIGIT_01_A.CC.CEC.EU.INT',p_final_commit=>TRUE);
@@ -21,7 +23,8 @@ select * from demo_org_entities@DBCC_DIGIT_01_A.CC.CEC.EU.INT order by oen_cd;
 REM Scenario 2: Transport data as script (to be executed manually in the target schema)
 PAUSE Start of scenario 2
 CLEAR SCREEN
-truncate table ds_output;
+delete ds_output;
+commit;
 --exec ds_utility_krn.set_message_filter('EWIS');
 --exec ds_utility_krn.set_test_mode(TRUE);
 exec ds_utility_krn.transport_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'),p_method=>'PREPARE-SCRIPT',p_output=>'DS_OUTPUT',p_mode=>'I');

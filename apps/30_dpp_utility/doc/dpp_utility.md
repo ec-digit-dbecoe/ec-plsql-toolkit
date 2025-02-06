@@ -390,7 +390,6 @@ The schema must also be granted with the following system privileges:
 | Privilege name                                         |
 | :---                                                   |
 | ALTER SYSTEM                                           |
-| ALTER USER                                             |
 | ADVISOR                                                |
 | ALTER DATABASE LINK                                    |
 | CREATE ANY CONTEXT                                     |

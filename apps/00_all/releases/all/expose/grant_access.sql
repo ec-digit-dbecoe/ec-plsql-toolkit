@@ -37,7 +37,7 @@ BEGIN
                      ELSE 'SELECT, INSERT, UPDATE, DELETE'
                       END
                 WHEN r_obj.object_type = 'SEQUENCE' THEN 'SELECT'
-                WHEN r_obj.object_type IN ('PACKAGE','PROCEDURE','FUNCTION') THEN 'EXECUTE'
+                WHEN r_obj.object_type IN ('PACKAGE','PROCEDURE','FUNCTION','TYPE','JAVA CLASS') THEN 'EXECUTE'
                  END
              ||' ON '||LOWER(r_obj.object_name) || ' TO '||NVL(UPPER('&&grantee'),'PUBLIC');
       dbms_output.put_line(l_sql||';');

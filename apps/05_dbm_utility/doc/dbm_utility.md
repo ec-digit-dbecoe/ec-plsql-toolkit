@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Base Migration Utility v24.10 - User's Guide
+# Data Base Migration Utility v25.0 - User's Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -1180,6 +1180,7 @@ Here follows the list of the `dbm-cli` shell script options.
 | `-logs_dir=<path>` | Alternate location of `logs` folder |
 | `-tmp_dir=<path>` | Alternate location of `tmp` folder |
 | `-conf_path=<path>` | Alternate path of configuration file `conf/dbm_utility.conf` |
+| `-[no]color` | Display some messages with/without colors  |
 
 #### 14.2.2. Command options
 

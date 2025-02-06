@@ -8,6 +8,7 @@ REM Scenario 1: CDC without replication (NONE)
 REM
 PAUSE Configure change data capture?
 CLEAR SCREEN
+set serveroutput on size 999999
 
 REM Create and configure data set
 declare
@@ -16,7 +17,6 @@ begin
    ds_utility_krn.set_message_filter('EWI');
    l_set_id := ds_utility_krn.create_or_replace_data_set_def(p_set_name=>'DEMO_DATA_CAP', p_set_type=>'CAP', p_capture_mode=>'NONE');
    ds_utility_krn.include_tables(p_set_id=>l_set_id,p_table_name=>'DEMO%', p_extract_type=>'B');
-   ds_utility_krn.exclude_tables(p_set_id=>l_set_id,p_table_name=>'DEMO_DUAL'); -- has no PK
    commit;
 END;
 /

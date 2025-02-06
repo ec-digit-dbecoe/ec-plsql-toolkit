@@ -341,6 +341,12 @@ CREATE TABLE demo_dual (dummy VARCHAR2(1) NULL);
 COMMENT ON TABLE demo_dual IS q'#Dummy isolated table#';
 COMMENT ON COLUMN demo_dual.dummy IS 'Dummy column';
 
+CREATE UNIQUE INDEX demo_dual_pk ON demo_dual (dummy);
+
+ALTER TABLE demo_dual ADD (
+   CONSTRAINT demo_dual_pk PRIMARY KEY (dummy) USING INDEX
+);
+
 REM Truncate generated tables (in the right order)
 
 TRUNCATE TABLE demo_per_clockings;

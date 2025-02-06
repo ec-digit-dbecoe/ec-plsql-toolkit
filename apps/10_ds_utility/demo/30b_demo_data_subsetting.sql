@@ -6,6 +6,8 @@ REM
 
 PROMPT Configure data set?
 CLEAR SCREEN
+set serveroutput on size 999999
+
 declare
    l_set_id ds_data_sets.set_id%TYPE;
 begin
@@ -24,7 +26,6 @@ PAUSE Generate views?
 CLEAR SCREEN
 REM Create views to pre-view data set
 exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_view_suffix=>'_V');
-exec dbms_output.put_line('ok');
 
 PAUSE Drop views?
 CLEAR SCREEN

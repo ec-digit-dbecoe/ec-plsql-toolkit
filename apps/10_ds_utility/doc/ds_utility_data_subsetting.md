@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Set Utility - Data Subsetting - User's Guide v24.2
+# Data Set Utility - Data Subsetting - User's Guide v25.0
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)

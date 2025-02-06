@@ -6,6 +6,7 @@ REM
 
 PAUSE Configure masks?
 CLEAR SCREEN
+set serveroutput on size 999999
 
 REM
 REM Scenario 1: mask a few fields but not the per_id (pk)
@@ -37,8 +38,10 @@ select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_d
 
 REM Proceed
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
 exec ds_utility_krn.mask_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'),p_key=>'This is the private key',p_commit=>TRUE,p_seed=>'This is a seed');
 exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_view_suffix=>'_MSK', p_mask_data=>TRUE, p_include_rowid=>TRUE);
 exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_view_suffix=>'_ORI', p_mask_data=>FALSE, p_include_rowid=>TRUE);
@@ -55,10 +58,12 @@ select ds_masker_krn.decrypt_credit_card_number('4839620696432370') from dual; -
 REM
 REM Scenario 2: generate new per_id's based on an in-memory sequence (reset other masks)
 PAUSE Start of scenario 2
-CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -80,9 +85,12 @@ REM
 REM Scenario 2b: generate new per_id's based on a local Oracle sequence (reset other masks)
 PAUSE Start of scenario 2b
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -104,9 +112,12 @@ REM
 REM Scenario 2c: generate new per_id's based on a remote Oracle sequence (reset other masks)
 PAUSE Start of scenario 2c
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -128,9 +139,12 @@ REM
 REM Scenario 3: shuffle per_id's (reset other masks)
 PAUSE Start of scenario 3
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -151,9 +165,12 @@ REM
 REM Scenario 4: encrypt per_ids (reset other masks)
 PAUSE Start of scenario 4
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -174,9 +191,12 @@ REM
 REM Scenario 5b: tokenize per_id with token = random number (reset other masks) 
 PAUSE Start of scenario 5
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -199,9 +219,12 @@ REM
 REM Scenario 5b: tokenize per_id with token = encrypted per_id (reset other masks)
 PAUSE Start of scenario 5
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -226,9 +249,12 @@ REM Preview of per_id masking not available! + Works only with scripts to be tra
 REM
 PAUSE Start of scenario 6
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -250,9 +276,12 @@ REM Scenario 7: masking/relocation of per_id by shifting them by a constant valu
 REM
 PAUSE Start of scenario 7
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
@@ -273,9 +302,12 @@ REM
 REM Clean-up
 PAUSE Start of clean-up
 CLEAR SCREEN
-truncate table ds_identifiers;
-truncate table ds_tokens;
-truncate table ds_masks;
+delete ds_identifiers;
+commit;
+delete ds_tokens;
+commit;
+delete ds_masks;
+commit;
 exec ds_utility_krn.drop_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_view_suffix=>'_MSK');
 exec ds_utility_krn.drop_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_view_suffix=>'_ORI');
 PAUSE End of clean-up

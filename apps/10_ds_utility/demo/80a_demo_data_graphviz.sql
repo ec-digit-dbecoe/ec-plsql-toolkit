@@ -6,6 +6,7 @@ REM
 REM Diagram for Synthetic Data Generation
 REM Only generated columns are displayed.
 CLEAR SCREEN
+set serveroutput on size 999999
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -38,6 +39,7 @@ REM Diagram for Data Subsetting (with masking if any)
 REM Only masked columns are displayed.
 PAUSE
 CLEAR SCREEN
+set serveroutput on size 999999
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -70,6 +72,7 @@ REM Diagram for Sensitive Data Discovery (with masks if any)
 REM Only sensitive or masked columns are displayed.
 PAUSE
 CLEAR SCREEN
+set serveroutput on size 999999
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>NULL -- show only 
   , p_table_name=>'DEMO%' -- table filter
@@ -101,6 +104,7 @@ select * from table(ds_utility_ext.graph_data_set(
 REM Diagram for Change Data Capture
 PAUSE
 CLEAR SCREEN
+set serveroutput on size 999999
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_CAP') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -133,6 +137,7 @@ REM Data Structure Diagram of DEMO tables (not related to any data set)
 REM All table columns, constraints and indexes are displayed.
 PAUSE
 CLEAR SCREEN
+set serveroutput on size 999999
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>NULL
   , p_table_name=>'DEMO%' -- table filter

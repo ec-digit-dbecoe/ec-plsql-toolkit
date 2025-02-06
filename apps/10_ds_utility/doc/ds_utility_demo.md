@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Set Utility - Demo Guide v24.0
+# Data Set Utility - Demo Guide v25.0
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (DIGIT)
@@ -184,7 +184,7 @@ Pre-requisite: to install the *DS_CRYPTO* package, you need to have the execute 
 
 For **upgrading** the tool to its latest version, execute the `ds_upgrade.sql` script located in the `upgrade` directory. If you are upgrading from a version more than one release behind, you will need to perform all intermediate upgrades. You may sometimes be also invited to enter the names of your data and index tablespaces.
 
-Demo scripts can be found in the `demo` directory. They are numbered so as to be executed in the right order. Scripts "a" are based on APIs only, scripts "b" are based on the DEGPL language, and script "c" are to be used when the tool is installed in a central schema and the demo tables in another one. Files "z" are the corresponding GraphViz diagrams.
+Demo scripts can be found in the `demo` directory. They are numbered so as to be executed in the right order. Scripts "a" are based on APIs while scripts "b" are based on the DEGPL language. Files "z" are the corresponding GraphViz diagrams.
 
 ### 1.4. Demo use case
 

@@ -4,14 +4,13 @@ DECLARE
       SELECT object_type, object_name
            , CASE WHEN object_type = 'TABLE' THEN ' CASCADE CONSTRAINTS' END drop_type
         FROM user_objects
-       WHERE SUBSTR(object_name,1,3) = 'DS_'
-         AND object_type IN ('CONSTRAINT','PACKAGE','TABLE','SEQUENCE','VIEW','TYPE')
+       WHERE regexp_like(object_type||' '||object_name, '(^(PACKAGE|SEQUENCE|TABLE|TYPE) DS_)|(^(JAVA SOURCE|FUNCTION) .*FF3.*)')
        ORDER BY 1, LENGTH(object_name) DESC, 2
       ;
    l_sql VARCHAR2(4000);
 BEGIN
    FOR r_obj IN c_obj LOOP
-      l_sql := 'DROP '||r_obj.object_type||' '||LOWER(r_obj.object_name)||r_obj.drop_type;
+      l_sql := 'DROP '||r_obj.object_type||' "'||r_obj.object_name||'"'||r_obj.drop_type;
       dbms_output.put_line(l_sql);
       BEGIN
          EXECUTE IMMEDIATE l_sql;

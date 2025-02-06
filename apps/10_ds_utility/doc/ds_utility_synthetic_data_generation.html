@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///tmp/crossnote2024928-21733-7gieji.g1315.html -->
+<!-- saved from url=(0052)file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>ds_utility_synthetic_data_generation</title>
       
@@ -27,127 +27,127 @@
       <div class="crossnote markdown-preview  ">
       
 <p><!-- omit in toc --></p>
-<h1 id="data-set-utility---synthetic-data-generation---users-guide-v241">Data Set Utility - Synthetic Data Generation - User's Guide v24.1 </h1>
+<h1 id="data-set-utility---synthetic-data-generation---users-guide-v250">Data Set Utility - Synthetic Data Generation - User's Guide v25.0 </h1>
 <h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1-synthetic-data-generation">1. Synthetic Data Generation</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1-synthetic-data-generation">1. Synthetic Data Generation</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#11-introduction">1.1. Introduction</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#12-overview">1.2. Overview</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#13-properties">1.3. Properties</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#11-introduction">1.1. Introduction</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#12-overview">1.2. Overview</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#13-properties">1.3. Properties</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#131-data-set-properties">1.3.1. Data set properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#132-table-properties">1.3.2. Table properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#133-table-column-properties">1.3.3. Table column properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#134-constraint-properties">1.3.4. Constraint properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#135-record-properties">1.3.5. Record properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#131-data-set-properties">1.3.1. Data set properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#132-table-properties">1.3.2. Table properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#133-table-column-properties">1.3.3. Table column properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#134-constraint-properties">1.3.4. Constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#135-record-properties">1.3.5. Record properties</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#14-generation-types">1.4. Generation types</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#14-generation-types">1.4. Generation types</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#141-seq--sequence">1.4.1. SEQ – Sequence</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#142-fk--foreign-key">1.4.2. FK – Foreign key</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#143-sql--expression">1.4.3. SQL – Expression</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#141-seq--sequence">1.4.1. SEQ – Sequence</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#142-fk--foreign-key">1.4.2. FK – Foreign key</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#143-sql--expression">1.4.3. SQL – Expression</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1431-random-functions">1.4.3.1. Random functions</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1432-reference-to-other-columns">1.4.3.2. Reference to other columns</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1433-pseudo-columns">1.4.3.3. Pseudo columns</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#15-generation-view">1.5. Generation view</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#16-procedure">1.6. Procedure</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#161-get-a-print-out-of-your-data-model">1.6.1. Get a print-out of your data model</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#162-create-a-data-set">1.6.2. Create a data set</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#163-include-base-tables">1.6.3. Include base tables</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#164-include-referential-constraints">1.6.4. Include referential constraints</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#165-review-included-tables-and-constraints">1.6.5. Review included tables and constraints</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#166-insert-table-columns">1.6.6. Insert table columns</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#167-update-table-properties">1.6.7. Update table properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#168-update-constraint-properties">1.6.8. Update constraint properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#169-update-column-properties">1.6.9. Update column properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1610-generate-data-set">1.6.10. Generate data set</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1611-check-statistics">1.6.11. Check statistics</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1612-create-views">1.6.12. Create views</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#1613-drop-views">1.6.13. Drop views</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1431-random-functions">1.4.3.1. Random functions</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1432-reference-to-other-columns">1.4.3.2. Reference to other columns</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1433-pseudo-columns">1.4.3.3. Pseudo columns</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2-tutorial">2. Tutorial</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#15-generation-view">1.5. Generation view</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#16-procedure">1.6. Procedure</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#21-data-model">2.1. Data Model</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#211-diagrams">2.1.1. Diagrams</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2111-part-1">2.1.1.1. Part 1</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2112-part-2">2.1.1.2. Part 2</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#212-narrative">2.1.2. Narrative</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2121-part-1">2.1.2.1. Part 1</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2122-part-2">2.1.2.2. Part 2</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#213-data-classification">2.1.3. Data classification</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#22-requirements">2.2. Requirements</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#221-persons">2.2.1. Persons</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#222-entities">2.2.2. Entities</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#223-persons-assignments">2.2.3. Person’s assignments</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#224-persons-clockings">2.2.4. Person’s clockings</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#225-persons-orders">2.2.5. Person’s orders</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#226-orders-lines">2.2.6. Order’s lines</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#227-products">2.2.7. Products</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#228-stores">2.2.8. Stores</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#229-persons-credit-cards">2.2.9. Person’s credit cards</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2210-persons-transactions">2.2.10. Person’s transactions</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2211-other-requirements">2.2.11. Other requirements</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#23-solution">2.3. Solution</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#231-get-a-print-out-of-your-data-model">2.3.1. Get a print-out of your data model</a>
-<ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2311-part-1">2.3.1.1. Part 1</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2312-part-2">2.3.1.2. Part 2</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#232-create-a-data-set">2.3.2. Create a data set</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#233-include-base-tables">2.3.3. Include base tables</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#234-include-referential-constraints">2.3.4. Include referential constraints</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#235-review-included-tables-and-constraints">2.3.5. Review included tables and constraints</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#236-insert-table-columns">2.3.6. Insert table columns</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#237-update-table-properties">2.3.7. Update table properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#238-update-constraint-properties">2.3.8. Update constraint properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#239-update-column-properties">2.3.9. Update column properties</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2310-generate-data-set">2.3.10. Generate data set</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2311-check-statistics">2.3.11. Check statistics</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2312-create-views">2.3.12. Create views</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#2313-drop-views">2.3.13. Drop views</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#161-get-a-print-out-of-your-data-model">1.6.1. Get a print-out of your data model</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#162-create-a-data-set">1.6.2. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#163-include-base-tables">1.6.3. Include base tables</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#164-include-referential-constraints">1.6.4. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#165-review-included-tables-and-constraints">1.6.5. Review included tables and constraints</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#166-insert-table-columns">1.6.6. Insert table columns</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#167-update-table-properties">1.6.7. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#168-update-constraint-properties">1.6.8. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#169-update-column-properties">1.6.9. Update column properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1610-generate-data-set">1.6.10. Generate data set</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1611-check-statistics">1.6.11. Check statistics</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1612-create-views">1.6.12. Create views</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#1613-drop-views">1.6.13. Drop views</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#3-annexes">3. Annexes</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2-tutorial">2. Tutorial</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#31-regular-expressions">3.1. Regular Expressions</a>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#21-data-model">2.1. Data Model</a>
 <ul>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#311-metacharacters">3.1.1. Metacharacters</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#312-shorthand-character-classes">3.1.2. Shorthand character classes</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#313-character-class-ranges">3.1.3. Character class ranges</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#314-negated-character-classes">3.1.4. Negated character classes</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#315-posix-character-classes">3.1.5. POSIX character classes</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#316-posix-collating-sequences">3.1.6. POSIX collating sequences</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#317-posix-character-equivalent-classes">3.1.7. POSIX character equivalent classes</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#318-character-class-subtraction">3.1.8. Character class subtraction</a></li>
-<li><a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#319-non-capturing-groups">3.1.9. Non-capturing groups</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#211-diagrams">2.1.1. Diagrams</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2111-part-1">2.1.1.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2112-part-2">2.1.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#212-narrative">2.1.2. Narrative</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2121-part-1">2.1.2.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2122-part-2">2.1.2.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#213-data-classification">2.1.3. Data classification</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#22-requirements">2.2. Requirements</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#221-persons">2.2.1. Persons</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#222-entities">2.2.2. Entities</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#223-persons-assignments">2.2.3. Person’s assignments</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#224-persons-clockings">2.2.4. Person’s clockings</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#225-persons-orders">2.2.5. Person’s orders</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#226-orders-lines">2.2.6. Order’s lines</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#227-products">2.2.7. Products</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#228-stores">2.2.8. Stores</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#229-persons-credit-cards">2.2.9. Person’s credit cards</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2210-persons-transactions">2.2.10. Person’s transactions</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2211-other-requirements">2.2.11. Other requirements</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#23-solution">2.3. Solution</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#231-get-a-print-out-of-your-data-model">2.3.1. Get a print-out of your data model</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2311-part-1">2.3.1.1. Part 1</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2312-part-2">2.3.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#232-create-a-data-set">2.3.2. Create a data set</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#233-include-base-tables">2.3.3. Include base tables</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#234-include-referential-constraints">2.3.4. Include referential constraints</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#235-review-included-tables-and-constraints">2.3.5. Review included tables and constraints</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#236-insert-table-columns">2.3.6. Insert table columns</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#237-update-table-properties">2.3.7. Update table properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#238-update-constraint-properties">2.3.8. Update constraint properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#239-update-column-properties">2.3.9. Update column properties</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2310-generate-data-set">2.3.10. Generate data set</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2311-check-statistics">2.3.11. Check statistics</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2312-create-views">2.3.12. Create views</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#2313-drop-views">2.3.13. Drop views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#3-annexes">3. Annexes</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#31-regular-expressions">3.1. Regular Expressions</a>
+<ul>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#311-metacharacters">3.1.1. Metacharacters</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#312-shorthand-character-classes">3.1.2. Shorthand character classes</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#313-character-class-ranges">3.1.3. Character class ranges</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#314-negated-character-classes">3.1.4. Negated character classes</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#315-posix-character-classes">3.1.5. POSIX character classes</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#316-posix-collating-sequences">3.1.6. POSIX collating sequences</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#317-posix-character-equivalent-classes">3.1.7. POSIX character equivalent classes</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#318-character-class-subtraction">3.1.8. Character class subtraction</a></li>
+<li><a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#319-non-capturing-groups">3.1.9. Non-capturing groups</a></li>
 </ul>
 </li>
 </ul>
@@ -619,7 +619,7 @@
 </table>
 <p><em><strong>Table 8 - Provided data sets</strong></em></p>
 <p>You can easily create your own.</p>
-<p>The function that generates a value compliant with a given regular expression is described more in detail in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#31-regular-expressions">3.1. Regular Expressions</a>.</p>
+<p>The function that generates a value compliant with a given regular expression is described more in detail in section <a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#31-regular-expressions">3.1. Regular Expressions</a>.</p>
 <h4 id="1432-reference-to-other-columns">1.4.3.2. Reference to other columns </h4>
 <p>A SQL expression may reference generated values of other columns of the same table by prefixing their name with a colon i.e., using the following syntax:</p>
 <p><code>:&lt;column_name&gt;</code></p>
@@ -887,7 +887,7 @@
 <p>For tables implementing an intersection entity (<code>ASSIGNMENTS</code>, <code>ORDER_ITEMS</code>), only one of their two master/detail relationships may be used to drive their generation. As an example, for <code>ORDER_ITEMS</code>, <code>ORDERS</code> should be driving, not <code>PRODUCTS</code>.</p>
 <p>For tables that are part of the current data set, only records generated in this context can be referenced by other generated records. In other words, records generated by other data sets cannot be referenced. Pre-existing records (e.g., in reference tables) that are not part of the current data set can be referenced without any restriction.</p>
 <h2 id="23-solution">2.3. Solution </h2>
-<p>This section describes how the data set is created and configured to generate the data according to the requirements described in the previous section. The steps followed are those described in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#16-procedure">1.6. Procedure</a>.</p>
+<p>This section describes how the data set is created and configured to generate the data according to the requirements described in the previous section. The steps followed are those described in section <a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#16-procedure">1.6. Procedure</a>.</p>
 <p>You will find the tutorial files is in the following directory: <code>tutorial\scripts</code>.</p>
 <table>
 <thead>
@@ -909,7 +909,7 @@
 </table>
 <h3 id="231-get-a-print-out-of-your-data-model">2.3.1. Get a print-out of your data model </h3>
 <p>Execute the script ds_fake_data_gen_model.sql to create the tutorial database objects.</p>
-<p>Here follows the same diagrams as in section <a href="file:///tmp/crossnote2024928-21733-7gieji.g1315.html#211-diagrams">2.1.1. Diagrams</a> but with some colours added with the following conventions:</p>
+<p>Here follows the same diagrams as in section <a href="file:///tmp/crossnote2025028-30970-4tsnmj.cwgmx.html#211-diagrams">2.1.1. Diagrams</a> but with some colours added with the following conventions:</p>
 <table>
 <thead>
 <tr>

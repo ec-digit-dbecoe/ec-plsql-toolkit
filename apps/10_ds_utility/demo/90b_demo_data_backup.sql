@@ -10,6 +10,7 @@ select * from ds_tokens where msk_id in (select msk_id from ds_masks where table
 
 PAUSE Configure data set definition
 CLEAR SCREEN
+set serveroutput on size 999999
 declare
 l_set_id ds_data_sets.set_id%TYPE;
 begin
@@ -99,7 +100,7 @@ select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_d
 
 PAUSE Generate script (for manual execution in target schema)
 CLEAR SCREEN
-truncate table ds_output;
+delete ds_output;
 exec ds_utility_krn.handle_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DATA_SET_BACKUP'),p_oper=>'PREPARE-SCRIPT',p_output=>'DS_OUTPUT');
 
 PAUSE Extract script

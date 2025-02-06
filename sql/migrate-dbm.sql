@@ -37,6 +37,7 @@ VARIABLE l_action VARCHAR2(10)
 VARIABLE l_nxt_obj_sum NUMBER;
 VARIABLE l_nxt_pkg_sum NUMBER;
 set termout on
+@@sql/dbm-check-privs.sql
 DECLARE
    -- Local types
    SUBTYPE l_ver_code_type IS VARCHAR2(10);
@@ -409,6 +410,7 @@ DECLARE
       t_upg(240805) := '24.8.5'; t_ins(240805) := '24.8.5';
       t_upg(240900) := '24.9';   t_ins(240900) := '24.9'  ;
       t_upg(241000) := '24.10';  t_ins(241000) := '24.10' ;
+      t_upg(250000) := '25.0';   t_ins(250000) := '25.0' ;
       -- Initialise checksums for objects and packages (computed with "sql/dbm_checksums.sql");
       t_obj_sum(240000) := 671291450;  t_pkg_sum(240000) := 296702143;
       t_obj_sum(240100) := 544776930;  t_pkg_sum(240100) := 1062429868;
@@ -427,6 +429,7 @@ DECLARE
       t_obj_sum(240805) := 343620986;  t_pkg_sum(240805) := 434686173;
       t_obj_sum(240900) := 343620986;  t_pkg_sum(240900) := 733453529;
       t_obj_sum(241000) := 873193532;  t_pkg_sum(241000) := 214173488;
+      t_obj_sum(250000) := 523820094;  t_pkg_sum(250000) := 418820808;
       -- Initially lookup arrays
       l_ver_nbr := t_ins.FIRST;
       WHILE l_ver_nbr IS NOT NULL LOOP
@@ -897,8 +900,10 @@ BEGIN
 EXCEPTION
    WHEN OTHERS THEN
        dbms_output.put_line(SQLERRM||CHR(10)||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
-       dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility', p_ver_status=>'INVALID');
-       COMMIT;
+       IF NOT SQLERRM LIKE 'ORA-%: INFO%' THEN
+          dbm_utility_krn.upsert_app(p_app_code=>'dbm_utility', p_ver_status=>'INVALID');
+          COMMIT;
+       END IF;
        RAISE;
 END;
 /

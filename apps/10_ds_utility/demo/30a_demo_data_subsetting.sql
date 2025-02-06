@@ -5,6 +5,8 @@ REM
 
 PAUSE Configure data subsetting?
 CLEAR SCREEN
+set serveroutput on size 999999
+
 declare
    l_set_id ds_data_sets.set_id%TYPE;
 begin

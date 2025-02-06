@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\malmjea\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.14\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:////home/malmjea/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -24,10 +24,8 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="dpp-utility-users-guide-v243">DPP Utility User's Guide v24.3 </h1>
-<p><strong>Date:</strong>                   02/10/2024<br>
-<strong>Author:</strong>                 Jean-Marc MALMEDY<br>
-<strong>Document version:</strong>       24.3</p>
+<h1 id="dpp-utility---users-guide-v243">DPP Utility - User's Guide v24.3 </h1>
+<h2 id="author-jean-marc-malmedy-european-commission">Author: Jean-Marc MALMEDY (European Commission) </h2>
 <h2 id="1-table-of-content">1. Table of content </h2>
 <ul>
 <li><a href="#1-table-of-content">1. Table of content</a></li>
@@ -514,9 +512,6 @@
 <tbody>
 <tr>
 <td style="text-align:left">ALTER SYSTEM</td>
-</tr>
-<tr>
-<td style="text-align:left">ALTER USER</td>
 </tr>
 <tr>
 <td style="text-align:left">ADVISOR</td>
@@ -1278,9 +1273,8 @@ No special privileges must then be requested.</p>
 <li>The <strong>EXP_FULL_DATABASE</strong> role. Usually, the documentation mentions that the <strong>IMP_FULL_DATABASE</strong> role needs to be granted too. This is because both those roles are usually granted together.</li>
 </ul>
 <p>In some cases, forcing the default role of the source schema is needed. This is achieved by executing the following command as administrator:</p>
-<pre class="language-text">ALTER USER source_schema
-DEFAULT ROLE imp_full_database,exp_full_database;
-</pre>
+<p>plain ALTER USER source_schema<br>
+DEFAULT ROLE imp_full_database,exp_full_database;</p>
 <p>Where <strong>source_schema</strong> must be replaced with the source schema name.</p>
 <h6 id="44213-for-an-import-from-a-cloud-on-premise-database">4.4.2.1.3. For an import from a Cloud On Premise database </h6>
 <p>Those are the requested privileges:</p>
@@ -1922,25 +1916,22 @@ If no previous version of the DPP Utility was installed when running the command
 <h4 id="513-preparing-schema-for-export">5.1.3. Preparing schema for export </h4>
 <p>Some actions may be required to prepare a schema for the export of the dump.</p>
 <p>If there are some queues in use in the schema to be exported, the following code must be executed while logged with the user of the schema to be exported:</p>
-<pre class="language-text">BEGIN
-   -– needed only if there are Oracle Advanced Queues to manage
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('MANAGE_ANY', '&amp;&amp;APP_DPP',FALSE);
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+-– needed only if there are Oracle Advanced Queues to manage<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('MANAGE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+END;<br>
+/</p>
 <h4 id="514-running-the-export">5.1.4. Running the export </h4>
 <p>Once all needed parameters have been defined, the export job can be executed. It is implemented by the <strong>export_schema</strong> procedure of the <a href="#621-dpp_job_krn-package"><strong>dpp_job_krn</strong> PL/SQL package</a>. The <a href="#5124-dpp_schemas---schemas">functional name of the schema</a> to be exported needs to be passed as parameter to the procedure.</p>
 <p>So the export job is executed as follows:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.export_schema('func_name');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.export_schema('func_name');<br>
+END;<br>
+/</p>
 <p>or</p>
-<pre class="language-text">EXEC dpp_job_krn.export_schema('func_name');
-</pre>
+<p>plain EXEC dpp_job_krn.export_schema('func_name');</p>
 <p>Where <strong>func_name</strong> must be replaced with the functional name of the schema to be exported.</p>
 <p>Once the export job is started, a new line is introduced in the <a href="#619-dpp_job_runs"><strong>dpp_job_runs</strong> log table</a>. The <strong>status</strong> field indicates the status of the job. Those are the possible values:</p>
 <table>
@@ -2773,25 +2764,22 @@ END;
 <h4 id="523-preparing-schema-for-import">5.2.3. Preparing schema for import </h4>
 <p>Some actions may be required to prepare a schema for the import of a dump.</p>
 <p>If there some queues in use in the schema to be imported, the following code must be executed while logged with the user of the schema the dump must be imported in:</p>
-<pre class="language-text">BEGIN
-   -– needed only if there are Oracle Advanced Queues to manage
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);
-   DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('MANAGE_ANY', '&amp;&amp;APP_DPP',FALSE);
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+-– needed only if there are Oracle Advanced Queues to manage<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('MANAGE_ANY', '&amp;&amp;APP_DPP',FALSE);<br>
+END;<br>
+/</p>
 <h4 id="524-running-the-import">5.2.4. Running the import </h4>
 <p>Once all needed parameters have been defined, the import job can be executed. It is implemented by the <strong>import_schema</strong> procedure of the <strong>dpp_job_krn</strong> PL/SQL package. The <a href="#5124-dpp_schemas---schemas">functional name of the source schema and the target schema</a> need to be passed as parameters to the procedure.</p>
 <p>So the import job is executed as follows:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.import_schema('src_func_name', 'trg_func_name');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.import_schema('src_func_name', 'trg_func_name');<br>
+END;<br>
+/</p>
 <p>or</p>
-<pre class="language-text">EXEC dpp_job_krn.import_schema('src_func_name', 'trg_func_name');
-</pre>
+<p>plain EXEC dpp_job_krn.import_schema('src_func_name', 'trg_func_name');</p>
 <p>Where <strong>src_func_name</strong> must be replaced with the functional name of the source schema and <strong>trg_func_name</strong> must be replaced with the functional name of the target schema.</p>
 <p>Once the import job is started, a new line is introduced in the <a href="#619-dpp_job_runs"><strong>dpp_job_runs</strong> log table</a>. The <strong>status</strong> field indicates the status of the job. Those are the possible values:</p>
 <table>
@@ -3258,14 +3246,12 @@ END;
 <h4 id="532-running-the-transfer">5.3.2. Running the transfer </h4>
 <p>Once all needed parameters have been defined, the transfer job can be executed. It is implemented by the <strong>transfer_dumpfiles</strong> procedure of the <a href="#621-dpp_job_krn-package"><strong>dpp_job_krn</strong> PL/SQL package</a>. The <a href="#5124-dpp_schemas---schemas">functional name of the source schema</a> and the name of the database link used to transfer the file need to be passed as parameter to the procedure.</p>
 <p>So the import job is executed as follows:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');<br>
+END;<br>
+/</p>
 <p>or</p>
-<pre class="language-text">EXEC dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');
-</pre>
+<p>plain EXEC dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');</p>
 <p>Where <strong>func_name</strong> must be replaced with the functional name of the source schema and <strong>db_link_name</strong> must be replaced with the name of the database link used to transfer the dump file from the source database to the target one. It is assumed that the Oracle directories have the same name in both source and target environments.</p>
 <p>Once the import job is started, a new line is introduced in the <a href="#619-dpp_job_runs"><strong>dpp_job_runs</strong> log table</a>. The <strong>status</strong> field indicates the status of the job. Those are the possible values:</p>
 <table>
@@ -3586,14 +3572,12 @@ END;
 <h3 id="55-secondary-operations">5.5. Secondary operations </h3>
 <h4 id="551-removing-dump-file">5.5.1. Removing dump file </h4>
 <p>An existing dump file can be removed from the Oracle directory as follows:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.remove_dmp_file('file_name', 'directory_name');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.remove_dmp_file('file_name', 'directory_name');<br>
+END;<br>
+/</p>
 <p>or:</p>
-<pre class="language-text">EXEC dpp_job_krn.remove_dmp_file('file_name', 'directory_name');
-</pre>
+<p>plain EXEC dpp_job_krn.remove_dmp_file('file_name', 'directory_name');</p>
 <p>Where:</p>
 <ul>
 <li><strong>file_name</strong> must be replaced with the name of the dump file to be removed.</li>
@@ -3601,28 +3585,24 @@ END;
 </ul>
 <h4 id="552-removing-old-dump-files">5.5.2. Removing old dump files </h4>
 <p>Old dump files can be removed as follows:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.remove_files_older('schema_name', 'date');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.remove_files_older('schema_name', 'date');<br>
+END;<br>
+/</p>
 <p>or:</p>
-<pre class="language-text">EXEC dpp_job_krn.remove_files_older('schema_name', 'date');
-</pre>
+<p>plain EXEC dpp_job_krn.remove_files_older('schema_name', 'date');</p>
 <p>Where:</p>
 <ul>
 <li><strong>schema_name</strong> must be replaced with the technical name of the schema whose dump files must be removed.</li>
 <li><strong>date</strong> must be replaced with a date. All dump files of the schema mentioned in the first parameter made on this date and before will be removed.</li>
 </ul>
 <p>Another way to delete old dump files:</p>
-<pre class="language-text">BEGIN
-    dpp_job_krn.remove_files_old_functional('functional_name', 'date');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+dpp_job_krn.remove_files_old_functional('functional_name', 'date');<br>
+END;<br>
+/</p>
 <p>or:</p>
-<pre class="language-text">EXEC dpp_job_krn.remove_files_old_functional('functional_name', 'date');
-</pre>
+<p>plain EXEC dpp_job_krn.remove_files_old_functional('functional_name', 'date');</p>
 <p>Where:</p>
 <ul>
 <li><strong>functional_name</strong> must be replaced with the functional name of the schema whose dump files must be removed.</li>
@@ -3656,14 +3636,12 @@ END;
 <p>The mail is actually sent by the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-MAILUtility">MAIL Utility</a>.</p>
 <p>When the jobs are executed in a non-production environment, the MAIL Utility does not send the mail to the regular recipients. In the <strong>dpp_parameters</strong> table, a default email recipient for non-production environments can be defined in the <strong>smtp.dev_recipient</strong> parameter.</p>
 <p>By default, the mail will be sent to this address. To inform the MAIL Utility that the environment is the production one and the mails should be sent to the regular recipients, the following piece of code can be executed before running the DPP Utility:</p>
-<pre class="language-text">BEGIN
-   mail_utility_krn.set_is_prod('Y');
-END;
-/
-</pre>
+<p>plain BEGIN<br>
+mail_utility_krn.set_is_prod('Y');<br>
+END;<br>
+/</p>
 <p>or:</p>
-<pre class="language-text">EXEC mail_utility_krn.set_is_prod('Y');
-</pre>
+<p>plain EXEC mail_utility_krn.set_is_prod('Y');</p>
 <h3 id="57-managing-configurations">5.7. Managing configurations </h3>
 <p>Each DPP Utility operation is defined by some configuration data as explained in the previous chapters. This configuration data can be inserted, modified or deleted directly in the corresponding database tables. The configuration data can also be managed using a dedicated API which is implemented by a dedicated <a href="#6214-dpp_cnf_krn-package">PL/SQL package called <strong>dpp_cnf_krn</strong></a>.</p>
 <h4 id="571-managing-database-links">5.7.1. Managing database links </h4>
@@ -3921,7 +3899,7 @@ END;
 </tbody>
 </table>
 <h4 id="615-dpp_schema_types">6.1.5. DPP_SCHEMA_TYPES </h4>
-<p>This table contains the list of types of schemas. Typically there is the <strong>MAIN</strong> schema, but then you can have others for the application (<strong>WEB</strong>), a specialized module (<strong>PRESENCE</strong> for Sysper), other databases (<strong>COMREF</strong>, <strong>NAP</strong>, ….), lobs objects (<strong>LOB</strong>), …. In Sysper or Folio case, this data is used during the post-import process to restore grants and regenerate synonyms.</p>
+<p>This table contains the list of types of schemas. Typically there is the <strong>MAIN</strong> schema, but then you can have others for the application (<strong>WEB</strong>), a specialized module (<strong>PRESENCE</strong> for Sysper), other databases (<strong>COMREF</strong>, <strong>NAP</strong>, …….), lobs objects (<strong>LOB</strong>), ……. In Sysper or Folio case, this data is used during the post-import process to restore grants and regenerate synonyms.</p>
 <table>
 <thead>
 <tr>
@@ -4042,7 +4020,7 @@ END;
 </tbody>
 </table>
 <h4 id="617-dpp_schema_relations">6.1.7. DPP_SCHEMA_RELATIONS </h4>
-<p>This table allows defining relations between schemas, such as link main schema to related gateway ones….</p>
+<p>This table allows defining relations between schemas, such as link main schema to related gateway ones…….</p>
 <table>
 <thead>
 <tr>
@@ -4519,11 +4497,10 @@ END;
 <p>A function with the same name and same purpose exists too.</p>
 <p>This procedure must be used instead of the deprecated <strong>export_logical_name</strong> one, that has been removed starting from the version 24.2.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE export_schema(
-   p_functional_name    IN VARCHAR2
- , p_options            IN VARCHAR2 DEFAULT NULL
-);
-</pre>
+<p>plain PROCEDURE export_schema(<br>
+p_functional_name    IN VARCHAR2<br>
+, p_options            IN VARCHAR2 DEFAULT NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_functional_name:</strong> Specifies the functional name of the schema to be exported.</li>
@@ -4533,12 +4510,11 @@ END;
 <p>Imports a previously exported data file via the <a href="#6211-export_schema"><strong>export_schema</strong> procedure</a>. This procedure will raise an error if you try to import data into any schema on the production instance. A function with same name returns the status of the process. The use of this procedure is described in the <a href="#52-importing-dump-file">chapter about the schema import</a>.</p>
 <p>This procedure must be used instead of the deprecated <strong>import_logical_name</strong> one, that has been removed starting from the version 24.2.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE import_schema(
-   p_src_functional_name        IN VARCHAR2
- , p_trg_functional_name        IN VARCHAR2
- , p_options                    IN VARCHAR2 DEFAULT NULL
-);
-</pre>
+<p>plain PROCEDURE import_schema(<br>
+p_src_functional_name        IN VARCHAR2<br>
+, p_trg_functional_name        IN VARCHAR2<br>
+, p_options                    IN VARCHAR2 DEFAULT NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_src_functional_name:</strong> Specifies the functional name of the schema from which data was exported previously by a call to <a href="#6211-export_schema"><strong>export_schema</strong></a>. This name must have been defined in the <a href="#5224-dpp_schemas---schemas"><strong>dpp_schemas</strong> table</a>. The name is optionally appended with a date string in the <strong>YYYYMMDD</strong> format, to import a specific file. If the date clause is omitted, it defaults to the current date.</li>
@@ -4548,11 +4524,10 @@ END;
 <h5 id="6213-remove_files_older">6.2.1.3. remove_files_older </h5>
 <p>This routine will remove all export dump files made ON AND BEFORE a particular date for a particular schema. The use of this procedure is described in the <a href="#552-removing-old-dump-files">Removing old dump files chapter</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE remove_files_older(
-   p_sma_name       IN VARCHAR2
- , p_date           IN DATE
-);
-</pre>
+<p>plain PROCEDURE remove_files_older(<br>
+p_sma_name       IN VARCHAR2<br>
+, p_date           IN DATE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_sma_name:</strong> Specifies the functional schema from which data was exported previously by a call to <a href="#6211-export_schema"><strong>export_schema</strong></a>.</li>
@@ -4561,11 +4536,10 @@ END;
 <h5 id="6214-remove_files_old_functional">6.2.1.4. remove_files_old_functional </h5>
 <p>This routine will remove ALL export dump files made BEFORE a particular date for a particular schema identified by its functional name.  The use of this procedure is described in the <a href="#552-removing-old-dump-files">Removing old dump files chapter</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE remove_files_old_functional(
-   p_src_functional IN VARCHAR2
- , p_date           IN DATE
-);
-</pre>
+<p>plain PROCEDURE remove_files_old_functional(<br>
+p_src_functional IN VARCHAR2<br>
+, p_date           IN DATE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_src_functional:</strong> Specifies the functional schema from which data was exported previously by a call to <a href="#6211-export_schema"><strong>export_schema</strong></a>.</li>
@@ -4576,11 +4550,10 @@ END;
 <p><strong>Warning:</strong> this routine needs a database link, pointing to an <a href="#441-installation--app_dpp_x-schema"><strong>APP_DPP_X</strong> schema</a> located on the other side. It assumes that the in/out directories have the same name in all environments. A function with same name returns the status of the process.</p>
 <p>The use of the procedure is described in the <a href="#53-transferring-dump-file">Transferring dump file chapter</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE transfer_dumpfiles(
-   p_schema     IN VARCHAR2
- , p_db_link    IN VARCHAR2
-);
-</pre>
+<p>plain PROCEDURE transfer_dumpfiles(<br>
+p_schema     IN VARCHAR2<br>
+, p_db_link    IN VARCHAR2<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema:</strong> Specifies the functional schema from which data that is previously exported by a call to <a href="#6211-export_schema"><strong>export_schema</strong></a>.</li>
@@ -4592,21 +4565,18 @@ END;
 <h5 id="6221-flush_prr">6.2.2.1. flush_prr </h5>
 <p>This routine flushes a table in memory containing the utility parameters.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE flush_prr;
-</pre>
+<p>plain PROCEDURE flush_prr;</p>
 <h5 id="6222-load_prr">6.2.2.2. load_prr </h5>
 <p>This routine loads a table in memory with the utility parameters.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE load_prr;
-</pre>
+<p>plain PROCEDURE load_prr;</p>
 <h5 id="6223-get_prr">6.2.2.3. get_prr </h5>
 <p>This routine retrieves a parameter row from the table in memory containing the utility parameters.</p>
 <p>Format:</p>
-<pre class="language-text">FUNCTION get_prr(
-   p_prr_name       IN dpp_parameters.prr_name%TYPE
- , p_ite_name       IN dpp_parameters.ite_name%TYPE := NULL
-) RETURN dpp_parameters%ROWTYPE;
-</pre>
+<p>plain FUNCTION get_prr(<br>
+p_prr_name       IN dpp_parameters.prr_name%TYPE<br>
+, p_ite_name       IN dpp_parameters.ite_name%TYPE := NULL<br>
+) RETURN dpp_parameters%ROWTYPE;</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_prr_name:</strong> The name of the parameter.</li>
@@ -4615,7 +4585,7 @@ END;
 <h4 id="623-dpp_job_var-package">6.2.3. DPP_JOB_VAR package </h4>
 <p>This package contains global variables and constants for the <a href="#621-dpp_job_krn-package"><strong>dpp_job_krn</strong> package</a>, to make this one stateless.</p>
 <h4 id="624-dpp_inj_krn-package">6.2.4. DPP_INJ_KRN package </h4>
-<p>This package provides injection services to the <a href="#621-dpp_job_krn-package"><strong>dpp_job_krn</strong> main package</a>. These services allow injecting procedures in the target schema which will perform object "drops" or "creations" such as tables, views, sequences …. including the export and import jobs.</p>
+<p>This package provides injection services to the <a href="#621-dpp_job_krn-package"><strong>dpp_job_krn</strong> main package</a>. These services allow injecting procedures in the target schema which will perform object "drops" or "creations" such as tables, views, sequences ……. including the export and import jobs.</p>
 <h4 id="625-dpp_inj_var-package">6.2.5. DPP_INJ_VAR package </h4>
 <p>This package contains global variables and constants for the <a href="#624-dpp_inj_krn-package"><strong>dpp_inj_krn</strong> package</a>, to make this one stateless.</p>
 <h4 id="626-dpp_itf_krn-package">6.2.6. DPP_ITF_KRN package </h4>
@@ -4636,8 +4606,7 @@ END;
 <h5 id="62111-exec_monitoring">6.2.11.1. exec_monitoring </h5>
 <p>This procedure is automatically called by the <a href="#6218-dpp_monitoring-job"><strong>DPP_MONITORING</strong> monitoring job</a> every five minutes and implements the timeout detection.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE exec_monitoring(p_debug IN BOOLEAN := FALSE);
-</pre>
+<p>plain PROCEDURE exec_monitoring(p_debug IN BOOLEAN := FALSE);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_debug:</strong> Whether the procedure must be executed in debug mode that generates execution messages.</li>
@@ -4657,14 +4626,13 @@ END;
 <li><strong>drop any procedure</strong></li>
 </ul>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE create_database_link (
-   p_target_schema         IN    VARCHAR2
- , p_db_link_name          IN    VARCHAR2
- , p_db_link_user          IN    VARCHAR2
- , p_db_link_pwd           IN    VARCHAR2
- , p_db_link_conn_string   IN    VARCHAR2
-);
-</pre>
+<p>plain PROCEDURE create_database_link (<br>
+p_target_schema         IN    VARCHAR2<br>
+, p_db_link_name          IN    VARCHAR2<br>
+, p_db_link_user          IN    VARCHAR2<br>
+, p_db_link_pwd           IN    VARCHAR2<br>
+, p_db_link_conn_string   IN    VARCHAR2<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_target_schema:</strong> name of the schema the database link should be created in</li>
@@ -4682,11 +4650,10 @@ END;
 <li><strong>drop any procedure</strong></li>
 </ul>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE drop_database_link (
-   p_target_schema         IN    VARCHAR2
- , p_db_link_name          IN    VARCHAR2
-);
-</pre>
+<p>plain PROCEDURE drop_database_link (<br>
+p_target_schema         IN    VARCHAR2<br>
+, p_db_link_name          IN    VARCHAR2<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_target_schema:</strong> name of the schema the database link was created in</li>
@@ -4695,18 +4662,17 @@ END;
 <h5 id="62143-insert_instance">6.2.14.3. insert_instance </h5>
 <p>This procedure inserts a new database instance in the <a href="#612-dpp_instances"><strong>dpp_instances</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_instance(
-   p_instance_name         IN  dpp_instances.ite_name%TYPE
- , p_descr_eng             IN  dpp_instances.descr_eng%TYPE
- , p_descr_fra             IN  dpp_instances.descr_fra%TYPE
- , p_production_flag       IN  dpp_instances.production_flag%TYPE := NULL
- , p_env_name              IN  dpp_instances.env_name%TYPE
- , p_date_creat            IN  dpp_instances.date_creat%TYPE      := NULL
- , p_user_creat            IN  dpp_instances.user_creat%TYPE      := NULL
- , p_date_modif            IN  dpp_instances.date_modif%TYPE      := NULL
- , p_user_modif            IN  dpp_instances.user_modif%TYPE      := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_instance(<br>
+p_instance_name         IN  dpp_instances.ite_name%TYPE<br>
+, p_descr_eng             IN  dpp_instances.descr_eng%TYPE<br>
+, p_descr_fra             IN  dpp_instances.descr_fra%TYPE<br>
+, p_production_flag       IN  dpp_instances.production_flag%TYPE := NULL<br>
+, p_env_name              IN  dpp_instances.env_name%TYPE<br>
+, p_date_creat            IN  dpp_instances.date_creat%TYPE      := NULL<br>
+, p_user_creat            IN  dpp_instances.user_creat%TYPE      := NULL<br>
+, p_date_modif            IN  dpp_instances.date_modif%TYPE      := NULL<br>
+, p_user_modif            IN  dpp_instances.user_modif%TYPE      := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_instance_name:</strong> name of the database instance</li>
@@ -4722,10 +4688,9 @@ END;
 <h5 id="62144-delete_instance">6.2.14.4. delete_instance </h5>
 <p>This procedure deletes a database instance from the <a href="#612-dpp_instances"><strong>dpp_instances</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_instance(
-   p_instance_name         IN  dpp_instances.ite_name%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_instance(<br>
+p_instance_name         IN  dpp_instances.ite_name%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_instance_name:</strong> name of the database instance to be deleted.</li>
@@ -4733,18 +4698,17 @@ END;
 <h5 id="62145-update_instance">6.2.14.5. update_instance </h5>
 <p>This procedure updates a database instance in the <a href="#612-dpp_instances"><strong>dpp_instances</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_instance(
-   p_instance_name         IN  dpp_instances.ite_name%TYPE
- , p_descr_eng             IN  dpp_instances.descr_eng%TYPE       := NULL
- , p_descr_fra             IN  dpp_instances.descr_fra%TYPE       := NULL
- , p_production_flag       IN  dpp_instances.production_flag%TYPE := NULL
- , p_env_name              IN  dpp_instances.env_name%TYPE        := NULL
- , p_date_creat            IN  dpp_instances.date_creat%TYPE      := NULL
- , p_user_creat            IN  dpp_instances.user_creat%TYPE      := NULL
- , p_date_modif            IN  dpp_instances.date_modif%TYPE      := NULL
- , p_user_modif            IN  dpp_instances.user_modif%TYPE      := NULL
-);
-</pre>
+<p>plain PROCEDURE update_instance(<br>
+p_instance_name         IN  dpp_instances.ite_name%TYPE<br>
+, p_descr_eng             IN  dpp_instances.descr_eng%TYPE       := NULL<br>
+, p_descr_fra             IN  dpp_instances.descr_fra%TYPE       := NULL<br>
+, p_production_flag       IN  dpp_instances.production_flag%TYPE := NULL<br>
+, p_env_name              IN  dpp_instances.env_name%TYPE        := NULL<br>
+, p_date_creat            IN  dpp_instances.date_creat%TYPE      := NULL<br>
+, p_user_creat            IN  dpp_instances.user_creat%TYPE      := NULL<br>
+, p_date_modif            IN  dpp_instances.date_modif%TYPE      := NULL<br>
+, p_user_modif            IN  dpp_instances.user_modif%TYPE      := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_instance_name:</strong> name of the database instance</li>
@@ -4760,14 +4724,13 @@ END;
 <h5 id="62146-insert_schema_type">6.2.14.6. insert_schema_type </h5>
 <p>This procedure inserts a new schema type in the <a href="#615-dpp_schema_types"><strong>dpp_schema_types</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_schema_type(
-   p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
- , p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL
- , p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL
- , p_date_modif            IN  dpp_schema_types.date_modif%TYPE   := NULL
- , p_user_modif            IN dpp_schema_types.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_schema_type(<br>
+p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE<br>
+, p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL<br>
+, p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL<br>
+, p_date_modif            IN  dpp_schema_types.date_modif%TYPE   := NULL<br>
+, p_user_modif            IN dpp_schema_types.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_type_name:</strong> name of the schema type to be created</li>
@@ -4779,10 +4742,9 @@ END;
 <h5 id="62147-delete_schema_type">6.2.14.7. delete_schema_type </h5>
 <p>This procedure deletes a schema type from the <a href="#615-dpp_schema_types"><strong>dpp_schema_types</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_schema_type(
-   p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_schema_type(<br>
+p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_type_name:</strong> name of the schema type to be deleted</li>
@@ -4790,14 +4752,13 @@ END;
 <h5 id="62148-update_schema_type">6.2.14.8. update_schema_type </h5>
 <p>This procedure updates a schema type in the <a href="#615-dpp_schema_types"><strong>dpp_schema_types</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_schema_type(
-   p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
- , p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL
- , p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL
- , p_date_modif            IN  dpp_schema_types.date_modif%TYPE   := NULL
- , p_user_modif            IN  dpp_schema_types.user_modif%TYPE   := NULL
-);
-</pre>
+<p>plain PROCEDURE update_schema_type(<br>
+p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE<br>
+, p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL<br>
+, p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL<br>
+, p_date_modif            IN  dpp_schema_types.date_modif%TYPE   := NULL<br>
+, p_user_modif            IN  dpp_schema_types.user_modif%TYPE   := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_type_name:</strong> name of the schema type to be updated</li>
@@ -4809,16 +4770,15 @@ END;
 <h5 id="62149-insert_role">6.2.14.9. insert_role </h5>
 <p>This procedure inserts a new role in the <a href="#614-dpp_roles"><strong>dpp_roles</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_role(
-   p_role_name             IN  dpp_roles.rle_name%TYPE
- , p_descr_eng             IN  dpp_roles.descr_eng%TYPE
- , p_descr_fra             IN  dpp_roles.descr_fra%TYPE
- , p_date_creat            IN  dpp_roles.date_creat%TYPE       := NULL
- , p_user_creat            IN  dpp_roles.user_creat%TYPE       := NULL
- , p_date_modif            IN  dpp_roles.date_modif%TYPE       := NULL
- , p_user_modif            IN  dpp_roles.user_modif%TYPE       := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_role(<br>
+p_role_name             IN  dpp_roles.rle_name%TYPE<br>
+, p_descr_eng             IN  dpp_roles.descr_eng%TYPE<br>
+, p_descr_fra             IN  dpp_roles.descr_fra%TYPE<br>
+, p_date_creat            IN  dpp_roles.date_creat%TYPE       := NULL<br>
+, p_user_creat            IN  dpp_roles.user_creat%TYPE       := NULL<br>
+, p_date_modif            IN  dpp_roles.date_modif%TYPE       := NULL<br>
+, p_user_modif            IN  dpp_roles.user_modif%TYPE       := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_role_name:</strong> name of the role to be created</li>
@@ -4832,10 +4792,9 @@ END;
 <h5 id="621410-delete_role">6.2.14.10. delete_role </h5>
 <p>This procedure deletes a role from the <a href="#614-dpp_roles"><strong>dpp_roles</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_role(
-   p_role_name             IN  dpp_roles.rle_name%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_role(<br>
+p_role_name             IN  dpp_roles.rle_name%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_role_name:</strong> name of the role to be deleted</li>
@@ -4843,16 +4802,15 @@ END;
 <h5 id="621411-update_role">6.2.14.11. update_role </h5>
 <p>This procedure updates a role in the <a href="#614-dpp_roles"><strong>dpp_roles</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_role(
-   p_role_name             IN  dpp_roles.rle_name%TYPE
- , p_descr_eng             IN  dpp_roles.descr_eng%TYPE        := NULL
- , p_descr_fra             IN  dpp_roles.descr_fra%TYPE        := NULL
- , p_date_creat            IN  dpp_roles.date_creat%TYPE       := NULL
- , p_user_creat            IN  dpp_roles.user_creat%TYPE       := NULL
- , p_date_modif            IN  dpp_roles.date_modif%TYPE       := NULL
- , p_user_modif            IN  dpp_roles.user_modif%TYPE       := NULL
-);
-</pre>
+<p>plain PROCEDURE update_role(<br>
+p_role_name             IN  dpp_roles.rle_name%TYPE<br>
+, p_descr_eng             IN  dpp_roles.descr_eng%TYPE        := NULL<br>
+, p_descr_fra             IN  dpp_roles.descr_fra%TYPE        := NULL<br>
+, p_date_creat            IN  dpp_roles.date_creat%TYPE       := NULL<br>
+, p_user_creat            IN  dpp_roles.user_creat%TYPE       := NULL<br>
+, p_date_modif            IN  dpp_roles.date_modif%TYPE       := NULL<br>
+, p_user_modif            IN  dpp_roles.user_modif%TYPE       := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_role_name:</strong> name of the role to be updated</li>
@@ -4866,23 +4824,22 @@ END;
 <h5 id="621412-insert_schema">6.2.14.12. insert_schema </h5>
 <p>This function inserts a new database schema in the <a href="#616-dpp_schemas"><strong>dpp_schemas</strong> table</a>. If the schema ID is not passed as parameter, it is computed by the function.</p>
 <p>Format:</p>
-<pre class="language-text">FUNCTION insert_schema(
-   p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_instance_name         IN  dpp_schemas.ite_name%TYPE
- , p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL
- , p_schema_type_name      IN  dpp_schemas.ste_name%TYPE          := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE
- , p_schema_name           IN  dpp_schemas.sma_name%TYPE
- , p_production_flag       IN  dpp_schemas.production_flag%TYPE   := NULL
- , p_date_from             IN  dpp_schemas.date_from%TYPE         := NULL
- , p_date_to               IN  dpp_schemas.date_to%TYPE           := NULL
- , p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL
-)
-RETURN dpp_schemas.sma_id%TYPE;
-</pre>
+<p>plain FUNCTION insert_schema(<br>
+p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_instance_name         IN  dpp_schemas.ite_name%TYPE<br>
+, p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL<br>
+, p_schema_type_name      IN  dpp_schemas.ste_name%TYPE          := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE<br>
+, p_schema_name           IN  dpp_schemas.sma_name%TYPE<br>
+, p_production_flag       IN  dpp_schemas.production_flag%TYPE   := NULL<br>
+, p_date_from             IN  dpp_schemas.date_from%TYPE         := NULL<br>
+, p_date_to               IN  dpp_schemas.date_to%TYPE           := NULL<br>
+, p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL<br>
+)<br>
+RETURN dpp_schemas.sma_id%TYPE;</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema to be created</li>
@@ -4903,11 +4860,10 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621413-delete_schema">6.2.14.13. delete_schema </h5>
 <p>This procedure deletes a database schema from the <a href="#616-dpp_schemas"><strong>dpp_schemas</strong> table</a>. The schema to be deleted can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_schema(
-   p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
-);
-</pre>
+<p>plain PROCEDURE delete_schema(<br>
+p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema to be deleted</li>
@@ -4916,22 +4872,21 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621414-update_schema">6.2.14.14. update_schema </h5>
 <p>This procedure updates a database schema in the <a href="#616-dpp_schemas"><strong>dpp_schemas</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_schema(
-   p_schema_id             IN  dpp_schemas.sma_id%TYPE
- , p_instance_name         IN  dpp_schemas.ite_name%TYPE          := NULL
- , p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL
- , p_schema_type_name      IN  dpp_schemas.ste_name%TYPE          := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_schema_name           IN  dpp_schemas.sma_name%TYPE          := NULL
- , p_production_flag       IN  dpp_schemas.production_flag%TYPE   := NULL
- , p_date_from             IN  dpp_schemas.date_from%TYPE         := NULL
- , p_date_to               IN  dpp_schemas.date_to%TYPE           := NULL
- , p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE update_schema(<br>
+p_schema_id             IN  dpp_schemas.sma_id%TYPE<br>
+, p_instance_name         IN  dpp_schemas.ite_name%TYPE          := NULL<br>
+, p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL<br>
+, p_schema_type_name      IN  dpp_schemas.ste_name%TYPE          := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_schema_name           IN  dpp_schemas.sma_name%TYPE          := NULL<br>
+, p_production_flag       IN  dpp_schemas.production_flag%TYPE   := NULL<br>
+, p_date_from             IN  dpp_schemas.date_from%TYPE         := NULL<br>
+, p_date_to               IN  dpp_schemas.date_to%TYPE           := NULL<br>
+, p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema to be update</li>
@@ -4951,17 +4906,16 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621415-duplicate_schema">6.2.14.15. duplicate_schema </h5>
 <p>This function duplicates a database schema in the <a href="#616-dpp_schemas"><strong>dpp_schemas</strong> table</a>. If the target schema ID is not passed as parameter, it is computed by the function. The source schema can be identified by its ID or its functional name.</p>
 <p>Format:</p>
-<pre class="language-text">FUNCTION duplicate_schema(
-   p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE
- , p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL
-) RETURN dpp_schemas.sma_id%TYPE;
-</pre>
+<p>plain FUNCTION duplicate_schema(<br>
+p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE<br>
+, p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL<br>
+) RETURN dpp_schemas.sma_id%TYPE;</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_src_schema_id:</strong> ID of the source schema</li>
@@ -4977,18 +4931,17 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621416-insert_nodrop_object">6.2.14.16. insert_nodrop_object </h5>
 <p>This procedure inserts a new item in the table of objects that should never be dropped (<a href="#5229-dpp_nodrop_objects---protected-objects"><strong>dpp_nodrop_objects</strong> table</a>). The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_nodrop_object(
-   p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
- , p_object_type           IN  dpp_nodrop_objects.object_type%TYPE
- , p_active_flag           IN  dpp_nodrop_objects.active_flag%TYPE
- , p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE    := NULL
- , p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE    := NULL
- , p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE    := NULL
- , p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_nodrop_object(<br>
+p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_object_name           IN  dpp_nodrop_objects.object_name%TYPE<br>
+, p_object_type           IN  dpp_nodrop_objects.object_type%TYPE<br>
+, p_active_flag           IN  dpp_nodrop_objects.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE    := NULL<br>
+, p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE    := NULL<br>
+, p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE    := NULL<br>
+, p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5004,13 +4957,12 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621417-delete_nodrop_object">6.2.14.17. delete_nodrop_object </h5>
 <p>This procedure deletes an item from the table of objects that should never be dropped (<a href="#5229-dpp_nodrop_objects---protected-objects"><strong>dpp_nodrop_objects</strong> table</a>). The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_nodrop_object(
-   p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
- , p_object_type           IN  dpp_nodrop_objects.object_type%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_nodrop_object(<br>
+p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_object_name           IN  dpp_nodrop_objects.object_name%TYPE<br>
+, p_object_type           IN  dpp_nodrop_objects.object_type%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5021,18 +4973,17 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621418-update_nodrop_object">6.2.14.18. update_nodrop_object </h5>
 <p>This procedure updates an item in the table of objects that should never be dropped (<a href="#5229-dpp_nodrop_objects---protected-objects"><strong>dpp_nodrop_objects</strong> table</a>). The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_nodrop_object(
-   p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
- , p_object_type           IN  dpp_nodrop_objects.object_type%TYPE
- , p_active_flag           IN  dpp_nodrop_objects.active_flag%TYPE   := NULL
- , p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE    := NULL
- , p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE    := NULL
- , p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE    := NULL
- , p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE update_nodrop_object(<br>
+p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_object_name           IN  dpp_nodrop_objects.object_name%TYPE<br>
+, p_object_type           IN  dpp_nodrop_objects.object_type%TYPE<br>
+, p_active_flag           IN  dpp_nodrop_objects.active_flag%TYPE   := NULL<br>
+, p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE    := NULL<br>
+, p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE    := NULL<br>
+, p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE    := NULL<br>
+, p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5048,19 +4999,18 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621419-duplicate_nodrop_object">6.2.14.19. duplicate_nodrop_object </h5>
 <p>This procedure duplicates an item in the table of objects that should never be dropped (<a href="#5229-dpp_nodrop_objects---protected-objects"><strong>dpp_nodrop_objects</strong> table</a>) from a schema to another one.  The schemas can be identified by their ID or by their functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE duplicate_nodrop_object(
-   p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE     := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
- , p_object_type           in  dpp_nodrop_objects.object_type%TYPE
- , p_trg_schema_id         IN  dpp_nodrop_objects.sma_id%TYPE     := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE := NULL
- , p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE := NULL
- , p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE := NULL
- , p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE := NULL
-);
-</pre>
+<p>plain PROCEDURE duplicate_nodrop_object(<br>
+p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE     := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_object_name           IN  dpp_nodrop_objects.object_name%TYPE<br>
+, p_object_type           in  dpp_nodrop_objects.object_type%TYPE<br>
+, p_trg_schema_id         IN  dpp_nodrop_objects.sma_id%TYPE     := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_date_creat            IN  dpp_nodrop_objects.date_creat%TYPE := NULL<br>
+, p_user_creat            IN  dpp_nodrop_objects.user_creat%TYPE := NULL<br>
+, p_date_modif            IN  dpp_nodrop_objects.date_modif%TYPE := NULL<br>
+, p_user_modif            IN  dpp_nodrop_objects.user_modif%TYPE := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the source schema</li>
@@ -5077,20 +5027,19 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621420-insert_action">6.2.14.20. insert_action </h5>
 <p>This procedure inserts a new action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_block_text            IN  dpp_actions.block_text%TYPE
- , p_active_flag           IN  dpp_actions.active_flag%TYPE
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_block_text            IN  dpp_actions.block_text%TYPE<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5108,22 +5057,21 @@ RETURN dpp_schemas.sma_id%TYPE;
 <h5 id="621421-insert_http_request_action">6.2.14.21. insert_http_request_action </h5>
 <p>This procedure inserts a new action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. When triggered, this action sends an HTTP request to the URL passed as parameter. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_http_request_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_url                   IN  VARCHAR2
- , p_wallet_path           IN  VARCHAR2                           := NULL
- , p_proxy                 IN  VARCHAR2                           := NULL
- , p_active_flag           IN  dpp_actions.active_flag%TYPE
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_http_request_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_url                   IN  VARCHAR2<br>
+, p_wallet_path           IN  VARCHAR2                           := NULL<br>
+, p_proxy                 IN  VARCHAR2                           := NULL<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5141,14 +5089,13 @@ RETURN dpp_schemas.sma_id%TYPE;
 <li><strong>p_user_modif:</strong> last modification user ID</li>
 </ul>
 <p>The PL/SQL code of the action is automatically generated by this function. The HTTP request will be sent using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility">HTTP Utility</a>. The PL/SQL code that is generated is based on the following template:</p>
-<pre class="language-text">BEGIN
-   http_utility_krn.send_http_request(
-      '{url}'
-    , '{wallet_path}'
-    , '{proxy}'
-   );
-END;
-</pre>
+<p>plain BEGIN<br>
+http_utility_krn.send_http_request(<br>
+'{url}'<br>
+, '{wallet_path}'<br>
+, '{proxy}'<br>
+);<br>
+END;</p>
 <p>Where:</p>
 <ul>
 <li><em>{url}</em> is replaced with the value of <em>p_url</em>.</li>
@@ -5159,23 +5106,22 @@ END;
 <p>This procedure inserts a new action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. When triggered, this action sends an HTTP request to the URL passed as parameter. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>The difference with the <a href="#621421-insert_http_request_action">insert_http_request_action procedure</a> is that this version of the procedure encrypts the URL and the wallet path using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-SECUtility">SEC Utility</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_http_request_action_enc(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_url                   IN  VARCHAR2
- , p_wallet_path           IN  VARCHAR2                           := NULL
- , p_proxy                 IN  VARCHAR2                           := NULL
- , p_active_flag           IN  dpp_actions.active_flag%TYPE
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
- , p_ph_suffix             IN  VARCHAR2
-);
-</pre>
+<p>plain PROCEDURE insert_http_request_action_enc(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_url                   IN  VARCHAR2<br>
+, p_wallet_path           IN  VARCHAR2                           := NULL<br>
+, p_proxy                 IN  VARCHAR2                           := NULL<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+, p_ph_suffix             IN  VARCHAR2<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5194,14 +5140,13 @@ END;
 <li><strong>p_ph_suffix:</strong> the URL and the wallet path are encrypted by the procedure using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-SECUtility">SEC Utility</a>. The encrypted values are stored in the tables of the utility using the <strong>URL</strong> and <strong>WALLET_PATH</strong> variables followed by this suffix. This allows to have several actions using different URL's and wallet paths.</li>
 </ul>
 <p>The PL/SQL code of the action is automatically generated by this function and the values of <em>p_url</em> and <em>p_wallet_path</em> are automatically encrypted. The HTTP request will be sent using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility">HTTP Utility</a>. The PL/SQL code that is generated is based on the following template:</p>
-<pre class="language-text">BEGIN
-   http_utility_krn.send_http_request(
-      '{url}'
-    , '{wallet_path}'
-    , '{proxy}'
-   );
-END;
-</pre>
+<p>plain BEGIN<br>
+http_utility_krn.send_http_request(<br>
+'{url}'<br>
+, '{wallet_path}'<br>
+, '{proxy}'<br>
+);<br>
+END;</p>
 <p>Where:</p>
 <ul>
 <li><em>{url}</em> is replaced with the encrypted value of <em>p_url</em>.</li>
@@ -5211,25 +5156,24 @@ END;
 <h5 id="621423-insert_http_gitlab_req_action">6.2.14.23. insert_http_gitlab_req_action </h5>
 <p>This procedure inserts a new action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. When triggered, this action sends an HTTP request to a GitLab server to trigger a pipeline or a pipeline job. The URL root, the pipeline token, the wallet path, the proxy server and a gitLab variable to be initialized are passed as parameters. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_http_gitlab_req_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_url                   IN  VARCHAR2
- , p_wallet_path           IN  VARCHAR2                           := NULL
- , p_proxy                 IN  VARCHAR2                           := NULL
- , p_token                 IN  VARCHAR2                           := NULL
- , p_var_name              IN  VARCHAR2                           := NULL
- , p_var_value             IN  VARCHAR2                           := NULL
- , p_active_flag           IN  dpp_actions.active_flag%TYPE
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_http_gitlab_req_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_url                   IN  VARCHAR2<br>
+, p_wallet_path           IN  VARCHAR2                           := NULL<br>
+, p_proxy                 IN  VARCHAR2                           := NULL<br>
+, p_token                 IN  VARCHAR2                           := NULL<br>
+, p_var_name              IN  VARCHAR2                           := NULL<br>
+, p_var_value             IN  VARCHAR2                           := NULL<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5250,17 +5194,16 @@ END;
 <li><strong>p_user_modif:</strong> last modification user ID</li>
 </ul>
 <p>The PL/SQL code of the action is automatically generated by this function. The HTTP request will be sent using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility">HTTP Utility</a>. The PL/SQL code that is generated is based on the following template:</p>
-<pre class="language-text">BEGIN
-   http_utility_krn.send_gitlab_http_request(
-      '{url}'
-    , '{token}'
-    , '{var_name}'
-    , '{var_value}'
-    , '{wallet_path}'
-    , '{proxy}'
-   );
-END;
-</pre>
+<p>plain BEGIN<br>
+http_utility_krn.send_gitlab_http_request(<br>
+'{url}'<br>
+, '{token}'<br>
+, '{var_name}'<br>
+, '{var_value}'<br>
+, '{wallet_path}'<br>
+, '{proxy}'<br>
+);<br>
+END;</p>
 <p>Where:</p>
 <ul>
 <li><em>{url}</em> is replaced with the value of <em>p_url</em>.</li>
@@ -5274,26 +5217,25 @@ END;
 <p>This procedure inserts a new action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. When triggered, this action sends an HTTP request to a GitLab server to trigger a pipeline or a pipeline job. The URL root, the pipeline token, the wallet path, the proxy server and a gitLab variable to be initialized are passed as parameters. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>The difference with the <a href="#621423-insert_http_gitlab_req_action">insert_http_gitlab_req_action procedure</a> is that this version of the procedure encrypts the URL, the token and the wallet path using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-SECUtility">SEC Utility</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_http_gitlab_req_action_enc(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_url                   IN  VARCHAR2
- , p_wallet_path           IN  VARCHAR2                           := NULL
- , p_proxy                 IN  VARCHAR2                           := NULL
- , p_token                 IN  VARCHAR2                           := NULL
- , p_var_name              IN  VARCHAR2                           := NULL
- , p_var_value             IN  VARCHAR2                           := NULL
- , p_active_flag           IN  dpp_actions.active_flag%TYPE
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
- , p_ph_suffix             IN  VARCHAR2
-);
-</pre>
+<p>plain PROCEDURE insert_http_gitlab_req_action_enc(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_url                   IN  VARCHAR2<br>
+, p_wallet_path           IN  VARCHAR2                           := NULL<br>
+, p_proxy                 IN  VARCHAR2                           := NULL<br>
+, p_token                 IN  VARCHAR2                           := NULL<br>
+, p_var_name              IN  VARCHAR2                           := NULL<br>
+, p_var_value             IN  VARCHAR2                           := NULL<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+, p_ph_suffix             IN  VARCHAR2<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5315,17 +5257,16 @@ END;
 <li><strong>p_ph_suffix:</strong> the URL, the GitLab pipeline trigger token and the wallet path are encrypted by the procedure using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-SECUtility">SEC Utility</a>. The encrypted values are stored in the tables of the utility using the <strong>URL</strong>, <strong>TOKEN</strong> and <strong>WALLET_PATH</strong> variables followed by this suffix. This allows to have several actions using different URL's, tokens and wallet paths.</li>
 </ul>
 <p>The PL/SQL code of the action is automatically generated by this function and the values of <em>p_url</em>, <em>p_token</em> and <em>p_wallet_path</em> are automatically encrypted. The HTTP request will be sent using the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility">HTTP Utility</a>. The PL/SQL code that is generated is based on the following template:</p>
-<pre class="language-text">BEGIN
-   http_utility_krn.send_gitlab_http_request(
-      '{url}'
-    , '{token}'
-    , '{var_name}'
-    , '{var_value}'
-    , '{wallet_path}'
-    , '{proxy}'
-   );
-END;
-</pre>
+<p>plain BEGIN<br>
+http_utility_krn.send_gitlab_http_request(<br>
+'{url}'<br>
+, '{token}'<br>
+, '{var_name}'<br>
+, '{var_value}'<br>
+, '{wallet_path}'<br>
+, '{proxy}'<br>
+);<br>
+END;</p>
 <p>Where:</p>
 <ul>
 <li><em>{url}</em> is replaced with the encrypted value of <em>p_url</em>.</li>
@@ -5338,14 +5279,13 @@ END;
 <h5 id="621425-delete_action">6.2.14.25. delete_action </h5>
 <p>This procedure deletes an action from <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5357,20 +5297,19 @@ END;
 <h5 id="621426-update_action">6.2.14.26. update_action </h5>
 <p>This procedure updates an action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_block_text            IN  dpp_actions.block_text%TYPE        := NULL
- , p_active_flag           IN  dpp_actions.active_flag%TYPE       := NULL
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE update_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_block_text            IN  dpp_actions.block_text%TYPE        := NULL<br>
+, p_active_flag           IN  dpp_actions.active_flag%TYPE       := NULL<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5388,17 +5327,16 @@ END;
 <h5 id="621427-update_action_exec_order">6.2.14.27. update_action_exec_order </h5>
 <p>This procedure updates the execution order of an action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_action_exec_order(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_curr_exec_order       IN  dpp_actions.execution_order%TYPE
- , p_new_exec_order        IN  dpp_actions.execution_order%TYPE
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE update_action_exec_order(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_curr_exec_order       IN  dpp_actions.execution_order%TYPE<br>
+, p_new_exec_order        IN  dpp_actions.execution_order%TYPE<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5413,20 +5351,19 @@ END;
 <h5 id="621428-duplicate_action">6.2.14.28. duplicate_action </h5>
 <p>This procedure duplicates an action in the <a href="#611-dpp_actions"><strong>dpp_actions</strong> table</a> from a schema to another none. The schemas can be identified by their ID or by their functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE duplicate_action(
-   p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
- , p_atn_type              IN  dpp_actions.atn_type%TYPE
- , p_exec_order            IN  dpp_actions.execution_order%TYPE
- , p_trg_schema_id         IN  dpp_actions.sma_id%TYPE            := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE duplicate_action(<br>
+p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_atn_usage             IN  dpp_actions.atn_usage%TYPE<br>
+, p_atn_type              IN  dpp_actions.atn_type%TYPE<br>
+, p_exec_order            IN  dpp_actions.execution_order%TYPE<br>
+, p_trg_schema_id         IN  dpp_actions.sma_id%TYPE            := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_date_creat            IN  dpp_actions.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_actions.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_actions.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_actions.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5444,18 +5381,17 @@ END;
 <h5 id="621429-insert_parameter">6.2.14.29. insert_parameter </h5>
 <p>This procedure inserts a new parameter in the <a href="#6115-dpp_parameters"><strong>dpp_parameters</strong> table</a>. When the database instance name is not passed as argument, the new parameter is common to all database instances.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_parameter(
-   p_param_name            IN  dpp_parameters.prr_name%TYPE
- , p_param_value           IN  dpp_parameters.prr_value%TYPE
- , p_descr_eng             IN  dpp_parameters.descr_eng%TYPE
- , p_descr_fra             IN  dpp_parameters.descr_fra%TYPE
- , p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL
- , p_date_creat            IN  dpp_parameters.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_parameters.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_parameters.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_parameters.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_parameter(<br>
+p_param_name            IN  dpp_parameters.prr_name%TYPE<br>
+, p_param_value           IN  dpp_parameters.prr_value%TYPE<br>
+, p_descr_eng             IN  dpp_parameters.descr_eng%TYPE<br>
+, p_descr_fra             IN  dpp_parameters.descr_fra%TYPE<br>
+, p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL<br>
+, p_date_creat            IN  dpp_parameters.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_parameters.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_parameters.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_parameters.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_param_name:</strong> parameter name</li>
@@ -5471,11 +5407,10 @@ END;
 <h5 id="621430-delete_parameter">6.2.14.30. delete_parameter </h5>
 <p>This procedure deletes a from the <a href="#6115-dpp_parameters"><strong>dpp_parameters</strong> table</a>.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_parameter(
-   p_param_name            IN  dpp_parameters.prr_name%TYPE
- , p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL
-);
-</pre>
+<p>plain PROCEDURE delete_parameter(<br>
+p_param_name            IN  dpp_parameters.prr_name%TYPE<br>
+, p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_param_name:</strong> parameter name</li>
@@ -5484,18 +5419,17 @@ END;
 <h5 id="621431-update_parameter">6.2.14.31. update_parameter </h5>
 <p>This procedure updates a parameter in the <a href="#6115-dpp_parameters"><strong>dpp_parameters</strong> table</a>. When the database instance name is not passed as argument, the new parameter is common to all database instances.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_parameter(
-   p_param_name            IN  dpp_parameters.prr_name%TYPE
- , p_param_value           IN  dpp_parameters.prr_value%TYPE         := NULL
- , p_descr_eng             IN  dpp_parameters.descr_eng%TYPE         := NULL
- , p_descr_fra             IN  dpp_parameters.descr_fra%TYPE         := NULL
- , p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL
- , p_date_creat            IN  dpp_parameters.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_parameters.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_parameters.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_parameters.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE update_parameter(<br>
+p_param_name            IN  dpp_parameters.prr_name%TYPE<br>
+, p_param_value           IN  dpp_parameters.prr_value%TYPE         := NULL<br>
+, p_descr_eng             IN  dpp_parameters.descr_eng%TYPE         := NULL<br>
+, p_descr_fra             IN  dpp_parameters.descr_fra%TYPE         := NULL<br>
+, p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL<br>
+, p_date_creat            IN  dpp_parameters.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_parameters.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_parameters.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_parameters.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_param_name:</strong> parameter name</li>
@@ -5511,16 +5445,15 @@ END;
 <h5 id="621432-insert_recipient">6.2.14.32. insert_recipient </h5>
 <p>This procedure inserts a new email recipient in the <a href="#613-dpp_recipients"><strong>dpp_recipients</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_recipient(
-   p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_email_addr            IN  dpp_recipients.email_addr%TYPE
- , p_date_creat            IN  dpp_recipients.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_recipients.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_recipients.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_recipients.user_modif%TYPE        := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_recipient(<br>
+p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_email_addr            IN  dpp_recipients.email_addr%TYPE<br>
+, p_date_creat            IN  dpp_recipients.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_recipients.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_recipients.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_recipients.user_modif%TYPE        := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5534,12 +5467,11 @@ END;
 <h5 id="621433-delete_recipient">6.2.14.33. delete_recipient </h5>
 <p>This procedure deletes an email recipient in the <a href="#613-dpp_recipients"><strong>dpp_recipients</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_recipient(
-   p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_email_addr            IN  dpp_recipients.email_addr%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_recipient(<br>
+p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_email_addr            IN  dpp_recipients.email_addr%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5549,18 +5481,17 @@ END;
 <h5 id="621434-duplicate_recipient">6.2.14.34. duplicate_recipient </h5>
 <p>This procedure duplicates an email recipient in the <a href="#613-dpp_recipients"><strong>dpp_recipients</strong> table</a> from a schema to another one.  The schemas can be identified by their ID or by their functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE duplicate_recipient(
-   p_schema_id             IN  dpp_recipients.sma_id%TYPE         := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_email_addr            IN  dpp_recipients.email_addr%TYPE
- , p_trg_schema_id         IN  dpp_recipients.sma_id%TYPE         := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_date_creat            IN  dpp_recipients.date_creat%TYPE     := NULL
- , p_user_creat            IN  dpp_recipients.user_creat%TYPE     := NULL
- , p_date_modif            IN  dpp_recipients.date_modif%TYPE     := NULL
- , p_user_modif            IN  dpp_recipients.user_modif%TYPE     := NULL
-);
-</pre>
+<p>plain PROCEDURE duplicate_recipient(<br>
+p_schema_id             IN  dpp_recipients.sma_id%TYPE         := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_email_addr            IN  dpp_recipients.email_addr%TYPE<br>
+, p_trg_schema_id         IN  dpp_recipients.sma_id%TYPE         := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_date_creat            IN  dpp_recipients.date_creat%TYPE     := NULL<br>
+, p_user_creat            IN  dpp_recipients.user_creat%TYPE     := NULL<br>
+, p_date_modif            IN  dpp_recipients.date_modif%TYPE     := NULL<br>
+, p_user_modif            IN  dpp_recipients.user_modif%TYPE     := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the source schema</li>
@@ -5576,18 +5507,17 @@ END;
 <h5 id="621435-insert_schema_option">6.2.14.35. insert_schema_option </h5>
 <p>This procedure inserts a new schema option in the <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_schema_option(
-   p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_option_name           IN  dpp_schema_options.otn_name%TYPE
- , p_option_value          IN  dpp_schema_options.stn_value%TYPE
- , p_usage                 IN  dpp_schema_options.stn_usage%TYPE
- , p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL
- , p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL
- , p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL
- , p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_schema_option(<br>
+p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_option_name           IN  dpp_schema_options.otn_name%TYPE<br>
+, p_option_value          IN  dpp_schema_options.stn_value%TYPE<br>
+, p_usage                 IN  dpp_schema_options.stn_usage%TYPE<br>
+, p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL<br>
+, p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL<br>
+, p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL<br>
+, p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5603,14 +5533,13 @@ END;
 <h5 id="621436-delete_schema_option">6.2.14.36. delete_schema_option </h5>
 <p>This procedure deletes a schema option from the <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_schema_option(
-   p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_option_name           IN  dpp_schema_options.otn_name%TYPE
- , p_usage                 IN  dpp_schema_options.stn_usage%TYPE
- , p_option_value          IN  dpp_schema_options.stn_value%TYPE
-);
-</pre>
+<p>plain PROCEDURE delete_schema_option(<br>
+p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_option_name           IN  dpp_schema_options.otn_name%TYPE<br>
+, p_usage                 IN  dpp_schema_options.stn_usage%TYPE<br>
+, p_option_value          IN  dpp_schema_options.stn_value%TYPE<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5622,19 +5551,18 @@ END;
 <h5 id="621437-update_schema_option">6.2.14.37. update_schema_option </h5>
 <p>This procedure updates a schema option in the <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong> table</a>. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_schema_option(
-   p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_option_name           IN  dpp_schema_options.otn_name%TYPE
- , p_option_value          IN  dpp_schema_options.stn_value%TYPE
- , p_usage                 IN  dpp_schema_options.stn_usage%TYPE
- , p_option_new_value      IN  dpp_schema_options.stn_value%TYPE     := NULL
- , p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL
- , p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL
- , p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL
- , p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE update_schema_option(<br>
+p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_option_name           IN  dpp_schema_options.otn_name%TYPE<br>
+, p_option_value          IN  dpp_schema_options.stn_value%TYPE<br>
+, p_usage                 IN  dpp_schema_options.stn_usage%TYPE<br>
+, p_option_new_value      IN  dpp_schema_options.stn_value%TYPE     := NULL<br>
+, p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL<br>
+, p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL<br>
+, p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL<br>
+, p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5651,20 +5579,19 @@ END;
 <h5 id="621438-duplicate_schema_option">6.2.14.38. duplicate_schema_option </h5>
 <p>This procedure duplicates a schema option in the <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong> table</a> from a schema to another one. The schemas can be identified by their ID or by their functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE duplicate_schema_option(
-   p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_option_name           IN  dpp_schema_options.otn_name%TYPE
- , p_usage                 IN  dpp_schema_options.stn_usage%TYPE
- , p_option_value          IN  dpp_schema_options.stn_value%TYPE
- , p_trg_schema_id         IN  dpp_schema_options.sma_id%TYPE        := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL
- , p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL
- , p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL
- , p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL
-);
-</pre>
+<p>plain PROCEDURE duplicate_schema_option(<br>
+p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_option_name           IN  dpp_schema_options.otn_name%TYPE<br>
+, p_usage                 IN  dpp_schema_options.stn_usage%TYPE<br>
+, p_option_value          IN  dpp_schema_options.stn_value%TYPE<br>
+, p_trg_schema_id         IN  dpp_schema_options.sma_id%TYPE        := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_date_creat            IN  dpp_schema_options.date_creat%TYPE    := NULL<br>
+, p_user_creat            IN  dpp_schema_options.user_creat%TYPE    := NULL<br>
+, p_date_modif            IN  dpp_schema_options.date_modif%TYPE    := NULL<br>
+, p_user_modif            IN  dpp_schema_options.user_modif%TYPE    := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the source schema</li>
@@ -5682,19 +5609,18 @@ END;
 <h5 id="621439-insert_schema_relation">6.2.14.39. insert_schema_relation </h5>
 <p>This procedure inserts a relationship between two schemas in the <a href="#617-dpp_schema_relations"><strong>dpp_schema_relations</strong> table</a>. The source and target schemas can be identified by their ID or functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE insert_schema_relation(
-   p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
- , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
- , p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_date_from             IN  dpp_schema_relations.date_from%TYPE   := NULL
- , p_date_to               IN  dpp_schema_relations.date_to%TYPE     := NULL
- , p_date_creat            IN  dpp_schema_relations.date_creat%TYPE  := NULL
- , p_user_creat            IN  dpp_schema_relations.user_creat%TYPE  := NULL
- , p_date_modif            IN  dpp_schema_relations.date_modif%TYPE  := NULL
- , p_user_modif            IN  dpp_schema_relations.user_modif%TYPE  := NULL
-);
-</pre>
+<p>plain PROCEDURE insert_schema_relation(<br>
+p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL<br>
+, p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL<br>
+, p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_date_from             IN  dpp_schema_relations.date_from%TYPE   := NULL<br>
+, p_date_to               IN  dpp_schema_relations.date_to%TYPE     := NULL<br>
+, p_date_creat            IN  dpp_schema_relations.date_creat%TYPE  := NULL<br>
+, p_user_creat            IN  dpp_schema_relations.user_creat%TYPE  := NULL<br>
+, p_date_modif            IN  dpp_schema_relations.date_modif%TYPE  := NULL<br>
+, p_user_modif            IN  dpp_schema_relations.user_modif%TYPE  := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id_from:</strong> ID of the source schema</li>
@@ -5711,13 +5637,12 @@ END;
 <h5 id="621440-delete_schema_relation">6.2.14.40. delete_schema_relation </h5>
 <p>This procedure deletes a relationship between two schemas from the <a href="#617-dpp_schema_relations"><strong>dpp_schema_relations</strong> table</a>. The source and target schemas can be identified by their ID or functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_schema_relation(
-   p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
- , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
- , p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL
-);
-</pre>
+<p>plain PROCEDURE delete_schema_relation(<br>
+p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL<br>
+, p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL<br>
+, p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id_from:</strong> ID of the source schema</li>
@@ -5728,19 +5653,18 @@ END;
 <h5 id="621441-update_schema_relation">6.2.14.41. update_schema_relation </h5>
 <p>This procedure updates a relationship between two schemas in the <a href="#617-dpp_schema_relations"><strong>dpp_schema_relations</strong> table</a>. The source and target schemas can be identified by their ID or functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE update_schema_relation(
-   p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
- , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
- , p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL
- , p_date_from             IN  dpp_schema_relations.date_from%TYPE   := NULL
- , p_date_to               IN  dpp_schema_relations.date_to%TYPE     := NULL
- , p_date_creat            IN  dpp_schema_relations.date_creat%TYPE  := NULL
- , p_user_creat            IN  dpp_schema_relations.user_creat%TYPE  := NULL
- , p_date_modif            IN  dpp_schema_relations.date_modif%TYPE  := NULL
- , p_user_modif            IN  dpp_schema_relations.user_modif%TYPE  := NULL
-);
-</pre>
+<p>plain PROCEDURE update_schema_relation(<br>
+p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL<br>
+, p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL<br>
+, p_functional_name_to    IN  dpp_schemas.functional_name%TYPE      := NULL<br>
+, p_date_from             IN  dpp_schema_relations.date_from%TYPE   := NULL<br>
+, p_date_to               IN  dpp_schema_relations.date_to%TYPE     := NULL<br>
+, p_date_creat            IN  dpp_schema_relations.date_creat%TYPE  := NULL<br>
+, p_user_creat            IN  dpp_schema_relations.user_creat%TYPE  := NULL<br>
+, p_date_modif            IN  dpp_schema_relations.date_modif%TYPE  := NULL<br>
+, p_user_modif            IN  dpp_schema_relations.user_modif%TYPE  := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id_from:</strong> ID of the source schema</li>
@@ -5757,13 +5681,12 @@ END;
 <h5 id="621442-clean_up_job_runs">6.2.14.42. clean_up_job_runs </h5>
 <p>This procedure cleans up the job runs (<a href="#619-dpp_job_runs"><strong>dpp_job_runs</strong> table</a> and <a href="#6110-dpp_job_logs"><strong>dpp_job_logs</strong> table</a>) belonging to database schema. The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE clean_up_job_runs(
-   p_schema_id             IN  dpp_job_runs.sma_id%TYPE           := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_date_started          IN  dpp_job_runs.date_started%TYPE     := NULL
- , p_date_ended            IN  dpp_job_runs.date_ended%TYPE       := NULL
-);
-</pre>
+<p>plain PROCEDURE clean_up_job_runs(<br>
+p_schema_id             IN  dpp_job_runs.sma_id%TYPE           := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_date_started          IN  dpp_job_runs.date_started%TYPE     := NULL<br>
+, p_date_ended            IN  dpp_job_runs.date_ended%TYPE       := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema whose logs must be cleaned up</li>
@@ -5774,17 +5697,16 @@ END;
 <h5 id="621443-duplicate_schema_config">6.2.14.43. duplicate_schema_config </h5>
 <p>This function duplicates a schema and all configurations attached to it (<a href="#6114-dpp_nodrop_objects"><strong>dpp_nodrop_objects</strong></a>, <a href="#611-dpp_actions"><strong>dpp_actions</strong></a>, <a href="#613-dpp_recipients"><strong>dpp_recipients</strong></a> and <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong></a>). The source schema can be identified by its ID or by its functional name which is unique. If the target schema ID is not passed as parameter, it is computed by the function.</p>
 <p>Format:</p>
-<pre class="language-text">FUNCTION duplicate_schema_config(
-   p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
- , p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE
- , p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL
- , p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL
- , p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL
- , p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL
-) RETURN dpp_schemas.sma_id%TYPE;
-</pre>
+<p>plain FUNCTION duplicate_schema_config(<br>
+p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+, p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_trg_functional_name   IN  dpp_schemas.functional_name%TYPE<br>
+, p_date_creat            IN  dpp_schemas.date_creat%TYPE        := NULL<br>
+, p_user_creat            IN  dpp_schemas.user_creat%TYPE        := NULL<br>
+, p_date_modif            IN  dpp_schemas.date_modif%TYPE        := NULL<br>
+, p_user_modif            IN  dpp_schemas.user_modif%TYPE        := NULL<br>
+) RETURN dpp_schemas.sma_id%TYPE;</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_src_schema_id:</strong> ID of the source schema</li>
@@ -5800,11 +5722,10 @@ END;
 <h5 id="621444-delete_schema_config">6.2.14.44. delete_schema_config </h5>
 <p>This procedure deletes a schema and all configurations attached to it (<a href="#6114-dpp_nodrop_objects"><strong>dpp_nodrop_objects</strong></a>, <a href="#611-dpp_actions"><strong>dpp_actions</strong></a>, <a href="#613-dpp_recipients"><strong>dpp_recipients</strong></a> and <a href="#6111-dpp_schema_options"><strong>dpp_schema_options</strong></a>). The schema can be identified by its ID or by its functional name which is unique.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE delete_schema_config(
-   p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
- , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
-);
-</pre>
+<p>plain PROCEDURE delete_schema_config(<br>
+p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL<br>
+, p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>p_schema_id:</strong> ID of the schema</li>
@@ -5956,12 +5877,11 @@ END;
 <p>This stored procedure kills a session.</p>
 <p><strong>Caution:</strong> This stored procedure is only deployed in a <a href="#4413-cop---cloud-on-premise">COP</a> installation.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE dc_dba_mgmt_kill_sess_dedic_db(
-   session_sid      IN INT
- , session_serial   IN INT
- ,v_inst_id         IN NUMBER DEFAULT 0
-);
-</pre>
+<p>plain PROCEDURE dc_dba_mgmt_kill_sess_dedic_db(<br>
+session_sid      IN INT<br>
+, session_serial   IN INT<br>
+,v_inst_id         IN NUMBER DEFAULT 0<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>session_id:</strong> the SID of the session to be killed</li>
@@ -5972,11 +5892,10 @@ END;
 <p>This procedure locks or unlocks a schema.</p>
 <p><strong>Caution:</strong> This stored procedure is only deployed in an <a href="#4412-aws---amazon-oracle-rds-instance">AWS</a> or <a href="#4413-cop---cloud-on-premise">COP</a> installation.</p>
 <p>Format:</p>
-<pre class="language-text">PROCEDURE dc_dba_mgmt_lock_user(
-   user             IN VARCHAR2
- , b_lock           IN BOOLEAN
-);
-</pre>
+<p>plain PROCEDURE dc_dba_mgmt_lock_user(<br>
+user             IN VARCHAR2<br>
+, b_lock           IN BOOLEAN<br>
+);</p>
 <p>Parameters:</p>
 <ul>
 <li><strong>user:</strong> name of the schema to be locked or unlocked</li>

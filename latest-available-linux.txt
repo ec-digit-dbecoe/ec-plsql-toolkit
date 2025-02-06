@@ -1,1 +1,1 @@
-ec_plsql_toolkit_24_10_Linux.zip
+ec_plsql_toolkit_24_12_Linux.zip

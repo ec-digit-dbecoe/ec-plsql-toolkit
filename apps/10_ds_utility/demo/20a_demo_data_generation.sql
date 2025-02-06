@@ -7,6 +7,7 @@ REM
 REM Create a data set to generate synthetic/fake data 
 PAUSE Configure data set?
 CLEAR SCREEN
+set serveroutput on size 999999
 exec ds_utility_krn.set_message_filter('EWI');
 exec ds_utility_krn.set_test_mode(FALSE);
 declare

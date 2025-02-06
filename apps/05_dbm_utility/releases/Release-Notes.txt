@@ -1,10 +1,23 @@
-DBM Utility 24.10 Release Notes
-Date: December 2024
+DBM Utility 25.0 Release Notes
+Date: January 2025
 
 SUPPORT
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 25.0 - January 2025
+
+Changes:
+- Some messages are now displayed with colors if enabled via options or parameters.
+- Privileges required for installation are now checked in migrate-dbm shell script.
+- Tool now requires SELECT ANY DICTIONARY system privilege to install. 
+
+Bug fixing:
+- An exception was raised when parameter value was exceeding 100 characters.
+- Database objects with non-uppercase name was incorrectly reported as missing during validation.
+- Version status was sometimes incorrectly reported as VALID while it was INVALID (missing commit).
+- DBM status was incorrectly reported as INVALID after upgrade via migrate-dbm shell script.
 
 VERSION 24.10 - December 2024
 
