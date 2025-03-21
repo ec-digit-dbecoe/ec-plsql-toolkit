@@ -1,6 +1,6 @@
 REM 
 REM Data Set Utility Demo - Data Model Creation
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM Script to create demo data model i.e. db objects
 REM 
 
@@ -423,3 +423,5 @@ COMMIT;
 REM Create demo views
 
 @@12_demo_views.sql
+
+@@18_demo_src_tables_stats.sql

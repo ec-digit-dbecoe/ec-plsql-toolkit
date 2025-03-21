@@ -204,25 +204,25 @@
                   AND NOT REGEXP_LIKE(obj.object_type||' '||obj.object_name, '^(PACKAGE BODY|PACKAGE) DBM_.*_TST$')
                 UNION ALL
                -- Specific handling for public synonyms
---               SELECT 'PUBLIC SYNONYM '||synonym_name, MOD(sys.dbms_utility.get_hash_value(table_name,1000000000,POWER(2,30)),POWER(2,30)), 'VALID'
---                 FROM all_synonyms
---                WHERE owner = 'PUBLIC'
---                  AND table_owner = SYS_CONTEXT('USERENV', 'SESSION_USER')
---                  AND REGEXP_LIKE('PUBLIC SYNONYM '||synonym_name, '^(PACKAGE BODY|PACKAGE|SEQUENCE|TABLE|VIEW) DBM_')
---                  AND NOT REGEXP_LIKE('PUBLIC SYNONYM '||synonym_name, '^(PACKAGE BODY|PACKAGE) DBM_.*_TST$')
---                  AND :p_public = 'Y'
---                UNION ALL
+               SELECT 'PUBLIC SYNONYM '||synonym_name, MOD(sys.dbms_utility.get_hash_value(table_name,1000000000,POWER(2,30)),POWER(2,30)), 'VALID'
+                 FROM all_synonyms
+                WHERE owner = 'PUBLIC'
+                  AND table_owner = SYS_CONTEXT('USERENV', 'SESSION_USER')
+                  AND REGEXP_LIKE('PUBLIC SYNONYM '||synonym_name, '^(PACKAGE BODY|PACKAGE|SEQUENCE|TABLE|VIEW) DBM_')
+                  AND NOT REGEXP_LIKE('PUBLIC SYNONYM '||synonym_name, '^(PACKAGE BODY|PACKAGE) DBM_.*_TST$')
+                  AND :p_public = 'Y'
+                UNION ALL
                -- Specific handling for public grants
---               SELECT 'PUBLIC GRANT ON '||table_name, MOD(sys.dbms_utility.get_hash_value(LISTAGG(privilege, ', ') WITHIN GROUP (ORDER BY privilege),1000000000,POWER(2,30)),POWER(2,30)), 'VALID'
---                 FROM all_tab_privs
---                WHERE grantee = 'PUBLIC'
---                  AND grantor = SYS_CONTEXT('USERENV', 'SESSION_USER')
---                  AND table_schema = SYS_CONTEXT('USERENV', 'SESSION_USER')
---                  AND REGEXP_LIKE('PUBLIC GRANT ON '||table_name, '^(PACKAGE BODY|PACKAGE|SEQUENCE|TABLE|VIEW) DBM_')
---                  AND NOT REGEXP_LIKE('PUBLIC GRANT ON '||table_name, '^(PACKAGE BODY|PACKAGE) DBM_.*_TST$')
---                  AND :p_public = 'Y'
---                GROUP BY table_name
---                UNION ALL
+               SELECT 'PUBLIC GRANT ON '||table_name, MOD(sys.dbms_utility.get_hash_value(LISTAGG(privilege, ', ') WITHIN GROUP (ORDER BY privilege),1000000000,POWER(2,30)),POWER(2,30)), 'VALID'
+                 FROM all_tab_privs
+                WHERE grantee = 'PUBLIC'
+                  AND grantor = SYS_CONTEXT('USERENV', 'SESSION_USER')
+                  AND table_schema = SYS_CONTEXT('USERENV', 'SESSION_USER')
+                  AND REGEXP_LIKE('PUBLIC GRANT ON '||table_name, '^(PACKAGE BODY|PACKAGE|SEQUENCE|TABLE|VIEW) DBM_')
+                  AND NOT REGEXP_LIKE('PUBLIC GRANT ON '||table_name, '^(PACKAGE BODY|PACKAGE) DBM_.*_TST$')
+                  AND :p_public = 'Y'
+                GROUP BY table_name
+                UNION ALL
                -- Specific handling for other objects
                SELECT obj.object_type||' '||obj.object_name, NULL, obj.status
                  FROM all_objects obj

@@ -1,6 +1,6 @@
 REM 
-REM Data Set Utility Demo - Grant read/write access to demo data model
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM Data Set Utility Demo - Drop all demo objects
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM 
 REM Drop tables (in the right order)
 REM Drop all objects created by a previous run, if any

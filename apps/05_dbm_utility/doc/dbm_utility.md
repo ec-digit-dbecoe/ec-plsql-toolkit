@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Base Migration Utility v25.0 - User's Guide
+# Data Base Migration Utility v25.1 - User's Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -115,7 +115,7 @@
     - [14.1.2. Internal commands](#1412-internal-commands)
   - [14.2. Options](#142-options)
     - [14.2.1. Shell script options](#1421-shell-script-options)
-    - [14.2.2. Command options](#1422-command-options)
+    - [14.2.2. Command help](#1422-command-help)
 
 ## 1. Introduction
 
@@ -135,7 +135,8 @@ The primary purpose of the DBM Utility is to streamline the process of migrating
 - **Simplified Configuration:** Configuration files allow for the definition of parameters and variable definitions at different levels in the file hierarchy, providing flexibility and ease of customisation.
 - **Conditional File Execution**: Execute files conditionally by defining SQL expressions with variables, enabling execution based on specific conditions like the current database environment.
 - **Dependency Management**: Manages dependencies between applications or tools deployed with the DBM tool, ensuring that dependencies are satisfied before installation. Supports dependencies between applications and specific versions of dependent applications.
-- **Database Object Inventory**: Generates and saves an inventory of database objects, used for validating application migrations or determining the version of an installed application. The inventory is saved in a designated file and includes a checksum for each object.
+- **Database Object Inventory**: Generates and saves an inventory of database objects, used for validating application migrations or determining the version of an installed application. The inventory is saved in a designated file (`objects.dbm`) and includes a checksum for each object.
+- **Files Inventory**: Generates and saves an inventory of files, used to detect missing or tampered files. The inventory is saved in a designated file (`files.dbm`) and includes a hash for each file.
 - **Prerequisite Checks**: Supports pre-migration checks by allowing users to specify scripts in a "precheck" folder. These scripts raise exceptions if prerequisites are not met, preventing migration from proceeding if necessary conditions are not satisfied.
 - **Rollback mechanism**: In the event of a migration failure, the tool offers a rollback mechanism to revert any changes made by executed scripts. This is achieved by executing companion rollback scripts provided by end-users, ensuring that the database can be restored to its previous state before the migration attempt.
 - **Restore Point Management**: the tool provides commands to create and drop restore points before migrating schemas of a Cloud on Premise (CoP) database. This allows users to create a restore point for potential database flashbacks in case of major migration failure.
@@ -330,7 +331,7 @@ Below is a comprehensive list of available commands along with their functionali
 - **Validate:** Validates the current version of an application, ensuring the integrity of migrated database objects.
 - **Check File:** Checks the checksum of files executed successfully during migration to detect tampering or modification.
 - **Rollback:** Rolls back a failed migration by executing rollback scripts, if available.
-- **Make an inventory:** Make and save the inventory of all database objects belonging to an application.
+- **Make an inventory:** Make and save the inventory of all database objects and/or files belonging to an application.
 - **Show / Guess / Set Current:** Show, guess or set the current version of an application.
 - **Uninstall:** Uninstalls an application by executing uninstallation scripts.
 - **Scan Files:** Requests a new scan of the file system to detect any changes made during tool operation.
@@ -351,7 +352,9 @@ To get the list of available commands, type `@dbm-cli help`. You will get the fo
 
 Commands and their options do not need to be fully typed; they can be abbreviated by providing only the first 3, 4 or 5 characters (or any longer prefix), depending on each command and option.
 
-When no application is specified, the command is executed for all applications found on the file system. When no version is specified, the command is executed for the currently installed version.
+To get help for a specific command (including a description of its purpose, parameters, and available options), type `@dbm-cli help <command>`.
+
+As a rule of thumb, when no application is specified, the command is executed for all applications installed or found on the file system (depending on the command). When no version is specified, the command is executed for the currently installed version.
 
 ### 4.3. Configure
 
@@ -359,13 +362,9 @@ Before migrating an application, you may need to configure it i.e., define a val
 
 Substitution variables, including how their values are requested from end-users and how they are validated, are specified in the configuration files (*.conf). The value of substitution variables entered by end-users are stored in the database itself.
 
-The abbreviation of the "configure" command is "conf".
-
 ### 4.4. Precheck
 
 Before proceeding with the migration of an application, you can check whether the preconditions or prerequisites are met by invoking `@dbm-cli precheck <application>`. All scripts placed in the "precheck" folder will be executed. Furthermore, required system/object privileges and/or roles specified in "privileges.dbm" files will also be checked. Note that these verifications are automatically performed before any migration unless the "-nopre[check]" option and/or "-nopriv[ileges]" options are specified respectively.
-
-The abbreviation of the "precheck" command is "pre".
 
 ### 4.5. Migrate / Install / Upgrade
 
@@ -387,8 +386,6 @@ When migrating a single application, you have the flexibility to migrate to a sp
 
 The scripts executed depend on the chosen execution method (as detailed later). When a changelog file is used, a "show errors" SQL\*Plus command is executed after compiling each package specification and body, provided the "show_compilation_errors" parameter is set to "true" or "yes". This allows immediate identification of the location of the error.
 
-The abbreviations of the "migrate", "install" and "upgrade" commands are respectively "mig", "ins" and "upg".
-
 ### 4.6. Validate
 
 To validate the current version of an application, enter `@dbm-cli validate <application>`. If no application is specified or if "all" is specified, each current version of every application is validated.
@@ -399,27 +396,25 @@ When a database object inventory is provided in an "objects.dbm" file, the tool 
 
 Although end-users can manually request a validation, it is automatically triggered after each migration, occurring once per version.
 
-The abbreviation of the "validate" command is "val".
-
 ### 4.7. Check files
 
-The checksum of any file executed successfully is stored in one of the internal tables of the tool. End-user can request to check whether these files haven't changed on the file system since their execution by invoking `@dbm-cli check-files <application> <version>`. When no application or no version is specified, files of all applications or versions are checked. An exception is raised if a file previously executed is tampered or missing.
+This command enables you to check the integrity of distributed files as well as to detect files that have been changed or removed from the distribution since their execution. To proceed, execute `@dbm-cli check-files [<application> [<version>]]`. When no application or no version is specified, files of all applications or versions are checked. The `-exec[uted]` and `-dist[ributed]` options can be used to limit the check to respectively executed or distributed files. When no option is specified, both checks are performed.
 
-The abbreviation of the "check-files" command is "check".
+The inventory of distributed files and their hash is stored (in each directory in a file named `files.dbm`. This file can be generated using the `@dbm-cli make -files` command. The format of each line is: `<file-name>: <MD5-hash> [<run-condition>]`. When a file is executed during a migration, its hash is stored in an internal table of the tool to allow detection of any change.
 
 ### 4.8. Rollback
 
 This command enables you to rollback a failed migration under the condition that rollback scripts have been provided in a "rollback" subfolder. Files executed during a migration, along with their outcomes, are registered in the database. The rollback process involves executing the corresponding rollback scripts in reverse order of their execution, beginning with the one that failed. To proceed, execute `@dbm-cli rollback <application>`. Rollback cannot be applied to multiple applications, so "all" is not a valid option. No version can be specified either. Rollback will fail if any of the executed scripts lack equivalents in the "rollback" subfolder or if their execution fails.
 
-The abbreviation of the "rollback" command is "roll".
-
 ### 4.9. Make inventory
 
-The inventory of database objects, which is used when validating the migration of an application or determining the version of an installed application, can be built and saved by invoking the following command: `@dbm-cli make-inventory <application>`.
+An inventory of database objects and files can be built and saved by invoking the following command: `@dbm-cli make-inventory <application>`.
 
-The inventory will be saved into the following file: `apps/<application>/releases/<version>/config/objects.dbm`. The query used to generate the inventory is placed in the first line as a comment. Additionally, a checksum is computed and stored for each database object, and any existing database object conditions are preserved.
+The inventory of database objects is saved into the following file: `apps/<application>/releases/<version>/config/objects.dbm`. Each database object is stored with its type, its name, its checksum, and an optional run condition. The query used to generate the inventory is placed in the first line as a comment. This inventory is used to validate an application migration or to detect which version of an application is currently installed.
 
-The abbreviation of the "make-inventory" command is "make".
+An inventory of files is saved into a `files.dbm` file located in each directory. Each file is listed with its name, its hash, and an optional run condition. This inventory is used to detect whether distributed files have been deleted or changed, in which case they are reported respectively as `MISSING` or `TAMPERED`. It is also use to detect files that have been deleted or changed since their execution.
+
+Options `-db[-objects]` and `-file[s]` can be specified to limit the inventory to respectively database objects and files (instead of making both).
 
 ### 4.10. Show / Guess / Set current
 
@@ -436,8 +431,6 @@ End-user can also manually define which version of the application is currently 
 
 You can also ask the tool to display which version of each application is currently installed by typing the following command: `@dbm-cli show-current <application>`.
 
-The abbreviations of the "show-current", "guess-current", and "set-current" commands are respectively "show", "guess", and "set".
-
 ### 4.11. Uninstall
 
 To uninstall an application, execute `@dbm-cli uninstall [<options>] <application>`. If no application is specified or if "all" is specified, all applications are uninstalled by executing the SQL scripts located in the "uninstall" folder(s). These scripts may be version-specific, in which case they are located under each version folder, or version-independent, in which case they are located under the "all" version folder.
@@ -448,25 +441,17 @@ Sometimes, the DBM tool may incorrectly report that an application is not instal
 @dbm-cli uninstall -force <application>
 ```
 
-The abbreviation of the "uninstall" command is "uninst".
-
 ### 4.12. Scan files
 
 The file system is scanned during the tool's startup. Consequently, if a file is created, modified, or deleted while the tool is running, it will not be detected. To address this, you can request a new scan of the file system by executing `@dbm-cli scan-files`. Alternatively, you can exit SQL\*Plus and relaunch `dbm-cli`.
-
-The abbreviation of the "scan-files" command is "scan".
 
 ### 4.13. Read config
 
 Configuration files ("\*.conf"), database objects inventories ("objects.dbm"), and files inventories ("files.dbm") are read during the tool's startup. Consequently, if such files are created, modified, or deleted while the tool is running, they will not be detected. To address this, you can request a new reading of configuration files by executing `@dbm-cli read-config`. Alternatively, you can exit SQL\*Plus and relaunch `dbm-cli`.
 
-The abbreviation of the "read-config" command is "read".
-
 ### 4.14. Display
 
 This command allows you to see and check applications, versions, scripts, files, parameters, variables, etc. that have been loaded into the internal memory of the tool during startup. To proceed, execute `@dbm-cli display <application> <version>`. When no version is specified, all versions are displayed. When no application is given, all applications are displayed.
-
-The abbreviation of the "display" command is "disp".
 
 ### 4.15. Setup
 
@@ -478,15 +463,11 @@ Prior to migrating schemas on a CoP database, it's advisable to create a restore
 
 This command is exclusive to EC CoP (Cloud on Premise) databases and necessitates the prior definition of environment variables to connect to the `C##APPDBA` schema. The required variables include `DBA_USERNAME`, `DBA_PASSWORD`, and `DBA_DATABASE`. Additionally, it's important to establish an SSH tunnel to the database server before launching the tool.
 
-The abbreviation of the `create-restore-point` and `drop-restore-point` commands are respectively "create" and "drop".
-
 ### 4.17. Flashback database
 
 In case of major migration failure, you can restore/flashback the database to the previously created restore point by executing `@dbm-cli flashback-database`. Note that this operation is asynchronous and can take a while to complete. There is currently no way to know whether it is started, completed, and its outcome (success/failure). This operation does not drop the restore point so don't forget to do it once the flashback is complete.
 
 This command is exclusive to EC CoP (Cloud on Premise) databases and necessitates the prior definition of environment variables to connect to the `C##APPDBA` schema. The required variables include `DBA_USERNAME`, `DBA_PASSWORD`, and `DBA_DATABASE`. Additionally, it's important to establish an SSH tunnel to the database server before launching the tool.
-
-The abbreviation of the "flashback-database" command is "flash".
 
 ### 4.18. Expose / Conceal
 
@@ -1180,28 +1161,195 @@ Here follows the list of the `dbm-cli` shell script options.
 | `-logs_dir=<path>` | Alternate location of `logs` folder |
 | `-tmp_dir=<path>` | Alternate location of `tmp` folder |
 | `-conf_path=<path>` | Alternate path of configuration file `conf/dbm_utility.conf` |
-| `-[no]color` | Display some messages with/without colors  |
+| `-[no]color` | Display messages with or without colors (when available)  |
 
-#### 14.2.2. Command options
+#### 14.2.2. Command help
 
-Here follows the list of command options and their shortcut:
+Here follows the list of available commands with their abbreviation, purpose, parameters, and possible options (obtained with the command `@dbm-cli help all`):
 
-| Command | Option | Description |
-| ------- | ------ | ----------- |
-| `<all>`  | `-debug` | Show debug information |
-|         | `-show[-errors]` | show compilation errors |
-|         | `-stop[-on-warning]` | stop on SQL*Plus warning in case of compilation error |
-| export / import  | `-verb[ose]` | Display detailed info |
-|         | `-path=<path>` | Directory where data files are stored |
-|         | `-date[=<format>]` | Append date to data file name |
-|         | `-time[=<format>]` | Append time to data file name |
-| guess   | `-best` | Guess best version |
-|         | `-set`  | Set version to guessed one |
-| help    | `-int[ernal]` | Show internal commands |
-| migrate / install / upgrade | `-jump[-to-statement]=<stmd-id>` | Skip statements before given statement id |
-|         | `-noval[idate]` | Do not validate after migrate |
-|         | `-noup[grade]`  | Do not apply upgrades after install |
-|         | `-nopre[checks]`  | Do not execute pre-checks |
-|         | `-nopri[vileges]`  | Do not check privileges |
-|         | `-skip-file=<file>`  | Skip file with given name or relative path |
-| show    | `-a[ll]`  | Show apps of all schemas |
+```txt
+========================================
+Usage: check[-files] [<options-list>] [<apps-list> | all] [<version>]
+Check integrity of distributed files and/or executed files using hashes.
+<apps-list> is a comma-separated list of applications.
+<version> is an application version (if a single app)
+<options-list> is a space-separated list of options:
+.  -dist[ributed]: check distributed files only
+.  -exec[uted]: check executed files only
+.  -h[elp] or -?: this help
+.  -v[erbose]: display status of all files
+========================================
+Usage: conc[eal] [<options-list>] [<apps-list> | all] [<grantee>]
+Conceal an application by revoking grants and dropping synonyms.
+<grantee> can be a private schema or "public" (default)
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: conf[igure] [<options-list>] [<apps-list> | all]
+Configure substitution variables for given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: disp[lay] [<options-list>] [<apps-list> | all] [version]
+Display information about given applications (stored in the internal cache).
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: expor[t] [<options-list>] [<apps-list> | all]
+Export configuration of given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -date[=<YYMMDD>]: add date to file name (default: today)
+.  -path=<path>: path of default directory
+.  -time[=<YYMMDDHHMMSS>]: add date/time to file name (default: now)
+.  -verb[ose]: show information messages
+========================================
+Usage: expos[e] [<options-list>] [<apps-list> | all] [<grantee>]
+Expose an application using private or public grants and synonyms.
+<grantee> can be a private schema or "public" (default)
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: guess[-current] [<options-list>] [<apps-list> | all]
+Guess which version of given applications are installed using checksums.
+A best guess can be performed in case no exact match is found.
+Application version can be changed so as to reflect matching one.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -best[-guess]: make a best guess (vs exact match)
+.  -d[ebug]: enable debugging
+.  -h[elp] or -?: this help
+.  -set[-current]: set guessed version as current
+========================================
+Usage: imp[ort] [<options-list>] [<apps-list> | all]
+Import configuration of given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -date[=<YYMMDD>]: add date to file name (default: today)
+.  -path=<path>: path of default directory
+.  -time[=<YYMMDDHHMMSS>]: add date/time to file name (default: now)
+.  -verb[ose]: show information messages
+========================================
+Usage: ins[tall] [<options-list>] [<apps-list> | all]
+Install applications that are not installed yet (do not upgrade already installed ones).
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -jump[-to-statement] <id>: jump to statement id
+.  -nocond[-stmt-exec]: disable conditional statement execution
+.  -nodep[endencies]: do no check application dependencies
+.  -nohash[-check]: do no check file hashes (i.e., ignore tampered files)
+.  -noshow[-errors]: do not show compilation errors
+.  -nopriv[ileges]: do no check required privileges
+.  -nostop[-on-error]: do not stop on error
+.  -nostop[-on-warning]: do not stop on warning
+.  -noup[grade]: do not upgrade after install
+.  -noval[idate]: do not validate after install
+.  -reexec[ute]: re-execute scripts already successfuly executed
+.  -show[-errors]: show compilation errors
+.  -sim[ulate]: simulate i.e. do not execute install
+.  -skip[-file] <file>: skip specified file
+.  -stop[-on-warning]: stop on warning
+========================================
+Usage: make[-inventory] [<options-list>] <app> [<ver>]
+Make inventory of database objects and files with checksums/hashes.
+<app> is the application code or abbreviation
+<ver> is the application version (default: latest)
+<options-list> is a space-separated list of options:
+.  -db[-objects]: make db objects inventory only
+.  -file[s]: make files inventory only
+.  -h[elp] or -?: this help
+========================================
+Usage: mig[rate] [<options-list>] [<apps-list> | all]
+Install non-installed applications and upgrade installed ones.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -jump[-to-statement] <id>: jump to statement id
+.  -nocond[-stmt-exec]: disable conditional statement execution
+.  -nodep[endencies]: do no check application dependencies
+.  -nohash[-check]: do no check file hashes (i.e., ignore tampered files)
+.  -noshow[-errors]: do not show compilation errors
+.  -nopriv[ileges]: do no check required privileges
+.  -nostop[-on-error]: do not stop on error
+.  -nostop[-on-warning]: do not stop on warning
+.  -noval[idate]: do not validate after migrate
+.  -reexec[ute]: re-execute scripts already successfuly executed
+.  -show[-errors]: show compilation errors
+.  -sim[ulate]: simulate i.e. do not execute migrate
+.  -skip[-file] <file>: skip specified file
+.  -stop[-on-warning]: stop on warning
+========================================
+Usage: pre[check] [<options-list>] [<apps-list> | all]
+Check installation pre-requisites (without performing any migration).
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: roll[back] [<options-list>] [<apps-list> | all]
+Rollback failed migration of given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -noshow[-errors]: do not show compilation errors
+.  -nostop[-on-warning]: do not stop on warning
+.  -show[-errors]: show compilation errors
+.  -stop[-on-warning]: stop on warning
+========================================
+Usage: set[-current] [<options-list>] <app> <ver>
+Set the current version of an application.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: setup[] [<options-list>] [<apps-list> | all]
+Perform the setup or configuration of given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+========================================
+Usage: show[-current] [<options-list>] [<apps-list> | all]
+Show currently installed version of given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -all[-schemas]: show applications of all schemas
+.  -h[elp] or -?: this help
+========================================
+Usage: unins[tall] [<options-list>] [<apps-list> | all]
+Uninstall given applications.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -f[orce]: force uninstall
+.  -h[elp] or -?: this help
+========================================
+Usage: upg[rade] [<options-list>] [<apps-list> | all]
+Upgrade applications that are already installed (do not install non-installed ones).
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+.  -jump[-to-statement] <id>: jump to statement id
+.  -nocond[-stmt-exec]: disable conditional statement execution
+.  -nodep[endencies]: do no check application dependencies
+.  -nohash[-check]: do no check file hashes (i.e., ignore tampered files)
+.  -noshow[-errors]: do not show compilation errors
+.  -nopriv[ileges]: do no check required privileges
+.  -nostop[-on-error]: do not stop on error
+.  -nostop[-on-warning]: do not stop on warning
+.  -noval[idate]: do not validate after upgrade
+.  -reexec[ute]: re-execute scripts already successfuly executed
+.  -show[-errors]: show compilation errors
+.  -sim[ulate]: simulate i.e. do not execute upgrade
+.  -skip[-file] <file>: skip specified file
+.  -stop[-on-warning]: stop on warning
+========================================
+Usage: val[idate] [<options-list>] [<apps-list> | all]
+Check the validity of given applications using checksums.
+<apps-list> is a comma-separated list of applications.
+<options-list> is a space-separated list of options:
+.  -h[elp] or -?: this help
+```

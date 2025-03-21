@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Set Utility - Demo Guide v25.0
+# Data Set Utility - Demo Guide v25.2
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (DIGIT)
@@ -178,13 +178,9 @@ This open-source nature empowers users to harness the full potential of advanced
 
 The Data Set Utility is designed with a set of tables and PL/SQL packages that can be installed either in your data schema or in a dedicated central one. Operating without a graphical user interface, the utility relies on APIs for efficient use. Taking a programmatic approach, both API utilisation and the creation of source code in the DEGPL language align with the 'configuration as code' paradigm and simplify its integration into DevOps pipelines and code source repositories.
 
-For **installing** the tool, execute the `ds_install.sql` script located in the `install` directory. During the installation process, you will be prompted to enter the names of the data and index tablespaces in which tables and indexes must be created.
+The Data Set Utility is part of the EC PL/SQL toolkit that is available for installation in self-service mode in all CoP databases of the DIGIT Data Centre, via a support request for legacy DC databases, and as open-source software on [`code.europa.eu`](https://code.europa.eu/ec-digit-dbe-coe/ec-plsql-toolkit) and [`github.com`](https://github.com/ec-digit-dbecoe/ec-plsql-toolkit) for all other environments (e.g., cloud or local data centre). See the EC PL/SL Toolkit Installation Guide for detailed installation instructions.
 
-Pre-requisite: to install the *DS_CRYPTO* package, you need to have the execute privilege on *SYS.DBMS_CRYPTO* (usually not granted by default). If you don't need Format Preserved Encryption (FPE), you can just drop the package or let it invalid.
-
-For **upgrading** the tool to its latest version, execute the `ds_upgrade.sql` script located in the `upgrade` directory. If you are upgrading from a version more than one release behind, you will need to perform all intermediate upgrades. You may sometimes be also invited to enter the names of your data and index tablespaces.
-
-Demo scripts can be found in the `demo` directory. They are numbered so as to be executed in the right order. Scripts "a" are based on APIs while scripts "b" are based on the DEGPL language. Files "z" are the corresponding GraphViz diagrams.
+Demo scripts can be found in the `demo` directory. Their name is prefixed with a number that indicates their order of execution. Scripts labelled "a" are based on APIs while scripts labelled "b" are based on the DEGPL language. Files labelled "z" are the corresponding GraphViz diagrams.
 
 ### 1.4. Demo use case
 
@@ -457,7 +453,7 @@ To ensure referential integrity, many-to-one (N-1) foreign keys or constraints m
 
 To get a graphical representation of the data set configuration, invoke the `graph_data_set()` function of the extension package (`ds_utility_ext`). Here is the diagram that you get when you paste the generated DOT code into an on-line Graphviz editor (e.g., [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline)).
 
-![GEN Data set rough configuration](ds_utility_demo_files/ds_utility_demo_files/ds_gen_1.svg)
+![GEN Data set rough configuration](ds_utility_demo_files/ds_gen_1.svg)
 
 Here are the color conventions used (as shown on the legend):
 
@@ -902,11 +898,11 @@ For the demo, you must execute the `10a_demo_data_model.sql` script in the targe
 
 ##### 7.3.2.2. Transport Data to Destination
 
-To transport data either via direct DML operation or through a script, use the *transport_data_set()*`* procedure of the main package. Specify, as a parameter, which of the three transportation methods you want to use (direct execution, prepare script, or execute script). When applicable, provide the database link pointing to the target schema.
+To transport data either via direct DML operation or through a script, use the *transport_data_set()* procedure of the main package. Specify, as a parameter, which of the three transportation methods you want to use (direct execution, prepare script, or execute script). When applicable, provide the database link pointing to the target schema.
 
 For the *prepare script* method, the generated script is stored in the *ds_output* table (which must be truncated beforehand) and can be saved to a file using spooling.
 
-You can globally override the export mode (insert, update, upsert, or delete) defined at the table level. By default, data masking is applied during transportation, but you can also disable it. The transportation is performed in a single transaction, which must be committed in the end.
+You can globally override the export mode (insert, update, upsert, or delete) defined at the table level.
 
 Note that when source and target schemas are hosted in different databases, an Oracle restriction imposes that your database link must have the same name as your target database.
 
@@ -1193,7 +1189,7 @@ Examples:
 table[source_schema="..."]; /*default property for all subsequent tables*/
 constraint[batch=1000]; /*default property for all subsequent constraints*/
 column[gen_type=SQL]; /*default property for all subsequent columns*/
-mask[msk_type=SQL], locked=Y; /*default properties for all subsequent masks*/
+mask[msk_type=SQL, locked=Y]; /*default properties for all subsequent masks*/
 ```
 
 A scope can also be specified allowing to overwrite non-NULL values or ignore any subsequent setting of a property.
@@ -1205,7 +1201,7 @@ You can include constraints and tables recursively by specifying a number of rec
 Example:
 
 ```DEGPL
-per/b=<3*; /*extract persons and all its child tables (using 1-nN constraints) down to 3 levels*/
+per/b=<3*; /*extract persons and all its child tables (using 1-N constraints) down to 3 levels*/
 ```
 
 #### 10.3.8. Scope
@@ -1220,7 +1216,7 @@ Example:
 
 #### 10.3.9. Invocation
 
-Your DEGPL code or configuration can be submitted to the *include_path()* procedure available in the extension package (*DS_UTILITY_EXT*). It will apply to any existing configuration, so you may need to reset (create or replace) your data set if you want to start from a clean slate.
+Your DEGPL code or configuration can be submitted to the *execute_degpl()* procedure available in the extension package (*DS_UTILITY_EXT*). It will apply to any existing configuration, so you may need to reset (create or replace) your data set if you want to start from a clean slate.
 
 ### 10.4. Examples
 
@@ -1229,11 +1225,12 @@ Here follow some commented (partial) examples of DEGPL code used in the demo:
 #### 10.4.1. Data Generation Example
 
 ```DEGPL
+set demo_data_gen/r[set_type=GEN];
 /*1. define driving and detail tables + parent/child and referential constraints*/
 demo*>-demo* /*include all demo tables and their fks, isolated tables excluded*/;
 sto/b[row_count=10]; /*generate 10 stores (alias sto)*/
 oen/b[row_count=1];  /*generate 1 org. entity (alias oen)*/
-prd/b[row_count=50]; /*generate 10 products (alias prd)*/
+prd/b[row_count=50]; /*generate 50 products (alias prd)*/
 per/b[row_count=50]; /*generate 50 persons (alias per)*/
 oet/r;cct/r;cnt/r;   /*declare not generated reference tables*/
 oit[tab_seq=1];      /*generate order items (alias oit) before...*/
@@ -1246,10 +1243,10 @@ pcc+>ptr; /*don't generate transactions (alias ptr) from credit cards (alias pcc
 ∃*∄>-0* /*Add recursively missing referential constraints (N-1) for all data set tables*/;
 ...
 /*2. define how to generate column values*/
-per.per_id[params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
+per.per_id[gen_type=SEQ,params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
 column[gen_type=SQL]; /*Use a SQL expression for all subsequent columns*/
-per.first_name[params="ds_masker_krn.random_value_from_data_set(...)"];
-per.last_name[params="ds_masker_krn.random_value_from_data_set(...)"];
+per.first_name[params="ds_masker_krn.random_value_from_data_set('INT_GIVEN_NAMES_250')"];
+per.last_name[params="ds_masker_krn.random_value_from_data_set('EU6_FAMILY_NAMES_217')"];
 per.full_name[params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
 ord.order_date[params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
    .total_price[params="0/*computed with post_gen_code*/"];
@@ -1284,16 +1281,15 @@ demo*;demo_dual/x;sto/f;cnt/n;cct/n;oet/n;per/b[where="per_id<=10"]=<3*;per~>[pe
 #### 10.4.3. Data Masking Example
 
 ```DEGPL
-set demo_data_gen/r[set_type=GEN];
 /*Define how to mask table columns*/
 mask[locked=Y]; /*default value for all masked column below*/
 per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
    .first_name[msk_type=SHUFFLE, shuffle_group=1]
-   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table(...)]
+   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table('DEMO_PERSONS','LAST_NAME')]
              [options="enforce_uniqueness=true"];
 mask[msk_type=SQL]; /*all columns below will be masked with a SQL expression*/
 per.full_name[params=":first_name||' '||:last_name"]
-   .nationality[params="ds_utility_krn.random_value_from_table(...)"]
+   .nationality[params="ds_utility_krn.random_value_from_table('DEMO_COUNTRIES','CNT_CD')"]
    .title[params="'XXXX'", options="mask_null_values=true"];
 pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
 ```
@@ -1301,7 +1297,7 @@ pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_c
 #### 10.4.4. Data Capture Example
 
 ```DEGPL
-   set demo_data_cap/r[set_type=CAP, capture_mode=SYNC];
-   demo*/b[target_db="DBCC_DIGIT_01_T.CC.CEC.EU.INT"];
-   demo_dual/x;
+set demo_data_cap/r[set_type=CAP, capture_mode=SYNC];
+demo*/b[target_db="DBCC_DIGIT_01_T.CC.CEC.EU.INT"];
+demo_dual/x;
 ```

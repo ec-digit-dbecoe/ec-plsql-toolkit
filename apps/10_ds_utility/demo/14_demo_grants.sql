@@ -1,6 +1,6 @@
 REM 
 REM Data Set Utility Demo - Grant read/write access to demo data model
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM Script used when demo and tool tables are not in the same schema
 REM 
 

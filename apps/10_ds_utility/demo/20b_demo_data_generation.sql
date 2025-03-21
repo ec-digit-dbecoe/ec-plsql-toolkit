@@ -1,13 +1,19 @@
 REM 
 REM Data Set Utility Demo - Synthetic Data Generation
-REM All rights reserved (C)opyright 2024 by Philippe Debois
-REM Script with configuration based on EDGPL
+REM All rights reserved (C)opyright 2025 by Philippe Debois
+REM Script with configuration based on DEGPL
 REM 
 
+REM Used APIs:
+REM . execute_degpl()
+REM . generate_data_set()
+REM . graph_data_set()
+
 REM Create a data set to generate synthetic/fake data 
-PAUSE Configure data set?
+PAUSE Configure synthetic data generation model?
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 
 BEGIN
 ds_utility_krn.set_message_filter('EWI');
@@ -67,15 +73,75 @@ oit.order_line[params=ROWNUM].quantity[params="ds_masker_krn.random_integer(1,8,
 END;
 /
 
-PAUSE Generate data set?
+PAUSE Generate diagram showing data generation model?
 CLEAR SCREEN
+select * from table(ds_utility_ext.graph_data_set(
+    p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') -- data set id
+  , p_table_name=>'DEMO%' -- table filter
+  , p_full_schema=>'N' -- show whole schema?
+  , p_show_legend=>'N' -- show legend?
+  , p_show_aliases=>'Y' -- show table aliases?
+  , p_show_config=>'Y' -- show configuration?
+  , p_show_stats=>'N' -- show statistics?
+  , p_show_conf_columns=>'Y' -- show configured columns (i.e., masked or generated)?
+  , p_show_cons_columns=>'N' -- show constrainted columns (i.e., part of a PK, UK or FK)?
+  , p_show_ind_columns=>'N' -- show indexed columns (i.e. part of an index)?
+  , p_hide_dis_columns=>'N' -- hide disabled or deleted masked columns?
+  , p_show_all_columns=>'N' -- show all columns (overwrite conf/cons/ind)?
+  , p_show_column_keys=>'Y' -- show column keys (Primary, Unique, Foreign, Index)?
+  , p_show_column_types=>'Y' -- show column types?
+  , p_show_constraints=>'N' -- show contraints and their columns?
+  , p_show_indexes=>'N' -- show indexes and their columns?
+  , p_show_triggers=>'N' -- show triggers?
+  , p_show_all_props=>'N' -- show all properties in tooltips? by default, only those not on diag
+));
+
+PAUSE Generate synthetic data?
+CLEAR SCREEN
+@@18_demo_src_tables_stats.sql
 --exec ds_utility_krn.set_message_filter('EWIS');
 --exec ds_utility_krn.set_test_mode(TRUE);
 exec ds_utility_krn.generate_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN'),p_final_commit=>TRUE);
 --exec ds_utility_krn.set_test_mode(FALSE);
 --exec ds_utility_krn.set_message_filter('EWI');
 
+@@18_demo_src_tables_stats.sql
+
 REM Check statistics
-PAUSE Synthetic data generated; please check!
+PAUSE Generate diagram showing data generation statistics?
 CLEAR SCREEN
-select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN'), p_table_name=>'DEMO_', p_full_schema=>'Y', p_show_legend=>'Y', p_show_aliases=>'Y', p_show_conf_columns=>'Y'));
+
+select * from table(ds_utility_ext.graph_data_set(
+    p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') -- data set id
+  , p_table_name=>'DEMO%' -- table filter
+  , p_full_schema=>'N' -- show whole schema?
+  , p_show_legend=>'N' -- show legend?
+  , p_show_aliases=>'Y' -- show table aliases?
+  , p_show_config=>'N' -- show configuration?
+  , p_show_stats=>'Y' -- show statistics?
+  , p_show_conf_columns=>'Y' -- show configured columns (i.e., masked or generated)?
+  , p_show_cons_columns=>'N' -- show constrainted columns (i.e., part of a PK, UK or FK)?
+  , p_show_ind_columns=>'N' -- show indexed columns (i.e. part of an index)?
+  , p_hide_dis_columns=>'N' -- hide disabled or deleted masked columns?
+  , p_show_all_columns=>'N' -- show all columns (overwrite conf/cons/ind)?
+  , p_show_column_keys=>'Y' -- show column keys (Primary, Unique, Foreign, Index)?
+  , p_show_column_types=>'Y' -- show column types?
+  , p_show_constraints=>'N' -- show contraints and their columns?
+  , p_show_indexes=>'N' -- show indexes and their columns?
+  , p_show_triggers=>'N' -- show triggers?
+  , p_show_all_props=>'N' -- show all properties in tooltips? by default, only those not on diag
+));
+
+PAUSE Show generated data?
+CLEAR SCREEN
+SELECT * FROM demo_persons ORDER BY per_id;
+SELECT * FROM demo_stores ORDER BY sto_id;
+SELECT * FROM demo_products ORDER BY prd_id;
+SELECT * FROM demo_per_credit_cards ORDER BY per_id;
+
+SELECT LPAD(' ',level*3)||oen_cd||': '||oen_name||' ('||oet_cd||')' ORG_CHART
+  FROM demo_org_entities
+ CONNECT BY oen_id_parent = PRIOR oen_id
+ START WITH oet_cd = 'INST'
+ ORDER SIBLINGS BY oen_cd
+;

@@ -411,6 +411,7 @@ DECLARE
       t_upg(240900) := '24.9';   t_ins(240900) := '24.9'  ;
       t_upg(241000) := '24.10';  t_ins(241000) := '24.10' ;
       t_upg(250000) := '25.0';   t_ins(250000) := '25.0' ;
+      t_upg(250100) := '25.1';   t_ins(250100) := '25.1' ;
       -- Initialise checksums for objects and packages (computed with "sql/dbm_checksums.sql");
       t_obj_sum(240000) := 671291450;  t_pkg_sum(240000) := 296702143;
       t_obj_sum(240100) := 544776930;  t_pkg_sum(240100) := 1062429868;
@@ -430,6 +431,7 @@ DECLARE
       t_obj_sum(240900) := 343620986;  t_pkg_sum(240900) := 733453529;
       t_obj_sum(241000) := 873193532;  t_pkg_sum(241000) := 214173488;
       t_obj_sum(250000) := 523820094;  t_pkg_sum(250000) := 418820808;
+      t_obj_sum(250100) := 483295381;  t_pkg_sum(250100) := 1049109135;
       -- Initially lookup arrays
       l_ver_nbr := t_ins.FIRST;
       WHILE l_ver_nbr IS NOT NULL LOOP

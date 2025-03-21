@@ -1,12 +1,20 @@
 REM 
 REM Data Set Utility Demo - Data masking
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM Script with configuration based on EDGPL
 REM 
+
+REM Used APIs
+REM . execute_degpl()
+REM . mask_data_set
+REM . create_views()
+REM . drop_views()
+REM . graph_data_set()
 
 PAUSE Configure masks?
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 
 REM
 REM Scenario 1: mask a few fields but not the per_id (pk)
@@ -16,25 +24,25 @@ REM Customize some masks
 CLEAR SCREEN
 begin
 ds_utility_krn.set_message_filter('EWI');
-ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
+ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>REPLACE(q'£
 /*set demo_data_sub;*//*Data set not needed to define masks => commented out*/
 !mask[locked=Y]; /*lock all masks updated below */
 per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
    .first_name[msk_type=SHUFFLE, shuffle_group=1]
    .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_PERSONS',p_col_name=>'LAST_NAME',p_cycle=>'Y')"]
              [options="enforce_uniqueness=true, encrypt_tokenized_values=true"];
-^mask[msk_type=SQL]; /*default masking type*/
-per.full_name[params=":first_name||' '||:last_name"]
+mask[msk_type=SQL]; /*default masking type*/
+per.full_name[params="::first_name||' '||::last_name"]
    .nationality[params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_COUNTRIES',p_col_name=>'CNT_CD',p_seed=>rowid)"]
    .title[params="'XXXX'", options="mask_null_values=true"];
 pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
-£');
+£','::',':'));
 end;
 /
-PAUSE Mask updated, please check them!
+PAUSE Masking model updated, please check!
 CLEAR SCREEN
 select * from ds_masks where table_name in (select table_name from ds_tables where set_id=ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB')) and msk_type IS NOT NULL;
-select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_table_name=>'DEMO_', p_full_schema=>'Y', p_show_legend=>'Y', p_show_aliases=>'Y', p_show_conf_columns=>'Y', p_show_stats=>'Y', p_show_config=>'Y'));
+select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB'), p_table_name=>'DEMO_', p_full_schema=>'Y', p_show_legend=>'N', p_show_aliases=>'Y', p_show_conf_columns=>'Y', p_show_stats=>'Y', p_show_config=>'Y'));
 
 REM Proceed
 CLEAR SCREEN
@@ -48,12 +56,14 @@ exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_na
 PAUSE View created; please check data!
 CLEAR SCREEN
 select * from ds_masks where table_name in (select table_name from ds_tables where set_id=ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB')) and msk_type IS NOT NULL;
-select msk_id, token, ds_masker_krn.decrypt_string(value) original_value, value crypted_value  from ds_tokens order by token;
+exec ds_masker_krn.set_encryption_key('This is the private key');
+select msk_id, token, value encrypted_value from ds_tokens order by token;
+select msk_id, token, value encrypted_value, ds_masker_krn.decrypt_string(value) original_value  from ds_tokens order by token;
 select 'ORIGIN', ori.* from demo_persons_ori ori union select 'MASKED', msk.* from demo_persons_msk msk ORDER BY 2, 1 DESC;
 select 'ORIGIN', ori.* from demo_per_credit_cards_ori ori union select 'MASKED', msk.* from demo_per_credit_cards_msk msk ORDER BY 2, 1 DESC;
-select 'ORIGIN', ori.* from demo_orders_ori ori union select 'MASKED', msk.* from demo_orders_msk msk ORDER BY 2, 1 DESC;
-exec ds_masker_krn.set_encryption_key('This is the private key');
-select ds_masker_krn.decrypt_credit_card_number('4839620696432370') from dual; --4804509169350857
+select ds_masker_krn.is_valid_credit_card_number('375495823795512') from dual; -- Y
+select ds_masker_krn.decrypt_credit_card_number('375495823795512') from dual; --366040264962527
+select 'ORIGIN', ori.* from demo_per_transactions_ori ori union select 'MASKED', msk.* from demo_per_transactions_msk msk ORDER BY 2, 1 DESC;
 
 REM
 REM Scenario 2: generate new per_id's based on an in-memory sequence (reset other masks)

@@ -1,5 +1,5 @@
 ﻿<!-- omit in toc -->
-# Data Set Utility- Reference Manual v25.0
+# Data Set Utility- Reference Manual v25.2
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -1373,11 +1373,21 @@ To preview a data set, create (then drop when finished) views by calling `create
 
 #### 2.10.1.4. Transport data set (formerly handle data set)
 
-This `transport_data_set()` procedure allows you to transport a data set in different ways.
+The `transport_data_set()` procedure allows you to transport a data set in different ways.
 
 - Direct execution: DML operations are generated depending on the selected mode (insert, update, delete, refresh, move, etc.) and directly executed in the source or target schema (depending in the operation) potentially through a database link;
 - Prepare script only: a script with DML operations (again depending on the selected mode) is generated and made available in the `DS_OUTPUT` table or in `DBMS_OUTPUT` depending on the `p_output` parameter;
 - Execute script: a script with DML operations is generated and executed on-the-fly in a local target schema (remote execution through a database link is unfortunately not supported due to Oracle limitations).
+
+The default behaviour is the following:
+
+- Data masking is applied during transportation, but you can also disable it thanks to the `p_mask_data` boolean parameter.
+- Transportation is performed in a single non-committed transaction, but a commit can also be requested after each table and/or at the end with the `p_middle_commit` and `p_final_commit` boolean parameters.
+- Each transportation run is logged in the `ds_runs` table with the message logged into the `ds_run_logs` tables.
+- SQL statement generated in scripts are optimised by processing several rows in a once (50 by default but this number can be changed via the `p_rows_per_statement` parameter).
+- Deletions are performed in the source schema but they can alternatively be performed in the target schema using the `p_remote_delete` boolean parameter.
+- Insertions raise an exception in case of primary or unique key violation but these errors can be ignored using the `p_ignore_existing` boolean parameter (when `TRUE`, the equivalent of an `INSERT IGNORE` is performed).
+
 
 #### 2.10.1.5. Security policies
 
@@ -1389,7 +1399,7 @@ Security policies can be created and dropped by calling the `create_policy()` an
 
 It can be useful to overwrite the value of some columns during the extraction or transportation process. As an example, you may want to update the audit columns when inserting or updating data in the target schema.
 
-As of v23.3, the specific implemented described below has been replaced with the SQL data masking technique. The following keywords can be used in the SQL expression to check which operation is currently being performed:
+As of v23.3, the former implementation has been replaced with the SQL data masking technique. The following keywords can be used in the SQL expression to check which operation is currently being performed:
 
 - INSERTING
 - UPDATING

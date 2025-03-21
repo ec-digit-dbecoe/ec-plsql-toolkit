@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1367pt" height="859pt" viewBox="0.00 0.00 1367.00 858.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 854.8)">
+<title>ds_graph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-854.8 1363,-854.8 1363,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_main</title>
+<polygon fill="none" stroke="#000000" points="8,-8 8,-842.8 1351,-842.8 1351,-8 8,-8"/>
+<text text-anchor="start" x="592.0189" y="-827.2" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">All tables and masked columns</text>
+</g>
+<!-- DEMO_COUNTRIES -->
+<g id="node1" class="node">
+<title>DEMO_COUNTRIES</title>
+<g id="a_node1"><a xlink:title="[DEMO_COUNTRIES]">
+<path fill="#d3d3d3" stroke="#000000" d="M308.5673,-726.3C308.5673,-726.3 457.4327,-726.3 457.4327,-726.3 463.4327,-726.3 469.4327,-732.3 469.4327,-738.3 469.4327,-738.3 469.4327,-797.5 469.4327,-797.5 469.4327,-803.5 463.4327,-809.5 457.4327,-809.5 457.4327,-809.5 308.5673,-809.5 308.5673,-809.5 302.5673,-809.5 296.5673,-803.5 296.5673,-797.5 296.5673,-797.5 296.5673,-738.3 296.5673,-738.3 296.5673,-732.3 302.5673,-726.3 308.5673,-726.3"/>
+<text text-anchor="middle" x="383" y="-792.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_COUNTRIES@cnt</text>
+<polyline fill="none" stroke="#000000" points="296.5673,-784.7 469.4327,-784.7 "/>
+<text text-anchor="middle" x="310.7889" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="310.7889" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="310.7889" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="325.0105,-726.3 325.0105,-784.7 "/>
+<text text-anchor="middle" x="363.723" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">*cnt_cd</text>
+<text text-anchor="middle" x="363.723" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">*cnt_name</text>
+<text text-anchor="middle" x="363.723" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">population</text>
+<polyline fill="none" stroke="#000000" points="402.4355,-726.3 402.4355,-784.7 "/>
+<text text-anchor="middle" x="425.6038" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">C3</text>
+<text text-anchor="middle" x="425.6038" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">C100</text>
+<text text-anchor="middle" x="425.6038" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="448.7721,-726.3 448.7721,-784.7 "/>
+<text text-anchor="middle" x="459.1024" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="459.1024" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="459.1024" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS -->
+<g id="node5" class="node">
+<title>DEMO_PERSONS</title>
+<g id="a_node5"><a xlink:title="[DEMO_PERSONS]&#10;[FIRST_NAME]&#10;pat_cat=&quot;Personal&quot;&#10;pat_name=&quot;Person given name (sys)&quot;&#10;remarks=&quot;matching on: name regexp, data set (50/50 rows)&quot;&#10;values_sample=&quot;data set sample: Donald, Margaret, Susan, Zachary, Pascal, Helen, Jessica, Ryan, Jeanne, Amy&quot;&#10;[LAST_NAME]&#10;params=&quot;ds_utility_krn.random_value_from_table(p_tab_name=&gt;'DEMO_PERSONS',p_col_name=&gt;'LAST_NAME',p_cycle=&gt;'Y')&quot;&#10;options=&quot;enforce_uniqueness=true, encrypt_tokenized_values=true&quot;&#10;pat_cat=&quot;Personal&quot;&#10;pat_name=&quot;Person family name (sys)&quot;&#10;remarks=&quot;matching on: name regexp, data set (50/50 rows)&quot;&#10;values_sample=&quot;data set sample: Durand, Vincent, Martinez, Ramos, De Jong, Greco, Leroy, Gallo, Leone, Wagner&quot;&#10;[FULL_NAME]&#10;params=&quot;:first_name||' '||:last_name&quot;&#10;pat_cat=&quot;Personal&quot;&#10;pat_name=&quot;Person full name (sys)&quot;&#10;remarks=&quot;matching on: name regexp&quot;&#10;[GENDER]&#10;pat_cat=&quot;Personal&quot;&#10;pat_name=&quot;Gender - alpha (sys)&quot;&#10;remarks=&quot;matching on: name regexp, data regexp (50/50 rows)&quot;&#10;values_sample=&quot;data regexp sample: M, F&quot;&#10;[BIRTH_DATE]&#10;params=&quot;ds_masker_krn.random_date(p_min_date=&gt;ADD_MONTHS(TRUNC(SYSDATE),-65*12),p_max_date=&gt;ADD_MONTHS(TRUNC(SYSDATE),-21*12))&quot;&#10;pat_cat=&quot;Personal&quot;&#10;pat_name=&quot;Person birth date (sys)&quot;&#10;remarks=&quot;matching on: name regexp&quot;&#10;[NATIONALITY]&#10;params=&quot;ds_utility_krn.random_value_from_table(p_tab_name=&gt;'DEMO_COUNTRIES',p_col_name=&gt;'CNT_CD',p_seed=&gt;rowid)&quot;&#10;pat_cat=&quot;Address&quot;&#10;pat_name=&quot;Country code alpha-3 (sys)&quot;&#10;remarks=&quot;matching on: data set (50/50 rows)&quot;&#10;values_sample=&quot;data set sample: FRA, ESP, POL, DEU, ITA, HRV, FIN, PRT, HUN, ROU&quot;&#10;[TITLE]&#10;params=&quot;'XXXX'&quot;&#10;options=&quot;mask_null_values=true&quot;">
+<path fill="#d3d3d3" stroke="#000000" d="M228.2878,-433.7C228.2878,-433.7 537.7122,-433.7 537.7122,-433.7 543.7122,-433.7 549.7122,-439.7 549.7122,-445.7 549.7122,-445.7 549.7122,-622.5 549.7122,-622.5 549.7122,-628.5 543.7122,-634.5 537.7122,-634.5 537.7122,-634.5 228.2878,-634.5 228.2878,-634.5 222.2878,-634.5 216.2878,-628.5 216.2878,-622.5 216.2878,-622.5 216.2878,-445.7 216.2878,-445.7 216.2878,-439.7 222.2878,-433.7 228.2878,-433.7"/>
+<text text-anchor="middle" x="383" y="-617.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PERSONS@per</text>
+<polyline fill="none" stroke="#000000" points="216.2878,-609.7 549.7122,-609.7 "/>
+<text text-anchor="middle" x="230.5094" y="-593.1" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="230.5094" y="-576.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-559.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-542.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-492.3" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="230.5094" y="-475.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-458.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="230.5094" y="-441.9" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<polyline fill="none" stroke="#000000" points="244.731,-433.7 244.731,-609.7 "/>
+<text text-anchor="middle" x="298.2114" y="-593.1" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="298.2114" y="-576.3" font-family="Times,serif" font-size="14.00" fill="#000000">*first_name⚿◉</text>
+<text text-anchor="middle" x="298.2114" y="-559.5" font-family="Times,serif" font-size="14.00" fill="#000000">*last_name⚿◉</text>
+<text text-anchor="middle" x="298.2114" y="-542.7" font-family="Times,serif" font-size="14.00" fill="#000000">*full_name⚿◉</text>
+<text text-anchor="middle" x="298.2114" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">*gender⚿◉</text>
+<text text-anchor="middle" x="298.2114" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">*birth_date◉</text>
+<text text-anchor="middle" x="298.2114" y="-492.3" font-family="Times,serif" font-size="14.00" fill="#000000">*nationality⚿◉</text>
+<text text-anchor="middle" x="298.2114" y="-475.5" font-family="Times,serif" font-size="14.00" fill="#000000">title⚿</text>
+<text text-anchor="middle" x="298.2114" y="-458.7" font-family="Times,serif" font-size="14.00" fill="#000000">manager_flag</text>
+<text text-anchor="middle" x="298.2114" y="-441.9" font-family="Times,serif" font-size="14.00" fill="#000000">per_id_manager</text>
+<polyline fill="none" stroke="#000000" points="351.6918,-433.7 351.6918,-609.7 "/>
+<text text-anchor="middle" x="373.4951" y="-593.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="373.4951" y="-576.3" font-family="Times,serif" font-size="14.00" fill="#000000">C30</text>
+<text text-anchor="middle" x="373.4951" y="-559.5" font-family="Times,serif" font-size="14.00" fill="#000000">C30</text>
+<text text-anchor="middle" x="373.4951" y="-542.7" font-family="Times,serif" font-size="14.00" fill="#000000">C61</text>
+<text text-anchor="middle" x="373.4951" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">C1</text>
+<text text-anchor="middle" x="373.4951" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<text text-anchor="middle" x="373.4951" y="-492.3" font-family="Times,serif" font-size="14.00" fill="#000000">C3</text>
+<text text-anchor="middle" x="373.4951" y="-475.5" font-family="Times,serif" font-size="14.00" fill="#000000">C4</text>
+<text text-anchor="middle" x="373.4951" y="-458.7" font-family="Times,serif" font-size="14.00" fill="#000000">C1</text>
+<text text-anchor="middle" x="373.4951" y="-441.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="395.2984,-433.7 395.2984,-609.7 "/>
+<text text-anchor="middle" x="472.5053" y="-593.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="472.5053" y="-576.3" font-family="Times,serif" font-size="14.00" fill="#000000">SHUFFLE (grp 1)</text>
+<text text-anchor="middle" x="472.5053" y="-559.5" font-family="Times,serif" font-size="14.00" fill="#000000">TOKENIZE (random)</text>
+<text text-anchor="middle" x="472.5053" y="-542.7" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (expression)</text>
+<text text-anchor="middle" x="472.5053" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">SHUFFLE (grp 1 part 1)</text>
+<text text-anchor="middle" x="472.5053" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (random)</text>
+<text text-anchor="middle" x="472.5053" y="-492.3" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (random)</text>
+<text text-anchor="middle" x="472.5053" y="-475.5" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (expression)</text>
+<text text-anchor="middle" x="472.5053" y="-458.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="472.5053" y="-441.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_COUNTRIES&#45;&gt;DEMO_PERSONS -->
+<g id="edge9" class="edge">
+<title>DEMO_COUNTRIES-&gt;DEMO_PERSONS</title>
+<g id="a_edge9"><a xlink:title="[DEMO_PER_CNT_FK]">
+<path fill="none" stroke="#000000" d="M383,-726.1012C383,-704.6015 383,-677.2245 383,-649.9256"/>
+<polygon fill="#000000" stroke="#000000" points="383.0001,-649.8054 389.75,-634.8053 383,-642.3054 383,-634.8054 383,-634.8054 383,-634.8054 383,-642.3054 376.25,-634.8054 383.0001,-649.8054 383.0001,-649.8054"/>
+</a>
+</g>
+<text text-anchor="middle" x="432.3731" y="-676.2" font-family="Times,serif" font-size="14.00" fill="#000000">demo_per_cnt_fk</text>
+</g>
+<!-- DEMO_CREDIT_CARD_TYPES -->
+<g id="node2" class="node">
+<title>DEMO_CREDIT_CARD_TYPES</title>
+<g id="a_node2"><a xlink:title="[DEMO_CREDIT_CARD_TYPES]">
+<path fill="#d3d3d3" stroke="#000000" d="M1115.1841,-500.9C1115.1841,-500.9 1330.8159,-500.9 1330.8159,-500.9 1336.8159,-500.9 1342.8159,-506.9 1342.8159,-512.9 1342.8159,-512.9 1342.8159,-555.3 1342.8159,-555.3 1342.8159,-561.3 1336.8159,-567.3 1330.8159,-567.3 1330.8159,-567.3 1115.1841,-567.3 1115.1841,-567.3 1109.1841,-567.3 1103.1841,-561.3 1103.1841,-555.3 1103.1841,-555.3 1103.1841,-512.9 1103.1841,-512.9 1103.1841,-506.9 1109.1841,-500.9 1115.1841,-500.9"/>
+<text text-anchor="middle" x="1223" y="-550.7" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_CREDIT_CARD_TYPES@cct</text>
+<polyline fill="none" stroke="#000000" points="1103.1841,-542.5 1342.8159,-542.5 "/>
+<text text-anchor="middle" x="1125.4057" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="1125.4057" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="1147.6273,-500.9 1147.6273,-542.5 "/>
+<text text-anchor="middle" x="1194.4471" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">*cct_cd</text>
+<text text-anchor="middle" x="1194.4471" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">*cct_name</text>
+<polyline fill="none" stroke="#000000" points="1241.2669,-500.9 1241.2669,-542.5 "/>
+<text text-anchor="middle" x="1272.9352" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">C10</text>
+<text text-anchor="middle" x="1272.9352" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">C100</text>
+<polyline fill="none" stroke="#000000" points="1304.6035,-500.9 1304.6035,-542.5 "/>
+<text text-anchor="middle" x="1323.4338" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="1323.4338" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS -->
+<g id="node13" class="node">
+<title>DEMO_PER_CREDIT_CARDS</title>
+<g id="a_node13"><a xlink:title="[DEMO_PER_CREDIT_CARDS]&#10;[CREDIT_CARD_NUMBER]&#10;params=&quot;ds_masker_krn.encrypt_credit_card_number(credit_card_number)&quot;&#10;pat_cat=&quot;Banking&quot;&#10;pat_name=&quot;Generic credit card number (sys)&quot;&#10;remarks=&quot;matching on: name regexp, comm regexp, data regexp (156/156 rows)&quot;&#10;values_sample=&quot;data regexp sample: 326092994016826, 4698606540609370, 6011896074485157, 5382878899962738, 339738920895809, 4084553917309808, 6011363132457033, 5505266381950449, 325097238320802, 4964456062823380&quot;&#10;[EXPIRY_DATE]&#10;params=&quot;ds_masker_krn.random_expiry_date(p_seed=&gt;expiry_date)&quot;&#10;pat_cat=&quot;Banking&quot;&#10;pat_name=&quot;Expiry date (sys)&quot;&#10;remarks=&quot;matching on: name regexp, comm regexp&quot;">
+<path fill="#d3d3d3" stroke="#000000" d="M907.3488,-233.5C907.3488,-233.5 1220.6512,-233.5 1220.6512,-233.5 1226.6512,-233.5 1232.6512,-239.5 1232.6512,-245.5 1232.6512,-245.5 1232.6512,-321.5 1232.6512,-321.5 1232.6512,-327.5 1226.6512,-333.5 1220.6512,-333.5 1220.6512,-333.5 907.3488,-333.5 907.3488,-333.5 901.3488,-333.5 895.3488,-327.5 895.3488,-321.5 895.3488,-321.5 895.3488,-245.5 895.3488,-245.5 895.3488,-239.5 901.3488,-233.5 907.3488,-233.5"/>
+<text text-anchor="middle" x="1064" y="-316.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PER_CREDIT_CARDS@pcc</text>
+<polyline fill="none" stroke="#000000" points="895.3488,-308.7 1232.6512,-308.7 "/>
+<text text-anchor="middle" x="913.4617" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="913.4617" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="913.4617" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="913.4617" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="931.5746,-233.5 931.5746,-308.7 "/>
+<text text-anchor="middle" x="1011.2952" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="1011.2952" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">*cct_cd</text>
+<text text-anchor="middle" x="1011.2952" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">*credit_card_number⚿◉</text>
+<text text-anchor="middle" x="1011.2952" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">*expiry_date◉</text>
+<polyline fill="none" stroke="#000000" points="1091.0158,-233.5 1091.0158,-308.7 "/>
+<text text-anchor="middle" x="1112.8191" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="1112.8191" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">C40</text>
+<text text-anchor="middle" x="1112.8191" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">C40</text>
+<text text-anchor="middle" x="1112.8191" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<polyline fill="none" stroke="#000000" points="1134.6224,-233.5 1134.6224,-308.7 "/>
+<text text-anchor="middle" x="1183.6368" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="1183.6368" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="1183.6368" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (encrypt)</text>
+<text text-anchor="middle" x="1183.6368" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (random)</text>
+</a>
+</g>
+</g>
+<!-- DEMO_CREDIT_CARD_TYPES&#45;&gt;DEMO_PER_CREDIT_CARDS -->
+<g id="edge16" class="edge">
+<title>DEMO_CREDIT_CARD_TYPES-&gt;DEMO_PER_CREDIT_CARDS</title>
+<g id="a_edge16"><a xlink:title="[DEMO_PCC_CCT_FK]">
+<path fill="none" stroke="#000000" d="M1201.886,-500.8223C1176.994,-461.5899 1135.0823,-395.5328 1103.9862,-346.5223"/>
+<polygon fill="#000000" stroke="#000000" points="1103.965,-346.4887 1101.6284,-330.2067 1099.9469,-340.1559 1095.9288,-333.823 1095.9288,-333.823 1095.9288,-333.823 1099.9469,-340.1559 1090.2292,-337.4393 1103.965,-346.4887 1103.965,-346.4887"/>
+</a>
+</g>
+<text text-anchor="middle" x="1183.7574" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_pcc_cct_fk</text>
+</g>
+<!-- DEMO_DUAL -->
+<g id="node3" class="node">
+<title>DEMO_DUAL</title>
+<g id="a_node3"><a xlink:title="[DEMO_DUAL]">
+<path fill="#d3d3d3" stroke="#000000" d="M527.3892,-743.1C527.3892,-743.1 650.6108,-743.1 650.6108,-743.1 656.6108,-743.1 662.6108,-749.1 662.6108,-755.1 662.6108,-755.1 662.6108,-780.7 662.6108,-780.7 662.6108,-786.7 656.6108,-792.7 650.6108,-792.7 650.6108,-792.7 527.3892,-792.7 527.3892,-792.7 521.3892,-792.7 515.3892,-786.7 515.3892,-780.7 515.3892,-780.7 515.3892,-755.1 515.3892,-755.1 515.3892,-749.1 521.3892,-743.1 527.3892,-743.1"/>
+<text text-anchor="middle" x="589" y="-776.1" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_DUAL@dual</text>
+<polyline fill="none" stroke="#000000" points="515.3892,-767.9 662.6108,-767.9 "/>
+<text text-anchor="middle" x="529.6108" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<polyline fill="none" stroke="#000000" points="543.8324,-743.1 543.8324,-767.9 "/>
+<text text-anchor="middle" x="576.723" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">*dummy</text>
+<polyline fill="none" stroke="#000000" points="609.6136,-743.1 609.6136,-767.9 "/>
+<text text-anchor="middle" x="625.7819" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">C1</text>
+<polyline fill="none" stroke="#000000" points="641.9502,-743.1 641.9502,-767.9 "/>
+<text text-anchor="middle" x="652.2805" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS -->
+<g id="node4" class="node">
+<title>DEMO_ORDERS</title>
+<g id="a_node4"><a xlink:title="[DEMO_ORDERS]">
+<path fill="#d3d3d3" stroke="#000000" d="M244.2114,-225.1C244.2114,-225.1 395.7886,-225.1 395.7886,-225.1 401.7886,-225.1 407.7886,-231.1 407.7886,-237.1 407.7886,-237.1 407.7886,-329.9 407.7886,-329.9 407.7886,-335.9 401.7886,-341.9 395.7886,-341.9 395.7886,-341.9 244.2114,-341.9 244.2114,-341.9 238.2114,-341.9 232.2114,-335.9 232.2114,-329.9 232.2114,-329.9 232.2114,-237.1 232.2114,-237.1 232.2114,-231.1 238.2114,-225.1 244.2114,-225.1"/>
+<text text-anchor="middle" x="320" y="-325.3" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_ORDERS@ord</text>
+<polyline fill="none" stroke="#000000" points="232.2114,-317.1 407.7886,-317.1 "/>
+<text text-anchor="middle" x="246.433" y="-300.5" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="246.433" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="246.433" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="246.433" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="246.433" y="-233.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="260.6546,-225.1 260.6546,-317.1 "/>
+<text text-anchor="middle" x="302.088" y="-300.5" font-family="Times,serif" font-size="14.00" fill="#000000">*ord_id</text>
+<text text-anchor="middle" x="302.088" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="302.088" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">*sto_id</text>
+<text text-anchor="middle" x="302.088" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">*order_date</text>
+<text text-anchor="middle" x="302.088" y="-233.3" font-family="Times,serif" font-size="14.00" fill="#000000">*total_price</text>
+<polyline fill="none" stroke="#000000" points="343.5214,-225.1 343.5214,-317.1 "/>
+<text text-anchor="middle" x="365.3247" y="-300.5" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="365.3247" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="365.3247" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="365.3247" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<text text-anchor="middle" x="365.3247" y="-233.3" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="387.128,-225.1 387.128,-317.1 "/>
+<text text-anchor="middle" x="397.4583" y="-300.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="397.4583" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="397.4583" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="397.4583" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="397.4583" y="-233.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDER_ITEMS -->
+<g id="node7" class="node">
+<title>DEMO_ORDER_ITEMS</title>
+<g id="a_node7"><a xlink:title="[DEMO_ORDER_ITEMS]">
+<path fill="#d3d3d3" stroke="#000000" d="M135.8419,-16.5C135.8419,-16.5 300.1581,-16.5 300.1581,-16.5 306.1581,-16.5 312.1581,-22.5 312.1581,-28.5 312.1581,-28.5 312.1581,-121.3 312.1581,-121.3 312.1581,-127.3 306.1581,-133.3 300.1581,-133.3 300.1581,-133.3 135.8419,-133.3 135.8419,-133.3 129.8419,-133.3 123.8419,-127.3 123.8419,-121.3 123.8419,-121.3 123.8419,-28.5 123.8419,-28.5 123.8419,-22.5 129.8419,-16.5 135.8419,-16.5"/>
+<text text-anchor="middle" x="218" y="-116.7" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_ORDER_ITEMS@oit</text>
+<polyline fill="none" stroke="#000000" points="123.8419,-108.5 312.1581,-108.5 "/>
+<text text-anchor="middle" x="142.4548" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="142.4548" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="142.4548" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="142.4548" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="142.4548" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="161.0677,-16.5 161.0677,-108.5 "/>
+<text text-anchor="middle" x="202.3335" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">*ord_id</text>
+<text text-anchor="middle" x="202.3335" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">*order_line</text>
+<text text-anchor="middle" x="202.3335" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">*prd_id</text>
+<text text-anchor="middle" x="202.3335" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">*quantity</text>
+<text text-anchor="middle" x="202.3335" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">*price</text>
+<polyline fill="none" stroke="#000000" points="243.5993,-16.5 243.5993,-108.5 "/>
+<text text-anchor="middle" x="266.4026" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="266.4026" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">N3,0</text>
+<text text-anchor="middle" x="266.4026" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="266.4026" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="266.4026" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="289.2059,-16.5 289.2059,-108.5 "/>
+<text text-anchor="middle" x="300.5362" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="300.5362" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="300.5362" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="300.5362" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="300.5362" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_ORDER_ITEMS -->
+<g id="edge3" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_ORDER_ITEMS</title>
+<g id="a_edge3"><a xlink:title="[DEMO_OIT_ORD_FK]">
+<path fill="none" stroke="#000000" d="M291.3159,-224.8381C279.5329,-200.7409 265.7703,-172.595 253.3719,-147.2389"/>
+<polygon fill="#000000" stroke="#000000" points="253.2345,-146.9579 252.7093,-130.5175 249.9399,-140.2203 246.6454,-133.4826 246.6454,-133.4826 246.6454,-133.4826 249.9399,-140.2203 240.5815,-136.4477 253.2345,-146.9579 253.2345,-146.9579"/>
+</a>
+</g>
+<text text-anchor="middle" x="320.6038" y="-175" font-family="Times,serif" font-size="14.00" fill="#000000">demo_oit_ord_fk</text>
+</g>
+<!-- DEMO_PER_TRANSACTIONS -->
+<g id="node14" class="node">
+<title>DEMO_PER_TRANSACTIONS</title>
+<g id="a_node14"><a xlink:title="[DEMO_PER_TRANSACTIONS]&#10;[CREDIT_CARD_NBR]&#10;remarks=&quot;Inherit SQL expression from demo_per_credit_cards.credit_card_number&quot;">
+<path fill="#d3d3d3" stroke="#000000" d="M683.2219,-16.5C683.2219,-16.5 960.7781,-16.5 960.7781,-16.5 966.7781,-16.5 972.7781,-22.5 972.7781,-28.5 972.7781,-28.5 972.7781,-121.3 972.7781,-121.3 972.7781,-127.3 966.7781,-133.3 960.7781,-133.3 960.7781,-133.3 683.2219,-133.3 683.2219,-133.3 677.2219,-133.3 671.2219,-127.3 671.2219,-121.3 671.2219,-121.3 671.2219,-28.5 671.2219,-28.5 671.2219,-22.5 677.2219,-16.5 683.2219,-16.5"/>
+<text text-anchor="middle" x="822" y="-116.7" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PER_TRANSACTIONS@ptr</text>
+<polyline fill="none" stroke="#000000" points="671.2219,-108.5 972.7781,-108.5 "/>
+<text text-anchor="middle" x="689.3348" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="689.3348" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="689.3348" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="689.3348" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="689.3348" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="707.4477,-16.5 707.4477,-108.5 "/>
+<text text-anchor="middle" x="782.3215" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="782.3215" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">*ord_id</text>
+<text text-anchor="middle" x="782.3215" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">*credit_card_nbr◉</text>
+<text text-anchor="middle" x="782.3215" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">*transaction_timestamp</text>
+<text text-anchor="middle" x="782.3215" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">*transaction_amount</text>
+<polyline fill="none" stroke="#000000" points="857.1953,-16.5 857.1953,-108.5 "/>
+<text text-anchor="middle" x="878.9986" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="878.9986" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="878.9986" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">C40</text>
+<text text-anchor="middle" x="878.9986" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<text text-anchor="middle" x="878.9986" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">N</text>
+<polyline fill="none" stroke="#000000" points="900.8019,-16.5 900.8019,-108.5 "/>
+<text text-anchor="middle" x="936.79" y="-91.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="936.79" y="-75.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="936.79" y="-58.3" font-family="Times,serif" font-size="14.00" fill="#000000">INHERIT</text>
+<text text-anchor="middle" x="936.79" y="-41.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="936.79" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_PER_TRANSACTIONS -->
+<g id="edge18" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_PER_TRANSACTIONS</title>
+<g id="a_edge18"><a xlink:title="[DEMO_PTR_ORD_FK]">
+<path fill="none" stroke="#000000" d="M407.8872,-229.1531C410.9407,-227.5792 413.984,-226.0565 417,-224.6 493.7335,-187.5447 582.1756,-153.881 656.7987,-127.9031"/>
+<polygon fill="#000000" stroke="#000000" points="656.871,-127.8782 673.2532,-129.3568 663.9594,-125.4277 671.0478,-122.9773 671.0478,-122.9773 671.0478,-122.9773 663.9594,-125.4277 668.8424,-116.5977 656.871,-127.8782 656.871,-127.8782"/>
+</a>
+</g>
+<text text-anchor="middle" x="588.9888" y="-175" font-family="Times,serif" font-size="14.00" fill="#000000">demo_ptr_ord_fk</text>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_ORDERS -->
+<g id="edge1" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_ORDERS</title>
+<g id="a_edge1"><a xlink:title="[DEMO_ORD_PER_FK]">
+<path fill="none" stroke="#000000" d="M325.8148,-433.3247C320.868,-421.1196 316.6351,-408.5838 313.6984,-396.2 310.7409,-383.7285 309.7059,-370.2731 309.8043,-357.1506"/>
+<polygon fill="#000000" stroke="#000000" points="309.8113,-356.9666 317.1379,-342.2396 310.1021,-349.4722 310.3929,-341.9778 310.3929,-341.9778 310.3929,-341.9778 310.1021,-349.4722 303.648,-341.7161 309.8113,-356.9666 309.8113,-356.9666"/>
+</a>
+</g>
+<text text-anchor="middle" x="363.1508" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_ord_per_fk</text>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<g id="edge12" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PERSONS</title>
+<g id="a_edge12"><a xlink:title="[DEMO_PER_PER_FK]">
+<path fill="none" stroke="#000000" d="M549.9872,-555.1281C581.4842,-552.5752 603.7122,-545.5658 603.7122,-534.1 603.7122,-524.5601 588.3243,-518.1052 565.0128,-514.7355"/>
+<polygon fill="#000000" stroke="#000000" points="564.8961,-514.7227 550.73,-506.3629 557.4416,-513.8973 549.9872,-513.0719 549.9872,-513.0719 549.9872,-513.0719 557.4416,-513.8973 549.2443,-519.7809 564.8961,-514.7227 564.8961,-514.7227"/>
+</a>
+</g>
+<text text-anchor="middle" x="653.4703" y="-529.9" font-family="Times,serif" font-size="14.00" fill="#000000">demo_per_per_fk</text>
+</g>
+<!-- DEMO_PER_ASSIGNMENTS -->
+<g id="node11" class="node">
+<title>DEMO_PER_ASSIGNMENTS</title>
+<g id="a_node11"><a xlink:title="[DEMO_PER_ASSIGNMENTS]">
+<path fill="#d3d3d3" stroke="#000000" d="M662.7907,-233.5C662.7907,-233.5 865.2093,-233.5 865.2093,-233.5 871.2093,-233.5 877.2093,-239.5 877.2093,-245.5 877.2093,-245.5 877.2093,-321.5 877.2093,-321.5 877.2093,-327.5 871.2093,-333.5 865.2093,-333.5 865.2093,-333.5 662.7907,-333.5 662.7907,-333.5 656.7907,-333.5 650.7907,-327.5 650.7907,-321.5 650.7907,-321.5 650.7907,-245.5 650.7907,-245.5 650.7907,-239.5 656.7907,-233.5 662.7907,-233.5"/>
+<text text-anchor="middle" x="764" y="-316.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PER_ASSIGNMENTS@pas</text>
+<polyline fill="none" stroke="#000000" points="650.7907,-308.7 877.2093,-308.7 "/>
+<text text-anchor="middle" x="674.4036" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="674.4036" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="674.4036" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="674.4036" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<polyline fill="none" stroke="#000000" points="698.0165,-233.5 698.0165,-308.7 "/>
+<text text-anchor="middle" x="743.7823" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="743.7823" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">*date_from</text>
+<text text-anchor="middle" x="743.7823" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">*date_to</text>
+<text text-anchor="middle" x="743.7823" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">*oen_id</text>
+<polyline fill="none" stroke="#000000" points="789.5481,-233.5 789.5481,-308.7 "/>
+<text text-anchor="middle" x="817.3514" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="817.3514" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<text text-anchor="middle" x="817.3514" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<text text-anchor="middle" x="817.3514" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="845.1547,-233.5 845.1547,-308.7 "/>
+<text text-anchor="middle" x="860.985" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="860.985" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="860.985" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="860.985" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_ASSIGNMENTS -->
+<g id="edge14" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_ASSIGNMENTS</title>
+<g id="a_edge14"><a xlink:title="[DEMO_PAS_PER_FK]">
+<path fill="none" stroke="#000000" d="M507.4026,-433.6756C532.4676,-414.8827 559.0155,-395.9613 584.6998,-379.4 605.3118,-366.1093 627.9417,-352.9694 649.9761,-340.8773"/>
+<polygon fill="#000000" stroke="#000000" points="650.0416,-340.8418 666.4452,-339.6226 656.6341,-337.2656 663.2266,-333.6894 663.2266,-333.6894 663.2266,-333.6894 656.6341,-337.2656 660.008,-327.7561 650.0416,-340.8418 650.0416,-340.8418"/>
+</a>
+</g>
+<text text-anchor="middle" x="634.1501" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_pas_per_fk</text>
+</g>
+<!-- DEMO_PER_CLOCKINGS -->
+<g id="node12" class="node">
+<title>DEMO_PER_CLOCKINGS</title>
+<g id="a_node12"><a xlink:title="[DEMO_PER_CLOCKINGS]">
+<path fill="#d3d3d3" stroke="#000000" d="M437.5123,-233.5C437.5123,-233.5 620.4877,-233.5 620.4877,-233.5 626.4877,-233.5 632.4877,-239.5 632.4877,-245.5 632.4877,-245.5 632.4877,-321.5 632.4877,-321.5 632.4877,-327.5 626.4877,-333.5 620.4877,-333.5 620.4877,-333.5 437.5123,-333.5 437.5123,-333.5 431.5123,-333.5 425.5123,-327.5 425.5123,-321.5 425.5123,-321.5 425.5123,-245.5 425.5123,-245.5 425.5123,-239.5 431.5123,-233.5 437.5123,-233.5"/>
+<text text-anchor="middle" x="529" y="-316.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PER_CLOCKINGS@pcl</text>
+<polyline fill="none" stroke="#000000" points="425.5123,-308.7 632.4877,-308.7 "/>
+<text text-anchor="middle" x="443.6252" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">PFI</text>
+<text text-anchor="middle" x="443.6252" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="443.6252" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="443.6252" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="461.7381,-233.5 461.7381,-308.7 "/>
+<text text-anchor="middle" x="513.7865" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">*per_id</text>
+<text text-anchor="middle" x="513.7865" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">*clocking_date</text>
+<text text-anchor="middle" x="513.7865" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">*clocking_time</text>
+<text text-anchor="middle" x="513.7865" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">*clocking_type</text>
+<polyline fill="none" stroke="#000000" points="565.8349,-233.5 565.8349,-308.7 "/>
+<text text-anchor="middle" x="588.1382" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="588.1382" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+<text text-anchor="middle" x="588.1382" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">C8</text>
+<text text-anchor="middle" x="588.1382" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">C3</text>
+<polyline fill="none" stroke="#000000" points="610.4415,-233.5 610.4415,-308.7 "/>
+<text text-anchor="middle" x="621.2718" y="-292.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="621.2718" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="621.2718" y="-258.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="621.2718" y="-241.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_CLOCKINGS -->
+<g id="edge15" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_CLOCKINGS</title>
+<g id="a_edge15"><a xlink:title="[DEMO_PCL_PER_FK]">
+<path fill="none" stroke="#000000" d="M421.9195,-433.4257C430.392,-414.9918 439.9417,-396.2652 450.2538,-379.4 457.1942,-368.0492 465.3687,-356.5938 473.7782,-345.7449"/>
+<polygon fill="#000000" stroke="#000000" points="473.9616,-345.5151 488.5947,-338.0027 478.6404,-339.6534 483.3191,-333.7918 483.3191,-333.7918 483.3191,-333.7918 478.6404,-339.6534 478.0436,-329.5808 473.9616,-345.5151 473.9616,-345.5151"/>
+</a>
+</g>
+<text text-anchor="middle" x="499.3731" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_pcl_per_fk</text>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_CREDIT_CARDS -->
+<g id="edge17" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_CREDIT_CARDS</title>
+<g id="a_edge17"><a xlink:title="[DEMO_PCC_PER_FK]">
+<path fill="none" stroke="#000000" d="M549.8355,-466.0254C594.7663,-445.5288 642.6344,-421.6546 685,-396.2 695.5244,-389.8766 695.7631,-384.5042 706.9298,-379.4 780.8423,-345.6153 807.4982,-363.4225 886,-342.4 891.4288,-340.9462 896.935,-339.4206 902.4834,-337.8394"/>
+<polygon fill="#000000" stroke="#000000" points="902.8445,-337.7342 919.1343,-340.0158 910.0447,-335.6349 917.245,-333.5356 917.245,-333.5356 917.245,-333.5356 910.0447,-335.6349 915.3556,-327.0554 902.8445,-337.7342 902.8445,-337.7342"/>
+</a>
+</g>
+<text text-anchor="middle" x="756.5351" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_pcc_per_fk</text>
+</g>
+<!-- DEMO_STORES -->
+<g id="node6" class="node">
+<title>DEMO_STORES</title>
+<g id="a_node6"><a xlink:title="[DEMO_STORES]">
+<path fill="#d3d3d3" stroke="#000000" d="M27.5147,-500.9C27.5147,-500.9 186.4853,-500.9 186.4853,-500.9 192.4853,-500.9 198.4853,-506.9 198.4853,-512.9 198.4853,-512.9 198.4853,-555.3 198.4853,-555.3 198.4853,-561.3 192.4853,-567.3 186.4853,-567.3 186.4853,-567.3 27.5147,-567.3 27.5147,-567.3 21.5147,-567.3 15.5147,-561.3 15.5147,-555.3 15.5147,-555.3 15.5147,-512.9 15.5147,-512.9 15.5147,-506.9 21.5147,-500.9 27.5147,-500.9"/>
+<text text-anchor="middle" x="107" y="-550.7" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_STORES@sto</text>
+<polyline fill="none" stroke="#000000" points="15.5147,-542.5 198.4853,-542.5 "/>
+<text text-anchor="middle" x="29.7363" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="29.7363" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="43.9579,-500.9 43.9579,-542.5 "/>
+<text text-anchor="middle" x="87.723" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">*sto_id</text>
+<text text-anchor="middle" x="87.723" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">*store_name</text>
+<polyline fill="none" stroke="#000000" points="131.4881,-500.9 131.4881,-542.5 "/>
+<text text-anchor="middle" x="154.6564" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="154.6564" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">C100</text>
+<polyline fill="none" stroke="#000000" points="177.8247,-500.9 177.8247,-542.5 "/>
+<text text-anchor="middle" x="188.155" y="-525.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="188.155" y="-509.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_STORES&#45;&gt;DEMO_ORDERS -->
+<g id="edge2" class="edge">
+<title>DEMO_STORES-&gt;DEMO_ORDERS</title>
+<g id="a_edge2"><a xlink:title="[DEMO_ORD_STO_FK]">
+<path fill="none" stroke="#000000" d="M124.8085,-500.7703C143.1302,-468.0547 173.6675,-417.639 207.2384,-379.4 215.4033,-370.0998 224.4865,-360.905 233.8536,-352.1052"/>
+<polygon fill="#000000" stroke="#000000" points="233.8684,-352.0916 249.4953,-346.9568 239.4053,-347.0326 244.9422,-341.9736 244.9422,-341.9736 244.9422,-341.9736 239.4053,-347.0326 240.3891,-336.9904 233.8684,-352.0916 233.8684,-352.0916"/>
+</a>
+</g>
+<text text-anchor="middle" x="256.3808" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_ord_sto_fk</text>
+</g>
+<!-- DEMO_PRODUCTS -->
+<g id="node8" class="node">
+<title>DEMO_PRODUCTS</title>
+<g id="a_node8"><a xlink:title="[DEMO_PRODUCTS]">
+<path fill="#d3d3d3" stroke="#000000" d="M27.737,-241.9C27.737,-241.9 202.263,-241.9 202.263,-241.9 208.263,-241.9 214.263,-247.9 214.263,-253.9 214.263,-253.9 214.263,-313.1 214.263,-313.1 214.263,-319.1 208.263,-325.1 202.263,-325.1 202.263,-325.1 27.737,-325.1 27.737,-325.1 21.737,-325.1 15.737,-319.1 15.737,-313.1 15.737,-313.1 15.737,-253.9 15.737,-253.9 15.737,-247.9 21.737,-241.9 27.737,-241.9"/>
+<text text-anchor="middle" x="115" y="-308.5" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PRODUCTS@prd</text>
+<polyline fill="none" stroke="#000000" points="15.737,-300.3 214.263,-300.3 "/>
+<text text-anchor="middle" x="29.9586" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="29.9586" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="29.9586" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="44.1802,-241.9 44.1802,-300.3 "/>
+<text text-anchor="middle" x="95.723" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">*prd_id</text>
+<text text-anchor="middle" x="95.723" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">*product_name</text>
+<text text-anchor="middle" x="95.723" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">unit_price</text>
+<polyline fill="none" stroke="#000000" points="147.2658,-241.9 147.2658,-300.3 "/>
+<text text-anchor="middle" x="170.4341" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="170.4341" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">C100</text>
+<text text-anchor="middle" x="170.4341" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="193.6024,-241.9 193.6024,-300.3 "/>
+<text text-anchor="middle" x="203.9327" y="-283.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="203.9327" y="-266.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="203.9327" y="-250.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PRODUCTS&#45;&gt;DEMO_ORDER_ITEMS -->
+<g id="edge4" class="edge">
+<title>DEMO_PRODUCTS-&gt;DEMO_ORDER_ITEMS</title>
+<g id="a_edge4"><a xlink:title="[DEMO_OIT_PRD_FK]">
+<path fill="none" stroke="#000000" d="M131.811,-241.8032C140.7753,-220.34 152.304,-193.8992 163.7924,-170.8 167.6934,-162.9564 171.9339,-154.8495 176.2674,-146.8245"/>
+<polygon fill="#000000" stroke="#000000" points="176.3869,-146.6068 189.522,-136.7057 179.9958,-140.0322 183.6048,-133.4576 183.6048,-133.4576 183.6048,-133.4576 179.9958,-140.0322 177.6877,-130.2095 176.3869,-146.6068 176.3869,-146.6068"/>
+</a>
+</g>
+<text text-anchor="middle" x="211.6038" y="-175" font-family="Times,serif" font-size="14.00" fill="#000000">demo_oit_prd_fk</text>
+</g>
+<!-- DEMO_ORG_ENTITIES -->
+<g id="node9" class="node">
+<title>DEMO_ORG_ENTITIES</title>
+<g id="a_node9"><a xlink:title="[DEMO_ORG_ENTITIES]">
+<path fill="#d3d3d3" stroke="#000000" d="M738.3559,-475.7C738.3559,-475.7 909.6441,-475.7 909.6441,-475.7 915.6441,-475.7 921.6441,-481.7 921.6441,-487.7 921.6441,-487.7 921.6441,-580.5 921.6441,-580.5 921.6441,-586.5 915.6441,-592.5 909.6441,-592.5 909.6441,-592.5 738.3559,-592.5 738.3559,-592.5 732.3559,-592.5 726.3559,-586.5 726.3559,-580.5 726.3559,-580.5 726.3559,-487.7 726.3559,-487.7 726.3559,-481.7 732.3559,-475.7 738.3559,-475.7"/>
+<text text-anchor="middle" x="824" y="-575.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_ORG_ENTITIES@oen</text>
+<polyline fill="none" stroke="#000000" points="726.3559,-567.7 921.6441,-567.7 "/>
+<text text-anchor="middle" x="741.0775" y="-551.1" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="741.0775" y="-534.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="741.0775" y="-517.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="741.0775" y="-500.7" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="741.0775" y="-483.9" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<polyline fill="none" stroke="#000000" points="755.7991,-475.7 755.7991,-567.7 "/>
+<text text-anchor="middle" x="804.8419" y="-551.1" font-family="Times,serif" font-size="14.00" fill="#000000">*oen_id</text>
+<text text-anchor="middle" x="804.8419" y="-534.3" font-family="Times,serif" font-size="14.00" fill="#000000">*oen_cd</text>
+<text text-anchor="middle" x="804.8419" y="-517.5" font-family="Times,serif" font-size="14.00" fill="#000000">*oen_name</text>
+<text text-anchor="middle" x="804.8419" y="-500.7" font-family="Times,serif" font-size="14.00" fill="#000000">*oet_cd</text>
+<text text-anchor="middle" x="804.8419" y="-483.9" font-family="Times,serif" font-size="14.00" fill="#000000">oen_id_parent</text>
+<polyline fill="none" stroke="#000000" points="853.8847,-475.7 853.8847,-567.7 "/>
+<text text-anchor="middle" x="876.188" y="-551.1" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<text text-anchor="middle" x="876.188" y="-534.3" font-family="Times,serif" font-size="14.00" fill="#000000">C30</text>
+<text text-anchor="middle" x="876.188" y="-517.5" font-family="Times,serif" font-size="14.00" fill="#000000">C60</text>
+<text text-anchor="middle" x="876.188" y="-500.7" font-family="Times,serif" font-size="14.00" fill="#000000">C10</text>
+<text text-anchor="middle" x="876.188" y="-483.9" font-family="Times,serif" font-size="14.00" fill="#000000">N9,0</text>
+<polyline fill="none" stroke="#000000" points="898.4913,-475.7 898.4913,-567.7 "/>
+<text text-anchor="middle" x="909.8216" y="-551.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="909.8216" y="-534.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="909.8216" y="-517.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="909.8216" y="-500.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="909.8216" y="-483.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<g id="edge7" class="edge">
+<title>DEMO_ORG_ENTITIES-&gt;DEMO_ORG_ENTITIES</title>
+<g id="a_edge7"><a xlink:title="[DEMO_OEN_OEN_FK]">
+<path fill="none" stroke="#000000" d="M921.7203,-556.2034C951.925,-555.7569 975.6441,-548.3891 975.6441,-534.1 975.6441,-522.3227 959.5309,-515.2472 936.9538,-512.8737"/>
+<polygon fill="#000000" stroke="#000000" points="936.6955,-512.8589 922.1083,-505.2578 929.2079,-512.4277 921.7203,-511.9966 921.7203,-511.9966 921.7203,-511.9966 929.2079,-512.4277 921.3322,-518.7354 936.6955,-512.8589 936.6955,-512.8589"/>
+</a>
+</g>
+<text text-anchor="middle" x="1027.7416" y="-529.9" font-family="Times,serif" font-size="14.00" fill="#000000">demo_oen_oen_fk</text>
+</g>
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_PER_ASSIGNMENTS -->
+<g id="edge13" class="edge">
+<title>DEMO_ORG_ENTITIES-&gt;DEMO_PER_ASSIGNMENTS</title>
+<g id="a_edge13"><a xlink:title="[DEMO_PAS_OEN_FK]">
+<path fill="none" stroke="#000000" d="M824.7463,-475.5129C823.7959,-446.1875 820.6094,-410.4187 812,-379.4 809.0559,-368.7929 804.9114,-357.9699 800.278,-347.5966"/>
+<polygon fill="#000000" stroke="#000000" points="800.1574,-347.3425 799.8209,-330.8971 796.9404,-340.5675 793.7234,-333.7924 793.7234,-333.7924 793.7234,-333.7924 796.9404,-340.5675 787.6259,-336.6877 800.1574,-347.3425 800.1574,-347.3425"/>
+</a>
+</g>
+<text text-anchor="middle" x="866.3198" y="-383.6" font-family="Times,serif" font-size="14.00" fill="#000000">demo_pas_oen_fk</text>
+</g>
+<!-- DEMO_ORG_ENTITY_TYPES -->
+<g id="node10" class="node">
+<title>DEMO_ORG_ENTITY_TYPES</title>
+<g id="a_node10"><a xlink:title="[DEMO_ORG_ENTITY_TYPES]">
+<path fill="#d3d3d3" stroke="#000000" d="M720.4667,-726.3C720.4667,-726.3 927.5333,-726.3 927.5333,-726.3 933.5333,-726.3 939.5333,-732.3 939.5333,-738.3 939.5333,-738.3 939.5333,-797.5 939.5333,-797.5 939.5333,-803.5 933.5333,-809.5 927.5333,-809.5 927.5333,-809.5 720.4667,-809.5 720.4667,-809.5 714.4667,-809.5 708.4667,-803.5 708.4667,-797.5 708.4667,-797.5 708.4667,-738.3 708.4667,-738.3 708.4667,-732.3 714.4667,-726.3 720.4667,-726.3"/>
+<text text-anchor="middle" x="824" y="-792.9" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_ORG_ENTITY_TYPES@oet</text>
+<polyline fill="none" stroke="#000000" points="708.4667,-784.7 939.5333,-784.7 "/>
+<text text-anchor="middle" x="730.1883" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">PI</text>
+<text text-anchor="middle" x="730.1883" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="730.1883" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="751.9099,-726.3 751.9099,-784.7 "/>
+<text text-anchor="middle" x="798.1224" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">*oet_cd</text>
+<text text-anchor="middle" x="798.1224" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">*oet_name</text>
+<text text-anchor="middle" x="798.1224" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">*oet_level</text>
+<polyline fill="none" stroke="#000000" points="844.3349,-726.3 844.3349,-784.7 "/>
+<text text-anchor="middle" x="873.6382" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">C10</text>
+<text text-anchor="middle" x="873.6382" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">C30</text>
+<text text-anchor="middle" x="873.6382" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">N2,0</text>
+<polyline fill="none" stroke="#000000" points="902.9415,-726.3 902.9415,-784.7 "/>
+<text text-anchor="middle" x="920.7718" y="-768.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="920.7718" y="-751.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="920.7718" y="-734.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITY_TYPES&#45;&gt;DEMO_ORG_ENTITIES -->
+<g id="edge8" class="edge">
+<title>DEMO_ORG_ENTITY_TYPES-&gt;DEMO_ORG_ENTITIES</title>
+<g id="a_edge8"><a xlink:title="[DEMO_OEN_OET_FK]">
+<path fill="none" stroke="#000000" d="M824,-726.1012C824,-693.2863 824,-646.7796 824,-607.7566"/>
+<polygon fill="#000000" stroke="#000000" points="824.0001,-607.6616 830.75,-592.6615 824,-600.1616 824,-592.6616 824,-592.6616 824,-592.6616 824,-600.1616 817.25,-592.6616 824.0001,-607.6616 824.0001,-607.6616"/>
+</a>
+</g>
+<text text-anchor="middle" x="874.5428" y="-676.2" font-family="Times,serif" font-size="14.00" fill="#000000">demo_oen_oet_fk</text>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS&#45;&gt;DEMO_PER_TRANSACTIONS -->
+<g id="edge19" class="edge">
+<title>DEMO_PER_CREDIT_CARDS-&gt;DEMO_PER_TRANSACTIONS</title>
+<g id="a_edge19"><a xlink:title="[DEMO_PTR_PCC_FK]">
+<path fill="none" stroke="#000000" d="M1005.727,-233.2696C974.5752,-206.4173 935.7562,-172.956 901.8367,-143.7179"/>
+<polygon fill="#000000" stroke="#000000" points="901.4256,-143.3636 894.4711,-128.4573 895.7448,-138.4668 890.0639,-133.57 890.0639,-133.57 890.0639,-133.57 895.7448,-138.4668 885.6568,-138.6827 901.4256,-143.3636 901.4256,-143.3636"/>
+</a>
+</g>
+<text text-anchor="middle" x="1001.3731" y="-175" font-family="Times,serif" font-size="14.00" fill="#000000">demo_ptr_pcc_fk</text>
+</g>
+</g>
+</svg>

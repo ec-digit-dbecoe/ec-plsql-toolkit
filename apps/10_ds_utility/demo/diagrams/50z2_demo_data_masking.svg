@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1245pt" height="1081pt" viewBox="0.00 0.00 1245.00 1081.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1077)">
+<title>ds63_graph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-1077 1241,-1077 1241,4 -4,4"/>
+<g id="clust2" class="cluster">
+<title>cluster_legend</title>
+<polygon fill="none" stroke="#000000" points="1031,-149.4 1031,-1023 1229,-1023 1229,-149.4 1031,-149.4"/>
+<text text-anchor="start" x="1109.0091" y="-1007.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Legend</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_main</title>
+<g id="a_clust1"><a xlink:title="[DEMO_DATA_SUB]&#10;user_created=&quot;APP_DBCC_D&quot;&#10;date_created=&quot;05/03/25 15:17:56&quot;">
+<polygon fill="none" stroke="#000000" points="8,-8 8,-1065 1023,-1065 1023,-8 8,-8"/>
+<text text-anchor="start" x="369.501" y="-1049.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Data Set: DEMO_DATA_SUB (id: 63 - type: SUB)</text>
+</a>
+</g>
+</g>
+<!-- DEMO_COUNTRIES -->
+<g id="node1" class="node">
+<title>DEMO_COUNTRIES</title>
+<g id="a_node1"><a xlink:title="[DEMO_COUNTRIES]">
+<path fill="#ff0000" stroke="#ffffff" d="M92.8752,-640.3C92.8752,-640.3 259.1248,-640.3 259.1248,-640.3 265.1248,-640.3 271.1248,-646.3 271.1248,-652.3 271.1248,-652.3 271.1248,-677.9 271.1248,-677.9 271.1248,-683.9 265.1248,-689.9 259.1248,-689.9 259.1248,-689.9 92.8752,-689.9 92.8752,-689.9 86.8752,-689.9 80.8752,-683.9 80.8752,-677.9 80.8752,-677.9 80.8752,-652.3 80.8752,-652.3 80.8752,-646.3 86.8752,-640.3 92.8752,-640.3"/>
+<text text-anchor="middle" x="176" y="-673.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_COUNTRIES@cnt #1</text>
+<polyline fill="none" stroke="#ffffff" points="80.8752,-665.1 271.1248,-665.1 "/>
+<text text-anchor="middle" x="176" y="-648.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 0 / 27 row extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_CREDIT_CARD_TYPES -->
+<g id="node2" class="node">
+<title>DEMO_CREDIT_CARD_TYPES</title>
+<g id="a_node2"><a xlink:title="[DEMO_CREDIT_CARD_TYPES]">
+<path fill="#ff0000" stroke="#ffffff" d="M480.4341,-16.5C480.4341,-16.5 713.5659,-16.5 713.5659,-16.5 719.5659,-16.5 725.5659,-22.5 725.5659,-28.5 725.5659,-28.5 725.5659,-54.1 725.5659,-54.1 725.5659,-60.1 719.5659,-66.1 713.5659,-66.1 713.5659,-66.1 480.4341,-66.1 480.4341,-66.1 474.4341,-66.1 468.4341,-60.1 468.4341,-54.1 468.4341,-54.1 468.4341,-28.5 468.4341,-28.5 468.4341,-22.5 474.4341,-16.5 480.4341,-16.5"/>
+<text text-anchor="middle" x="597" y="-49.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_CREDIT_CARD_TYPES@cct #1</text>
+<polyline fill="none" stroke="#ffffff" points="468.4341,-41.3 725.5659,-41.3 "/>
+<text text-anchor="middle" x="597" y="-24.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 0 / 4 row extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITIES -->
+<g id="node3" class="node">
+<title>DEMO_ORG_ENTITIES</title>
+<g id="a_node3"><a xlink:title="[DEMO_ORG_ENTITIES]">
+<path fill="#0000ff" stroke="#ffffff" d="M751.6059,-415.7C751.6059,-415.7 940.3941,-415.7 940.3941,-415.7 946.3941,-415.7 952.3941,-421.7 952.3941,-427.7 952.3941,-427.7 952.3941,-453.3 952.3941,-453.3 952.3941,-459.3 946.3941,-465.3 940.3941,-465.3 940.3941,-465.3 751.6059,-465.3 751.6059,-465.3 745.6059,-465.3 739.6059,-459.3 739.6059,-453.3 739.6059,-453.3 739.6059,-427.7 739.6059,-427.7 739.6059,-421.7 745.6059,-415.7 751.6059,-415.7"/>
+<text text-anchor="middle" x="846" y="-448.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_ORG_ENTITIES@oen #1</text>
+<polyline fill="none" stroke="#ffffff" points="739.6059,-440.5 952.3941,-440.5 "/>
+<text text-anchor="middle" x="846" y="-423.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 147 / 1015 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITIES -->
+<g id="edge3" class="edge">
+<title>DEMO_ORG_ENTITIES-&gt;DEMO_ORG_ENTITIES</title>
+<g id="a_edge3"><a xlink:title="[DEMO_OEN_OEN_FK]">
+<path fill="none" stroke="#000000" d="M952.4285,-454.6943C982.8989,-454.1377 1006.3941,-449.4063 1006.3941,-440.5 1006.3941,-433.1245 990.2813,-428.6121 967.4377,-426.9627"/>
+<polygon fill="#0000ff" stroke="#000000" points="967.6438,-421.7168 952.4285,-426.3057 967.1845,-432.2067 967.6438,-421.7168"/>
+</a>
+</g>
+<text text-anchor="middle" x="1008.1441" y="-436.3" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge3-headlabel"><a xlink:title=" &#10;81&#10; ">
+<text text-anchor="middle" x="959.4285" y="-464.1057" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="959.4285" y="-447.3057" font-family="Times,serif" font-size="14.00" fill="#000000">81</text>
+<text text-anchor="middle" x="959.4285" y="-430.5057" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITY_TYPES -->
+<g id="node4" class="node">
+<title>DEMO_ORG_ENTITY_TYPES</title>
+<g id="a_node4"><a xlink:title="[DEMO_ORG_ENTITY_TYPES]">
+<path fill="#ff0000" stroke="#ffffff" d="M769.7167,-191.1C769.7167,-191.1 994.2833,-191.1 994.2833,-191.1 1000.2833,-191.1 1006.2833,-197.1 1006.2833,-203.1 1006.2833,-203.1 1006.2833,-228.7 1006.2833,-228.7 1006.2833,-234.7 1000.2833,-240.7 994.2833,-240.7 994.2833,-240.7 769.7167,-240.7 769.7167,-240.7 763.7167,-240.7 757.7167,-234.7 757.7167,-228.7 757.7167,-228.7 757.7167,-203.1 757.7167,-203.1 757.7167,-197.1 763.7167,-191.1 769.7167,-191.1"/>
+<text text-anchor="middle" x="882" y="-224.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_ORG_ENTITY_TYPES@oet #1</text>
+<polyline fill="none" stroke="#ffffff" points="757.7167,-215.9 1006.2833,-215.9 "/>
+<text text-anchor="middle" x="882" y="-199.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 0 / 5 row extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORG_ENTITIES&#45;&gt;DEMO_ORG_ENTITY_TYPES -->
+<g id="edge4" class="edge">
+<title>DEMO_ORG_ENTITIES-&gt;DEMO_ORG_ENTITY_TYPES</title>
+<g id="a_edge4"><a xlink:title="[DEMO_OEN_OET_FK]">
+<path fill="none" stroke="#000000" d="M849.9902,-415.6057C856.1803,-376.9864 868.1553,-302.2752 875.5746,-255.9873"/>
+<polygon fill="#ff0000" stroke="#000000" points="880.8017,-256.5477 877.9919,-240.9058 870.4341,-254.8858 880.8017,-256.5477"/>
+</a>
+</g>
+<text text-anchor="middle" x="868.75" y="-324" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PERSONS -->
+<g id="node5" class="node">
+<title>DEMO_PERSONS</title>
+<g id="a_node5"><a xlink:title="[DEMO_PERSONS]&#10;where_clause=&quot;per_id&lt;=10&quot;&#10;[LAST_NAME]&#10;params=&quot;ds_utility_krn.random_value_from_table(p_tab_name=&gt;'DEMO_PERSONS',p_col_name=&gt;'LAST_NAME',p_cycle=&gt;'Y')&quot;&#10;options=&quot;enforce_uniqueness=true, encrypt_tokenized_values=true&quot;&#10;[FULL_NAME]&#10;params=&quot;:first_name||' '||:last_name&quot;&#10;[BIRTH_DATE]&#10;params=&quot;ds_masker_krn.random_date(p_min_date=&gt;ADD_MONTHS(TRUNC(SYSDATE),-65*12),p_max_date=&gt;ADD_MONTHS(TRUNC(SYSDATE),-21*12))&quot;&#10;[NATIONALITY]&#10;params=&quot;ds_utility_krn.random_value_from_table(p_tab_name=&gt;'DEMO_COUNTRIES',p_col_name=&gt;'CNT_CD',p_seed=&gt;rowid)&quot;&#10;[TITLE]&#10;params=&quot;'XXXX'&quot;&#10;options=&quot;mask_null_values=true&quot;">
+<path fill="#00ff00" stroke="#000000" d="M377.2731,-831.7C377.2731,-831.7 642.7269,-831.7 642.7269,-831.7 648.7269,-831.7 654.7269,-837.7 654.7269,-843.7 654.7269,-843.7 654.7269,-1019.7 654.7269,-1019.7 654.7269,-1025.7 648.7269,-1031.7 642.7269,-1031.7 642.7269,-1031.7 377.2731,-1031.7 377.2731,-1031.7 371.2731,-1031.7 365.2731,-1025.7 365.2731,-1019.7 365.2731,-1019.7 365.2731,-843.7 365.2731,-843.7 365.2731,-837.7 371.2731,-831.7 377.2731,-831.7"/>
+<text text-anchor="middle" x="510" y="-1015.1" font-family="Times,serif" font-size="14.00" fill="#000000">DEMO_PERSONS@per #1</text>
+<polyline fill="none" stroke="#000000" points="365.2731,-1006.9 654.7269,-1006.9 "/>
+<text text-anchor="middle" x="379.4947" y="-990.3" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="379.4947" y="-973.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="379.4947" y="-956.7" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="379.4947" y="-939.9" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="379.4947" y="-923.1" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<text text-anchor="middle" x="379.4947" y="-906.3" font-family="Times,serif" font-size="14.00" fill="#000000">FI</text>
+<text text-anchor="middle" x="379.4947" y="-889.5" font-family="Times,serif" font-size="14.00" fill="#000000">-</text>
+<polyline fill="none" stroke="#000000" points="393.7163,-881.3 393.7163,-1006.9 "/>
+<text text-anchor="middle" x="447.0147" y="-990.3" font-family="Times,serif" font-size="14.00" fill="#000000">*first_name⚿◉</text>
+<text text-anchor="middle" x="447.0147" y="-973.5" font-family="Times,serif" font-size="14.00" fill="#000000">*last_name⚿◉</text>
+<text text-anchor="middle" x="447.0147" y="-956.7" font-family="Times,serif" font-size="14.00" fill="#000000">*full_name⚿◉</text>
+<text text-anchor="middle" x="447.0147" y="-939.9" font-family="Times,serif" font-size="14.00" fill="#000000">*gender⚿◉</text>
+<text text-anchor="middle" x="447.0147" y="-923.1" font-family="Times,serif" font-size="14.00" fill="#000000">*birth_date◉</text>
+<text text-anchor="middle" x="447.0147" y="-906.3" font-family="Times,serif" font-size="14.00" fill="#000000">*nationality⚿◉</text>
+<text text-anchor="middle" x="447.0147" y="-889.5" font-family="Times,serif" font-size="14.00" fill="#000000">title⚿</text>
+<polyline fill="none" stroke="#000000" points="500.3131,-881.3 500.3131,-1006.9 "/>
+<text text-anchor="middle" x="577.52" y="-990.3" font-family="Times,serif" font-size="14.00" fill="#000000">SHUFFLE (grp 1)</text>
+<text text-anchor="middle" x="577.52" y="-973.5" font-family="Times,serif" font-size="14.00" fill="#000000">TOKENIZE (random)</text>
+<text text-anchor="middle" x="577.52" y="-956.7" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (expression)</text>
+<text text-anchor="middle" x="577.52" y="-939.9" font-family="Times,serif" font-size="14.00" fill="#000000">SHUFFLE (grp 1 part 1)</text>
+<text text-anchor="middle" x="577.52" y="-923.1" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (random)</text>
+<text text-anchor="middle" x="577.52" y="-906.3" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (random)</text>
+<text text-anchor="middle" x="577.52" y="-889.5" font-family="Times,serif" font-size="14.00" fill="#000000">SQL (expression)</text>
+<polyline fill="none" stroke="#000000" points="365.2731,-881.3 654.7269,-881.3 "/>
+<text text-anchor="middle" x="510" y="-864.7" font-family="Times,serif" font-size="14.00" fill="#000000">Config: filter</text>
+<polyline fill="none" stroke="#000000" points="365.2731,-856.5 654.7269,-856.5 "/>
+<text text-anchor="middle" x="510" y="-839.9" font-family="Times,serif" font-size="14.00" fill="#000000">Stats: 22 / 50 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_COUNTRIES -->
+<g id="edge5" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_COUNTRIES</title>
+<g id="a_edge5"><a xlink:title="[DEMO_PER_CNT_FK]">
+<path fill="none" stroke="#000000" d="M384.6805,-831.6695C326.5133,-785.2403 261.1392,-733.0584 219.3153,-699.6744"/>
+<polygon fill="#ff0000" stroke="#000000" points="222.3852,-695.4074 207.3867,-690.153 215.8349,-703.6138 222.3852,-695.4074"/>
+</a>
+</g>
+<text text-anchor="middle" x="339.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<g id="edge8" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PERSONS</title>
+<g id="a_edge8"><a xlink:title="[DEMO_PER_PER_FK]">
+<path fill="none" stroke="#000000" d="M655.1346,-942.4207C686.2265,-941.3522 708.7269,-937.7786 708.7269,-931.7 708.7269,-926.6661 693.2963,-923.3502 670.3343,-921.7523"/>
+<polygon fill="#00ff00" stroke="#000000" points="670.3819,-916.498 655.1346,-920.9793 669.8486,-926.9845 670.3819,-916.498"/>
+</a>
+</g>
+<text text-anchor="middle" x="710.4769" y="-927.5" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge8-headlabel"><a xlink:title=" &#10;8&#10; ">
+<text text-anchor="middle" x="658.6346" y="-958.7793" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="658.6346" y="-941.9793" font-family="Times,serif" font-size="14.00" fill="#000000">8</text>
+<text text-anchor="middle" x="658.6346" y="-925.1793" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PERSONS -->
+<g id="edge11" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PERSONS</title>
+<g id="a_edge11"><a xlink:title="[DEMO_PER_PER_FK]">
+<path fill="none" stroke="#000000" d="M654.802,-953.6761C713.4118,-954.9853 762.7269,-947.66 762.7269,-931.7 762.7269,-917.1428 721.6995,-909.769 670.0132,-909.5788"/>
+<polygon fill="#0000ff" stroke="#000000" points="669.7512,-904.3309 654.802,-909.7239 669.8514,-914.8305 669.7512,-904.3309"/>
+</a>
+</g>
+<text text-anchor="middle" x="764.4769" y="-927.5" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge11-headlabel"><a xlink:title=" &#10;4&#10; ">
+<text text-anchor="middle" x="658.302" y="-897.1239" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="658.302" y="-880.3239" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+<text text-anchor="middle" x="658.302" y="-863.5239" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS -->
+<g id="node8" class="node">
+<title>DEMO_ORDERS</title>
+<g id="a_node8"><a xlink:title="[DEMO_ORDERS]">
+<path fill="#0000ff" stroke="#ffffff" d="M300.9919,-640.3C300.9919,-640.3 459.0081,-640.3 459.0081,-640.3 465.0081,-640.3 471.0081,-646.3 471.0081,-652.3 471.0081,-652.3 471.0081,-677.9 471.0081,-677.9 471.0081,-683.9 465.0081,-689.9 459.0081,-689.9 459.0081,-689.9 300.9919,-689.9 300.9919,-689.9 294.9919,-689.9 288.9919,-683.9 288.9919,-677.9 288.9919,-677.9 288.9919,-652.3 288.9919,-652.3 288.9919,-646.3 294.9919,-640.3 300.9919,-640.3"/>
+<text text-anchor="middle" x="380" y="-673.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_ORDERS@ord #2</text>
+<polyline fill="none" stroke="#ffffff" points="288.9919,-665.1 471.0081,-665.1 "/>
+<text text-anchor="middle" x="380" y="-648.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 38 / 120 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_ORDERS -->
+<g id="edge12" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_ORDERS</title>
+<g id="a_edge12"><a xlink:title="[DEMO_ORD_PER_FK]">
+<path fill="none" stroke="#000000" d="M428.6538,-831.4142C421.0378,-819.3082 414.0486,-806.7688 408.3394,-794.2 395.5293,-765.9984 388.3492,-731.6439 384.4234,-705.466"/>
+<polygon fill="#00ff00" stroke="#000000" points="389.5922,-704.5119 382.3783,-690.3513 379.187,-705.9198 389.5922,-704.5119"/>
+</a>
+</g>
+<g id="a_edge12-label"><a xlink:title=" 50% ">
+<text text-anchor="middle" x="425.3303" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> 50% </text>
+</a>
+</g>
+<g id="a_edge12-headlabel"><a xlink:title=" &#10;28&#10; ">
+<text text-anchor="middle" x="375.3783" y="-728.1513" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="375.3783" y="-711.3513" font-family="Times,serif" font-size="14.00" fill="#000000">28</text>
+<text text-anchor="middle" x="375.3783" y="-694.5513" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_ASSIGNMENTS -->
+<g id="node9" class="node">
+<title>DEMO_PER_ASSIGNMENTS</title>
+<g id="a_node9"><a xlink:title="[DEMO_PER_ASSIGNMENTS]">
+<path fill="#0000ff" stroke="#ffffff" d="M783.0407,-640.3C783.0407,-640.3 1002.9593,-640.3 1002.9593,-640.3 1008.9593,-640.3 1014.9593,-646.3 1014.9593,-652.3 1014.9593,-652.3 1014.9593,-677.9 1014.9593,-677.9 1014.9593,-683.9 1008.9593,-689.9 1002.9593,-689.9 1002.9593,-689.9 783.0407,-689.9 783.0407,-689.9 777.0407,-689.9 771.0407,-683.9 771.0407,-677.9 771.0407,-677.9 771.0407,-652.3 771.0407,-652.3 771.0407,-646.3 777.0407,-640.3 783.0407,-640.3"/>
+<text text-anchor="middle" x="893" y="-673.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_PER_ASSIGNMENTS@pas #2</text>
+<polyline fill="none" stroke="#ffffff" points="771.0407,-665.1 1014.9593,-665.1 "/>
+<text text-anchor="middle" x="893" y="-648.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 66 / 185 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_ASSIGNMENTS -->
+<g id="edge16" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_ASSIGNMENTS</title>
+<g id="a_edge16"><a xlink:title="[DEMO_PAS_PER_FK]">
+<path fill="none" stroke="#000000" d="M654.9984,-877.1774C692.6413,-859.6595 731.88,-838.1978 765,-813.2 806.4825,-781.8905 844.0819,-735.1368 867.634,-702.5643"/>
+<polygon fill="#00ff00" stroke="#000000" points="872.1571,-705.2613 876.5423,-689.986 863.5885,-699.1927 872.1571,-705.2613"/>
+</a>
+</g>
+<text text-anchor="middle" x="822.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge16-headlabel"><a xlink:title=" &#10;66&#10; ">
+<text text-anchor="middle" x="869.5423" y="-727.786" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="869.5423" y="-710.986" font-family="Times,serif" font-size="14.00" fill="#000000">66</text>
+<text text-anchor="middle" x="869.5423" y="-694.186" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_CLOCKINGS -->
+<g id="node10" class="node">
+<title>DEMO_PER_CLOCKINGS</title>
+<g id="a_node10"><a xlink:title="[DEMO_PER_CLOCKINGS]">
+<path fill="#0000ff" stroke="#ffffff" d="M540.7623,-640.3C540.7623,-640.3 741.2377,-640.3 741.2377,-640.3 747.2377,-640.3 753.2377,-646.3 753.2377,-652.3 753.2377,-652.3 753.2377,-677.9 753.2377,-677.9 753.2377,-683.9 747.2377,-689.9 741.2377,-689.9 741.2377,-689.9 540.7623,-689.9 540.7623,-689.9 534.7623,-689.9 528.7623,-683.9 528.7623,-677.9 528.7623,-677.9 528.7623,-652.3 528.7623,-652.3 528.7623,-646.3 534.7623,-640.3 540.7623,-640.3"/>
+<text text-anchor="middle" x="641" y="-673.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_PER_CLOCKINGS@pcl #2</text>
+<polyline fill="none" stroke="#ffffff" points="528.7623,-665.1 753.2377,-665.1 "/>
+<text text-anchor="middle" x="641" y="-648.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 1800 / 5000 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_CLOCKINGS -->
+<g id="edge18" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_CLOCKINGS</title>
+<g id="a_edge18"><a xlink:title="[DEMO_PCL_PER_FK]">
+<path fill="none" stroke="#000000" d="M569.4615,-831.6694C572.771,-825.4641 575.9765,-819.2739 579,-813.2 597.0114,-777.0173 614.5101,-734.3092 626.2984,-704.0762"/>
+<polygon fill="#00ff00" stroke="#000000" points="631.2616,-705.797 631.7593,-689.9125 621.4646,-702.0197 631.2616,-705.797"/>
+</a>
+</g>
+<text text-anchor="middle" x="604.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge18-headlabel"><a xlink:title=" &#10;1800&#10; ">
+<text text-anchor="middle" x="617.7593" y="-727.7125" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="617.7593" y="-710.9125" font-family="Times,serif" font-size="14.00" fill="#000000">1800</text>
+<text text-anchor="middle" x="617.7593" y="-694.1125" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS -->
+<g id="node11" class="node">
+<title>DEMO_PER_CREDIT_CARDS</title>
+<g id="a_node11"><a xlink:title="[DEMO_PER_CREDIT_CARDS]&#10;[CREDIT_CARD_NUMBER]&#10;params=&quot;ds_masker_krn.encrypt_credit_card_number(credit_card_number)&quot;&#10;[EXPIRY_DATE]&#10;params=&quot;ds_masker_krn.random_expiry_date(p_seed=&gt;expiry_date)&quot;">
+<path fill="#0000ff" stroke="#ffffff" d="M466.0434,-170.3C466.0434,-170.3 727.9566,-170.3 727.9566,-170.3 733.9566,-170.3 739.9566,-176.3 739.9566,-182.3 739.9566,-182.3 739.9566,-249.5 739.9566,-249.5 739.9566,-255.5 733.9566,-261.5 727.9566,-261.5 727.9566,-261.5 466.0434,-261.5 466.0434,-261.5 460.0434,-261.5 454.0434,-255.5 454.0434,-249.5 454.0434,-249.5 454.0434,-182.3 454.0434,-182.3 454.0434,-176.3 460.0434,-170.3 466.0434,-170.3"/>
+<text text-anchor="middle" x="597" y="-244.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_PER_CREDIT_CARDS@pcc #2</text>
+<polyline fill="none" stroke="#ffffff" points="454.0434,-236.7 739.9566,-236.7 "/>
+<text text-anchor="middle" x="468.265" y="-220.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">PI</text>
+<text text-anchor="middle" x="468.265" y="-203.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">-</text>
+<polyline fill="none" stroke="#ffffff" points="482.4866,-195.1 482.4866,-236.7 "/>
+<text text-anchor="middle" x="562.2072" y="-220.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">*credit_card_number⚿◉</text>
+<text text-anchor="middle" x="562.2072" y="-203.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">*expiry_date◉</text>
+<polyline fill="none" stroke="#ffffff" points="641.9278,-195.1 641.9278,-236.7 "/>
+<text text-anchor="middle" x="690.9422" y="-220.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">SQL (encrypt)</text>
+<text text-anchor="middle" x="690.9422" y="-203.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">SQL (random)</text>
+<polyline fill="none" stroke="#ffffff" points="454.0434,-195.1 739.9566,-195.1 "/>
+<text text-anchor="middle" x="597" y="-178.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 58 / 156 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_PERSONS&#45;&gt;DEMO_PER_CREDIT_CARDS -->
+<g id="edge21" class="edge">
+<title>DEMO_PERSONS-&gt;DEMO_PER_CREDIT_CARDS</title>
+<g id="a_edge21"><a xlink:title="[DEMO_PCC_PER_FK]">
+<path fill="none" stroke="#000000" d="M497.4607,-831.5252C489.291,-750.3439 483.6716,-643.5785 505,-606.6 552.7158,-523.8719 643.2842,-581.7281 691,-499 732.6429,-426.8008 684.7742,-333.4909 643.4827,-274.1494"/>
+<polygon fill="#00ff00" stroke="#000000" points="647.539,-270.7965 634.5376,-261.6572 639.002,-276.9095 647.539,-270.7965"/>
+</a>
+</g>
+<text text-anchor="middle" x="656.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge21-headlabel"><a xlink:title=" &#10;58&#10; ">
+<text text-anchor="middle" x="627.5376" y="-299.4572" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="627.5376" y="-282.6572" font-family="Times,serif" font-size="14.00" fill="#000000">58</text>
+<text text-anchor="middle" x="627.5376" y="-265.8572" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PRODUCTS -->
+<g id="node6" class="node">
+<title>DEMO_PRODUCTS</title>
+<g id="a_node6"><a xlink:title="[DEMO_PRODUCTS]">
+<path fill="#0000ff" stroke="#ffffff" d="M37.8128,-191.1C37.8128,-191.1 200.1872,-191.1 200.1872,-191.1 206.1872,-191.1 212.1872,-197.1 212.1872,-203.1 212.1872,-203.1 212.1872,-228.7 212.1872,-228.7 212.1872,-234.7 206.1872,-240.7 200.1872,-240.7 200.1872,-240.7 37.8128,-240.7 37.8128,-240.7 31.8128,-240.7 25.8128,-234.7 25.8128,-228.7 25.8128,-228.7 25.8128,-203.1 25.8128,-203.1 25.8128,-197.1 31.8128,-191.1 37.8128,-191.1"/>
+<text text-anchor="middle" x="119" y="-224.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_PRODUCTS@prd #1</text>
+<polyline fill="none" stroke="#ffffff" points="25.8128,-215.9 212.1872,-215.9 "/>
+<text text-anchor="middle" x="119" y="-199.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 43 / 50 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_STORES -->
+<g id="node7" class="node">
+<title>DEMO_STORES</title>
+<g id="a_node7"><a xlink:title="[DEMO_STORES]">
+<path fill="#000000" stroke="#ffffff" d="M251.4919,-415.7C251.4919,-415.7 402.5081,-415.7 402.5081,-415.7 408.5081,-415.7 414.5081,-421.7 414.5081,-427.7 414.5081,-427.7 414.5081,-453.3 414.5081,-453.3 414.5081,-459.3 408.5081,-465.3 402.5081,-465.3 402.5081,-465.3 251.4919,-465.3 251.4919,-465.3 245.4919,-465.3 239.4919,-459.3 239.4919,-453.3 239.4919,-453.3 239.4919,-427.7 239.4919,-427.7 239.4919,-421.7 245.4919,-415.7 251.4919,-415.7"/>
+<text text-anchor="middle" x="327" y="-448.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_STORES@sto #1</text>
+<polyline fill="none" stroke="#ffffff" points="239.4919,-440.5 414.5081,-440.5 "/>
+<text text-anchor="middle" x="327" y="-423.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 10 / 10 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_PERSONS -->
+<g id="edge13" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_PERSONS</title>
+<g id="a_edge13"><a xlink:title="[DEMO_ORD_PER_FK]">
+<path fill="none" stroke="#000000" d="M397.9024,-690.2742C410.8334,-709.1004 428.202,-735.7676 441,-760.6 450.3277,-778.6989 459.2777,-798.3597 467.4624,-817.6908"/>
+<polygon fill="#0000ff" stroke="#000000" points="462.6734,-819.8477 473.2812,-831.6814 472.3683,-815.8154 462.6734,-819.8477"/>
+</a>
+</g>
+<text text-anchor="middle" x="458.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_STORES -->
+<g id="edge14" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_STORES</title>
+<g id="a_edge14"><a xlink:title="[DEMO_ORD_STO_FK]">
+<path fill="none" stroke="#000000" d="M374.1256,-640.2057C364.9925,-601.502 347.3054,-526.5488 336.3881,-480.2845"/>
+<polygon fill="#ff0000" stroke="#000000" points="341.4555,-478.899 332.9007,-465.5058 331.2362,-481.3106 341.4555,-478.899"/>
+</a>
+</g>
+<text text-anchor="middle" x="359.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_ORDER_ITEMS -->
+<g id="node12" class="node">
+<title>DEMO_ORDER_ITEMS</title>
+<g id="a_node12"><a xlink:title="[DEMO_ORDER_ITEMS]">
+<path fill="#0000ff" stroke="#ffffff" d="M28.0919,-415.7C28.0919,-415.7 209.9081,-415.7 209.9081,-415.7 215.9081,-415.7 221.9081,-421.7 221.9081,-427.7 221.9081,-427.7 221.9081,-453.3 221.9081,-453.3 221.9081,-459.3 215.9081,-465.3 209.9081,-465.3 209.9081,-465.3 28.0919,-465.3 28.0919,-465.3 22.0919,-465.3 16.0919,-459.3 16.0919,-453.3 16.0919,-453.3 16.0919,-427.7 16.0919,-427.7 16.0919,-421.7 22.0919,-415.7 28.0919,-415.7"/>
+<text text-anchor="middle" x="119" y="-448.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_ORDER_ITEMS@oit #3</text>
+<polyline fill="none" stroke="#ffffff" points="16.0919,-440.5 221.9081,-440.5 "/>
+<text text-anchor="middle" x="119" y="-423.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 77 / 358 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_ORDER_ITEMS -->
+<g id="edge23" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_ORDER_ITEMS</title>
+<g id="a_edge23"><a xlink:title="[DEMO_OIT_ORD_FK]">
+<path fill="none" stroke="#000000" d="M351.0712,-640.2057C304.5272,-600.1529 212.8708,-521.2793 159.7347,-475.5537"/>
+<polygon fill="#00ff00" stroke="#000000" points="162.8526,-471.3105 148.0584,-465.5058 156.0037,-479.2693 162.8526,-471.3105"/>
+</a>
+</g>
+<text text-anchor="middle" x="271.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge23-headlabel"><a xlink:title=" &#10;77&#10; ">
+<text text-anchor="middle" x="141.0584" y="-503.3058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="141.0584" y="-486.5058" font-family="Times,serif" font-size="14.00" fill="#000000">77</text>
+<text text-anchor="middle" x="141.0584" y="-469.7058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_TRANSACTIONS -->
+<g id="node13" class="node">
+<title>DEMO_PER_TRANSACTIONS</title>
+<g id="a_node13"><a xlink:title="[DEMO_PER_TRANSACTIONS]">
+<path fill="#0000ff" stroke="#ffffff" d="M444.3184,-403.3C444.3184,-403.3 669.6816,-403.3 669.6816,-403.3 675.6816,-403.3 681.6816,-409.3 681.6816,-415.3 681.6816,-415.3 681.6816,-465.7 681.6816,-465.7 681.6816,-471.7 675.6816,-477.7 669.6816,-477.7 669.6816,-477.7 444.3184,-477.7 444.3184,-477.7 438.3184,-477.7 432.3184,-471.7 432.3184,-465.7 432.3184,-465.7 432.3184,-415.3 432.3184,-415.3 432.3184,-409.3 438.3184,-403.3 444.3184,-403.3"/>
+<text text-anchor="middle" x="557" y="-461.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">DEMO_PER_TRANSACTIONS@ptr #3</text>
+<polyline fill="none" stroke="#ffffff" points="432.3184,-452.9 681.6816,-452.9 "/>
+<text text-anchor="middle" x="453.4313" y="-436.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">PFI</text>
+<polyline fill="none" stroke="#ffffff" points="474.5442,-428.1 474.5442,-452.9 "/>
+<text text-anchor="middle" x="538.6049" y="-436.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">*credit_card_nbr◉</text>
+<polyline fill="none" stroke="#ffffff" points="602.6656,-428.1 602.6656,-452.9 "/>
+<text text-anchor="middle" x="642.1537" y="-436.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">INHERIT</text>
+<polyline fill="none" stroke="#ffffff" points="432.3184,-428.1 681.6816,-428.1 "/>
+<text text-anchor="middle" x="557" y="-411.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Stats: 51 / 120 rows extracted</text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDERS&#45;&gt;DEMO_PER_TRANSACTIONS -->
+<g id="edge26" class="edge">
+<title>DEMO_ORDERS-&gt;DEMO_PER_TRANSACTIONS</title>
+<g id="a_edge26"><a xlink:title="[DEMO_PTR_ORD_FK]">
+<path fill="none" stroke="#000000" d="M404.088,-640.2516C417.9507,-625.5938 435.4507,-606.4688 450,-588.6 475.8208,-556.8881 502.7715,-519.5563 523.1656,-490.3075"/>
+<polygon fill="#00ff00" stroke="#000000" points="527.5363,-493.2177 531.7638,-477.898 518.9055,-487.2376 527.5363,-493.2177"/>
+</a>
+</g>
+<text text-anchor="middle" x="491.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge26-headlabel"><a xlink:title=" &#10;35&#10; ">
+<text text-anchor="middle" x="524.7638" y="-515.698" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="524.7638" y="-498.898" font-family="Times,serif" font-size="14.00" fill="#000000">35</text>
+<text text-anchor="middle" x="524.7638" y="-482.098" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_ASSIGNMENTS&#45;&gt;DEMO_ORG_ENTITIES -->
+<g id="edge15" class="edge">
+<title>DEMO_PER_ASSIGNMENTS-&gt;DEMO_ORG_ENTITIES</title>
+<g id="a_edge15"><a xlink:title="[DEMO_PAS_OEN_FK]">
+<path fill="none" stroke="#000000" d="M887.7906,-640.2057C879.6914,-601.502 864.0067,-526.5488 854.3253,-480.2845"/>
+<polygon fill="#0000ff" stroke="#000000" points="859.4439,-479.1124 851.2327,-465.5058 849.1665,-481.2631 859.4439,-479.1124"/>
+</a>
+</g>
+<text text-anchor="middle" x="875.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge15-headlabel"><a xlink:title=" &#10;66&#10; ">
+<text text-anchor="middle" x="844.2327" y="-503.3058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="844.2327" y="-486.5058" font-family="Times,serif" font-size="14.00" fill="#000000">66</text>
+<text text-anchor="middle" x="844.2327" y="-469.7058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_ASSIGNMENTS&#45;&gt;DEMO_PERSONS -->
+<g id="edge17" class="edge">
+<title>DEMO_PER_ASSIGNMENTS-&gt;DEMO_PERSONS</title>
+<g id="a_edge17"><a xlink:title="[DEMO_PAS_PER_FK]">
+<path fill="none" stroke="#000000" d="M857.0087,-690.153C813.2371,-720.6216 736.4829,-774.049 666.2721,-822.9216"/>
+<polygon fill="#ff0000" stroke="#000000" points="663.0165,-818.791 653.7047,-831.6695 669.0152,-827.4088 663.0165,-818.791"/>
+</a>
+</g>
+<text text-anchor="middle" x="757.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PER_CLOCKINGS&#45;&gt;DEMO_PERSONS -->
+<g id="edge19" class="edge">
+<title>DEMO_PER_CLOCKINGS-&gt;DEMO_PERSONS</title>
+<g id="a_edge19"><a xlink:title="[DEMO_PCL_PER_FK]">
+<path fill="none" stroke="#000000" d="M623.9449,-689.9856C611.377,-708.8878 594.3129,-735.7774 581.5,-760.6 572.1721,-778.671 563.0942,-798.2415 554.7109,-817.4712"/>
+<polygon fill="#ff0000" stroke="#000000" points="549.83,-815.5323 548.7357,-831.3868 559.4781,-819.6752 549.83,-815.5323"/>
+</a>
+</g>
+<text text-anchor="middle" x="583.75" y="-773.2" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS&#45;&gt;DEMO_CREDIT_CARD_TYPES -->
+<g id="edge20" class="edge">
+<title>DEMO_PER_CREDIT_CARDS-&gt;DEMO_CREDIT_CARD_TYPES</title>
+<g id="a_edge20"><a xlink:title="[DEMO_PCC_CCT_FK]">
+<path fill="none" stroke="#000000" d="M597,-170.0259C597,-142.5817 597,-108.027 597,-81.6304"/>
+<polygon fill="#ff0000" stroke="#000000" points="602.2501,-81.3856 597,-66.3856 591.7501,-81.3856 602.2501,-81.3856"/>
+</a>
+</g>
+<text text-anchor="middle" x="598.75" y="-107.8" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS&#45;&gt;DEMO_PERSONS -->
+<g id="edge22" class="edge">
+<title>DEMO_PER_CREDIT_CARDS-&gt;DEMO_PERSONS</title>
+<g id="a_edge22"><a xlink:title="[DEMO_PCC_PER_FK]">
+<path fill="none" stroke="#000000" d="M643.7253,-261.615C657.1159,-276.5378 670.826,-293.8169 681,-311.4 723.0981,-384.1556 727.7065,-418.0676 705,-499 695.0755,-534.3738 691.4837,-547.6794 662,-569.6 609.662,-608.5123 560.6694,-555.6154 520,-606.6 506.9276,-622.988 505.6561,-729.7522 506.8935,-816.5301"/>
+<polygon fill="#0000ff" stroke="#000000" points="501.646,-816.731 507.1366,-831.6446 512.1446,-816.5621 501.646,-816.731"/>
+</a>
+</g>
+<text text-anchor="middle" x="694.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PER_CREDIT_CARDS&#45;&gt;DEMO_PER_TRANSACTIONS -->
+<g id="edge28" class="edge">
+<title>DEMO_PER_CREDIT_CARDS-&gt;DEMO_PER_TRANSACTIONS</title>
+<g id="a_edge28"><a xlink:title="[DEMO_PTR_PCC_FK]">
+<path fill="none" stroke="#000000" d="M588.8105,-261.8841C582.2793,-298.5565 573.1299,-349.9307 566.3191,-388.1734"/>
+<polygon fill="#00ff00" stroke="#000000" points="561.1115,-387.4716 563.6501,-403.1598 571.4489,-389.3127 561.1115,-387.4716"/>
+</a>
+</g>
+<text text-anchor="middle" x="581.75" y="-324" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge28-headlabel"><a xlink:title=" &#10;16&#10; ">
+<text text-anchor="middle" x="556.6501" y="-390.5598" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="556.6501" y="-373.7598" font-family="Times,serif" font-size="14.00" fill="#000000">16</text>
+<text text-anchor="middle" x="556.6501" y="-356.9598" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDER_ITEMS&#45;&gt;DEMO_PRODUCTS -->
+<g id="edge25" class="edge">
+<title>DEMO_ORDER_ITEMS-&gt;DEMO_PRODUCTS</title>
+<g id="a_edge25"><a xlink:title="[DEMO_OIT_PRD_FK]">
+<path fill="none" stroke="#000000" d="M119,-415.6057C119,-376.9864 119,-302.2752 119,-255.9873"/>
+<polygon fill="#0000ff" stroke="#000000" points="124.2501,-255.9057 119,-240.9058 113.7501,-255.9058 124.2501,-255.9057"/>
+</a>
+</g>
+<text text-anchor="middle" x="120.75" y="-324" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge25-headlabel"><a xlink:title=" &#10;43&#10; ">
+<text text-anchor="middle" x="112" y="-278.7058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="112" y="-261.9058" font-family="Times,serif" font-size="14.00" fill="#000000">43</text>
+<text text-anchor="middle" x="112" y="-245.1058" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_ORDER_ITEMS&#45;&gt;DEMO_ORDERS -->
+<g id="edge24" class="edge">
+<title>DEMO_ORDER_ITEMS-&gt;DEMO_ORDERS</title>
+<g id="a_edge24"><a xlink:title="[DEMO_OIT_ORD_FK]">
+<path fill="none" stroke="#000000" d="M135.0895,-465.49C153.7746,-493.2072 186.6505,-538.1546 222.5,-569.6 231.3668,-577.3775 282.3231,-607.9084 323.9116,-632.384"/>
+<polygon fill="#ff0000" stroke="#000000" points="321.4267,-637.013 337.02,-640.0813 326.7436,-627.9587 321.4267,-637.013"/>
+</a>
+</g>
+<text text-anchor="middle" x="224.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- DEMO_PER_TRANSACTIONS&#45;&gt;DEMO_ORDERS -->
+<g id="edge27" class="edge">
+<title>DEMO_PER_TRANSACTIONS-&gt;DEMO_ORDERS</title>
+<g id="a_edge27"><a xlink:title="[DEMO_PTR_ORD_FK]">
+<path fill="none" stroke="#000000" d="M513.8692,-477.8187C495.7011,-494.6371 474.9923,-515.3359 458.5,-536 435.7528,-564.5011 414.5622,-600.1175 399.9454,-626.7171"/>
+<polygon fill="#0000ff" stroke="#000000" points="395.2317,-624.3972 392.7306,-640.0914 404.4728,-629.3824 395.2317,-624.3972"/>
+</a>
+</g>
+<text text-anchor="middle" x="460.75" y="-548.6" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<g id="a_edge27-headlabel"><a xlink:title=" &#10;10&#10; ">
+<text text-anchor="middle" x="385.7306" y="-627.4914" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<text text-anchor="middle" x="385.7306" y="-610.6914" font-family="Times,serif" font-size="14.00" fill="#000000">10</text>
+<text text-anchor="middle" x="385.7306" y="-593.8914" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</a>
+</g>
+</g>
+<!-- DEMO_PER_TRANSACTIONS&#45;&gt;DEMO_PER_CREDIT_CARDS -->
+<g id="edge29" class="edge">
+<title>DEMO_PER_TRANSACTIONS-&gt;DEMO_PER_CREDIT_CARDS</title>
+<g id="a_edge29"><a xlink:title="[DEMO_PTR_PCC_FK]">
+<path fill="none" stroke="#000000" d="M557.8807,-403.2027C559.0166,-377.2607 561.6065,-341.9821 567.5,-311.4 569.7396,-299.7786 572.8797,-287.5711 576.2816,-275.9146"/>
+<polygon fill="#0000ff" stroke="#000000" points="581.3143,-277.4096 580.6825,-261.5299 571.2737,-274.3377 581.3143,-277.4096"/>
+</a>
+</g>
+<text text-anchor="middle" x="569.75" y="-324" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+</g>
+<!-- BTABLE -->
+<g id="node14" class="node">
+<title>BTABLE</title>
+<path fill="#00ff00" stroke="#000000" d="M1051.1304,-873.7C1051.1304,-873.7 1208.8696,-873.7 1208.8696,-873.7 1214.8696,-873.7 1220.8696,-879.7 1220.8696,-885.7 1220.8696,-885.7 1220.8696,-977.7 1220.8696,-977.7 1220.8696,-983.7 1214.8696,-989.7 1208.8696,-989.7 1208.8696,-989.7 1051.1304,-989.7 1051.1304,-989.7 1045.1304,-989.7 1039.1304,-983.7 1039.1304,-977.7 1039.1304,-977.7 1039.1304,-885.7 1039.1304,-885.7 1039.1304,-879.7 1045.1304,-873.7 1051.1304,-873.7"/>
+<text text-anchor="middle" x="1130" y="-973.1" font-family="Times,serif" font-size="14.00" fill="#000000">B-TABLE</text>
+<text text-anchor="middle" x="1130" y="-956.3" font-family="Times,serif" font-size="14.00" fill="#000000">Base/driving table</text>
+<polyline fill="none" stroke="#000000" points="1039.1304,-948.1 1220.8696,-948.1 "/>
+<text text-anchor="middle" x="1059.96" y="-931.5" font-family="Times,serif" font-size="14.00" fill="#000000">keys</text>
+<polyline fill="none" stroke="#000000" points="1080.7896,-923.3 1080.7896,-948.1 "/>
+<text text-anchor="middle" x="1114.2521" y="-931.5" font-family="Times,serif" font-size="14.00" fill="#000000">col name</text>
+<polyline fill="none" stroke="#000000" points="1147.7146,-923.3 1147.7146,-948.1 "/>
+<text text-anchor="middle" x="1184.2921" y="-931.5" font-family="Times,serif" font-size="14.00" fill="#000000">mask type</text>
+<polyline fill="none" stroke="#000000" points="1039.1304,-923.3 1220.8696,-923.3 "/>
+<text text-anchor="middle" x="1130" y="-906.7" font-family="Times,serif" font-size="14.00" fill="#000000">Configuration</text>
+<polyline fill="none" stroke="#000000" points="1039.1304,-898.5 1220.8696,-898.5 "/>
+<text text-anchor="middle" x="1130" y="-881.9" font-family="Times,serif" font-size="14.00" fill="#000000">Statistics</text>
+</g>
+<!-- PTABLE -->
+<g id="node15" class="node">
+<title>PTABLE</title>
+<path fill="#0000ff" stroke="#ffffff" d="M1051.1304,-607.1C1051.1304,-607.1 1208.8696,-607.1 1208.8696,-607.1 1214.8696,-607.1 1220.8696,-613.1 1220.8696,-619.1 1220.8696,-619.1 1220.8696,-711.1 1220.8696,-711.1 1220.8696,-717.1 1214.8696,-723.1 1208.8696,-723.1 1208.8696,-723.1 1051.1304,-723.1 1051.1304,-723.1 1045.1304,-723.1 1039.1304,-717.1 1039.1304,-711.1 1039.1304,-711.1 1039.1304,-619.1 1039.1304,-619.1 1039.1304,-613.1 1045.1304,-607.1 1051.1304,-607.1"/>
+<text text-anchor="middle" x="1130" y="-706.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">P-TABLE</text>
+<text text-anchor="middle" x="1130" y="-689.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">Partially extracted</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-681.5 1220.8696,-681.5 "/>
+<text text-anchor="middle" x="1059.96" y="-664.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">keys</text>
+<polyline fill="none" stroke="#ffffff" points="1080.7896,-656.7 1080.7896,-681.5 "/>
+<text text-anchor="middle" x="1114.2521" y="-664.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">col name</text>
+<polyline fill="none" stroke="#ffffff" points="1147.7146,-656.7 1147.7146,-681.5 "/>
+<text text-anchor="middle" x="1184.2921" y="-664.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">mask type</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-656.7 1220.8696,-656.7 "/>
+<text text-anchor="middle" x="1130" y="-640.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">Configuration</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-631.9 1220.8696,-631.9 "/>
+<text text-anchor="middle" x="1130" y="-615.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">Statistics</text>
+</g>
+<!-- BTABLE&#45;&gt;PTABLE -->
+<g id="edge30" class="edge">
+<title>BTABLE-&gt;PTABLE</title>
+<path fill="none" stroke="#000000" d="M1130,-873.5229C1130,-833.8149 1130,-780.9019 1130,-738.3271"/>
+<polygon fill="#00ff00" stroke="#000000" points="1135.2501,-738.153 1130,-723.153 1124.7501,-738.1531 1135.2501,-738.153"/>
+<text text-anchor="middle" x="1156.6315" y="-781.6" font-family="Times,serif" font-size="14.00" fill="#000000"> B-Cons</text>
+<text text-anchor="middle" x="1156.6315" y="-764.8" font-family="Times,serif" font-size="14.00" fill="#000000"> (driving)</text>
+<text text-anchor="middle" x="1105.8941" y="-727.353" font-family="Times,serif" font-size="14.00" fill="#000000">   # rows</text>
+</g>
+<!-- NTABLE -->
+<g id="node16" class="node">
+<title>NTABLE</title>
+<path fill="#ff0000" stroke="#ffffff" d="M1051.1304,-382.5C1051.1304,-382.5 1208.8696,-382.5 1208.8696,-382.5 1214.8696,-382.5 1220.8696,-388.5 1220.8696,-394.5 1220.8696,-394.5 1220.8696,-486.5 1220.8696,-486.5 1220.8696,-492.5 1214.8696,-498.5 1208.8696,-498.5 1208.8696,-498.5 1051.1304,-498.5 1051.1304,-498.5 1045.1304,-498.5 1039.1304,-492.5 1039.1304,-486.5 1039.1304,-486.5 1039.1304,-394.5 1039.1304,-394.5 1039.1304,-388.5 1045.1304,-382.5 1051.1304,-382.5"/>
+<text text-anchor="middle" x="1130" y="-481.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">N-TABLE</text>
+<text text-anchor="middle" x="1130" y="-465.1" font-family="Times,serif" font-size="14.00" fill="#ffffff"> Not extracted</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-456.9 1220.8696,-456.9 "/>
+<text text-anchor="middle" x="1059.96" y="-440.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">keys</text>
+<polyline fill="none" stroke="#ffffff" points="1080.7896,-432.1 1080.7896,-456.9 "/>
+<text text-anchor="middle" x="1114.2521" y="-440.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">col name</text>
+<polyline fill="none" stroke="#ffffff" points="1147.7146,-432.1 1147.7146,-456.9 "/>
+<text text-anchor="middle" x="1184.2921" y="-440.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">mask type</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-432.1 1220.8696,-432.1 "/>
+<text text-anchor="middle" x="1130" y="-415.5" font-family="Times,serif" font-size="14.00" fill="#ffffff">Configuration</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-407.3 1220.8696,-407.3 "/>
+<text text-anchor="middle" x="1130" y="-390.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">Statistics</text>
+</g>
+<!-- PTABLE&#45;&gt;NTABLE -->
+<g id="edge31" class="edge">
+<title>PTABLE-&gt;NTABLE</title>
+<path fill="none" stroke="#000000" d="M1130,-606.9678C1130,-578.6329 1130,-544.248 1130,-514.102"/>
+<polygon fill="#0000ff" stroke="#000000" points="1135.2501,-513.7783 1130,-498.7784 1124.7501,-513.7784 1135.2501,-513.7783"/>
+<text text-anchor="middle" x="1161.8794" y="-557" font-family="Times,serif" font-size="14.00" fill="#000000"> P-Cons</text>
+<text text-anchor="middle" x="1161.8794" y="-540.2" font-family="Times,serif" font-size="14.00" fill="#000000"> (integrity) </text>
+<text text-anchor="middle" x="1154.1059" y="-502.9784" font-family="Times,serif" font-size="14.00" fill="#000000">   # rows</text>
+</g>
+<!-- FTABLE -->
+<g id="node17" class="node">
+<title>FTABLE</title>
+<path fill="#000000" stroke="#ffffff" d="M1051.1304,-157.9C1051.1304,-157.9 1208.8696,-157.9 1208.8696,-157.9 1214.8696,-157.9 1220.8696,-163.9 1220.8696,-169.9 1220.8696,-169.9 1220.8696,-261.9 1220.8696,-261.9 1220.8696,-267.9 1214.8696,-273.9 1208.8696,-273.9 1208.8696,-273.9 1051.1304,-273.9 1051.1304,-273.9 1045.1304,-273.9 1039.1304,-267.9 1039.1304,-261.9 1039.1304,-261.9 1039.1304,-169.9 1039.1304,-169.9 1039.1304,-163.9 1045.1304,-157.9 1051.1304,-157.9"/>
+<text text-anchor="middle" x="1130" y="-257.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">F-TABLE</text>
+<text text-anchor="middle" x="1130" y="-240.5" font-family="Times,serif" font-size="14.00" fill="#ffffff"> Fully extracted</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-232.3 1220.8696,-232.3 "/>
+<text text-anchor="middle" x="1059.96" y="-215.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">keys</text>
+<polyline fill="none" stroke="#ffffff" points="1080.7896,-207.5 1080.7896,-232.3 "/>
+<text text-anchor="middle" x="1114.2521" y="-215.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">col name</text>
+<polyline fill="none" stroke="#ffffff" points="1147.7146,-207.5 1147.7146,-232.3 "/>
+<text text-anchor="middle" x="1184.2921" y="-215.7" font-family="Times,serif" font-size="14.00" fill="#ffffff">mask type</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-207.5 1220.8696,-207.5 "/>
+<text text-anchor="middle" x="1130" y="-190.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Configuration</text>
+<polyline fill="none" stroke="#ffffff" points="1039.1304,-182.7 1220.8696,-182.7 "/>
+<text text-anchor="middle" x="1130" y="-166.1" font-family="Times,serif" font-size="14.00" fill="#ffffff">Statistics</text>
+</g>
+<!-- NTABLE&#45;&gt;FTABLE -->
+<g id="edge32" class="edge">
+<title>NTABLE-&gt;FTABLE</title>
+<path fill="none" stroke="#000000" d="M1130,-382.3678C1130,-354.0329 1130,-319.648 1130,-289.502"/>
+<polygon fill="#ff0000" stroke="#000000" points="1135.2501,-289.1783 1130,-274.1784 1124.7501,-289.1784 1135.2501,-289.1783"/>
+<text text-anchor="middle" x="1159.9355" y="-332.4" font-family="Times,serif" font-size="14.00" fill="#000000"> N-Cons</text>
+<text text-anchor="middle" x="1159.9355" y="-315.6" font-family="Times,serif" font-size="14.00" fill="#000000"> (not used)</text>
+</g>
+</g>
+</svg>

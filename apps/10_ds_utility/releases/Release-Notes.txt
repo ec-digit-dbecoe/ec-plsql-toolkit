@@ -1,11 +1,32 @@
-DS Utility 25.0 Release Notes
-Date: January 2025
+DS Utility 25.3 Release Notes
+Date: March 2025
 
 SUPPORT
 
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 25.3 - March 2025
+
+Enhancements:
+- Added some demo scripts e.g., to show stats and reset demo.
+- Added VAR package body to show and reset internal cache.
+- Added default gen type and params to sensitive data types (patterns).
+- Added distance from base record in records table.
+- Enhanced debug info stored in ds_records.remark column.
+
+VERSION 25.2 - February 2025
+
+Enhancements:
+- Now using MERGE INTO statement for improved performances.
+- Added support for INSERT IGNORE (ignore existing records while inserting).
+- Added support for remote delete (delete records in target schema).
+
+VERSION 25.1 - February 2025
+
+New features:
+- Runs of main data set operations are now logged.
 
 VERSION 25.0 - January 2025
 

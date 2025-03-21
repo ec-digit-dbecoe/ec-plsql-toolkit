@@ -1,0 +1,23 @@
+REM 
+REM Data Set Utility Demo
+REM All rights reserved (C)opyright 2025 by Philippe Debois
+REM Script to count records in the local demo tables
+set pagesize 20
+PROMPT Statistics on demo tables in source schema
+--SELECT CASE WHEN rownum>1 THEN 'UNION ALL 'END || 'SELECT '''|| table_name ||''' src_table_name, COUNT(*) cnt FROM ' ||table_name
+--FROM (SELECT * FROM user_tables WHERE table_name LIKE 'DEMO%' AND table_name != 'DEMO_DUAL' ORDER BY table_name)
+--UNION ALL SELECT 'ORDER BY 1;' FROM dual;
+SELECT 'DEMO_COUNTRIES' src_table_name, COUNT(*) cnt FROM DEMO_COUNTRIES
+UNION ALL SELECT 'DEMO_CREDIT_CARD_TYPES' src_table_name, COUNT(*) cnt FROM DEMO_CREDIT_CARD_TYPES
+UNION ALL SELECT 'DEMO_ORDERS' src_table_name, COUNT(*) cnt FROM DEMO_ORDERS
+UNION ALL SELECT 'DEMO_ORDER_ITEMS' src_table_name, COUNT(*) cnt FROM DEMO_ORDER_ITEMS
+UNION ALL SELECT 'DEMO_ORG_ENTITIES' src_table_name, COUNT(*) cnt FROM DEMO_ORG_ENTITIES
+UNION ALL SELECT 'DEMO_ORG_ENTITY_TYPES' src_table_name, COUNT(*) cnt FROM DEMO_ORG_ENTITY_TYPES
+UNION ALL SELECT 'DEMO_PERSONS' src_table_name, COUNT(*) cnt FROM DEMO_PERSONS
+UNION ALL SELECT 'DEMO_PER_ASSIGNMENTS' src_table_name, COUNT(*) cnt FROM DEMO_PER_ASSIGNMENTS
+UNION ALL SELECT 'DEMO_PER_CLOCKINGS' src_table_name, COUNT(*) cnt FROM DEMO_PER_CLOCKINGS
+UNION ALL SELECT 'DEMO_PER_CREDIT_CARDS' src_table_name, COUNT(*) cnt FROM DEMO_PER_CREDIT_CARDS
+UNION ALL SELECT 'DEMO_PER_TRANSACTIONS' src_table_name, COUNT(*) cnt FROM DEMO_PER_TRANSACTIONS
+UNION ALL SELECT 'DEMO_PRODUCTS' src_table_name, COUNT(*) cnt FROM DEMO_PRODUCTS
+UNION ALL SELECT 'DEMO_STORES' src_table_name, COUNT(*) cnt FROM DEMO_STORES
+ORDER BY 1;

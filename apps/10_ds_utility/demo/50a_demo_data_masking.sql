@@ -1,12 +1,22 @@
 REM 
 REM Data Set Utility Demo - Data masking
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM 
+
+REM Used APIs
+REM . insert_mask()
+REM . update_mask_properties()
+REM . delete_mask()
+REM . mask_data_set
+REM . create_views()
+REM . drop_views()
+REM . graph_data_set()
 
 -- Set set_id
 PAUSE Configure masks?
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 
 REM
 REM Scenario 1: mask a few fields but not the per_id (pk)

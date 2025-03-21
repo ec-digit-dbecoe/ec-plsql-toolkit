@@ -1,12 +1,13 @@
 REM 
 REM Data Set Utility Demo - Data Set Graph Visualisation
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM 
 
 REM Diagram for Synthetic Data Generation
 REM Only generated columns are displayed.
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -40,6 +41,7 @@ REM Only masked columns are displayed.
 PAUSE
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_SUB') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -73,6 +75,7 @@ REM Only sensitive or masked columns are displayed.
 PAUSE
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>NULL -- show only 
   , p_table_name=>'DEMO%' -- table filter
@@ -105,6 +108,7 @@ REM Diagram for Change Data Capture
 PAUSE
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_CAP') -- data set id
   , p_table_name=>'DEMO%' -- table filter
@@ -138,6 +142,7 @@ REM All table columns, constraints and indexes are displayed.
 PAUSE
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
 select * from table(ds_utility_ext.graph_data_set(
     p_set_id=>NULL
   , p_table_name=>'DEMO%' -- table filter

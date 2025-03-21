@@ -1,6 +1,6 @@
 REM 
 REM Data Set Utility Demo - Data Set Backup
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM This scripts remap msk_id using tokens
 REM 
 
@@ -11,6 +11,8 @@ select * from ds_tokens where msk_id in (select msk_id from ds_masks where table
 PAUSE Configure data set definition
 CLEAR SCREEN
 set serveroutput on size 999999
+whenever sqlerror exit sqlcode
+
 declare
 l_set_id ds_data_sets.set_id%TYPE;
 begin

@@ -1,11 +1,11 @@
 REM 
 REM Data Set Utility Demo - Data Model Creation
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM Script to create CSV data set and data generation views
 REM 
 
 REM Create view to populate demo_countries
-exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('EU_COUNTRIES_27'),p_set_type=>'CSV',p_view_prefix=>'DS_',p_view_suffix=>'_V');
+exec ds_utility_krn.create_views(p_set_id=>ds_utility_krn.get_data_set_def_by_name('EU_COUNTRIES_27'),p_set_type=>'CSV',p_view_prefix=>'DS_',p_view_suffix=>'_V', p_log_run=>FALSE);
 --INSERT INTO demo_countries (cnt_cd, cnt_name, population) select  code_a3, name, population;
 
 REM Create view to generate random date intervals (for historic tables)

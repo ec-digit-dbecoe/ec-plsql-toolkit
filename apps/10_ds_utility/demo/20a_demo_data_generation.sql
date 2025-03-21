@@ -1,12 +1,25 @@
 REM 
 REM Data Set Utility Demo - Synthetic Data Generation
-REM All rights reserved (C)opyright 2023 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM Script based on APIs only (no use of DEGPL)
 REM 
+
+REM Used APIs:
+REM . create_or_replace_data_set_def()
+REM . include_tables()
+REM . include_referential_cons()
+REM . define_walk_through_strategy()
+REM . insert_table_columns()
+REM . update_table_properties()
+REM . update_constraint_properties()
+REM . update_table_column_properties()
+REM . generate_data_set()
+REM . graph_data_set()
 
 REM Create a data set to generate synthetic/fake data 
 PAUSE Configure data set?
 CLEAR SCREEN
+whenever sqlerror exit sqlcode
 set serveroutput on size 999999
 exec ds_utility_krn.set_message_filter('EWI');
 exec ds_utility_krn.set_test_mode(FALSE);
@@ -162,14 +175,43 @@ CLEAR SCREEN
 exec ds_utility_krn.generate_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN'),p_final_commit=>TRUE);
 --exec ds_utility_krn.set_test_mode(FALSE);
 --exec ds_utility_krn.set_message_filter('EWI');
+@@18_demo_src_tables_stats.sql
 
 REM Check statistics
 PAUSE Synthetic data generated; please check!
 CLEAR SCREEN
+
 --select table_name, extract_type, extract_count gen_count from ds_tables where set_id=ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') order by extract_type, table_name;
 --select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN')));
 --select * from ds_constraints where set_id=ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN');
-select * from table(ds_utility_ext.graph_data_set(p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN'), p_table_name=>'DEMO_', p_full_schema=>'Y', p_show_legend=>'Y', p_show_aliases=>'Y'));
+select * from table(ds_utility_ext.graph_data_set(
+    p_set_id=>ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN') -- data set id
+  , p_table_name=>'DEMO%' -- table filter
+  , p_full_schema=>'N' -- show whole schema?
+  , p_show_legend=>'N' -- show legend?
+  , p_show_aliases=>'Y' -- show table aliases?
+  , p_show_config=>'Y' -- show configuration?
+  , p_show_stats=>'Y' -- show statistics?
+  , p_show_conf_columns=>'Y' -- show configured columns (i.e., masked or generated)?
+  , p_show_cons_columns=>'N' -- show constrainted columns (i.e., part of a PK, UK or FK)?
+  , p_show_ind_columns=>'N' -- show indexed columns (i.e. part of an index)?
+  , p_hide_dis_columns=>'N' -- hide disabled or deleted masked columns?
+  , p_show_all_columns=>'N' -- show all columns (overwrite conf/cons/ind)?
+  , p_show_column_keys=>'Y' -- show column keys (Primary, Unique, Foreign, Index)?
+  , p_show_column_types=>'Y' -- show column types?
+  , p_show_constraints=>'N' -- show contraints and their columns?
+  , p_show_indexes=>'N' -- show indexes and their columns?
+  , p_show_triggers=>'N' -- show triggers?
+  , p_show_all_props=>'N' -- show all properties in tooltips? by default, only those not on diag
+  , p_show_prop_regexp=>'' -- show properties matching given regexp in tooltip, NULL=show all
+  , p_hide_prop_regexp=>'' -- hide properties matching given regexp in tooltip, NULL=hide none
+  , p_graph_att=>'' -- graph attributes e.g., splines=ortho
+  , p_node_att=>'' -- node attributes e.g., style=filled
+  , p_edge_att=>'' -- edge attributes e.g., arrowsize=2
+  , p_main_att=>'' -- main subgraph attributes e.g., label=""
+  , p_legend_att=>'' -- legend subgraph attributes e.g., label=""
+));
+
 /*
 
 REM CHECK DATA AND THEIR COMPLIANCE WITH BUSINESS RULES
@@ -181,11 +223,11 @@ SELECT gender, COUNT(*) cnt FROM demo_persons GROUP BY gender; -- uniform distri
 SELECT nationality, COUNT(*) cnt FROM demo_persons GROUP BY nationality ORDER BY 2 DESC; -- non-uniform distribution of nationality (same distribution as country population)
 SELECT manager_flag, COUNT(*) FROM demo_persons GROUP BY manager_flag; -- proportion of managers
 SELECT ROUND(SUM(CASE WHEN manager_flag IS NOT NULL THEN 1 ELSE 0 END) / SUM(1) * 100,2) pct_mgr from demo_persons; -- percentage of managers
-SELECT * FROM demo_persons WHERE per_id IN (SELECT per_id_manager FROM demo_persons) AND NVL(manager_flag,'N') = 'N'; -- no row: only managers can manage staff
+SELECT * FROM demo_persons WHERE per_id IN (SELECT per_id_manager FROM demo_persons) AND NVL(manager_flag,'N') = 'N'; -- only managers can manage staff: no row
 SELECT cnt, COUNT(*) FROM (SELECT COUNT(*) cnt FROM demo_persons WHERE per_id_manager IS NOT NULL GROUP BY per_id_manager) GROUP BY cnt ORDER BY 1; -- uniform distribution of managers
-SELECT * FROM demo_persons WHERE full_name != first_name||' '||last_name; -- no rows (denormalisation)
+SELECT * FROM demo_persons WHERE full_name != first_name||' '||last_name; -- denormalisation ok: no row
 SELECT ROUND(SUM(CASE WHEN title IS NULL THEN 1 ELSE 0 END) / SUM(CASE WHEN title IS NULL THEN 0 ELSE 1 END) *100,2) pct_null from demo_persons; -- percentage of null title
-SELECT * FROM demo_persons WHERE months_between(sysdate,birth_date)/12 NOT BETWEEN 18 AND 65; -- check age 
+SELECT * FROM demo_persons WHERE months_between(sysdate,birth_date)/12 NOT BETWEEN 18 AND 65; -- age ok: no row
 
 REM Stores
 SELECT * FROM demo_stores;

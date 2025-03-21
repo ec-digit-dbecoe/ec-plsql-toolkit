@@ -1,0 +1,9 @@
+PROMPT Upgrading database objects...
+@@ds_objects.sql
+PROMPT Upgrading packages specs...
+@@DS_UTILITY_VAR.pks
+@@DS_UTILITY_KRN.pks
+@@DS_UTILITY_EXT.pks
+PROMPT Upgrading packages bodies...
+@@DS_UTILITY_KRN.pkb
+@@DS_UTILITY_EXT.pkb

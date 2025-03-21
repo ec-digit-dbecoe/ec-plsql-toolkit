@@ -1,6 +1,6 @@
 REM 
 REM Data Set Utility Demo - Change Data Capture
-REM All rights reserved (C)opyright 2024 by Philippe Debois
+REM All rights reserved (C)opyright 2025 by Philippe Debois
 REM 
 
 REM
@@ -8,6 +8,7 @@ REM Scenario 1: CDC without replication (NONE)
 REM
 PAUSE Configure change data capture?
 CLEAR SCREEN
+whenever sqlerror exit sqlcode
 set serveroutput on size 999999
 
 REM Create and configure data set
