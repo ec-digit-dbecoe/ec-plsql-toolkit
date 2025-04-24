@@ -1,4 +1,4 @@
-﻿<!-- omit in toc -->
+<!-- omit in toc -->
 # Data Set Utility - Key Features v25.0
 
 ## Data Sub-setting and Transportation
@@ -22,7 +22,7 @@
 - Multi-criteria search on column types, names, comments, and data.
 - Discovery based on regular expressions and data set look-up.
 - Detailed execution report of the sensitive data discovery process.
-- Default data masking provided for all sensitive data types.
+- Default masking, generation, and encrytion patterns provided for all sensitive data types.
 - Pre-defined look-up data sets.
   
 ## Sensitive Data Masking
@@ -50,3 +50,14 @@
 - Ability to compute fields denormalized between tables via post-generation code.
 - Verification of generated data via the creation of ad-hoc views.
 - Configuration using API’s or the DEGPL language.
+
+## Transparent Data Encryption
+- Format Preserving Encryption (FPE) at rest at schema level.
+- Support for two different algorithms (standard FF3-1 or custom RSR).
+- Rich library of encryption/decryption functions for basic and complex data types.
+- Transparent data decryption through ad-hoc views.
+- Transparent data encryption through instead-of insert/update/delete triggers on ad-hoc views.
+- Default encryption pattern provided for all sensitive data types.
+- Automatic propagation of primary key encryption to foreign keys.
+- Visual check of the encryption model using Graphviz diagrams.
+- Configuration using API's or the DEGPL language.

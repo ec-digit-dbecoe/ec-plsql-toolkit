@@ -1,11 +1,16 @@
-DS Utility 25.3 Release Notes
-Date: March 2025
+DS Utility 25.4 Release Notes
+Date: April 2025
 
 SUPPORT
 
 You can get support by contacting via email one of the following persons:
 - philippe.debois@ec.europa.eu
 - jean-jacques.porrovecchio@ec.europa.eu
+
+VERSION 25.4 - April 2025
+
+New features:
+- Transparent data encryption at rest
 
 VERSION 25.3 - March 2025
 

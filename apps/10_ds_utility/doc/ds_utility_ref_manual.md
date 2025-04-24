@@ -1,5 +1,5 @@
 ﻿<!-- omit in toc -->
-# Data Set Utility- Reference Manual v25.2
+# Data Set Utility- Reference Manual v25.4
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -170,6 +170,10 @@
       - [2.7.1.14. Disabled flag](#27114-disabled-flag)
       - [2.7.1.15. Mask type](#27115-mask-type)
       - [2.7.1.16. Mask parameters](#27116-mask-parameters)
+      - [2.7.1.17. Generation type](#27117-generation-type)
+      - [2.7.1.18. Generation parameters](#27118-generation-parameters)
+      - [2.7.1.19. Encryption type](#27119-encryption-type)
+      - [2.7.1.20. Encryption parameters](#27120-encryption-parameters)
     - [2.7.2. Operations](#272-operations)
       - [2.7.2.1. Insert pattern](#2721-insert-pattern)
       - [2.7.2.2. Update pattern properties](#2722-update-pattern-properties)
@@ -182,15 +186,19 @@
       - [2.8.1.4. Sensitive flag](#2814-sensitive-flag)
       - [2.8.1.5. Disabled flag](#2815-disabled-flag)
       - [2.8.1.6. Locked flag](#2816-locked-flag)
-      - [2.8.1.7. Mask type](#2817-mask-type)
+      - [2.8.1.7. Mask type (msk\_type)](#2817-mask-type-msk_type)
       - [2.8.1.8. Shuffle group](#2818-shuffle-group)
       - [2.8.1.9. Partition bitmap](#2819-partition-bitmap)
-      - [2.8.1.10. Mask parameters](#28110-mask-parameters)
+      - [2.8.1.10. Mask parameters (msk\_params)](#28110-mask-parameters-msk_params)
       - [2.8.1.11. Mask options](#28111-mask-options)
-      - [2.8.1.12. Pattern category](#28112-pattern-category)
-      - [2.8.1.13. Pattern name](#28113-pattern-name)
-      - [2.8.1.14. Remarks](#28114-remarks)
-      - [2.8.1.15. Values sample](#28115-values-sample)
+      - [2.8.1.12. Generation type (gen\_type)](#28112-generation-type-gen_type)
+      - [2.8.1.13. Generation parameters (gen\_params)](#28113-generation-parameters-gen_params)
+      - [2.8.1.14. Encryption type (tde\_type)](#28114-encryption-type-tde_type)
+      - [2.8.1.15. Encryption parameters (tde\_params)](#28115-encryption-parameters-tde_params)
+      - [2.8.1.16. Pattern category](#28116-pattern-category)
+      - [2.8.1.17. Pattern name](#28117-pattern-name)
+      - [2.8.1.18. Remarks](#28118-remarks)
+      - [2.8.1.19. Values sample](#28119-values-sample)
     - [2.8.2. Operations](#282-operations)
       - [2.8.2.1. Insert mask](#2821-insert-mask)
       - [2.8.2.2. Update mask properties](#2822-update-mask-properties)
@@ -242,6 +250,13 @@
       - [2.13.1.3. Shuffle records](#21313-shuffle-records)
       - [2.13.1.4. Generate\_tokens](#21314-generate_tokens)
       - [2.13.1.5. Mask data set](#21315-mask-data-set)
+  - [2.14. Transparent data encryption](#214-transparent-data-encryption)
+    - [2.14.1. Operations](#2141-operations)
+      - [2.14.1.1. Create views (create\_views)](#21411-create-views-create_views)
+      - [2.14.1.2. Create triggers (create\_tde\_triggers)](#21412-create-triggers-create_tde_triggers)
+      - [2.14.1.3. Propagate encryption (propagate\_encryption)](#21413-propagate-encryption-propagate_encryption)
+      - [2.14.1.4. Drop views (drop\_views)](#21414-drop-views-drop_views)
+      - [2.14.1.5. Drop triggers (create\_tde\_triggers)](#21415-drop-triggers-create_tde_triggers)
 - [3. Technical Aspects](#3-technical-aspects)
   - [3.1. Message Types](#31-message-types)
     - [3.1.1. Error (E)](#311-error-e)
@@ -417,6 +432,7 @@ A data set has one the following types:
 - SQL: look-up data set for data discovery and/or data masking purpose (SQL statement).
 - JSON: reserved for future use.
 - XML: reserved for future use.
+
 
 #### 2.1.1.4. System flag
 
@@ -1141,6 +1157,22 @@ The mask type applicable to the table columns matching this pattern.
 
 The mask parameters applicable to the table columns matching this pattern.
 
+#### 2.7.1.17. Generation type
+
+The generation type applicable to the table columns matching this pattern.
+
+#### 2.7.1.18. Generation parameters
+
+The generation parameters applicable to the table columns matching this pattern.
+
+#### 2.7.1.19. Encryption type
+
+The encryption type (SQL, INHERIT) applicable to the table columns matching this pattern.
+
+#### 2.7.1.20. Encryption parameters
+
+The encryption parameters applicable to the table columns matching this pattern.
+
 ### 2.7.2. Operations
 
 #### 2.7.2.1. Insert pattern
@@ -1185,13 +1217,13 @@ Indicates whether the mask is enabled (N) or disabled (Y). When disabled, the ma
 
 Indicates whether the mask is locked (Y) or not (N). Masks modified by end-users must be locked to prevent the sensitive data discovery process from overwriting user’s changes.
 
-#### 2.8.1.7. Mask type
+#### 2.8.1.7. Mask type (msk_type)
 
 Indicates the type of masking that must be applied to the table column:
 
 - SQL: original value will be replaced by the result of a SQL expression.
 - SHUFFLE: values will be shuffled between records (of the same partition if any).
-- SEQUENCE: value will be generated from an in-memory sequence, a local Oracle sequence, or a remote sequence accessible through a database link.
+- SEQUENCE: value will be generated from an in-memory sequence, a local Oracle sequence, or a remote Oracle sequence accessible through a database link.
 - TOKENIZE: value will be replaced with a token generated using a SQL expression.
 - INHERIT: value will be inherited from a masked primary key through a foreign key (this inheritance is automatic to preserve referential integrity and can therefore not be defined by end-users).
 
@@ -1205,7 +1237,7 @@ Indicates which shuffling group (numbered from 1 to 3) the column belongs to. Ap
 
 Indicates which shuffling partition(s) the column belongs to. Applicable only when masking type is SHUFFLE. As a column can belong to several partitions, a bitmap is used to indicate the groups (bit n represents group n+1). A separate shuffling is performed for each partition of the data i.e., records belonging to different partitions will never be mixed.
 
-#### 2.8.1.10. Mask parameters
+#### 2.8.1.10. Mask parameters (msk_params)
 
 Parameters of the mask, which depend on its type:
 
@@ -1222,7 +1254,7 @@ Parameters of the mask, which depend on its type:
 
 #### 2.8.1.11. Mask options
 
-     Comma separated list of masking options, which depend on the masking type:
+Comma separated list of masking options, which depends on the masking type:
 
 - SQL option:
   - mask_null_values=[true|**false**]: mask NULL values (no by default)?
@@ -1231,19 +1263,51 @@ Parameters of the mask, which depend on its type:
   - allow_equal_value=[true|**false**]: can a token be equal to its corresponding original value? (default: false); allowing the same value is against the principle of masking but necessary in some cases (e.g., encrypting small numbers may lead to equal cyphered and clear values).
   - encrypt_tokenized_values=[true|false]: must tokenized values be encrypted? Overrides the default behaviour dictated by the g_encrypt_tokenized_values global variable.
 
-#### 2.8.1.12. Pattern category
+#### 2.8.1.12. Generation type (gen_type)
+
+Indicates the type of generation that must be used for this table column:
+
+- SQL: a SQL expression is used to generate column value.
+- SEQ: value is generated from an in-memory sequence, a local Oracle sequence, or a remote Oracle sequence accessible through a database link.
+- INHERIT: value will be inherited from a masked primary key through a foreign key (this inheritance is automatic to preserve referential integrity and can therefore not be defined by end-users).
+
+#### 2.8.1.13. Generation parameters (gen_params)
+
+Parameters for generating column values, which depends on generation type:
+
+- SQL: a SQL expression that returns the column value
+- SEQUENCE: depending on the type of sequence:
+  - Local Oracle sequence: `<sequence-name>`
+  (existence checked against `ALL_SEQUENCES`).
+  - Remote Oracle sequence: `<sequence_name>@<db_link_name>`
+  (existence not checked against Oracle data dictionary).
+  - In-memory sequence: `[<sequence-name>] [START WITH <x>] [INCREMENT BY <y>]` (each part being optional, x and y default to 1).
+- INHERIT: name of the table column from which generated value is inherited via a foreign key 
+
+#### 2.8.1.14. Encryption type (tde_type)
+
+Indicates the type of encryption that must be applied to this table column:
+
+- SQL: the SQL expression to be used to encrypt the column value.
+- INHERIT: for fk columns, encryption is inherited from referenced pk/uk columns.
+
+#### 2.8.1.15. Encryption parameters (tde_params)
+
+Contains the SQL expression that returns the encrypted value for this table column.
+
+#### 2.8.1.16. Pattern category
 
 Category of the pattern that led to the creating of this mask during data discovery.
 
-#### 2.8.1.13. Pattern name
+#### 2.8.1.17. Pattern name
 
 Name of the pattern that led to the creating of this mask during data discovery.
 
-#### 2.8.1.14. Remarks
+#### 2.8.1.18. Remarks
 
 Explains why the pattern was retained as the best matching or, in case of inheritance, which foreign key is used to propagate a masked primary key value.
 
-#### 2.8.1.15. Values sample
+#### 2.8.1.19. Values sample
 
 Sample of matching values found during the data discovery process.
 
@@ -1539,6 +1603,32 @@ Generate tokens in `DS_TOKENS` for columns having a TOKENIZE mask type. This ope
 #### 2.13.1.5. Mask data set
 
 Execute all above operations (generate identifiers, shuffle records, generate tokens, and propagate pk masking) in a single call before previewing and transporting data.
+
+## 2.14. Transparent data encryption
+
+Transparent data encryption allows to encrypt some table columns (including PKs/UKs) using a FPE (format preserving encryption) algorithm. A view is created for each encrypted table. All operations (select, insert, update, and delete) must be performed using these views. Data are decrypted when selecting from the views. Data are encrypted via instead-of triggers when inserting, updating, and deleting the views.
+
+### 2.14.1. Operations
+
+#### 2.14.1.1. Create views (create_views)
+
+Create the views that decrypt the data (`p_set_type` parameter must be set to `TDE`)
+
+#### 2.14.1.2. Create triggers (create_tde_triggers)
+
+Create instead-of insert, update, and delete triggers on the views to encrypt the data.
+
+#### 2.14.1.3. Propagate encryption (propagate_encryption)
+
+Propagate encryption of primary or unique key columns to foreign key columns. Foreign key columns will therefore INHERIT the SQL expression used for encryption from the referenced primary or unique key columns. This operation is automatically performed when encryption is configured using DEGPL.
+
+#### 2.14.1.4. Drop views (drop_views)
+
+Drop the views created for transparent data encryption (`p_set_type` parameter must be set to `TDE`).
+
+#### 2.14.1.5. Drop triggers (create_tde_triggers)
+
+Drop the triggers created for transparent data encryption.
 
 # 3. Technical Aspects
 

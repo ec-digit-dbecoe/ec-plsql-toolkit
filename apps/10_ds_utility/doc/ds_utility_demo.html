@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0085)file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html -->
+<!-- saved from url=(0086)file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>ds_utility_demo</title>
       
@@ -26,240 +26,271 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="data-set-utility---demo-guide-v252">Data Set Utility - Demo Guide v25.2 </h1>
+<h1 id="data-set-utility---demo-guide-v254">Data Set Utility - Demo Guide v25.4 </h1>
 <h2 id="author-philippe-debois-digit">Author: Philippe Debois (DIGIT) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1-introduction">1. Introduction</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1-introduction">1. Introduction</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#11-overview">1.1. Overview</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#12-key-functionalities">1.2. Key Functionalities</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#13-installation">1.3. Installation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#14-demo-use-case">1.4. Demo use case</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#2-foreword">2. Foreword</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#11-overview">1.1. Overview</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#12-key-functionalities">1.2. Key Functionalities</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#13-installation">1.3. Installation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#14-demo-use-cases">1.4. Demo use cases</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#21-internal-data-model">2.1. Internal Data Model</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#211-data-sets">2.1.1. Data sets</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#212-tables">2.1.2. Tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#213-constraints">2.1.3. Constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#214-columns">2.1.4. Columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#215-records">2.1.5. Records</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#216-patterns">2.1.6. Patterns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#217-masks">2.1.7. Masks</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#218-identifiers">2.1.8. Identifiers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#219-tokens">2.1.9. Tokens</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#2110-output">2.1.10. Output</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#2111-extraction-types">2.1.11. Extraction types</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#22-demo-data-model">2.2. Demo Data Model</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#221-diagrams">2.2.1. Diagrams</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#2211-part-1">2.2.1.1. Part 1</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#2212-part-2">2.2.1.2. Part 2</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#222-data-classification">2.2.2. Data classification</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#141-data-subsetting-masking-and-transportation">1.4.1. Data Subsetting, Masking, and Transportation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#142-transparent-data-encryption">1.4.2. Transparent Data Encryption</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#143-change-data-capture">1.4.3. Change Data Capture</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3-synthetic-data-generation">3. Synthetic Data Generation</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#2-foreword">2. Foreword</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#31-introduction">3.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#32-requirements">3.2. Requirements</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#21-internal-data-model">2.1. Internal Data Model</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#321-persons">3.2.1. Persons</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#322-organisational-entities">3.2.2. Organisational entities</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#323-persons-assignments">3.2.3. Person’s assignments</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#324-persons-clockings">3.2.4. Person’s clockings</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#325-persons-orders">3.2.5. Person’s orders</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#326-orders-lines">3.2.6. Order’s lines</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#327-products">3.2.7. Products</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#328-stores">3.2.8. Stores</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#329-persons-credit-cards">3.2.9. Person’s credit cards</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3210-persons-transactions">3.2.10. Person’s transactions</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3211-other-requirements">3.2.11. Other requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#211-data-sets">2.1.1. Data sets</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#212-tables">2.1.2. Tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#213-constraints">2.1.3. Constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#214-columns">2.1.4. Columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#215-records">2.1.5. Records</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#216-patterns">2.1.6. Patterns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#217-masks">2.1.7. Masks</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#218-identifiers">2.1.8. Identifiers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#219-tokens">2.1.9. Tokens</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#2110-output">2.1.10. Output</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#2111-extraction-types">2.1.11. Extraction types</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#33-solution">3.3. Solution</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#22-demo-data-model">2.2. Demo Data Model</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#331-algorithm">3.3.1. Algorithm</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#332-procedure">3.3.2. Procedure</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#221-diagrams">2.2.1. Diagrams</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3321-create-a-data-set">3.3.2.1. Create a data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3322-include-master-and-detail-tables">3.3.2.2. Include master and detail tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3323-include-referential-constraints">3.3.2.3. Include referential constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3324-review-included-tables-and-constraints">3.3.2.4. Review included tables and constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3325-include-table-columns">3.3.2.5. Include table columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3326-update-table-properties">3.3.2.6. Update table properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3327-update-constraint-properties">3.3.2.7. Update constraint properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3328-update-column-properties">3.3.2.8. Update column properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#3329-review-the-whole-configuration">3.3.2.9. Review the whole configuration</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#33210-generate-the-data-set">3.3.2.10. Generate the data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#33211-check-statistics">3.3.2.11. Check statistics</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#33212-check-generated-data-via-ad-hoc-views">3.3.2.12. Check generated data via ad-hoc views</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#2211-part-1">2.2.1.1. Part 1</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#2212-part-2">2.2.1.2. Part 2</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#222-data-classification">2.2.2. Data classification</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3-synthetic-data-generation">3. Synthetic Data Generation</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#31-introduction">3.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#32-requirements">3.2. Requirements</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#321-persons">3.2.1. Persons</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#322-organisational-entities">3.2.2. Organisational entities</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#323-persons-assignments">3.2.3. Person’s assignments</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#324-persons-clockings">3.2.4. Person’s clockings</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#325-persons-orders">3.2.5. Person’s orders</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#326-orders-lines">3.2.6. Order’s lines</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#327-products">3.2.7. Products</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#328-stores">3.2.8. Stores</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#329-persons-credit-cards">3.2.9. Person’s credit cards</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3210-persons-transactions">3.2.10. Person’s transactions</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3211-other-requirements">3.2.11. Other requirements</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4-data-subsetting">4. Data Subsetting</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#33-solution">3.3. Solution</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#41-introduction">4.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#42-requirements">4.2. Requirements</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#43-solution">4.3. Solution</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#331-algorithm">3.3.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#332-procedure">3.3.2. Procedure</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#431-algorithm">4.3.1. Algorithm</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#432-procedure">4.3.2. Procedure</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4321-create-a-data-set">4.3.2.1. Create a data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4322-include-base-tables-and-their-details">4.3.2.2. Include base tables and their details</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4323-include-referential-constraints">4.3.2.3. Include referential constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4324-update-table-properties">4.3.2.4. Update table properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4325-update-constraint-properties">4.3.2.5. Update constraint properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4326-count-table-records">4.3.2.6. Count table records</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4327-review-configuration">4.3.2.7. Review configuration</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4328-extract-data-set-rowids">4.3.2.8. Extract data set rowids</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#4329-review-statistics">4.3.2.9. Review statistics</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#43210-mask-data-set">4.3.2.10. Mask data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#43211-preview-data-set">4.3.2.11. Preview data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#43212-transport-data-set">4.3.2.12. Transport data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3321-create-a-data-set">3.3.2.1. Create a data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3322-include-master-and-detail-tables">3.3.2.2. Include master and detail tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3323-include-referential-constraints">3.3.2.3. Include referential constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3324-review-included-tables-and-constraints">3.3.2.4. Review included tables and constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3325-include-table-columns">3.3.2.5. Include table columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3326-update-table-properties">3.3.2.6. Update table properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3327-update-constraint-properties">3.3.2.7. Update constraint properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3328-update-column-properties">3.3.2.8. Update column properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#3329-review-the-whole-configuration">3.3.2.9. Review the whole configuration</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#33210-generate-the-data-set">3.3.2.10. Generate the data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#33211-check-statistics">3.3.2.11. Check statistics</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#33212-check-generated-data-via-ad-hoc-views">3.3.2.12. Check generated data via ad-hoc views</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5-sensitive-data-discovery">5. Sensitive Data Discovery</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4-data-subsetting">4. Data Subsetting</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#51-requirements">5.1. Requirements</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#52-solution">5.2. Solution</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#41-introduction">4.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#42-requirements">4.2. Requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#43-solution">4.3. Solution</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#521-algorithm">5.2.1. Algorithm</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#522-procedure">5.2.2. Procedure</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#431-algorithm">4.3.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#432-procedure">4.3.2. Procedure</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5221-review-and-adapt-search-patterns">5.2.2.1. Review and adapt search patterns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5222-review-and-adapt-look-up-data-sets">5.2.2.2. Review and adapt look-up data sets</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5223-launch-data-discovery">5.2.2.3. Launch data discovery</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5224-check-data-discovery-report">5.2.2.4. Check data discovery report</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#5225-check-sensitive-columns">5.2.2.5. Check sensitive columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4321-create-a-data-set">4.3.2.1. Create a data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4322-include-base-tables-and-their-details">4.3.2.2. Include base tables and their details</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4323-include-referential-constraints">4.3.2.3. Include referential constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4324-update-table-properties">4.3.2.4. Update table properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4325-update-constraint-properties">4.3.2.5. Update constraint properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4326-count-table-records">4.3.2.6. Count table records</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4327-review-configuration">4.3.2.7. Review configuration</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4328-extract-data-set-rowids">4.3.2.8. Extract data set rowids</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#4329-review-statistics">4.3.2.9. Review statistics</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#43210-mask-data-set">4.3.2.10. Mask data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#43211-preview-data-set">4.3.2.11. Preview data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#43212-transport-data-set">4.3.2.12. Transport data set</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#6-sensitive-data-masking">6. Sensitive Data Masking</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5-sensitive-data-discovery">5. Sensitive Data Discovery</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#61-introduction">6.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#62-requirements">6.2. Requirements</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#51-requirements">5.1. Requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#52-solution">5.2. Solution</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#621-scenario-1">6.2.1. Scenario 1</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#622-scenarios-2-to-7">6.2.2. Scenarios 2 to 7</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#63-solution">6.3. Solution</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#521-algorithm">5.2.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#522-procedure">5.2.2. Procedure</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#631-algorithms">6.3.1. Algorithms</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#632-procedure">6.3.2. Procedure</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#6321-review-and-adapt-column-masks">6.3.2.1. Review and adapt column masks</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#6322-check-masking-configuration">6.3.2.2. Check masking configuration</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#6323-apply-data-masking">6.3.2.3. Apply data masking</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#6324-check-masked-data">6.3.2.4. Check masked data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5221-review-and-adapt-search-patterns">5.2.2.1. Review and adapt search patterns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5222-review-and-adapt-look-up-data-sets">5.2.2.2. Review and adapt look-up data sets</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5223-launch-data-discovery">5.2.2.3. Launch data discovery</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5224-check-data-discovery-report">5.2.2.4. Check data discovery report</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#5225-check-sensitive-columns">5.2.2.5. Check sensitive columns</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#7-data-transportation">7. Data Transportation</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#6-sensitive-data-masking">6. Sensitive Data Masking</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#71-introduction">7.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#72-requirements">7.2. Requirements</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#73-solutions">7.3. Solutions</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#61-introduction">6.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#62-requirements">6.2. Requirements</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#731-algorithm">7.3.1. Algorithm</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#732-procedure">7.3.2. Procedure</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#621-scenario-1">6.2.1. Scenario 1</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#622-scenarios-2-to-7">6.2.2. Scenarios 2 to 7</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#63-solution">6.3. Solution</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#7321-prepare-the-target-schema">7.3.2.1. Prepare the target schema</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#7322-transport-data-to-destination">7.3.2.2. Transport Data to Destination</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#7323-exportimport-data-fromto-xml">7.3.2.3. Export/Import Data from/to XML</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#631-algorithms">6.3.1. Algorithms</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#632-procedure">6.3.2. Procedure</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#6321-review-and-adapt-column-masks">6.3.2.1. Review and adapt column masks</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#6322-check-masking-configuration">6.3.2.2. Check masking configuration</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#6323-apply-data-masking">6.3.2.3. Apply data masking</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#6324-check-masked-data">6.3.2.4. Check masked data</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8-change-data-capture">8. Change Data Capture</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#7-data-transportation">7. Data Transportation</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#81-introduction">8.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#82-requirements">8.2. Requirements</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#83-solution">8.3. Solution</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#71-introduction">7.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#72-requirements">7.2. Requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#73-solutions">7.3. Solutions</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#831-algorithm">8.3.1. Algorithm</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#832-procedure">8.3.2. Procedure</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#731-algorithm">7.3.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#732-procedure">7.3.2. Procedure</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8321-create-a-data-set">8.3.2.1. Create a data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8322-include-tables">8.3.2.2. Include tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8323-create-triggers">8.3.2.3. Create triggers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8324-check-configuration">8.3.2.4. Check configuration</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8325-enable-and-disable-cdc">8.3.2.5. Enable and disable CDC</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8326-manual-rollback-or-rollforward">8.3.2.6. Manual Rollback or rollforward</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8327-automatic-replication">8.3.2.7. Automatic replication</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8328-generate-scripts">8.3.2.8. Generate scripts</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#8329-drop-triggers">8.3.2.9. Drop triggers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#7321-prepare-the-target-schema">7.3.2.1. Prepare the target schema</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#7322-transport-data-to-destination">7.3.2.2. Transport Data to Destination</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#7323-exportimport-data-fromto-xml">7.3.2.3. Export/Import Data from/to XML</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#9-graph-visualisation-using-graphviz">9. Graph Visualisation using GraphViz</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8-transparent-data-encryption">8. Transparent Data Encryption</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#91-introduction">9.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#92-invocation">9.2. Invocation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#93-parameters">9.3. Parameters</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#94-diagram-examples">9.4. Diagram Examples</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#81-introduction">8.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#82-requirements">8.2. Requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#83-solution">8.3. Solution</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#941-synthetic-data-generation-diagram">9.4.1. Synthetic Data Generation Diagram</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#942-sensitive-data-masking-diagram">9.4.2. Sensitive Data Masking Diagram</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#943-data-subsetting-diagram">9.4.3. Data Subsetting Diagram</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#944-change-data-capture-diagram">9.4.4. Change Data Capture Diagram</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#945-data-structure-diagram">9.4.5. Data Structure Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#831-algorithm">8.3.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#832-procedure">8.3.2. Procedure</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8321-create-an-empty-data-model">8.3.2.1. Create an empty data model</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8322-identify-sensitive-data">8.3.2.2. Identify sensitive data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8323-review-the-encryption-model">8.3.2.3. Review the encryption model</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8324-adapt-andor-complement-the-encryption-model">8.3.2.4. Adapt and/or complement the encryption model</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8325-propagate-encryption-of-pksuks">8.3.2.5. Propagate encryption of PKs/UKs</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8326-create-ad-hoc-views">8.3.2.6. Create ad-hoc views</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8327-create-instead-of-triggers">8.3.2.7. Create instead-of triggers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8328-operate">8.3.2.8. Operate</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#8329-drop-views-and-their-triggers">8.3.2.9. Drop views and their triggers</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#10-degpl-language">10. DEGPL Language</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#101-introduction">10.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#102-key-features">10.2. Key features</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#103-syntax-overview">10.3. Syntax Overview</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1031-data-set">10.3.1. Data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1032-tables">10.3.2. Tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1033-constraints">10.3.3. Constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1034-properties">10.3.4. Properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1035-columns">10.3.5. Columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1036-default-values">10.3.6. Default values</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1037-recursion">10.3.7. Recursion</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1038-scope">10.3.8. Scope</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1039-invocation">10.3.9. Invocation</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#104-examples">10.4. Examples</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9-change-data-capture">9. Change Data Capture</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1041-data-generation-example">10.4.1. Data Generation Example</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1042-data-subsetting-example">10.4.2. Data Subsetting Example</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1043-data-masking-example">10.4.3. Data Masking Example</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote202526-12964-4lv8ta.5yhgq.html#1044-data-capture-example">10.4.4. Data Capture Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#91-introduction">9.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#92-requirements">9.2. Requirements</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#93-solution">9.3. Solution</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#931-algorithm">9.3.1. Algorithm</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#932-procedure">9.3.2. Procedure</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9321-create-a-data-set">9.3.2.1. Create a data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9322-include-tables">9.3.2.2. Include tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9323-create-triggers">9.3.2.3. Create triggers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9324-check-configuration">9.3.2.4. Check configuration</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9325-enable-and-disable-cdc">9.3.2.5. Enable and disable CDC</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9326-manual-rollback-or-rollforward">9.3.2.6. Manual Rollback or rollforward</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9327-automatic-replication">9.3.2.7. Automatic replication</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9328-generate-scripts">9.3.2.8. Generate scripts</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#9329-drop-triggers">9.3.2.9. Drop triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#10-graph-visualisation-using-graphviz">10. Graph Visualisation using GraphViz</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#101-introduction">10.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#102-invocation">10.2. Invocation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#103-parameters">10.3. Parameters</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#104-diagram-examples">10.4. Diagram Examples</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1041-synthetic-data-generation-diagram">10.4.1. Synthetic Data Generation Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1042-sensitive-data-masking-diagram">10.4.2. Sensitive Data Masking Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1043-data-subsetting-diagram">10.4.3. Data Subsetting Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1044-change-data-capture-diagram">10.4.4. Change Data Capture Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1045-data-structure-diagram">10.4.5. Data Structure Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#11-degpl-language">11. DEGPL Language</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#111-introduction">11.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#112-key-features">11.2. Key features</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#113-syntax-overview">11.3. Syntax Overview</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1131-data-set">11.3.1. Data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1132-tables">11.3.2. Tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1133-constraints">11.3.3. Constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1134-properties">11.3.4. Properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1135-columns">11.3.5. Columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1136-default-values">11.3.6. Default values</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1137-recursion">11.3.7. Recursion</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1138-scope">11.3.8. Scope</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1139-invocation">11.3.9. Invocation</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#114-examples">11.4. Examples</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1141-data-generation-example">11.4.1. Data Generation Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1142-data-subsetting-example">11.4.2. Data Subsetting Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1143-data-masking-example">11.4.3. Data Masking Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1144-data-encryption-example">11.4.4. Data Encryption Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-nhzhdo.c3sum.html#1145-data-capture-example">11.4.5. Data Capture Example</a></li>
 </ul>
 </li>
 </ul>
@@ -278,6 +309,7 @@
 <li><strong>Sensitive Data Discovery:</strong> Identify and secure sensitive information to comply with data privacy standards.</li>
 <li><strong>On-the-fly Data Masking:</strong> Configure data masking policies that will be applied while transporting your data.</li>
 <li><strong>Data Transportation</strong>: Transport your anonymised data subset from one environment to another, by different means and without needing to disable constraints.</li>
+<li><strong>Transparent Data Encryption</strong>: Encrypt your data at rest in such a way that unauthorized users (even DBAs) cannot view/decrypt them.</li>
 <li><strong>Change Data Capture:</strong> Capture, rollback, or rollforward DML operations, ensuring data integrity and replication capabilities.</li>
 <li><strong>Graph Visualization:</strong> Utilize GraphViz to generate insightful graphs, providing a visual representation of data set configurations.</li>
 <li><strong>DEGPL Language:</strong> Leverage the Data Extraction and Generation Path Language for efficient configuration.</li>
@@ -286,10 +318,19 @@
 <p>The Data Set Utility is designed with a set of tables and PL/SQL packages that can be installed either in your data schema or in a dedicated central one. Operating without a graphical user interface, the utility relies on APIs for efficient use. Taking a programmatic approach, both API utilisation and the creation of source code in the DEGPL language align with the 'configuration as code' paradigm and simplify its integration into DevOps pipelines and code source repositories.</p>
 <p>The Data Set Utility is part of the EC PL/SQL toolkit that is available for installation in self-service mode in all CoP databases of the DIGIT Data Centre, via a support request for legacy DC databases, and as open-source software on <a href="https://code.europa.eu/ec-digit-dbe-coe/ec-plsql-toolkit"><code>code.europa.eu</code></a> and <a href="https://github.com/ec-digit-dbecoe/ec-plsql-toolkit"><code>github.com</code></a> for all other environments (e.g., cloud or local data centre). See the EC PL/SL Toolkit Installation Guide for detailed installation instructions.</p>
 <p>Demo scripts can be found in the <code>demo</code> directory. Their name is prefixed with a number that indicates their order of execution. Scripts labelled "a" are based on APIs while scripts labelled "b" are based on the DEGPL language. Files labelled "z" are the corresponding GraphViz diagrams.</p>
-<h3 id="14-demo-use-case">1.4. Demo use case </h3>
+<h3 id="14-demo-use-cases">1.4. Demo use cases </h3>
+<h4 id="141-data-subsetting-masking-and-transportation">1.4.1. Data Subsetting, Masking, and Transportation </h4>
 <p>A typical data management requirement is to transfer an anonymised subset of production data to a non-production environment (e.g., development, test, or acceptance).</p>
-<p>As depicted in the diagram below, this demo will successively demonstrate, starting from an empty data model, how to generate synthetic data in it, extract a coherent subset of it, discover and mask its sensitive data (both steps being optional), and transport the (masked) data subset to another schema using various methods. It will end by showing how to capture data changes and replicate them synchronously or asynchronously to another schema.</p>
+<p>The first demo scenario will successively demonstrate, starting from an empty data model, how to generate synthetic data in it, extract a coherent subset of it, discover and mask its sensitive data (both steps being optional), and transport the (masked) data subset to another schema using various methods.</p>
+<h4 id="142-transparent-data-encryption">1.4.2. Transparent Data Encryption </h4>
+<p>Another typical use case is the encryption of data in such a way that those having access to the schema (e.g., DBAs) are not able to see them unless they know the encryption key.</p>
+<p>The second demo scenario will successfuly demonstrate, starting from an empty schema, how to discover sensitive data and subsequently encrypt them at rest.</p>
+<h4 id="143-change-data-capture">1.4.3. Change Data Capture </h4>
+<p>Another typical use case is the synchronous or asynchronous  replication of data between two schemas in the same or in different databases (e.g., to feed a data warehouse with changes made to an operational database).</p>
+<p>The third demo scenario will successfully demonstrate, starting from an empty schema, how to setup change data capture to subsequently replicate data generated in the schema  (synchronously or asynchronously).</p>
+<p>The 3 scenarios are illustrated on the following diagram:</p>
 <p><img src="./ds_utility_demo_files/demo_path.svg" alt="Demo path"></p>
+<p>The number indicated at each step allows to identify the corresponding SQL scripts that must be executed.</p>
 <p>Each capability is detailed in its own dedicated chapter.</p>
 <h2 id="2-foreword">2. Foreword </h2>
 <p>Before showcasing the tool's functionalities, it is essential to provide an explanation of both its internal data model and the data model utilised for the demonstration.</p>
@@ -317,9 +358,9 @@
 <h4 id="215-records">2.1.5. Records </h4>
 <p>The <em>rowid</em> of <em>records</em> that are extracted or generated during data subsetting or synthetic data generation are recorded. Records belong to a table (<em>table_id</em>) and are uniquely identified by a <em>rec_id</em>. They may be the result of an extraction or a generation via a constraint (<em>con_id</em>). This table is also used for Change Data Capture to record captured operations and their data.</p>
 <h4 id="216-patterns">2.1.6. Patterns </h4>
-<p>Sensitive data discovery is performed by searching for <em>patterns</em> in table/column names and comments, and in the data themselves. Alternatively, they could have been named <em>sensitive data types</em>. They are uniquely identified by a <em>pat_id</em> and by a <em>pat_name</em>. As the sensitivity nature of data does not depend on how they are extracted, they are not linked to data sets. The tool comes with a library of pre-defined patterns. Patterns also provide default masks that can be applied to discovered sensitive data types.</p>
+<p>Sensitive data discovery is performed by searching for <em>patterns</em> in table/column names and comments, and in the data themselves. Alternatively, they could have been named <em>sensitive data types</em>. They are uniquely identified by a <em>pat_id</em> and by a <em>pat_name</em>. As the sensitivity nature of data does not depend on how they are extracted, they are not linked to data sets. The tool comes with a library of pre-defined patterns. Each sensitive data type comes with a default masking pattern, generation pattern, and encryption pattern.</p>
 <h4 id="217-masks">2.1.7. Masks </h4>
-<p><em>Masks</em> may be applied on-the-fly (i.e., during transportation) to anonymise columns of any data set. The default masks created during sensitive data discovery can be adapted or complemented by end-user. Masks based on random functions can also be used as a starting point for synthetic data generation. For the same reasons as patterns, they are not linked to any data set. Masks are identified by a <em>msk_id</em> and by the <em>table_name</em> and <em>column_name</em> pair.</p>
+<p><em>Masks</em> may be applied on-the-fly (i.e., during transportation) to anonymise columns of any data set. The default masks created during sensitive data discovery can be adapted or complemented by end-user. Masks based on random functions can also be used as a starting point for synthetic data generation. For the same reasons as patterns, they are not linked to any data set. Masks are identified by a <em>msk_id</em> and by the <em>table_name</em> and <em>column_name</em> pair. Masks are also used to specify how to encrypt table columns for transparent data encryption.</p>
 <h4 id="218-identifiers">2.1.8. Identifiers </h4>
 <p>When numeric unique <em>identifiers</em> are masked, the mapping between old and new ids is stored in this table to be able to propagate their masking to foreign keys. Identifiers are uniquely identified by the <em>msk_id</em> and <em>old_id</em> pair.</p>
 <h4 id="219-tokens">2.1.9. Tokens </h4>
@@ -810,26 +851,58 @@
 <p>Exporting your data set as XML into the internal tables of the tool (specifically, <em>ds_tables</em> and <em>ds_records</em>) can be done by invoking the <em>export_data_set_as_xml()</em> procedure. Subsequently, the internal tables holding your data set as XML can be transferred to the target schema using tools such as Oracle Export/Import or DataPump utilities.</p>
 <p>For the reverse operation, importing your data from XML into the target schema, you can use the <em>import_data_set_as_xml()</em> procedure. Note that this requires installing the tool in the target schema as well.</p>
 <p>This method is also useful if you intend to import your data set back into the source schema. For instance, this could be done to perform in-place subsetting and masking (i.e., in the same schema) or if you wish to clone specific data.</p>
-<h2 id="8-change-data-capture">8. Change Data Capture </h2>
-<p>This chapter gives an overview of the CDC functionality. Please consult the <em>Reference Manual</em> for more details.</p>
+<h2 id="8-transparent-data-encryption">8. Transparent Data Encryption </h2>
+<p>This chapters gives an overview of the Transparent Data Encryption capability of the tool.</p>
 <h3 id="81-introduction">8.1. Introduction </h3>
+<p>The DS Utility supports Transparent Data Encryption (TDE), allowing users to encrypt data at the schema level using built-in encryption libraries. This ensures that sensitive data remains protected while being seamlessly accessible through views.</p>
+<p>This is an alternative to Oracle TDE which is only available in Oracle Enterprise Edition with the Advanced Security Option (ASO), which requires additional licensing costs.</p>
+<h3 id="82-requirements">8.2. Requirements </h3>
+<p>The requirement for this demo use case is to encrypt all personal and financial sensitive data to protect them against non-authorised access. This includes the encryption of data that are part of primary keys like the <code>per_id</code> and the <code>bank account number</code>, encryption that must be propagated to foreign keys. For each column, the most suitable encryption method must be used depending on its data type and format (e.g., basic encryption for basic data types, and complex encryption for complex data types like credit card numbers or IBAN). The default encryption algorithm (RSR) must be used.</p>
+<h3 id="83-solution">8.3. Solution </h3>
+<p>The approach employed in this tool involves creating ad-hoc views to decrypt ciphertext data and instead-of triggers on these views to encrypt plaintext data when they are inserted, updated, and deleted. With this solution, end-users or applications must access and manipulate data exclusively using these views. No key management is provided by the tool i.e., encryption key (also used for decryption) must be set (in memory) each time a new database session is created.</p>
+<h4 id="831-algorithm">8.3.1. Algorithm </h4>
+<p>No specific algorithm is used (except for the encryption itself).</p>
+<h4 id="832-procedure">8.3.2. Procedure </h4>
+<h5 id="8321-create-an-empty-data-model">8.3.2.1. Create an empty data model </h5>
+<p>For the demo, we will start with an empty data model. It is however possible to start with non-empty tables and encrypt their content (by updating the views) under the condition that no primary key is encrypted.</p>
+<h5 id="8322-identify-sensitive-data">8.3.2.2. Identify sensitive data </h5>
+<p>Idenfitying sensitive data is an optional step that allows to speed up the overall configuration as all sensitive data types are provided with a default encryption pattern (i.e., a SQL expression that invokes the best suited encryption function of the library). To proceed, invoke the <code>discover_sensitive_data</code> function of the main package. This creates a record in the <code>ds_masks</code> table for each sensitive table column that has been discovered, with a default encryption method (SQL expression).</p>
+<h5 id="8323-review-the-encryption-model">8.3.2.3. Review the encryption model </h5>
+<p>Review the encryption configuration by checking the <code>tde_type</code> and <code>tde_params</code> columns of the <code>DS_PATTERNS</code> table. Possible values for <code>tde_type</code> are <code>SQL</code> or <code>INHERIT</code> (for foreign key columns that inherit the encryption from referenced primary or unique key columns). In both cases, the <code>tde_params</code> column contains the SQL expression used to encrypt the column values (a call to a function of the encryption package).</p>
+<p>A visual check can also be performed by invoking the <code>graph_data_set()</code> pipelined function of the extension package with the <code>p_set_type</code> parameter set to <code>TDE</code>. This generates the DOT code of a Graphviz diagram that can be visualised using any online Graphviz editor.</p>
+<h5 id="8324-adapt-andor-complement-the-encryption-model">8.3.2.4. Adapt and/or complement the encryption model </h5>
+<p>Ajust the encryption model as necessary using either APIs or the DEGPL language. When using APIs, invoke the <code>insert_mask()</code> or <code>update_mask_properties()</code> procedures. When using DEGPL, invoke the <code>execute_degpl()</code> procedure of the extension package.</p>
+<h5 id="8325-propagate-encryption-of-pksuks">8.3.2.5. Propagate encryption of PKs/UKs </h5>
+<p>Once the encryption model has been changed using APIs, the <code>propagate_encryption()</code> procedure must be called to encrypt all foreign key columns that reference encrypted primary or unique key columns. This step is not necessary when using DEGPL as it is automatically performed by the <code>execute_degpl()</code> procedure.</p>
+<h5 id="8326-create-ad-hoc-views">8.3.2.6. Create ad-hoc views </h5>
+<p>Create the views that will be used to select, insert, update, and delete data by invoking the <code>create_views()</code> procedure with the <code>p_set_type</code> parameter set to <code>TDE</code>. If you want to compare plaintext columns of the views with encrypted columns of the tables, a <code>ROWID#</code> column can be added to the views by setting the <code>p_include_rowid</code> parameter to <code>TRUE</code>.</p>
+<h5 id="8327-create-instead-of-triggers">8.3.2.7. Create instead-of triggers </h5>
+<p>Create instead-of insert, update, and delete triggers on the ad-hoc views by invoking the <code>create_tde_triggers()</code> procedure. The parameters that were passed when creating the views must also be passed to this procedure to allow to identify them (e.g., <code>p_view_suffix</code>).</p>
+<h5 id="8328-operate">8.3.2.8. Operate </h5>
+<p>Once views and triggers have been created, all operations (select, insert, update, and delete) must be performed using these views. When selected, the views will decrypt the data. When the views are inserted, updated, or deleted, the triggers will encrypted the data.</p>
+<p>The encryption/decryption key must be set each time a new session is created by invoking the <code>set_encryption_key()</code> procedure of the <code>ds_crypto_krn</code> package. Not setting the encryption key will result in an exception being raised when trying to operate the data. Setting a wrong key will result in data being wrongly decrypted.</p>
+<h5 id="8329-drop-views-and-their-triggers">8.3.2.9. Drop views and their triggers </h5>
+<p>Triggers and views can be deleted using respectively the <code>drop_tde_triggers()</code> and <code>drop_views()</code> procedures with the same parameter values as those passed upon their creation.</p>
+<h2 id="9-change-data-capture">9. Change Data Capture </h2>
+<p>This chapter gives an overview of the Change Data Capture capability of the tool. Please consult the <em>Reference Manual</em> for more details.</p>
+<h3 id="91-introduction">9.1. Introduction </h3>
 <p>Change Data Capture (CDC) is a technique used in databases to identify and capture changes made to the data so that downstream systems can be updated with the modified information. The primary goal of CDC is to track and capture changes to the data in near real-time or at scheduled intervals, enabling efficient and timely synchronization of data between different systems.</p>
 <p>CDC is commonly used in scenarios where it's crucial to keep multiple databases, applications, or data warehouses in sync without having to replicate entire datasets each time an update occurs. This approach helps reduce the amount of data transferred and improves the efficiency of data integration processes.</p>
 <p>Change Data Capture is commonly used in data warehousing, business intelligence, and data integration scenarios where maintaining synchronized and up-to-date data across different systems is essential. It helps in avoiding unnecessary data transfers and reduces the overall processing time, making data integration processes more efficient.</p>
 <p>Another valuable use case for Change Data Capture (CDC) is its application in swiftly restoring a schema to its original state following the execution of a destructive test. In scenarios where a test results in permanent alterations to the data, CDC facilitates the rapid rollback of changes, ensuring a quick and efficient restoration of the database schema to its pre-test condition. This capability enhances the resilience and ease of managing test environments, providing a reliable mechanism for undoing modifications made during testing processes.</p>
 <p>Finally, CDC can contribute to gaining insights into the data logic of an application by revealing the operations submitted to the database and the specific data that undergo modifications.</p>
 <p>This tool employs a log-based Change Data Capture (CDC) approach, which involves capturing and logging all changes (including inserts, updates, and deletes) made to the tables within a data set in XML format. These recorded operations can then be rolled back or rolled forward to another schema, either synchronously or asynchronously (in near real-time). Additionally, the tool enables the generation of redo and undo scripts to further enhance flexibility in managing and reverting data modifications.</p>
-<h3 id="82-requirements">8.2. Requirements </h3>
+<h3 id="92-requirements">9.2. Requirements </h3>
 <p>To showcase the CDC functionalities, we aim to capture every change applied to the demo tables, including operations like the generation of synthetic data that involves inserts and updates. Subsequently, we plan to propagate these changes to another schema synchronously and asynchronously, through a database link, generate redo and undo scripts, and ultimately roll back the generated data.</p>
-<h3 id="83-solution">8.3. Solution </h3>
+<h3 id="93-solution">9.3. Solution </h3>
 <p>The approach employed in this tool involves creating an "<em>after each row</em>" database trigger on all tables within the data set. This trigger captures insert, update, and delete operations, storing the details in the <em>ds_records</em> table. Additionally, the data as it existed both before and after the operation is stored in XML format, allowing for subsequent redo or undo actions.</p>
-<h4 id="831-algorithm">8.3.1. Algorithm </h4>
+<h4 id="931-algorithm">9.3.1. Algorithm </h4>
 <p>To apply changes or create redo scripts, the recorded operations are replayed in their original execution sequence using the data stored in the XML.</p>
 <p>For rolling back changes or generating undo scripts, the stored operations are traversed in the reverse order of their original execution. Records that were initially inserted are deleted, those that were deleted are re-inserted, and the old values of updated records are reinstated.</p>
 <p>Any modification to a primary key is executed through a two-step process involving deletion followed by insertion.</p>
 <p>To enable asynchronous rollforwarding or replication, a <em>dbms_job</em> is dynamically created when the first operation of a transaction is captured. All operations within the same transaction are subsequently rolled forward by the job just after the commit, ensuring near real-time processing.</p>
-<h4 id="832-procedure">8.3.2. Procedure </h4>
-<h5 id="8321-create-a-data-set">8.3.2.1. Create a data set </h5>
+<h4 id="932-procedure">9.3.2. Procedure </h4>
+<h5 id="9321-create-a-data-set">9.3.2.1. Create a data set </h5>
 <p>To create a data set for CDC, invoke the <em>create_or_replace_data_set_def()</em> procedure of the main package and set its <em>set_type</em> to'CAP'.</p>
 <p>Specify one of the following replication mode (<em>capture_mode</em> property):</p>
 <ul>
@@ -838,35 +911,35 @@
 <li><em>SYNC</em>: synchronous replication mode i.e., operations are rolled forward immediately and therefore not stored in <em>ds_records</em> table.</li>
 </ul>
 <p>Additionally, you can specify which field in your table contain user information that can be utilised to filter transactions. For instance, an audit field such as <em>inserted_by</em> or <em>updated_by</em> can be employed for this purpose.</p>
-<h5 id="8322-include-tables">8.3.2.2. Include tables </h5>
+<h5 id="9322-include-tables">9.3.2.2. Include tables </h5>
 <p>Tables for which you intend to capture changes can be incorporated into the data set using the <em>include_tables()</em> procedure. To rollforward table changes to another schema, specify the <em>target_schema</em> (if in the same db) or the <em>target_db_link</em> (if in another db).</p>
-<h5 id="8323-create-triggers">8.3.2.3. Create triggers </h5>
+<h5 id="9323-create-triggers">9.3.2.3. Create triggers </h5>
 <p>To create the capturing triggers on the tables of your data set, invoke the <em>create_triggers()</em> procedure.</p>
-<h5 id="8324-check-configuration">8.3.2.4. Check configuration </h5>
+<h5 id="9324-check-configuration">9.3.2.4. Check configuration </h5>
 <p>To check tables included in your data set and the capturing triggers just created, invoke the <em>graph_data_set()</em> pipeline function from a SELECT statement. Here is the diagram that you will get.</p>
 <p><img src="./ds_utility_demo_files/ds_cap.svg" alt="Alt text"></p>
-<h5 id="8325-enable-and-disable-cdc">8.3.2.5. Enable and disable CDC </h5>
+<h5 id="9325-enable-and-disable-cdc">9.3.2.5. Enable and disable CDC </h5>
 <p>Data capture is by default immediately enabled when triggers are created. To disable or re-enable CDC, update the <em>capture_flag</em> property of your data set using the <em>update_data_set_def_properties()</em> procedure. <em>Y</em> means enabled and <em>N</em> means disabled.</p>
-<h5 id="8326-manual-rollback-or-rollforward">8.3.2.6. Manual Rollback or rollforward </h5>
+<h5 id="9326-manual-rollback-or-rollforward">9.3.2.6. Manual Rollback or rollforward </h5>
 <p>To rollback or rollforward operations captured in the NONE replication mode, invoke the <em>rollback_captured_data_set()</em> or <em>rollforward_captured_data_set()</em> procedure. You may decide to keep or delete recorded operations after their rollback or rollforward. They are deleted by default.</p>
 <p>Alternatively, you can also invoke <em>undo_captured_operations()</em> and <em>redo_captured_operations()</em> procedures which accept additional parameters. You can filter on the <em>username</em> who performed the transactions and limit the number of operations to redo or undo.</p>
-<h5 id="8327-automatic-replication">8.3.2.7. Automatic replication </h5>
+<h5 id="9327-automatic-replication">9.3.2.7. Automatic replication </h5>
 <p>Operations captured in the SYNC or ASYN replication mode are automatically rolled forward to another local or remote schema, without any end-user intervention.</p>
 <p>While synchronous replication offers the benefit of immediacy, it comes with the drawback that if it encounters any failure, the entire transaction fails, thereby impacting the transactional system. Additionally, it may affect system performance.</p>
 <p>It is important to note that, as of now, no logs are provided for asynchronous replication.</p>
-<h5 id="8328-generate-scripts">8.3.2.8. Generate scripts </h5>
+<h5 id="9328-generate-scripts">9.3.2.8. Generate scripts </h5>
 <p>To generate redo or undo scripts, invoke the <em>gen_captured_data_set_script()</em> pipelined function from a SELECT statement, with the appropriate parameters.</p>
-<h5 id="8329-drop-triggers">8.3.2.9. Drop triggers </h5>
+<h5 id="9329-drop-triggers">9.3.2.9. Drop triggers </h5>
 <p>Once you are done, you can drop the capturing triggers from the tables of your data set by invoking the <em>drop_triggers()</em> procedure.</p>
-<h2 id="9-graph-visualisation-using-graphviz">9. Graph Visualisation using GraphViz </h2>
+<h2 id="10-graph-visualisation-using-graphviz">10. Graph Visualisation using GraphViz </h2>
 <p>This chapter gives an overview of the graph visualisation functionality offered by the Data Set Utility. For more details, please consult the <em>Data Set Utility Reference Manual</em>.</p>
-<h3 id="91-introduction">9.1. Introduction </h3>
+<h3 id="101-introduction">10.1. Introduction </h3>
 <p>The Data Set Utility incorporates Graphviz functionality, allowing users to visually represent and analyze the configuration of their data sets. This feature employs Graphviz, an open-source graph visualization software, to generate diagrams illustrating the relationships, constraints, and configurations within a data set. Users can leverage these diagrams to gain insights into the structure of their data sets, understand interconnections between tables and constraints, and verify the accuracy of their configurations.</p>
-<h3 id="92-invocation">9.2. Invocation </h3>
+<h3 id="102-invocation">10.2. Invocation </h3>
 <p>To generate the DOT code, invoke the <em>graph_data_set()</em> function of the extension package (<em>DS_UTILITY_EXT</em>) and pass in parameter the <em>set_id</em> of the data set that you want to visualise. Passing a NULL reference for the data set means that you want to get the data masking configuration (which is independent of any data set). An example is provided in the <em>80_demo_data_graphviz.sql</em> script provided in the <em>demo</em> directory.</p>
 <p>The information that is shown also depends on the type of data set (SUB, GEN or none).</p>
 <p>To visualize the diagram, copy/paste the code into your favourite online GraphViz editor. I recommend using the following: <a href="https://dreampuf.github.io/GraphvizOnline">GraphvizOnline</a> although you can find many others on the internet.</p>
-<h3 id="93-parameters">9.3. Parameters </h3>
+<h3 id="103-parameters">10.3. Parameters </h3>
 <p>You can decide to show only tables and constraints of your data set or those of your whole schema, with the possibility to filter on table names.</p>
 <p>You can decide to show or not:</p>
 <ul>
@@ -880,28 +953,28 @@
 <li>All or some properties in tooltips.</li>
 </ul>
 <p>Default graph, node, edge, and subgraph attributes can also be overwritten to customise the generated layout. Configuration properties that do not fit on the diagram (e.g., SQL expressions) can be consulted using tooltips.</p>
-<h3 id="94-diagram-examples">9.4. Diagram Examples </h3>
+<h3 id="104-diagram-examples">10.4. Diagram Examples </h3>
 <p>Here follow a few examples of generated diagrams.</p>
-<h4 id="941-synthetic-data-generation-diagram">9.4.1. Synthetic Data Generation Diagram </h4>
+<h4 id="1041-synthetic-data-generation-diagram">10.4.1. Synthetic Data Generation Diagram </h4>
 <p>This diagram shows the data generation configuration used in the demo.</p>
 <p><img src="./ds_utility_demo_files/ds_gen_2.svg" alt="Alt text"></p>
-<h4 id="942-sensitive-data-masking-diagram">9.4.2. Sensitive Data Masking Diagram </h4>
+<h4 id="1042-sensitive-data-masking-diagram">10.4.2. Sensitive Data Masking Diagram </h4>
 <p>This diagram shows the default data masking configuration resulting from a sensitive data discovery and applicable to all data sets.</p>
 <p><img src="./ds_utility_demo_files/ds_dis_1.svg" alt="Alt text"></p>
-<h4 id="943-data-subsetting-diagram">9.4.3. Data Subsetting Diagram </h4>
+<h4 id="1043-data-subsetting-diagram">10.4.3. Data Subsetting Diagram </h4>
 <p>This diagram shows the data subsetting and (adapted) data masking configurations used in the demo.</p>
 <p><img src="./ds_utility_demo_files/ds_msk_1.svg" alt="Alt text"></p>
-<h4 id="944-change-data-capture-diagram">9.4.4. Change Data Capture Diagram </h4>
+<h4 id="1044-change-data-capture-diagram">10.4.4. Change Data Capture Diagram </h4>
 <p>This diagram shows tables and triggers of the capture data set used in the demo.</p>
 <p><img src="./ds_utility_demo_files/ds_cap.svg" alt="Alt text"></p>
-<h4 id="945-data-structure-diagram">9.4.5. Data Structure Diagram </h4>
+<h4 id="1045-data-structure-diagram">10.4.5. Data Structure Diagram </h4>
 <p>This tool can also generate the data structure diagram of your schema (or a subset of it) similar to those generated by database design engineering tools like SQL*Developer Data Modeler.</p>
 <p><img src="./ds_utility_demo_files/ds_dsd.svg" alt="Data Structure Diagram"></p>
-<h2 id="10-degpl-language">10. DEGPL Language </h2>
+<h2 id="11-degpl-language">11. DEGPL Language </h2>
 <p>This chapter provides a brief overview of DEGPL's features, syntax, and includes a few examples. For a more detailed description of the language, please refer to the <em>Data Set Utility Reference Manual</em>.</p>
-<h3 id="101-introduction">10.1. Introduction </h3>
+<h3 id="111-introduction">11.1. Introduction </h3>
 <p>The Data Extraction and Generation Path Language (DEGPL) is presented as an alternative or complementary approach to APIs for achieving data subsetting (SUB), synthetic data generation (GEN), and sensitive data masking. Notably, DEGPL adopts a syntax reminiscent of the GraphViz DOT language.</p>
-<h3 id="102-key-features">10.2. Key features </h3>
+<h3 id="112-key-features">11.2. Key features </h3>
 <ul>
 <li><strong>Easy and Concise Description:</strong> DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.</li>
 <li><strong>Easy and Concise Description:</strong> DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.</li>
@@ -917,23 +990,23 @@
 <li><strong>Recommendations for Structuring and Testing:</strong> The reference manual provides recommendations for structuring and testing the code using DEGPL, emphasising best practices for an organised and effective configuration.</li>
 </ul>
 <p>These features collectively contribute to DEGPL's effectiveness in configuring data extraction, generation, and masking processes in a user-friendly and versatile manner.</p>
-<h3 id="103-syntax-overview">10.3. Syntax Overview </h3>
+<h3 id="113-syntax-overview">11.3. Syntax Overview </h3>
 <p>This section only gives an overview of the DEGPL language syntax. For a more in-depth description of the syntax, please consult the <em>Data Set Utility Reference Manual</em>.</p>
-<h4 id="1031-data-set">10.3.1. Data set </h4>
+<h4 id="1131-data-set">11.3.1. Data set </h4>
 <p>A data set can be retrieved, deleted, created or replaced using its name or id (<em>set_id</em>). Its properties can be set or modified as explained in the properties section below.</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_gen/d[set_type=GEN, capture_mode=SYNC]; -- delete and create
 set demo_data_sub/r[set_type=GEN, capture_mode=SYNC]; -- create or replace
 set demo_data_cap[set_type=CAP, capture_mode=SYNC];   -- retrieve and update
 set demo_data_cap/d;                                  -- just delete
-</code></pre><h4 id="1032-tables">10.3.2. Tables </h4>
+</code></pre><h4 id="1132-tables">11.3.2. Tables </h4>
 <p>A table can be included in a data set by specifying its name or its alias. When no alias is defined, it is generated by the tool based on your (configurable) naming conventions. When both are specified, table alias is modified as indicated. Standard wildcards <em>*</em> and <em>?</em> can be used for multiple matches. Extraction type can also be specified with a slash after table name or alias. All statements are separated with a semi-colon. Comments must be enclosed between <em>/*</em> and <em>*/</em>.</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo*;           /*include all demo tables*/
 demo_persons/b;  /*includes persons as a driving table (B-table)*/
 prd/f;           /*fully extract table with alias prd (i.e., products)*/*
 demo_orders ord; /*includes orders table and sets its alias to ord*/
-</code></pre><h4 id="1033-constraints">10.3.3. Constraints </h4>
+</code></pre><h4 id="1133-constraints">11.3.3. Constraints </h4>
 <p>Constraints are specified and included in the data set using directed arrows between two tables. The arrow shape indicates the cardinality, and the body denotes the extraction type of the constraint. Wildcards can be employed for tables.</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>A -&gt; B;  /*include any constraint from table A to B (P-cons)*/
@@ -949,21 +1022,21 @@ A -&gt; *;  /*include any constraint from A to any table*/
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>A -&gt; B -&gt; C; /* equivalent to A -&gt; B; B -&gt; C */
 A -&gt; B , C ; /* equivalent to A -&gt; B, A -&gt; C */
 A , B -&gt; C ; /* equivalent to A -&gt; C, B -&gt; C*/
-</code></pre><h4 id="1034-properties">10.3.4. Properties </h4>
+</code></pre><h4 id="1134-properties">11.3.4. Properties </h4>
 <p>Properties of data sets, tables, constraints, columns, masks, and default values can be modified by specifying them within square brackets, separating with a comma (preferred), semi-colon, or space. Property names, aligning with the internal data model column names of the tool, may be abbreviated for brevity. Values must be enclosed in double quotes, except for positive integers and identifiers (mix of letters, digits and underscore).</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo_persons[where="per_id&lt;=10"]; /*extract persons with defined filter*/
 per/b[row_count=10]; /*generate 10 rows in persons table*/
 per-&gt;[percentage="50%"]ord; /*extract 50% of person's orders*/
 per=&gt;[min_rows=0,max_rows=5]ord; /*generate between 0 and 5 orders per person*/
-</code></pre><h4 id="1035-columns">10.3.5. Columns </h4>
+</code></pre><h4 id="1135-columns">11.3.5. Columns </h4>
 <p>Properties for generated or masked columns can be specified following the column name. Column names are separated from table names by a dot. It is unnecessary to repeat table name for each column. Wildcards <em>*</em> and <em>?</em> can also be used.</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>/* set properties of per_id columns*/
-per.per_id[gen_type="SQL", params=DEMO_PER_SEQ];
+per.per_id[gen_type="SQL", gen_params=DEMO_PER_SEQ];
 per.gender[msk_type=SHUFFLE, shuffle_group=1] /*statement continue on next line*/
    .first_name[msk_type=SHUFFLE, shuffle_group=1]; /*table name not repeated*/
-</code></pre><h4 id="1036-default-values">10.3.6. Default values </h4>
+</code></pre><h4 id="1136-default-values">11.3.6. Default values </h4>
 <p>Default values can be specified for table, constraint, column, and mask properties. Utilize the table syntax with <em>table</em>, <em>constraint</em>, <em>column</em>, or <em>mask</em> as the table name.</p>
 <p>Examples:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>table[source_schema="..."]; /*default property for all subsequent tables*/
@@ -971,19 +1044,19 @@ constraint[batch=1000]; /*default property for all subsequent constraints*/
 column[gen_type=SQL]; /*default property for all subsequent columns*/
 mask[msk_type=SQL, locked=Y]; /*default properties for all subsequent masks*/
 </code></pre><p>A scope can also be specified allowing to overwrite non-NULL values or ignore any subsequent setting of a property.</p>
-<h4 id="1037-recursion">10.3.7. Recursion </h4>
+<h4 id="1137-recursion">11.3.7. Recursion </h4>
 <p>You can include constraints and tables recursively by specifying a number of recursions just after the constraint name (or properties if any).</p>
 <p>Example:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>per/b=&lt;3*; /*extract persons and all its child tables (using 1-N constraints) down to 3 levels*/
-</code></pre><h4 id="1038-scope">10.3.8. Scope </h4>
+</code></pre><h4 id="1138-scope">11.3.8. Scope </h4>
 <p>You can specify whether a referenced object (table or constraint) is in the data set, outside of the data set, or if it doesn't matter, by prefixing it with an exclamation mark, a caret, or nothing, respectively.</p>
 <p>Example:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>!*^&gt;-0* /*include recursively any N-1 constraint not in the data set yet, from tables already included to any table*/
-</code></pre><h4 id="1039-invocation">10.3.9. Invocation </h4>
+</code></pre><h4 id="1139-invocation">11.3.9. Invocation </h4>
 <p>Your DEGPL code or configuration can be submitted to the <em>execute_degpl()</em> procedure available in the extension package (<em>DS_UTILITY_EXT</em>). It will apply to any existing configuration, so you may need to reset (create or replace) your data set if you want to start from a clean slate.</p>
-<h3 id="104-examples">10.4. Examples </h3>
+<h3 id="114-examples">11.4. Examples </h3>
 <p>Here follow some commented (partial) examples of DEGPL code used in the demo:</p>
-<h4 id="1041-data-generation-example">10.4.1. Data Generation Example </h4>
+<h4 id="1141-data-generation-example">11.4.1. Data Generation Example </h4>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_gen/r[set_type=GEN];
 /*1. define driving and detail tables + parent/child and referential constraints*/
 demo*&gt;-demo* /*include all demo tables and their fks, isolated tables excluded*/;
@@ -1002,17 +1075,17 @@ pcc+&gt;ptr; /*don't generate transactions (alias ptr) from credit cards (alias 
 ∃*∄&gt;-0* /*Add recursively missing referential constraints (N-1) for all data set tables*/;
 ...
 /*2. define how to generate column values*/
-per.per_id[gen_type=SEQ,params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
+per.per_id[gen_type=SEQ,gen_params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
 column[gen_type=SQL]; /*Use a SQL expression for all subsequent columns*/
-per.first_name[params="ds_masker_krn.random_value_from_data_set('INT_GIVEN_NAMES_250')"];
-per.last_name[params="ds_masker_krn.random_value_from_data_set('EU6_FAMILY_NAMES_217')"];
-per.full_name[params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
-ord.order_date[params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
-   .total_price[params="0/*computed with post_gen_code*/"];
-sto.store_name[params="ds_masker_krn.random_company_name"];
-prd.unit_price[params="ds_masker_krn.random_integer(10,100)"];
+per.first_name[gen_params="ds_masker_krn.random_value_from_data_set('INT_GIVEN_NAMES_250')"];
+per.last_name[gen_params="ds_masker_krn.random_value_from_data_set('EU6_FAMILY_NAMES_217')"];
+per.full_name[gen_params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
+ord.order_date[gen_params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
+   .total_price[gen_params="0/*computed with post_gen_code*/"];
+sto.store_name[gen_params="ds_masker_krn.random_company_name"];
+prd.unit_price[gen_params="ds_masker_krn.random_integer(10,100)"];
 ...
-</code></pre><h4 id="1042-data-subsetting-example">10.4.2. Data Subsetting Example </h4>
+</code></pre><h4 id="1142-data-subsetting-example">11.4.2. Data Subsetting Example </h4>
 <p>With comments (hence one line per instruction):</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_sub/r[set_type=SUB];
 demo*; /*include all demo tables and generate aliases*/
@@ -1026,19 +1099,23 @@ per~&gt;[percent=50]ord; /*only extract 50% of orders*/
 !*^&gt;-0*; /*include missing referential constraints (N-1) for tables already in the data set*/
 </code></pre><p>The same without comments, all on a single line:</p>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>demo*;demo_dual/x;sto/f;cnt/n;cct/n;oet/n;per/b[where="per_id&lt;=10"]=&lt;3*;per~&gt;[percent=50]ord;!*^&gt;-*;
-</code></pre><h4 id="1043-data-masking-example">10.4.3. Data Masking Example </h4>
+</code></pre><h4 id="1143-data-masking-example">11.4.3. Data Masking Example </h4>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>/*Define how to mask table columns*/
 mask[locked=Y]; /*default value for all masked column below*/
 per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
    .first_name[msk_type=SHUFFLE, shuffle_group=1]
-   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table(...)]
+   .last_name[msk_type=TOKENIZE, msk_params="ds_utility_krn.random_value_from_table('DEMO_PERSONS','LAST_NAME')]
              [options="enforce_uniqueness=true"];
 mask[msk_type=SQL]; /*all columns below will be masked with a SQL expression*/
-per.full_name[params=":first_name||' '||:last_name"]
-   .nationality[params="ds_utility_krn.random_value_from_table(...)"]
-   .title[params="'XXXX'", options="mask_null_values=true"];
-pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
-</code></pre><h4 id="1044-data-capture-example">10.4.4. Data Capture Example </h4>
+per.full_name[msk_params=":first_name||' '||:last_name"]
+   .nationality[msk_params="ds_utility_krn.random_value_from_table('DEMO_COUNTRIES','CNT_CD')"]
+   .title[msk_params="'XXXX'", options="mask_null_values=true"];
+pcc.credit_card_number[msk_params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
+</code></pre><h4 id="1144-data-encryption-example">11.4.4. Data Encryption Example </h4>
+<pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>/*Define how to encrypt table columns*/
+mask[locked=Y]; /*default value for all masked column below*/
+per.per_id[tde_type="SQL", tde_params="ds_crypto_krn.encrypt_integer(p_value=&gt;per_id,p_min_value=&gt;1,p_max_value=&gt;99)"];
+</code></pre><h4 id="1145-data-capture-example">11.4.5. Data Capture Example </h4>
 <pre data-role="codeBlock" data-info="DEGPL" class="language-degpl DEGPL"><code>set demo_data_cap/r[set_type=CAP, capture_mode=SYNC];
 demo*/b[target_db="DBCC_DIGIT_01_T.CC.CEC.EU.INT"];
 demo_dual/x;

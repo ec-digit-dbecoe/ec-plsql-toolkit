@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0084)file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html -->
+<!-- saved from url=(0086)file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>ds_utility_ref_manual</title>
       
@@ -27,515 +27,536 @@
       <div class="crossnote markdown-preview  ">
       
 <p><!-- omit in toc --></p>
-<h1 id="data-set-utility--reference-manual-v252">Data Set Utility- Reference Manual v25.2 </h1>
+<h1 id="data-set-utility--reference-manual-v254">Data Set Utility- Reference Manual v25.4 </h1>
 <h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#1-internal-data-model">1. Internal Data Model</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#1-internal-data-model">1. Internal Data Model</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#101-data-model-diagram">1.0.1. Data Model Diagram</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#102-configuration-tables">1.0.2. Configuration tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#103-transactional-tables">1.0.3. Transactional tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#101-data-model-diagram">1.0.1. Data Model Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#102-configuration-tables">1.0.2. Configuration tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#103-transactional-tables">1.0.3. Transactional tables</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2-concepts-and-apis">2. Concepts and APIs</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2-concepts-and-apis">2. Concepts and APIs</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21-data-sets">2.1. Data sets</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21-data-sets">2.1. Data sets</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#211-properties">2.1.1. Properties</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#211-properties">2.1.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2111-set-id">2.1.1.1. Set id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2112-set-name">2.1.1.2. Set name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2113-set-type">2.1.1.3. Set type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2114-system-flag">2.1.1.4. System flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2115-disabled-flag">2.1.1.5. Disabled flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2116-visible-flag">2.1.1.6. Visible flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2117-capture-flag">2.1.1.7. Capture flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2118-capture-mode">2.1.1.8. Capture mode</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2119-capture-sequence-internal-use-only">2.1.1.9. Capture sequence (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21110-line-separator-character">2.1.1.10. Line separator character</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21111-column-separator-character">2.1.1.11. Column separator character</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21112-left-separator-character">2.1.1.12. Left separator character</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21113-right-separator-character">2.1.1.13. Right separator character</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21114-column-names-row">2.1.1.14. Column names row</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21115-column-types-row">2.1.1.15. Column types row</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21116-data-row">2.1.1.16. Data row</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21117-params">2.1.1.17. Params</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2111-set-id">2.1.1.1. Set id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2112-set-name">2.1.1.2. Set name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2113-set-type">2.1.1.3. Set type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2114-system-flag">2.1.1.4. System flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2115-disabled-flag">2.1.1.5. Disabled flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2116-visible-flag">2.1.1.6. Visible flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2117-capture-flag">2.1.1.7. Capture flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2118-capture-mode">2.1.1.8. Capture mode</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2119-capture-sequence-internal-use-only">2.1.1.9. Capture sequence (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21110-line-separator-character">2.1.1.10. Line separator character</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21111-column-separator-character">2.1.1.11. Column separator character</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21112-left-separator-character">2.1.1.12. Left separator character</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21113-right-separator-character">2.1.1.13. Right separator character</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21114-column-names-row">2.1.1.14. Column names row</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21115-column-types-row">2.1.1.15. Column types row</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21116-data-row">2.1.1.16. Data row</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21117-params">2.1.1.17. Params</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#212-operations">2.1.2. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#212-operations">2.1.2. Operations</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2121-create">2.1.2.1. Create</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2122-create-or-replace">2.1.2.2. Create or replace</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2123-clone">2.1.2.3. Clone</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2124-delete">2.1.2.4. Delete</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2125-get-last">2.1.2.5. Get last</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2126-get-by-name">2.1.2.6. Get by name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2127-clear">2.1.2.7. Clear</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2128-update-properties">2.1.2.8. Update properties</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22-tables">2.2. Tables</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#221-properties">2.2.1. Properties</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2211-table-id">2.2.1.1. Table Id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2212-set-id">2.2.1.2. Set Id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2213-table-name">2.2.1.3. Table Name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2214-table-alias">2.2.1.4. Table Alias</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2215-extract-type">2.2.1.5. Extract type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2216-row-limit">2.2.1.6. Row limit</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2217-percentage">2.2.1.7. Percentage</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2218-row-count">2.2.1.8. Row count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2219-source-count-internal-use-only">2.2.1.9. Source count (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22110-extract-count-internal-use-only">2.2.1.10. Extract count (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22111-pass-count-internal-use-only">2.2.1.11. Pass count (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22112-group-count-internal-use-only">2.2.1.12. Group count (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22113-seq-internal-use-only">2.2.1.13. Seq (internal use only)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22114-where-clause">2.2.1.14. Where clause</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22115-order-by-clause">2.2.1.15. Order by clause</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22116-columns-list">2.2.1.16. Columns list</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22117-export-mode">2.2.1.17. Export mode</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22118-table-data">2.2.1.18. Table data</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22119-source-schema">2.2.1.19. Source schema</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22120-source-db-link">2.2.1.20. Source db link</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22121-target-schema">2.2.1.21. Target schema</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22122-target-db-link">2.2.1.22. Target db link</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22123-target-table-name">2.2.1.23. Target table name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22124-user-column-name">2.2.1.24. User column name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22125-id-relocation">2.2.1.25. Id relocation</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#221251-id-shift-value">2.2.1.25.1. <s>Id shift value</s></a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#221252-sequence-name">2.2.1.25.2. <s>Sequence name</s></a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22126-batch-size">2.2.1.26. Batch size</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22127-tab-seq">2.2.1.27. Tab seq</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22128-gen-view-name">2.2.1.28. Gen view name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22129-pre-gen-code">2.2.1.29. Pre gen code</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#22130-post-gen-code">2.2.1.30. Post gen code</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#222-operations">2.2.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2221-include-tables">2.2.2.1. Include tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2222-exclude-tables">2.2.2.2. Exclude tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2223-update-table-properties">2.2.2.3. Update table properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2224-count-table-records">2.2.2.4. Count table records</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2121-create">2.1.2.1. Create</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2122-create-or-replace">2.1.2.2. Create or replace</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2123-clone">2.1.2.3. Clone</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2124-delete">2.1.2.4. Delete</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2125-get-last">2.1.2.5. Get last</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2126-get-by-name">2.1.2.6. Get by name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2127-clear">2.1.2.7. Clear</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2128-update-properties">2.1.2.8. Update properties</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23-constraints">2.3. Constraints</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22-tables">2.2. Tables</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#231-properties">2.3.1. Properties</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#221-properties">2.2.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2311-constraint-id">2.3.1.1. Constraint id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2312-set-id">2.3.1.2. Set id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2313-constraint-name">2.3.1.3. Constraint name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2314-source-table-name">2.3.1.4. Source table name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2315-destination-table-name">2.3.1.5. Destination table name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2316-cardinality">2.3.1.6. Cardinality</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2317-extract-type">2.3.1.7. Extract type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2318-deferred">2.3.1.8. Deferred</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2319-percentage">2.3.1.9. Percentage</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23110-row-limit">2.3.1.10. Row limit</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23111-min-rows">2.3.1.11. Min rows</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23112-max-rows">2.3.1.12. Max rows</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23113-level-count">2.3.1.13. Level count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23114-source-count">2.3.1.14. Source count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23115-extract-count">2.3.1.15. Extract count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23116-where-clause">2.3.1.16. Where clause</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23117-order-by-clause">2.3.1.17. Order by clause</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23118-join-clause">2.3.1.18. Join clause</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23119-masterdetail-cardinality-ok">2.3.1.19. Master/detail cardinality ok</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23120-masterdetail-optionality-ok">2.3.1.20. Master/detail optionality ok</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23121-masterdetail-uid-ok">2.3.1.21. Master/detail uid ok</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23122-batch-size">2.3.1.22. Batch size</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23123-con-seq">2.3.1.23. Con seq</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23124-gen-view-name">2.3.1.24. Gen view name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23125-pre-gen-code">2.3.1.25. Pre gen code</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23126-post-gen-code">2.3.1.26. Post gen code</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#23127-source-filter">2.3.1.27. Source filter</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2211-table-id">2.2.1.1. Table Id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2212-set-id">2.2.1.2. Set Id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2213-table-name">2.2.1.3. Table Name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2214-table-alias">2.2.1.4. Table Alias</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2215-extract-type">2.2.1.5. Extract type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2216-row-limit">2.2.1.6. Row limit</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2217-percentage">2.2.1.7. Percentage</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2218-row-count">2.2.1.8. Row count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2219-source-count-internal-use-only">2.2.1.9. Source count (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22110-extract-count-internal-use-only">2.2.1.10. Extract count (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22111-pass-count-internal-use-only">2.2.1.11. Pass count (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22112-group-count-internal-use-only">2.2.1.12. Group count (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22113-seq-internal-use-only">2.2.1.13. Seq (internal use only)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22114-where-clause">2.2.1.14. Where clause</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22115-order-by-clause">2.2.1.15. Order by clause</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22116-columns-list">2.2.1.16. Columns list</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22117-export-mode">2.2.1.17. Export mode</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22118-table-data">2.2.1.18. Table data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22119-source-schema">2.2.1.19. Source schema</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22120-source-db-link">2.2.1.20. Source db link</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22121-target-schema">2.2.1.21. Target schema</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22122-target-db-link">2.2.1.22. Target db link</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22123-target-table-name">2.2.1.23. Target table name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22124-user-column-name">2.2.1.24. User column name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22125-id-relocation">2.2.1.25. Id relocation</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#221251-id-shift-value">2.2.1.25.1. <s>Id shift value</s></a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#221252-sequence-name">2.2.1.25.2. <s>Sequence name</s></a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#232-operations">2.3.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2321-update-constraint-properties">2.3.2.1. Update constraint properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2322-include-referential-constraints">2.3.2.2. Include referential constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2323-include-master-detail-constraints">2.3.2.3. Include master detail constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2324-exclude-constraints">2.3.2.4. Exclude constraints</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2325-detect-true-master-detail-constraints">2.3.2.5. Detect true master detail constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22126-batch-size">2.2.1.26. Batch size</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22127-tab-seq">2.2.1.27. Tab seq</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22128-gen-view-name">2.2.1.28. Gen view name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22129-pre-gen-code">2.2.1.29. Pre gen code</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#22130-post-gen-code">2.2.1.30. Post gen code</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24-records">2.4. Records</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#222-operations">2.2.2. Operations</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#241-properties">2.4.1. Properties</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2411-rec-id">2.4.1.1. Rec id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2412-table-id">2.4.1.2. Table id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2413-constraint-id">2.4.1.3. Constraint id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2414-record-rowid">2.4.1.4. Record rowid</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2415-shuffled-rowid-1-2-and-3">2.4.1.5. Shuffled rowid 1, 2 and 3</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2416-source-rowid">2.4.1.6. Source rowid</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2417-sequence">2.4.1.7. Sequence</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2418-pass-count">2.4.1.8. Pass count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2419-user-name">2.4.1.9. User name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24110-undo-timestamp">2.4.1.10. Undo timestamp</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24111-operation">2.4.1.11. Operation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24112-remark">2.4.1.12. Remark</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24113-deleted-flag">2.4.1.13. Deleted flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24114-record-data">2.4.1.14. Record data</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#24115-record-old-data">2.4.1.15. Record old data</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#242-operations">2.4.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2421-extract-data-set-rowids">2.4.2.1. Extract data set rowids</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2422-delete-data-set-rowids">2.4.2.2. Delete data set rowids</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2423-shuffle-records">2.4.2.3. Shuffle records</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2221-include-tables">2.2.2.1. Include tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2222-exclude-tables">2.2.2.2. Exclude tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2223-update-table-properties">2.2.2.3. Update table properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2224-count-table-records">2.2.2.4. Count table records</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#25-identifiers">2.5. Identifiers</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23-constraints">2.3. Constraints</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#251-properties">2.5.1. Properties</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#231-properties">2.3.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2511-mask-id">2.5.1.1. Mask Id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2512-old-id">2.5.1.2. Old Id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2513-new-id">2.5.1.3. New Id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2311-constraint-id">2.3.1.1. Constraint id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2312-set-id">2.3.1.2. Set id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2313-constraint-name">2.3.1.3. Constraint name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2314-source-table-name">2.3.1.4. Source table name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2315-destination-table-name">2.3.1.5. Destination table name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2316-cardinality">2.3.1.6. Cardinality</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2317-extract-type">2.3.1.7. Extract type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2318-deferred">2.3.1.8. Deferred</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2319-percentage">2.3.1.9. Percentage</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23110-row-limit">2.3.1.10. Row limit</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23111-min-rows">2.3.1.11. Min rows</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23112-max-rows">2.3.1.12. Max rows</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23113-level-count">2.3.1.13. Level count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23114-source-count">2.3.1.14. Source count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23115-extract-count">2.3.1.15. Extract count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23116-where-clause">2.3.1.16. Where clause</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23117-order-by-clause">2.3.1.17. Order by clause</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23118-join-clause">2.3.1.18. Join clause</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23119-masterdetail-cardinality-ok">2.3.1.19. Master/detail cardinality ok</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23120-masterdetail-optionality-ok">2.3.1.20. Master/detail optionality ok</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23121-masterdetail-uid-ok">2.3.1.21. Master/detail uid ok</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23122-batch-size">2.3.1.22. Batch size</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23123-con-seq">2.3.1.23. Con seq</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23124-gen-view-name">2.3.1.24. Gen view name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23125-pre-gen-code">2.3.1.25. Pre gen code</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23126-post-gen-code">2.3.1.26. Post gen code</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#23127-source-filter">2.3.1.27. Source filter</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#252-operations">2.5.2. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#232-operations">2.3.2. Operations</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2521-generate-identifiers">2.5.2.1. Generate identifiers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2522-delete-identifiers">2.5.2.2. Delete identifiers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#26-tokens">2.6. Tokens</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#261-properties">2.6.1. Properties</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2611-mask-id">2.6.1.1. Mask id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2612-token">2.6.1.2. Token</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2613-value">2.6.1.3. Value</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#262-operations">2.6.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2621-generate_tokens">2.6.2.1. Generate_tokens</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2622-get_value_from_token">2.6.2.2. Get_value_from_token</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2623-get_token_from_value">2.6.2.3. Get_token_from_value</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2624-set_token_for_value">2.6.2.4. Set_token_for_value</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27-patterns">2.7. Patterns</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#271-properties">2.7.1. Properties</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2711-pattern-id">2.7.1.1. Pattern id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2712-pattern-name">2.7.1.2. Pattern name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2713-pattern-category">2.7.1.3. Pattern category</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2714-column-data-type">2.7.1.4. Column data type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2715-column-name-pattern">2.7.1.5. Column name pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2716-column-comment-pattern">2.7.1.6. Column comment pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2717-column-data-pattern">2.7.1.7. Column data pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2718-column-data-set-name">2.7.1.8. Column data set name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2719-column-data-hit-percentage">2.7.1.9. Column data hit percentage</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27110-column-data-hit-count">2.7.1.10. Column data hit count</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27111-logical-operator">2.7.1.11. Logical operator</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27112-remarks">2.7.1.12. Remarks</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27113-system-flag">2.7.1.13. System flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27114-disabled-flag">2.7.1.14. Disabled flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27115-mask-type">2.7.1.15. Mask type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#27116-mask-parameters">2.7.1.16. Mask parameters</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#272-operations">2.7.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2721-insert-pattern">2.7.2.1. Insert pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2722-update-pattern-properties">2.7.2.2. Update pattern properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2723-delete-pattern">2.7.2.3. Delete pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2321-update-constraint-properties">2.3.2.1. Update constraint properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2322-include-referential-constraints">2.3.2.2. Include referential constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2323-include-master-detail-constraints">2.3.2.3. Include master detail constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2324-exclude-constraints">2.3.2.4. Exclude constraints</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2325-detect-true-master-detail-constraints">2.3.2.5. Detect true master detail constraints</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28-masks">2.8. Masks</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24-records">2.4. Records</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#281-properties">2.8.1. Properties</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#241-properties">2.4.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2811-mask-identifier">2.8.1.1. Mask identifier</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2812-table-name">2.8.1.2. Table name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2813-column-name">2.8.1.3. Column name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2814-sensitive-flag">2.8.1.4. Sensitive flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2815-disabled-flag">2.8.1.5. Disabled flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2816-locked-flag">2.8.1.6. Locked flag</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2817-mask-type">2.8.1.7. Mask type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2818-shuffle-group">2.8.1.8. Shuffle group</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2819-partition-bitmap">2.8.1.9. Partition bitmap</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28110-mask-parameters">2.8.1.10. Mask parameters</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28111-mask-options">2.8.1.11. Mask options</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28112-pattern-category">2.8.1.12. Pattern category</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28113-pattern-name">2.8.1.13. Pattern name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28114-remarks">2.8.1.14. Remarks</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#28115-values-sample">2.8.1.15. Values sample</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2411-rec-id">2.4.1.1. Rec id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2412-table-id">2.4.1.2. Table id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2413-constraint-id">2.4.1.3. Constraint id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2414-record-rowid">2.4.1.4. Record rowid</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2415-shuffled-rowid-1-2-and-3">2.4.1.5. Shuffled rowid 1, 2 and 3</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2416-source-rowid">2.4.1.6. Source rowid</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2417-sequence">2.4.1.7. Sequence</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2418-pass-count">2.4.1.8. Pass count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2419-user-name">2.4.1.9. User name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24110-undo-timestamp">2.4.1.10. Undo timestamp</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24111-operation">2.4.1.11. Operation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24112-remark">2.4.1.12. Remark</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24113-deleted-flag">2.4.1.13. Deleted flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24114-record-data">2.4.1.14. Record data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#24115-record-old-data">2.4.1.15. Record old data</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#282-operations">2.8.2. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#242-operations">2.4.2. Operations</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2821-insert-mask">2.8.2.1. Insert mask</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2822-update-mask-properties">2.8.2.2. Update mask properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2823-delete-mask">2.8.2.3. Delete mask</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2824-propagate-pk-masking">2.8.2.4. Propagate pk masking</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#29-table-columns">2.9. Table columns</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#291-properties">2.9.1. Properties</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2911-table-id">2.9.1.1. Table id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2912-table-name">2.9.1.2. Table name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2913-column-name">2.9.1.3. Column name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2914-col-seq">2.9.1.4. Col seq</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2915-gen-type">2.9.1.5. Gen type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2916-params">2.9.1.6. Params</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2917-null-value-pct">2.9.1.7. Null value pct</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2918-null-value-condition">2.9.1.8. Null value condition</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#292-operations">2.9.2. Operations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2921-insert-table-columns">2.9.2.1. Insert table columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2922-update-table-column-properties">2.9.2.2. Update table column properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2923-clone_table_column_properties">2.9.2.3. Clone_table_column_properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2421-extract-data-set-rowids">2.4.2.1. Extract data set rowids</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2422-delete-data-set-rowids">2.4.2.2. Delete data set rowids</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2423-shuffle-records">2.4.2.3. Shuffle records</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#210-data-set-extraction-andor-transportation">2.10. Data set extraction and/or transportation</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#25-identifiers">2.5. Identifiers</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2101-operations">2.10.1. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#251-properties">2.5.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21011-configure-data-set">2.10.1.1. Configure data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21012-extract-rowids">2.10.1.2. Extract rowids</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21013-preview-data-set">2.10.1.3. Preview data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21014-transport-data-set-formerly-handle-data-set">2.10.1.4. Transport data set (formerly handle data set)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21015-security-policies">2.10.1.5. Security policies</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21016-forcing-column-values">2.10.1.6. Forcing column values</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2511-mask-id">2.5.1.1. Mask Id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2512-old-id">2.5.1.2. Old Id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2513-new-id">2.5.1.3. New Id</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#252-operations">2.5.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2521-generate-identifiers">2.5.2.1. Generate identifiers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2522-delete-identifiers">2.5.2.2. Delete identifiers</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#211-change-data-capture">2.11. Change data capture</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#26-tokens">2.6. Tokens</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2111-properties">2.11.1. Properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2112-operations">2.11.2. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#261-properties">2.6.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21121-create-triggers">2.11.2.1. Create triggers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21122-drop-triggers">2.11.2.2. Drop triggers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21123-delete-captured-operations">2.11.2.3. Delete captured operations</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21124-undo-captured-operations">2.11.2.4. Undo captured operations</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21125-redo-captured-operations">2.11.2.5. Redo captured operations</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21126-rollback-captured-data-set">2.11.2.6. Rollback captured data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21127-rollforward-captured-data-set">2.11.2.7. Rollforward captured data set</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21128-create-capture-forwarding-job">2.11.2.8. Create capture forwarding job</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21129-drop-capture-forwarding-job">2.11.2.9. Drop capture forwarding job</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#211210-capture-forwarding-job-exists">2.11.2.10. Capture forwarding job exists</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#211211-generate-captured-data-set-script">2.11.2.11. Generate captured data set script</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2611-mask-id">2.6.1.1. Mask id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2612-token">2.6.1.2. Token</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2613-value">2.6.1.3. Value</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#262-operations">2.6.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2621-generate_tokens">2.6.2.1. Generate_tokens</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2622-get_value_from_token">2.6.2.2. Get_value_from_token</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2623-get_token_from_value">2.6.2.3. Get_token_from_value</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2624-set_token_for_value">2.6.2.4. Set_token_for_value</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#212-sensitive-data-discovery">2.12. Sensitive Data Discovery</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27-patterns">2.7. Patterns</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2121-operations">2.12.1. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#271-properties">2.7.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21211-discover-sensitive-data">2.12.1.1. Discover sensitive data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2711-pattern-id">2.7.1.1. Pattern id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2712-pattern-name">2.7.1.2. Pattern name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2713-pattern-category">2.7.1.3. Pattern category</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2714-column-data-type">2.7.1.4. Column data type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2715-column-name-pattern">2.7.1.5. Column name pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2716-column-comment-pattern">2.7.1.6. Column comment pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2717-column-data-pattern">2.7.1.7. Column data pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2718-column-data-set-name">2.7.1.8. Column data set name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2719-column-data-hit-percentage">2.7.1.9. Column data hit percentage</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27110-column-data-hit-count">2.7.1.10. Column data hit count</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27111-logical-operator">2.7.1.11. Logical operator</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27112-remarks">2.7.1.12. Remarks</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27113-system-flag">2.7.1.13. System flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27114-disabled-flag">2.7.1.14. Disabled flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27115-mask-type">2.7.1.15. Mask type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27116-mask-parameters">2.7.1.16. Mask parameters</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27117-generation-type">2.7.1.17. Generation type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27118-generation-parameters">2.7.1.18. Generation parameters</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27119-encryption-type">2.7.1.19. Encryption type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#27120-encryption-parameters">2.7.1.20. Encryption parameters</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#272-operations">2.7.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2721-insert-pattern">2.7.2.1. Insert pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2722-update-pattern-properties">2.7.2.2. Update pattern properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2723-delete-pattern">2.7.2.3. Delete pattern</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#213-on-the-fly-data-masking">2.13. On-the-fly Data Masking</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28-masks">2.8. Masks</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#2131-operations">2.13.1. Operations</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#281-properties">2.8.1. Properties</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21311-propagate-pk-masking">2.13.1.1. Propagate pk masking</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21312-generate-identifiers">2.13.1.2. Generate identifiers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21313-shuffle-records">2.13.1.3. Shuffle records</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21314-generate_tokens">2.13.1.4. Generate_tokens</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#21315-mask-data-set">2.13.1.5. Mask data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2811-mask-identifier">2.8.1.1. Mask identifier</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2812-table-name">2.8.1.2. Table name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2813-column-name">2.8.1.3. Column name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2814-sensitive-flag">2.8.1.4. Sensitive flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2815-disabled-flag">2.8.1.5. Disabled flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2816-locked-flag">2.8.1.6. Locked flag</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2817-mask-type-msk_type">2.8.1.7. Mask type (msk_type)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2818-shuffle-group">2.8.1.8. Shuffle group</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2819-partition-bitmap">2.8.1.9. Partition bitmap</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28110-mask-parameters-msk_params">2.8.1.10. Mask parameters (msk_params)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28111-mask-options">2.8.1.11. Mask options</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28112-generation-type-gen_type">2.8.1.12. Generation type (gen_type)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28113-generation-parameters-gen_params">2.8.1.13. Generation parameters (gen_params)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28114-encryption-type-tde_type">2.8.1.14. Encryption type (tde_type)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28115-encryption-parameters-tde_params">2.8.1.15. Encryption parameters (tde_params)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28116-pattern-category">2.8.1.16. Pattern category</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28117-pattern-name">2.8.1.17. Pattern name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28118-remarks">2.8.1.18. Remarks</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#28119-values-sample">2.8.1.19. Values sample</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#282-operations">2.8.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2821-insert-mask">2.8.2.1. Insert mask</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2822-update-mask-properties">2.8.2.2. Update mask properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2823-delete-mask">2.8.2.3. Delete mask</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2824-propagate-pk-masking">2.8.2.4. Propagate pk masking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#29-table-columns">2.9. Table columns</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#291-properties">2.9.1. Properties</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2911-table-id">2.9.1.1. Table id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2912-table-name">2.9.1.2. Table name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2913-column-name">2.9.1.3. Column name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2914-col-seq">2.9.1.4. Col seq</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2915-gen-type">2.9.1.5. Gen type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2916-params">2.9.1.6. Params</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2917-null-value-pct">2.9.1.7. Null value pct</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2918-null-value-condition">2.9.1.8. Null value condition</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#292-operations">2.9.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2921-insert-table-columns">2.9.2.1. Insert table columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2922-update-table-column-properties">2.9.2.2. Update table column properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2923-clone_table_column_properties">2.9.2.3. Clone_table_column_properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#210-data-set-extraction-andor-transportation">2.10. Data set extraction and/or transportation</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2101-operations">2.10.1. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21011-configure-data-set">2.10.1.1. Configure data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21012-extract-rowids">2.10.1.2. Extract rowids</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21013-preview-data-set">2.10.1.3. Preview data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21014-transport-data-set-formerly-handle-data-set">2.10.1.4. Transport data set (formerly handle data set)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21015-security-policies">2.10.1.5. Security policies</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21016-forcing-column-values">2.10.1.6. Forcing column values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#211-change-data-capture">2.11. Change data capture</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2111-properties">2.11.1. Properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2112-operations">2.11.2. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21121-create-triggers">2.11.2.1. Create triggers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21122-drop-triggers">2.11.2.2. Drop triggers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21123-delete-captured-operations">2.11.2.3. Delete captured operations</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21124-undo-captured-operations">2.11.2.4. Undo captured operations</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21125-redo-captured-operations">2.11.2.5. Redo captured operations</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21126-rollback-captured-data-set">2.11.2.6. Rollback captured data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21127-rollforward-captured-data-set">2.11.2.7. Rollforward captured data set</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21128-create-capture-forwarding-job">2.11.2.8. Create capture forwarding job</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21129-drop-capture-forwarding-job">2.11.2.9. Drop capture forwarding job</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#211210-capture-forwarding-job-exists">2.11.2.10. Capture forwarding job exists</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#211211-generate-captured-data-set-script">2.11.2.11. Generate captured data set script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#212-sensitive-data-discovery">2.12. Sensitive Data Discovery</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2121-operations">2.12.1. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21211-discover-sensitive-data">2.12.1.1. Discover sensitive data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#213-on-the-fly-data-masking">2.13. On-the-fly Data Masking</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2131-operations">2.13.1. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21311-propagate-pk-masking">2.13.1.1. Propagate pk masking</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21312-generate-identifiers">2.13.1.2. Generate identifiers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21313-shuffle-records">2.13.1.3. Shuffle records</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21314-generate_tokens">2.13.1.4. Generate_tokens</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21315-mask-data-set">2.13.1.5. Mask data set</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#214-transparent-data-encryption">2.14. Transparent data encryption</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#2141-operations">2.14.1. Operations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21411-create-views-create_views">2.14.1.1. Create views (create_views)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21412-create-triggers-create_tde_triggers">2.14.1.2. Create triggers (create_tde_triggers)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21413-propagate-encryption-propagate_encryption">2.14.1.3. Propagate encryption (propagate_encryption)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21414-drop-views-drop_views">2.14.1.4. Drop views (drop_views)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#21415-drop-triggers-create_tde_triggers">2.14.1.5. Drop triggers (create_tde_triggers)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3-technical-aspects">3. Technical Aspects</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3-technical-aspects">3. Technical Aspects</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#31-message-types">3.1. Message Types</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#31-message-types">3.1. Message Types</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#311-error-e">3.1.1. Error (E)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#312-warning-w">3.1.2. Warning (W)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#313-information-i">3.1.3. Information (I)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#314-debug-d">3.1.4. Debug (D)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#315-sql-statement-s">3.1.5. SQL statement (S)</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#316-rowcount-r">3.1.6. ROWCOUNT (R)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#311-error-e">3.1.1. Error (E)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#312-warning-w">3.1.2. Warning (W)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#313-information-i">3.1.3. Information (I)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#314-debug-d">3.1.4. Debug (D)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#315-sql-statement-s">3.1.5. SQL statement (S)</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#316-rowcount-r">3.1.6. ROWCOUNT (R)</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#32-message-masking">3.2. Message masking</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#33-test-mode">3.3. Test mode</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#34-masking-mode">3.4. Masking mode</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#35-encryption-of-tokenized-values">3.5. Encryption of tokenized values</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#36-output">3.6. Output</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#37-global-variables">3.7. Global variables</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#32-message-masking">3.2. Message masking</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#33-test-mode">3.3. Test mode</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#34-masking-mode">3.4. Masking mode</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#35-encryption-of-tokenized-values">3.5. Encryption of tokenized values</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#36-output">3.6. Output</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#37-global-variables">3.7. Global variables</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#371-g_test_mode">3.7.1. g_test_mode</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#372-g_mask_data">3.7.2. g_mask_data</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#373-g_encrypt_tokenized_values">3.7.3. g_encrypt_tokenized_values</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#374-g_show_time">3.7.4. g_show_time</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#375-g_time_mask">3.7.5. g_time_mask</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#376-g_timestamp_mask">3.7.6. g_timestamp_mask</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#377-g_msg_mask">3.7.7. g_msg_mask</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#378-g_owner">3.7.8. g_owner</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#379-g_alias_like_pattern">3.7.9. g_alias_like_pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3710-g_alias_replace_pattern">3.7.10. g_alias_replace_pattern</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3711-g_alias_max_length">3.7.11. g_alias_max_length</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3712-g_alias_constraint_type">3.7.12. g_alias_constraint_type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3713-g_capture_job_name">3.7.13. g_capture_job_name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3714-g_capture_job_delta">3.7.14. g_capture_job_delta</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3715-g_xml_batchsize">3.7.15. g_xml_batchsize</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3716-g_xml_commitbatch">3.7.16. g_xml_commitbatch</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#3717-g_xml_dateformat">3.7.17. g_xml_dateformat</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#4-frequent-errors">4. Frequent errors</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#41-unsupported-data-type-for-column">4.1. Unsupported data type for column</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#42-maximum-number-of-iterations-exceeded">4.2. Maximum number of iterations exceeded</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#43-loop-in-table-dependencies-detected">4.3. Loop in table dependencies detected</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#44-infinite-loop-detected-in-xxx">4.4. Infinite loop detected in xxx</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#45-missing-join-clause-for-constraint-id">4.5. Missing join clause for constraint #id</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#46-row-limit-not-compatible-with-full-extract">4.6. Row limit not compatible with full extract</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#47-table-xxx-has-no-primary-key">4.7. Table xxx has no primary key</a></li>
-</ul>
-</li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#5-graphviz">5. GRAPHVIZ</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#51-description">5.1. Description</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#52-invocation">5.2. Invocation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#53-visualisation">5.3. Visualisation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#54-graph-examples">5.4. Graph examples</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#541-data-generation-gen--without-columns">5.4.1. Data generation (GEN) – without columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#542-data-generation-gen--with-all-columns">5.4.2. Data generation (GEN) – with all columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#543-data-subsetting-sub--without-columns">5.4.3. Data subsetting (SUB) – without columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#544-data-subsetting-sub--with-all-columns">5.4.4. Data subsetting (SUB) – with all columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#545-sensitive-data-discovery--with-sensitive-and-masked-columns">5.4.5. Sensitive Data Discovery – with sensitive and masked columns</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#546-data-structure-diagram">5.4.6. Data Structure Diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#371-g_test_mode">3.7.1. g_test_mode</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#372-g_mask_data">3.7.2. g_mask_data</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#373-g_encrypt_tokenized_values">3.7.3. g_encrypt_tokenized_values</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#374-g_show_time">3.7.4. g_show_time</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#375-g_time_mask">3.7.5. g_time_mask</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#376-g_timestamp_mask">3.7.6. g_timestamp_mask</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#377-g_msg_mask">3.7.7. g_msg_mask</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#378-g_owner">3.7.8. g_owner</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#379-g_alias_like_pattern">3.7.9. g_alias_like_pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3710-g_alias_replace_pattern">3.7.10. g_alias_replace_pattern</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3711-g_alias_max_length">3.7.11. g_alias_max_length</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3712-g_alias_constraint_type">3.7.12. g_alias_constraint_type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3713-g_capture_job_name">3.7.13. g_capture_job_name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3714-g_capture_job_delta">3.7.14. g_capture_job_delta</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3715-g_xml_batchsize">3.7.15. g_xml_batchsize</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3716-g_xml_commitbatch">3.7.16. g_xml_commitbatch</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#3717-g_xml_dateformat">3.7.17. g_xml_dateformat</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6-degpl">6. DEGPL</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#4-frequent-errors">4. Frequent errors</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#61-language-description">6.1. Language description</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#611-properties">6.1.1. Properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#612-data-set-definition">6.1.2. Data set definition</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#613-extraction-path">6.1.3. Extraction path</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#614-extraction-direction">6.1.4. Extraction direction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#615-extraction-types">6.1.5. Extraction types</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#616-cardinality">6.1.6. Cardinality</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#617-all-arrow-types">6.1.7. All arrow types</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#618-constraint-name">6.1.8. Constraint name</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#619-constraint-properties">6.1.9. Constraint properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6110-arrow-shortcuts">6.1.10. Arrow shortcuts</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6111-table-identifiers">6.1.11. Table identifiers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6112-table-extract-type">6.1.12. Table extract type</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6113-table-properties">6.1.13. Table properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6114-column-properties">6.1.14. Column properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6115-mask-properties">6.1.15. Mask properties</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6116-wildcards">6.1.16. Wildcards</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6117-recursion">6.1.17. Recursion</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6118-scope">6.1.18. Scope</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#6119-default-values">6.1.19. Default values</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#41-unsupported-data-type-for-column">4.1. Unsupported data type for column</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#42-maximum-number-of-iterations-exceeded">4.2. Maximum number of iterations exceeded</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#43-loop-in-table-dependencies-detected">4.3. Loop in table dependencies detected</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#44-infinite-loop-detected-in-xxx">4.4. Infinite loop detected in xxx</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#45-missing-join-clause-for-constraint-id">4.5. Missing join clause for constraint #id</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#46-row-limit-not-compatible-with-full-extract">4.6. Row limit not compatible with full extract</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#47-table-xxx-has-no-primary-key">4.7. Table xxx has no primary key</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#62-invocation">6.2. Invocation</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#63-recommendations">6.3. Recommendations</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#64-example">6.4. Example</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#65-ebnf">6.5. EBNF</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#66-syntax-diagram">6.6. Syntax diagram</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#5-graphviz">5. GRAPHVIZ</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#51-description">5.1. Description</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#52-invocation">5.2. Invocation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#53-visualisation">5.3. Visualisation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#54-graph-examples">5.4. Graph examples</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#541-data-generation-gen--without-columns">5.4.1. Data generation (GEN) – without columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#542-data-generation-gen--with-all-columns">5.4.2. Data generation (GEN) – with all columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#543-data-subsetting-sub--without-columns">5.4.3. Data subsetting (SUB) – without columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#544-data-subsetting-sub--with-all-columns">5.4.4. Data subsetting (SUB) – with all columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#545-sensitive-data-discovery--with-sensitive-and-masked-columns">5.4.5. Sensitive Data Discovery – with sensitive and masked columns</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#546-data-structure-diagram">5.4.6. Data Structure Diagram</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7-format-preserving-encryption-fpe">7. Format-Preserving Encryption (FPE)</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#71-introduction">7.1. Introduction</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#72-rsr-algorithm">7.2. RSR Algorithm</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#721-overview">7.2.1. Overview</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#722-substitution-tables">7.2.2. Substitution tables</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#723-pseudo-random-number-generators">7.2.3. Pseudo-Random Number Generators</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#724-encryption-of-numbers">7.2.4. Encryption of numbers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#725-encryption-of-strings">7.2.5. Encryption of strings</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#726-encryption-of-dates">7.2.6. Encryption of dates</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#727-encryption-of-integers">7.2.7. Encryption of integers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#728-decryption">7.2.8. Decryption</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#73-ff3-algorithm">7.3. FF3 Algorithm</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6-degpl">6. DEGPL</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#731-overview">7.3.1. Overview</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#732-encryption-of-numbers">7.3.2. Encryption of numbers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#733-encryption-of-strings">7.3.3. Encryption of strings</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#734-encryption-of-dates">7.3.4. Encryption of dates</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#735-encryption-of-integers">7.3.5. Encryption of integers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#61-language-description">6.1. Language description</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#611-properties">6.1.1. Properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#612-data-set-definition">6.1.2. Data set definition</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#613-extraction-path">6.1.3. Extraction path</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#614-extraction-direction">6.1.4. Extraction direction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#615-extraction-types">6.1.5. Extraction types</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#616-cardinality">6.1.6. Cardinality</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#617-all-arrow-types">6.1.7. All arrow types</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#618-constraint-name">6.1.8. Constraint name</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#619-constraint-properties">6.1.9. Constraint properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6110-arrow-shortcuts">6.1.10. Arrow shortcuts</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6111-table-identifiers">6.1.11. Table identifiers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6112-table-extract-type">6.1.12. Table extract type</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6113-table-properties">6.1.13. Table properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6114-column-properties">6.1.14. Column properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6115-mask-properties">6.1.15. Mask properties</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6116-wildcards">6.1.16. Wildcards</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6117-recursion">6.1.17. Recursion</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6118-scope">6.1.18. Scope</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#6119-default-values">6.1.19. Default values</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#74-comparison">7.4. Comparison</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#741-limitations">7.4.1. Limitations</a>
-<ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7411-rsr">7.4.1.1. RSR</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7412-ff3">7.4.1.2. FF3</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#62-invocation">6.2. Invocation</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#63-recommendations">6.3. Recommendations</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#64-example">6.4. Example</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#65-ebnf">6.5. EBNF</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#66-syntax-diagram">6.6. Syntax diagram</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#742-performance">7.4.2. Performance</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7-format-preserving-encryption-fpe">7. Format-Preserving Encryption (FPE)</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7421-rsr">7.4.2.1. RSR</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7422-ff3">7.4.2.2. FF3</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#71-introduction">7.1. Introduction</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#72-rsr-algorithm">7.2. RSR Algorithm</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#721-overview">7.2.1. Overview</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#722-substitution-tables">7.2.2. Substitution tables</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#723-pseudo-random-number-generators">7.2.3. Pseudo-Random Number Generators</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#724-encryption-of-numbers">7.2.4. Encryption of numbers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#725-encryption-of-strings">7.2.5. Encryption of strings</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#726-encryption-of-dates">7.2.6. Encryption of dates</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#727-encryption-of-integers">7.2.7. Encryption of integers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#728-decryption">7.2.8. Decryption</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#743-approval-by-certification-authorities">7.4.3. Approval by Certification Authorities</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#73-ff3-algorithm">7.3. FF3 Algorithm</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7431-rsr">7.4.3.1. RSR</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#7432-ff3">7.4.3.2. FF3</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#731-overview">7.3.1. Overview</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#732-encryption-of-numbers">7.3.2. Encryption of numbers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#733-encryption-of-strings">7.3.3. Encryption of strings</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#734-encryption-of-dates">7.3.4. Encryption of dates</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#735-encryption-of-integers">7.3.5. Encryption of integers</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#744-summary">7.4.4. Summary</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#74-comparison">7.4. Comparison</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#741-limitations">7.4.1. Limitations</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7411-rsr">7.4.1.1. RSR</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7412-ff3">7.4.1.2. FF3</a></li>
 </ul>
 </li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#75-apis">7.5. APIs</a>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#742-performance">7.4.2. Performance</a>
 <ul>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#751-parameters-common-to-all-methods">7.5.1. Parameters common to all methods</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#752-default-settings">7.5.2. Default settings</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#753-encryption--decryption-of-numbers">7.5.3. Encryption / decryption of numbers</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#754-encryption--decryption-of-strings">7.5.4. Encryption / decryption of strings</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#755-encryption--decryption-of-dates">7.5.5. Encryption / decryption of dates</a></li>
-<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#756-encryption--decryption-of-integers">7.5.6. Encryption / decryption of integers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7421-rsr">7.4.2.1. RSR</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7422-ff3">7.4.2.2. FF3</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#743-approval-by-certification-authorities">7.4.3. Approval by Certification Authorities</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7431-rsr">7.4.3.1. RSR</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#7432-ff3">7.4.3.2. FF3</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#744-summary">7.4.4. Summary</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#75-apis">7.5. APIs</a>
+<ul>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#751-parameters-common-to-all-methods">7.5.1. Parameters common to all methods</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#752-default-settings">7.5.2. Default settings</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#753-encryption--decryption-of-numbers">7.5.3. Encryption / decryption of numbers</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#754-encryption--decryption-of-strings">7.5.4. Encryption / decryption of strings</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#755-encryption--decryption-of-dates">7.5.5. Encryption / decryption of dates</a></li>
+<li><a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#756-encryption--decryption-of-integers">7.5.6. Encryption / decryption of integers</a></li>
 </ul>
 </li>
 </ul>
@@ -651,7 +672,7 @@
 <h4 id="2213-table-name">2.2.1.3. Table Name </h4>
 <p>This is the name of the table.</p>
 <h4 id="2214-table-alias">2.2.1.4. Table Alias </h4>
-<p>This is the alias of the table to be used when generating join queries. Table aliases are extracted from the primary or unique constraint names. When an alias cannot be extracted or if its length exceeds the maximum (5 characters by default), a default alias is generated following the pattern: <code>t&lt;table_id&gt;</code>. See section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref38618337">3.7</a> on <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref38618337">Global variables</a> for more information on how to configure the patterns used for aliases extraction.</p>
+<p>This is the alias of the table to be used when generating join queries. Table aliases are extracted from the primary or unique constraint names. When an alias cannot be extracted or if its length exceeds the maximum (5 characters by default), a default alias is generated following the pattern: <code>t&lt;table_id&gt;</code>. See section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref38618337">3.7</a> on <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref38618337">Global variables</a> for more information on how to configure the patterns used for aliases extraction.</p>
 <h4 id="2215-extract-type">2.2.1.5. Extract type </h4>
 <p>Indicates how records from this table will be extracted or generated.</p>
 <p>Allowed values are:</p>
@@ -1031,6 +1052,14 @@
 <p>The mask type applicable to the table columns matching this pattern.</p>
 <h4 id="27116-mask-parameters">2.7.1.16. Mask parameters </h4>
 <p>The mask parameters applicable to the table columns matching this pattern.</p>
+<h4 id="27117-generation-type">2.7.1.17. Generation type </h4>
+<p>The generation type applicable to the table columns matching this pattern.</p>
+<h4 id="27118-generation-parameters">2.7.1.18. Generation parameters </h4>
+<p>The generation parameters applicable to the table columns matching this pattern.</p>
+<h4 id="27119-encryption-type">2.7.1.19. Encryption type </h4>
+<p>The encryption type (SQL, INHERIT) applicable to the table columns matching this pattern.</p>
+<h4 id="27120-encryption-parameters">2.7.1.20. Encryption parameters </h4>
+<p>The encryption parameters applicable to the table columns matching this pattern.</p>
 <h3 id="272-operations">2.7.2. Operations </h3>
 <h4 id="2721-insert-pattern">2.7.2.1. Insert pattern </h4>
 <p>Create a pattern identified by a given name, with the other properties passed in parameter.</p>
@@ -1053,12 +1082,12 @@
 <p>Indicates whether the mask is enabled (N) or disabled (Y). When disabled, the mask will not be applied to the table column.</p>
 <h4 id="2816-locked-flag">2.8.1.6. Locked flag </h4>
 <p>Indicates whether the mask is locked (Y) or not (N). Masks modified by end-users must be locked to prevent the sensitive data discovery process from overwriting user’s changes.</p>
-<h4 id="2817-mask-type">2.8.1.7. Mask type </h4>
+<h4 id="2817-mask-type-msk_type">2.8.1.7. Mask type (msk_type) </h4>
 <p>Indicates the type of masking that must be applied to the table column:</p>
 <ul>
 <li>SQL: original value will be replaced by the result of a SQL expression.</li>
 <li>SHUFFLE: values will be shuffled between records (of the same partition if any).</li>
-<li>SEQUENCE: value will be generated from an in-memory sequence, a local Oracle sequence, or a remote sequence accessible through a database link.</li>
+<li>SEQUENCE: value will be generated from an in-memory sequence, a local Oracle sequence, or a remote Oracle sequence accessible through a database link.</li>
 <li>TOKENIZE: value will be replaced with a token generated using a SQL expression.</li>
 <li>INHERIT: value will be inherited from a masked primary key through a foreign key (this inheritance is automatic to preserve referential integrity and can therefore not be defined by end-users).</li>
 </ul>
@@ -1067,7 +1096,7 @@
 <p>Indicates which shuffling group (numbered from 1 to 3) the column belongs to. Applicable only when masking type is SHUFFLE. All columns belonging to the same group will be shuffled together.</p>
 <h4 id="2819-partition-bitmap">2.8.1.9. Partition bitmap </h4>
 <p>Indicates which shuffling partition(s) the column belongs to. Applicable only when masking type is SHUFFLE. As a column can belong to several partitions, a bitmap is used to indicate the groups (bit n represents group n+1). A separate shuffling is performed for each partition of the data i.e., records belonging to different partitions will never be mixed.</p>
-<h4 id="28110-mask-parameters">2.8.1.10. Mask parameters </h4>
+<h4 id="28110-mask-parameters-msk_params">2.8.1.10. Mask parameters (msk_params) </h4>
 <p>Parameters of the mask, which depend on its type:</p>
 <ul>
 <li>SQL: a SQL expression that returns the masked value.</li>
@@ -1085,8 +1114,7 @@
 <li>INHERIT: name of the table column from which masked value is inherited via a foreign key (syntax: <code>&lt;table_name&gt;.&lt;column_name&gt;</code>).</li>
 </ul>
 <h4 id="28111-mask-options">2.8.1.11. Mask options </h4>
-<pre class="language-text"> Comma separated list of masking options, which depend on the masking type:
-</pre>
+<p>Comma separated list of masking options, which depends on the masking type:</p>
 <ul>
 <li>SQL option:
 <ul>
@@ -1101,13 +1129,43 @@
 </ul>
 </li>
 </ul>
-<h4 id="28112-pattern-category">2.8.1.12. Pattern category </h4>
+<h4 id="28112-generation-type-gen_type">2.8.1.12. Generation type (gen_type) </h4>
+<p>Indicates the type of generation that must be used for this table column:</p>
+<ul>
+<li>SQL: a SQL expression is used to generate column value.</li>
+<li>SEQ: value is generated from an in-memory sequence, a local Oracle sequence, or a remote Oracle sequence accessible through a database link.</li>
+<li>INHERIT: value will be inherited from a masked primary key through a foreign key (this inheritance is automatic to preserve referential integrity and can therefore not be defined by end-users).</li>
+</ul>
+<h4 id="28113-generation-parameters-gen_params">2.8.1.13. Generation parameters (gen_params) </h4>
+<p>Parameters for generating column values, which depends on generation type:</p>
+<ul>
+<li>SQL: a SQL expression that returns the column value</li>
+<li>SEQUENCE: depending on the type of sequence:
+<ul>
+<li>Local Oracle sequence: <code>&lt;sequence-name&gt;</code><br>
+(existence checked against <code>ALL_SEQUENCES</code>).</li>
+<li>Remote Oracle sequence: <code>&lt;sequence_name&gt;@&lt;db_link_name&gt;</code><br>
+(existence not checked against Oracle data dictionary).</li>
+<li>In-memory sequence: <code>[&lt;sequence-name&gt;] [START WITH &lt;x&gt;] [INCREMENT BY &lt;y&gt;]</code> (each part being optional, x and y default to 1).</li>
+</ul>
+</li>
+<li>INHERIT: name of the table column from which generated value is inherited via a foreign key</li>
+</ul>
+<h4 id="28114-encryption-type-tde_type">2.8.1.14. Encryption type (tde_type) </h4>
+<p>Indicates the type of encryption that must be applied to this table column:</p>
+<ul>
+<li>SQL: the SQL expression to be used to encrypt the column value.</li>
+<li>INHERIT: for fk columns, encryption is inherited from referenced pk/uk columns.</li>
+</ul>
+<h4 id="28115-encryption-parameters-tde_params">2.8.1.15. Encryption parameters (tde_params) </h4>
+<p>Contains the SQL expression that returns the encrypted value for this table column.</p>
+<h4 id="28116-pattern-category">2.8.1.16. Pattern category </h4>
 <p>Category of the pattern that led to the creating of this mask during data discovery.</p>
-<h4 id="28113-pattern-name">2.8.1.13. Pattern name </h4>
+<h4 id="28117-pattern-name">2.8.1.17. Pattern name </h4>
 <p>Name of the pattern that led to the creating of this mask during data discovery.</p>
-<h4 id="28114-remarks">2.8.1.14. Remarks </h4>
+<h4 id="28118-remarks">2.8.1.18. Remarks </h4>
 <p>Explains why the pattern was retained as the best matching or, in case of inheritance, which foreign key is used to propagate a masked primary key value.</p>
-<h4 id="28115-values-sample">2.8.1.15. Values sample </h4>
+<h4 id="28119-values-sample">2.8.1.19. Values sample </h4>
 <p>Sample of matching values found during the data discovery process.</p>
 <h3 id="282-operations">2.8.2. Operations </h3>
 <h4 id="2821-insert-mask">2.8.2.1. Insert mask </h4>
@@ -1182,7 +1240,7 @@
 <ul>
 <li><code>execute_degpl()</code></li>
 </ul>
-<p>See chapter <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156903848">6</a> for a detailed description of the EDGPL language.</p>
+<p>See chapter <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156903848">6</a> for a detailed description of the EDGPL language.</p>
 <h4 id="21012-extract-rowids">2.10.1.2. Extract rowids </h4>
 <p>To identify precisely the rows that make your data set, call the <code>extract_data_set_rowids()</code> procedure and pass the data set id in parameter. Records are created with the rowid of identified rows. They act as pointers to the data of the data set.</p>
 <h4 id="21013-preview-data-set">2.10.1.3. Preview data set </h4>
@@ -1286,6 +1344,19 @@
 <p>Generate tokens in <code>DS_TOKENS</code> for columns having a TOKENIZE mask type. This operation must be performed before previewing or exporting data.</p>
 <h4 id="21315-mask-data-set">2.13.1.5. Mask data set </h4>
 <p>Execute all above operations (generate identifiers, shuffle records, generate tokens, and propagate pk masking) in a single call before previewing and transporting data.</p>
+<h2 id="214-transparent-data-encryption">2.14. Transparent data encryption </h2>
+<p>Transparent data encryption allows to encrypt some table columns (including PKs/UKs) using a FPE (format preserving encryption) algorithm. A view is created for each encrypted table. All operations (select, insert, update, and delete) must be performed using these views. Data are decrypted when selecting from the views. Data are encrypted via instead-of triggers when inserting, updating, and deleting the views.</p>
+<h3 id="2141-operations">2.14.1. Operations </h3>
+<h4 id="21411-create-views-create_views">2.14.1.1. Create views (create_views) </h4>
+<p>Create the views that decrypt the data (<code>p_set_type</code> parameter must be set to <code>TDE</code>)</p>
+<h4 id="21412-create-triggers-create_tde_triggers">2.14.1.2. Create triggers (create_tde_triggers) </h4>
+<p>Create instead-of insert, update, and delete triggers on the views to encrypt the data.</p>
+<h4 id="21413-propagate-encryption-propagate_encryption">2.14.1.3. Propagate encryption (propagate_encryption) </h4>
+<p>Propagate encryption of primary or unique key columns to foreign key columns. Foreign key columns will therefore INHERIT the SQL expression used for encryption from the referenced primary or unique key columns. This operation is automatically performed when encryption is configured using DEGPL.</p>
+<h4 id="21414-drop-views-drop_views">2.14.1.4. Drop views (drop_views) </h4>
+<p>Drop the views created for transparent data encryption (<code>p_set_type</code> parameter must be set to <code>TDE</code>).</p>
+<h4 id="21415-drop-triggers-create_tde_triggers">2.14.1.5. Drop triggers (create_tde_triggers) </h4>
+<p>Drop the triggers created for transparent data encryption.</p>
 <h1 id="3-technical-aspects">3. Technical Aspects </h1>
 <h2 id="31-message-types">3.1. Message Types </h2>
 <p>The data set utility may display messages of the following types:</p>
@@ -1621,7 +1692,7 @@
 <ul>
 <li><code>&lt;name&gt;</code> is the name of the data set; it will be converted to uppercase unless you enclose it within double quotes.</li>
 <li>Valid options are “/d” or “/r” to delete before creating or, create or replace the data set; this latest is recommended as it has the advantage that the <code>set_id</code> remains the same.</li>
-<li>Data set properties follow the syntax described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156909081">Properties</a> <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156909081">6.1.1</a>. Their name derives from column names of the <code>DS_DATA_SETS</code> table.</li>
+<li>Data set properties follow the syntax described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156909081">Properties</a> <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156909081">6.1.1</a>. Their name derives from column names of the <code>DS_DATA_SETS</code> table.</li>
 </ul>
 <p>Examples:</p>
 <ul>
@@ -1796,7 +1867,7 @@
 <p>The ambiguity can be removed by specifying the name of the foreign key: <code>A-&gt;B[fk='fk1']</code>. The foreign key name is case insensitive, but it is converted to uppercase when stored. The <code>fk</code> property is a shortcut for the <code>constraint_name</code> property (see next section).</p>
 <p>For each specified arrow, a record is created in <code>DS_CONSTRAINTS</code> if it does not exist yet or updated otherwise. For dual direction arrows, one record is created for each direction.</p>
 <h3 id="619-constraint-properties">6.1.9. Constraint properties </h3>
-<p>Constraint properties as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156909081">6.1.1</a> must be specified after the arrow i.e., <code>A-&gt;[&lt;properties&gt;]B</code>. Property names correspond to the column names of the <code>DS_CONSTRAINTS</code> table, except <code>constraint_name</code> that is replaced with <code>fk</code> for the sake of conciseness. Extract type <code>X</code> means that the constraint must be eXcluded (i.e., deleted) from the data set.</p>
+<p>Constraint properties as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156909081">6.1.1</a> must be specified after the arrow i.e., <code>A-&gt;[&lt;properties&gt;]B</code>. Property names correspond to the column names of the <code>DS_CONSTRAINTS</code> table, except <code>constraint_name</code> that is replaced with <code>fk</code> for the sake of conciseness. Extract type <code>X</code> means that the constraint must be eXcluded (i.e., deleted) from the data set.</p>
 <h3 id="6110-arrow-shortcuts">6.1.10. Arrow shortcuts </h3>
 <p>An extraction path is a succession of FK constraint crossings; from a notational point of view, they are separated with a semi-colon (<code>;</code>). So, an extraction path from A to B, then from B to C, is denoted <code>A-&gt;B;B-&gt;C</code>.</p>
 <p>When a table is crossed by an extraction path i.e., when the tables to the left and to the right of the semi-colon are the same (as table B in the above example), the following equivalent shortcut notation can be used: <code>A-&gt;B-&gt;C &lt;=&gt; A-&gt;B;B-&gt;C</code>.</p>
@@ -1821,14 +1892,14 @@
 <h3 id="6112-table-extract-type">6.1.12. Table extract type </h3>
 <p>Table extract type can be specified after the table name with a slash (<code>/</code>) followed by letter B, P, F, N, R, X or D e.g., <code>Table1/B-&gt;Table2</code>. When a record already exists in <code>DS_TABLES</code>, its extract type is updated only if it is specified explicitly. When no record exists in <code>DS_TABLES</code>, a new record is inserted with the specified extract type and, when not specified, with P as the default value. Extract type X or D means that the table must be eXcluded (i.e., Deleted) from the data set.</p>
 <h3 id="6113-table-properties">6.1.13. Table properties </h3>
-<p>Table properties as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156909081">6.1.1</a> must be specified after the table alias or after the table name when no alias is given e.g., <code>table_name table_alias [property=”value”]</code>. Property names correspond to the column names of the <code>DS_TABLES</code> table.</p>
+<p>Table properties as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156909081">6.1.1</a> must be specified after the table alias or after the table name when no alias is given e.g., <code>table_name table_alias [property=”value”]</code>. Property names correspond to the column names of the <code>DS_TABLES</code> table.</p>
 <h3 id="6114-column-properties">6.1.14. Column properties </h3>
-<p>For GEN data sets, column properties (as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156909081">6.1.1</a>) can be specified with the following syntax:</p>
+<p>For GEN data sets, column properties (as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156909081">6.1.1</a>) can be specified with the following syntax:</p>
 <p><code>&lt;table&gt;.&lt;column1&gt;[&lt;properties&gt;]…</code></p>
 <p>Table definition must be followed by a dot (<code>.</code>), the column name and its properties. A column can be deleted from a data set by specifying <code>/d</code> (Delete) or <code>/x</code> (eXclude) after its name.</p>
 <p>Note: column properties are linked to a data set and are stored in <code>DS_TAB_COLUMNS</code>.</p>
 <h3 id="6115-mask-properties">6.1.15. Mask properties </h3>
-<p>To mask your data during subsetting, mask properties (as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025127-644-gpp7xr.cspdf.html#_ref156910593">6.1.13</a>) can be specified with the following syntax (identical to column properties):</p>
+<p>To mask your data during subsetting, mask properties (as described in section <a href="file:///C:/Users/deboiph/AppData/Local/Temp/1/crossnote2025323-12852-1m1pvgj.kfkd.html#_ref156910593">6.1.13</a>) can be specified with the following syntax (identical to column properties):</p>
 <p><code>&lt;table&gt;.&lt;column1&gt;[&lt;properties&gt;]…</code></p>
 <p>Table definition must be followed by a dot (<code>.</code>), column name and its masking properties enclosed between squared brackets (<code>[</code> and <code>]</code>). A mask can be deleted by specifying <code>/d</code> (Delete) or <code>/x</code> (eXclude) after its column name.</p>
 <p>Note: mask properties are independent from a data set and are stored in <code>DS_MASKS</code>.</p>

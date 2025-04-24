@@ -1,0 +1,24 @@
+digraph demo_graph {
+   node [shape=record style="rounded, filled"];
+   edge [arrowsize=1.5 label=" "];
+   rankdir=TB;
+
+   // Define the nodes
+   INIT [label="10. Initialise Data Model"];
+   GEN  [label="20. Synthetic Data Generation"];
+   GEN2 [label="20. Synthetic Data Generation"];
+   SUB  [label="30. Data Subsetting (extraction)"];
+   DIS  [label="40. Sensitive Data Discovery"];
+   DIS2 [label="40. Sensitive Data Discovery"];
+   MSK  [label="50. Sensitive Data Masking"];
+   TRA  [label="60. Data Transportation"];
+   TDE  [label="75. Transparent Data Encryption"];
+   CDC  [label="70. Change Data Capture"];
+
+   // Define the edges
+   INIT -> GEN -> SUB -> DIS -> MSK -> TRA;
+   SUB -> MSK;
+   SUB -> TRA;
+   INIT -> CDC -> GEN2;
+   INIT -> DIS2 -> TDE;
+}

@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Set Utility - Demo Guide v25.2
+# Data Set Utility - Demo Guide v25.4
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (DIGIT)
@@ -10,7 +10,10 @@
   - [1.1. Overview](#11-overview)
   - [1.2. Key Functionalities](#12-key-functionalities)
   - [1.3. Installation](#13-installation)
-  - [1.4. Demo use case](#14-demo-use-case)
+  - [1.4. Demo use cases](#14-demo-use-cases)
+    - [1.4.1. Data Subsetting, Masking, and Transportation](#141-data-subsetting-masking-and-transportation)
+    - [1.4.2. Transparent Data Encryption](#142-transparent-data-encryption)
+    - [1.4.3. Change Data Capture](#143-change-data-capture)
 - [2. Foreword](#2-foreword)
   - [2.1. Internal Data Model](#21-internal-data-model)
     - [2.1.1. Data sets](#211-data-sets)
@@ -107,49 +110,65 @@
       - [7.3.2.1. Prepare the target schema](#7321-prepare-the-target-schema)
       - [7.3.2.2. Transport Data to Destination](#7322-transport-data-to-destination)
       - [7.3.2.3. Export/Import Data from/to XML](#7323-exportimport-data-fromto-xml)
-- [8. Change Data Capture](#8-change-data-capture)
+- [8. Transparent Data Encryption](#8-transparent-data-encryption)
   - [8.1. Introduction](#81-introduction)
   - [8.2. Requirements](#82-requirements)
   - [8.3. Solution](#83-solution)
     - [8.3.1. Algorithm](#831-algorithm)
     - [8.3.2. Procedure](#832-procedure)
-      - [8.3.2.1. Create a data set](#8321-create-a-data-set)
-      - [8.3.2.2. Include tables](#8322-include-tables)
-      - [8.3.2.3. Create triggers](#8323-create-triggers)
-      - [8.3.2.4. Check configuration](#8324-check-configuration)
-      - [8.3.2.5. Enable and disable CDC](#8325-enable-and-disable-cdc)
-      - [8.3.2.6. Manual Rollback or rollforward](#8326-manual-rollback-or-rollforward)
-      - [8.3.2.7. Automatic replication](#8327-automatic-replication)
-      - [8.3.2.8. Generate scripts](#8328-generate-scripts)
-      - [8.3.2.9. Drop triggers](#8329-drop-triggers)
-- [9. Graph Visualisation using GraphViz](#9-graph-visualisation-using-graphviz)
+      - [8.3.2.1. Create an empty data model](#8321-create-an-empty-data-model)
+      - [8.3.2.2. Identify sensitive data](#8322-identify-sensitive-data)
+      - [8.3.2.3. Review the encryption model](#8323-review-the-encryption-model)
+      - [8.3.2.4. Adapt and/or complement the encryption model](#8324-adapt-andor-complement-the-encryption-model)
+      - [8.3.2.5. Propagate encryption of PKs/UKs](#8325-propagate-encryption-of-pksuks)
+      - [8.3.2.6. Create ad-hoc views](#8326-create-ad-hoc-views)
+      - [8.3.2.7. Create instead-of triggers](#8327-create-instead-of-triggers)
+      - [8.3.2.8. Operate](#8328-operate)
+      - [8.3.2.9. Drop views and their triggers](#8329-drop-views-and-their-triggers)
+- [9. Change Data Capture](#9-change-data-capture)
   - [9.1. Introduction](#91-introduction)
-  - [9.2. Invocation](#92-invocation)
-  - [9.3. Parameters](#93-parameters)
-  - [9.4. Diagram Examples](#94-diagram-examples)
-    - [9.4.1. Synthetic Data Generation Diagram](#941-synthetic-data-generation-diagram)
-    - [9.4.2. Sensitive Data Masking Diagram](#942-sensitive-data-masking-diagram)
-    - [9.4.3. Data Subsetting Diagram](#943-data-subsetting-diagram)
-    - [9.4.4. Change Data Capture Diagram](#944-change-data-capture-diagram)
-    - [9.4.5. Data Structure Diagram](#945-data-structure-diagram)
-- [10. DEGPL Language](#10-degpl-language)
+  - [9.2. Requirements](#92-requirements)
+  - [9.3. Solution](#93-solution)
+    - [9.3.1. Algorithm](#931-algorithm)
+    - [9.3.2. Procedure](#932-procedure)
+      - [9.3.2.1. Create a data set](#9321-create-a-data-set)
+      - [9.3.2.2. Include tables](#9322-include-tables)
+      - [9.3.2.3. Create triggers](#9323-create-triggers)
+      - [9.3.2.4. Check configuration](#9324-check-configuration)
+      - [9.3.2.5. Enable and disable CDC](#9325-enable-and-disable-cdc)
+      - [9.3.2.6. Manual Rollback or rollforward](#9326-manual-rollback-or-rollforward)
+      - [9.3.2.7. Automatic replication](#9327-automatic-replication)
+      - [9.3.2.8. Generate scripts](#9328-generate-scripts)
+      - [9.3.2.9. Drop triggers](#9329-drop-triggers)
+- [10. Graph Visualisation using GraphViz](#10-graph-visualisation-using-graphviz)
   - [10.1. Introduction](#101-introduction)
-  - [10.2. Key features](#102-key-features)
-  - [10.3. Syntax Overview](#103-syntax-overview)
-    - [10.3.1. Data set](#1031-data-set)
-    - [10.3.2. Tables](#1032-tables)
-    - [10.3.3. Constraints](#1033-constraints)
-    - [10.3.4. Properties](#1034-properties)
-    - [10.3.5. Columns](#1035-columns)
-    - [10.3.6. Default values](#1036-default-values)
-    - [10.3.7. Recursion](#1037-recursion)
-    - [10.3.8. Scope](#1038-scope)
-    - [10.3.9. Invocation](#1039-invocation)
-  - [10.4. Examples](#104-examples)
-    - [10.4.1. Data Generation Example](#1041-data-generation-example)
-    - [10.4.2. Data Subsetting Example](#1042-data-subsetting-example)
-    - [10.4.3. Data Masking Example](#1043-data-masking-example)
-    - [10.4.4. Data Capture Example](#1044-data-capture-example)
+  - [10.2. Invocation](#102-invocation)
+  - [10.3. Parameters](#103-parameters)
+  - [10.4. Diagram Examples](#104-diagram-examples)
+    - [10.4.1. Synthetic Data Generation Diagram](#1041-synthetic-data-generation-diagram)
+    - [10.4.2. Sensitive Data Masking Diagram](#1042-sensitive-data-masking-diagram)
+    - [10.4.3. Data Subsetting Diagram](#1043-data-subsetting-diagram)
+    - [10.4.4. Change Data Capture Diagram](#1044-change-data-capture-diagram)
+    - [10.4.5. Data Structure Diagram](#1045-data-structure-diagram)
+- [11. DEGPL Language](#11-degpl-language)
+  - [11.1. Introduction](#111-introduction)
+  - [11.2. Key features](#112-key-features)
+  - [11.3. Syntax Overview](#113-syntax-overview)
+    - [11.3.1. Data set](#1131-data-set)
+    - [11.3.2. Tables](#1132-tables)
+    - [11.3.3. Constraints](#1133-constraints)
+    - [11.3.4. Properties](#1134-properties)
+    - [11.3.5. Columns](#1135-columns)
+    - [11.3.6. Default values](#1136-default-values)
+    - [11.3.7. Recursion](#1137-recursion)
+    - [11.3.8. Scope](#1138-scope)
+    - [11.3.9. Invocation](#1139-invocation)
+  - [11.4. Examples](#114-examples)
+    - [11.4.1. Data Generation Example](#1141-data-generation-example)
+    - [11.4.2. Data Subsetting Example](#1142-data-subsetting-example)
+    - [11.4.3. Data Masking Example](#1143-data-masking-example)
+    - [11.4.4. Data Encryption Example](#1144-data-encryption-example)
+    - [11.4.5. Data Capture Example](#1145-data-capture-example)
 
 ## 1. Introduction
 
@@ -170,6 +189,7 @@ This open-source nature empowers users to harness the full potential of advanced
 - **Sensitive Data Discovery:** Identify and secure sensitive information to comply with data privacy standards.
 - **On-the-fly Data Masking:** Configure data masking policies that will be applied while transporting your data.
 - **Data Transportation**: Transport your anonymised data subset from one environment to another, by different means and without needing to disable constraints.
+- **Transparent Data Encryption**: Encrypt your data at rest in such a way that unauthorized users (even DBAs) cannot view/decrypt them.
 - **Change Data Capture:** Capture, rollback, or rollforward DML operations, ensuring data integrity and replication capabilities.
 - **Graph Visualization:** Utilize GraphViz to generate insightful graphs, providing a visual representation of data set configurations.
 - **DEGPL Language:** Leverage the Data Extraction and Generation Path Language for efficient configuration.
@@ -182,13 +202,31 @@ The Data Set Utility is part of the EC PL/SQL toolkit that is available for inst
 
 Demo scripts can be found in the `demo` directory. Their name is prefixed with a number that indicates their order of execution. Scripts labelled "a" are based on APIs while scripts labelled "b" are based on the DEGPL language. Files labelled "z" are the corresponding GraphViz diagrams.
 
-### 1.4. Demo use case
+### 1.4. Demo use cases
+
+#### 1.4.1. Data Subsetting, Masking, and Transportation
 
 A typical data management requirement is to transfer an anonymised subset of production data to a non-production environment (e.g., development, test, or acceptance).
 
-As depicted in the diagram below, this demo will successively demonstrate, starting from an empty data model, how to generate synthetic data in it, extract a coherent subset of it, discover and mask its sensitive data (both steps being optional), and transport the (masked) data subset to another schema using various methods. It will end by showing how to capture data changes and replicate them synchronously or asynchronously to another schema.
+The first demo scenario will successively demonstrate, starting from an empty data model, how to generate synthetic data in it, extract a coherent subset of it, discover and mask its sensitive data (both steps being optional), and transport the (masked) data subset to another schema using various methods.
+
+#### 1.4.2. Transparent Data Encryption
+
+Another typical use case is the encryption of data in such a way that those having access to the schema (e.g., DBAs) are not able to see them unless they know the encryption key.
+
+The second demo scenario will successfuly demonstrate, starting from an empty schema, how to discover sensitive data and subsequently encrypt them at rest.
+
+#### 1.4.3. Change Data Capture
+
+Another typical use case is the synchronous or asynchronous  replication of data between two schemas in the same or in different databases (e.g., to feed a data warehouse with changes made to an operational database).
+
+The third demo scenario will successfully demonstrate, starting from an empty schema, how to setup change data capture to subsequently replicate data generated in the schema  (synchronously or asynchronously). 
+
+The 3 scenarios are illustrated on the following diagram:
 
 ![Demo path](ds_utility_demo_files/demo_path.svg)
+
+The number indicated at each step allows to identify the corresponding SQL scripts that must be executed.
 
 Each capability is detailed in its own dedicated chapter.
 
@@ -236,11 +274,11 @@ The *rowid* of *records* that are extracted or generated during data subsetting 
 
 #### 2.1.6. Patterns
 
-Sensitive data discovery is performed by searching for *patterns* in table/column names and comments, and in the data themselves. Alternatively, they could have been named *sensitive data types*. They are uniquely identified by a *pat_id* and by a *pat_name*. As the sensitivity nature of data does not depend on how they are extracted, they are not linked to data sets. The tool comes with a library of pre-defined patterns. Patterns also provide default masks that can be applied to discovered sensitive data types.
+Sensitive data discovery is performed by searching for *patterns* in table/column names and comments, and in the data themselves. Alternatively, they could have been named *sensitive data types*. They are uniquely identified by a *pat_id* and by a *pat_name*. As the sensitivity nature of data does not depend on how they are extracted, they are not linked to data sets. The tool comes with a library of pre-defined patterns. Each sensitive data type comes with a default masking pattern, generation pattern, and encryption pattern.
 
 #### 2.1.7. Masks
 
-*Masks* may be applied on-the-fly (i.e., during transportation) to anonymise columns of any data set. The default masks created during sensitive data discovery can be adapted or complemented by end-user. Masks based on random functions can also be used as a starting point for synthetic data generation. For the same reasons as patterns, they are not linked to any data set. Masks are identified by a *msk_id* and by the *table_name* and *column_name* pair.
+*Masks* may be applied on-the-fly (i.e., during transportation) to anonymise columns of any data set. The default masks created during sensitive data discovery can be adapted or complemented by end-user. Masks based on random functions can also be used as a starting point for synthetic data generation. For the same reasons as patterns, they are not linked to any data set. Masks are identified by a *msk_id* and by the *table_name* and *column_name* pair. Masks are also used to specify how to encrypt table columns for transparent data encryption.
 
 #### 2.1.8. Identifiers
 
@@ -914,11 +952,75 @@ For the reverse operation, importing your data from XML into the target schema, 
 
 This method is also useful if you intend to import your data set back into the source schema. For instance, this could be done to perform in-place subsetting and masking (i.e., in the same schema) or if you wish to clone specific data.
 
-## 8. Change Data Capture
+## 8. Transparent Data Encryption
 
-This chapter gives an overview of the CDC functionality. Please consult the *Reference Manual* for more details.
+This chapters gives an overview of the Transparent Data Encryption capability of the tool.
 
 ### 8.1. Introduction
+
+The DS Utility supports Transparent Data Encryption (TDE), allowing users to encrypt data at the schema level using built-in encryption libraries. This ensures that sensitive data remains protected while being seamlessly accessible through views.
+
+This is an alternative to Oracle TDE which is only available in Oracle Enterprise Edition with the Advanced Security Option (ASO), which requires additional licensing costs.
+
+### 8.2. Requirements
+
+The requirement for this demo use case is to encrypt all personal and financial sensitive data to protect them against non-authorised access. This includes the encryption of data that are part of primary keys like the `per_id` and the `bank account number`, encryption that must be propagated to foreign keys. For each column, the most suitable encryption method must be used depending on its data type and format (e.g., basic encryption for basic data types, and complex encryption for complex data types like credit card numbers or IBAN). The default encryption algorithm (RSR) must be used.
+
+### 8.3. Solution
+
+The approach employed in this tool involves creating ad-hoc views to decrypt ciphertext data and instead-of triggers on these views to encrypt plaintext data when they are inserted, updated, and deleted. With this solution, end-users or applications must access and manipulate data exclusively using these views. No key management is provided by the tool i.e., encryption key (also used for decryption) must be set (in memory) each time a new database session is created.
+
+#### 8.3.1. Algorithm
+
+No specific algorithm is used (except for the encryption itself).
+
+#### 8.3.2. Procedure
+
+##### 8.3.2.1. Create an empty data model
+
+For the demo, we will start with an empty data model. It is however possible to start with non-empty tables and encrypt their content (by updating the views) under the condition that no primary key is encrypted.
+
+##### 8.3.2.2. Identify sensitive data
+
+Idenfitying sensitive data is an optional step that allows to speed up the overall configuration as all sensitive data types are provided with a default encryption pattern (i.e., a SQL expression that invokes the best suited encryption function of the library). To proceed, invoke the `discover_sensitive_data` function of the main package. This creates a record in the `ds_masks` table for each sensitive table column that has been discovered, with a default encryption method (SQL expression).
+
+##### 8.3.2.3. Review the encryption model
+
+Review the encryption configuration by checking the `tde_type` and `tde_params` columns of the `DS_PATTERNS` table. Possible values for `tde_type` are `SQL` or `INHERIT` (for foreign key columns that inherit the encryption from referenced primary or unique key columns). In both cases, the `tde_params` column contains the SQL expression used to encrypt the column values (a call to a function of the encryption package).
+
+A visual check can also be performed by invoking the `graph_data_set()` pipelined function of the extension package with the `p_set_type` parameter set to `TDE`. This generates the DOT code of a Graphviz diagram that can be visualised using any online Graphviz editor.
+
+##### 8.3.2.4. Adapt and/or complement the encryption model
+
+Ajust the encryption model as necessary using either APIs or the DEGPL language. When using APIs, invoke the `insert_mask()` or `update_mask_properties()` procedures. When using DEGPL, invoke the `execute_degpl()` procedure of the extension package.
+
+##### 8.3.2.5. Propagate encryption of PKs/UKs
+
+Once the encryption model has been changed using APIs, the `propagate_encryption()` procedure must be called to encrypt all foreign key columns that reference encrypted primary or unique key columns. This step is not necessary when using DEGPL as it is automatically performed by the `execute_degpl()` procedure.
+
+##### 8.3.2.6. Create ad-hoc views
+
+Create the views that will be used to select, insert, update, and delete data by invoking the `create_views()` procedure with the `p_set_type` parameter set to `TDE`. If you want to compare plaintext columns of the views with encrypted columns of the tables, a `ROWID#` column can be added to the views by setting the `p_include_rowid` parameter to `TRUE`.
+
+##### 8.3.2.7. Create instead-of triggers
+
+Create instead-of insert, update, and delete triggers on the ad-hoc views by invoking the `create_tde_triggers()` procedure. The parameters that were passed when creating the views must also be passed to this procedure to allow to identify them (e.g., `p_view_suffix`).
+
+##### 8.3.2.8. Operate
+
+Once views and triggers have been created, all operations (select, insert, update, and delete) must be performed using these views. When selected, the views will decrypt the data. When the views are inserted, updated, or deleted, the triggers will encrypted the data.
+
+The encryption/decryption key must be set each time a new session is created by invoking the `set_encryption_key()` procedure of the `ds_crypto_krn` package. Not setting the encryption key will result in an exception being raised when trying to operate the data. Setting a wrong key will result in data being wrongly decrypted.
+
+##### 8.3.2.9. Drop views and their triggers
+
+Triggers and views can be deleted using respectively the `drop_tde_triggers()` and `drop_views()` procedures with the same parameter values as those passed upon their creation.
+
+## 9. Change Data Capture
+
+This chapter gives an overview of the Change Data Capture capability of the tool. Please consult the *Reference Manual* for more details.
+
+### 9.1. Introduction
 
 Change Data Capture (CDC) is a technique used in databases to identify and capture changes made to the data so that downstream systems can be updated with the modified information. The primary goal of CDC is to track and capture changes to the data in near real-time or at scheduled intervals, enabling efficient and timely synchronization of data between different systems.
 
@@ -932,15 +1034,15 @@ Finally, CDC can contribute to gaining insights into the data logic of an applic
 
 This tool employs a log-based Change Data Capture (CDC) approach, which involves capturing and logging all changes (including inserts, updates, and deletes) made to the tables within a data set in XML format. These recorded operations can then be rolled back or rolled forward to another schema, either synchronously or asynchronously (in near real-time). Additionally, the tool enables the generation of redo and undo scripts to further enhance flexibility in managing and reverting data modifications.
 
-### 8.2. Requirements
+### 9.2. Requirements
 
 To showcase the CDC functionalities, we aim to capture every change applied to the demo tables, including operations like the generation of synthetic data that involves inserts and updates. Subsequently, we plan to propagate these changes to another schema synchronously and asynchronously, through a database link, generate redo and undo scripts, and ultimately roll back the generated data.
 
-### 8.3. Solution
+### 9.3. Solution
 
 The approach employed in this tool involves creating an "*after each row*" database trigger on all tables within the data set. This trigger captures insert, update, and delete operations, storing the details in the *ds_records* table. Additionally, the data as it existed both before and after the operation is stored in XML format, allowing for subsequent redo or undo actions.
 
-#### 8.3.1. Algorithm
+#### 9.3.1. Algorithm
 
 To apply changes or create redo scripts, the recorded operations are replayed in their original execution sequence using the data stored in the XML.
 
@@ -950,9 +1052,9 @@ Any modification to a primary key is executed through a two-step process involvi
 
 To enable asynchronous rollforwarding or replication, a *dbms_job* is dynamically created when the first operation of a transaction is captured. All operations within the same transaction are subsequently rolled forward by the job just after the commit, ensuring near real-time processing.
 
-#### 8.3.2. Procedure
+#### 9.3.2. Procedure
 
-##### 8.3.2.1. Create a data set
+##### 9.3.2.1. Create a data set
 
 To create a data set for CDC, invoke the *create_or_replace_data_set_def()* procedure of the main package and set its *set_type* to'CAP'.
 
@@ -964,31 +1066,31 @@ Specify one of the following replication mode (*capture_mode* property):
 
 Additionally, you can specify which field in your table contain user information that can be utilised to filter transactions. For instance, an audit field such as *inserted_by* or *updated_by* can be employed for this purpose.
 
-##### 8.3.2.2. Include tables
+##### 9.3.2.2. Include tables
 
 Tables for which you intend to capture changes can be incorporated into the data set using the *include_tables()* procedure. To rollforward table changes to another schema, specify the *target_schema* (if in the same db) or the *target_db_link* (if in another db).
 
-##### 8.3.2.3. Create triggers
+##### 9.3.2.3. Create triggers
 
 To create the capturing triggers on the tables of your data set, invoke the *create_triggers()* procedure.
 
-##### 8.3.2.4. Check configuration
+##### 9.3.2.4. Check configuration
 
 To check tables included in your data set and the capturing triggers just created, invoke the *graph_data_set()* pipeline function from a SELECT statement. Here is the diagram that you will get.
 
 ![Alt text](ds_utility_demo_files/ds_cap.svg)
 
-##### 8.3.2.5. Enable and disable CDC
+##### 9.3.2.5. Enable and disable CDC
 
 Data capture is by default immediately enabled when triggers are created. To disable or re-enable CDC, update the *capture_flag* property of your data set using the *update_data_set_def_properties()* procedure. *Y* means enabled and *N* means disabled.
 
-##### 8.3.2.6. Manual Rollback or rollforward
+##### 9.3.2.6. Manual Rollback or rollforward
 
 To rollback or rollforward operations captured in the NONE replication mode, invoke the *rollback_captured_data_set()* or *rollforward_captured_data_set()* procedure. You may decide to keep or delete recorded operations after their rollback or rollforward. They are deleted by default.
 
 Alternatively, you can also invoke *undo_captured_operations()* and *redo_captured_operations()* procedures which accept additional parameters. You can filter on the *username* who performed the transactions and limit the number of operations to redo or undo.
 
-##### 8.3.2.7. Automatic replication
+##### 9.3.2.7. Automatic replication
 
 Operations captured in the SYNC or ASYN replication mode are automatically rolled forward to another local or remote schema, without any end-user intervention.
 
@@ -996,23 +1098,23 @@ While synchronous replication offers the benefit of immediacy, it comes with the
 
 It is important to note that, as of now, no logs are provided for asynchronous replication.
 
-##### 8.3.2.8. Generate scripts
+##### 9.3.2.8. Generate scripts
 
 To generate redo or undo scripts, invoke the *gen_captured_data_set_script()* pipelined function from a SELECT statement, with the appropriate parameters.
 
-##### 8.3.2.9. Drop triggers
+##### 9.3.2.9. Drop triggers
 
 Once you are done, you can drop the capturing triggers from the tables of your data set by invoking the *drop_triggers()* procedure.
 
-## 9. Graph Visualisation using GraphViz
+## 10. Graph Visualisation using GraphViz
 
 This chapter gives an overview of the graph visualisation functionality offered by the Data Set Utility. For more details, please consult the *Data Set Utility Reference Manual*.
 
-### 9.1. Introduction
+### 10.1. Introduction
 
 The Data Set Utility incorporates Graphviz functionality, allowing users to visually represent and analyze the configuration of their data sets. This feature employs Graphviz, an open-source graph visualization software, to generate diagrams illustrating the relationships, constraints, and configurations within a data set. Users can leverage these diagrams to gain insights into the structure of their data sets, understand interconnections between tables and constraints, and verify the accuracy of their configurations.
 
-### 9.2. Invocation
+### 10.2. Invocation
 
 To generate the DOT code, invoke the *graph_data_set()* function of the extension package (*DS_UTILITY_EXT*) and pass in parameter the *set_id* of the data set that you want to visualise. Passing a NULL reference for the data set means that you want to get the data masking configuration (which is independent of any data set). An example is provided in the *80_demo_data_graphviz.sql* script provided in the *demo* directory.
 
@@ -1020,7 +1122,7 @@ The information that is shown also depends on the type of data set (SUB, GEN or 
 
 To visualize the diagram, copy/paste the code into your favourite online GraphViz editor. I recommend using the following: [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline) although you can find many others on the internet.
 
-### 9.3. Parameters
+### 10.3. Parameters
 
 You can decide to show only tables and constraints of your data set or those of your whole schema, with the possibility to filter on table names.
 
@@ -1037,49 +1139,49 @@ You can decide to show or not:
 
 Default graph, node, edge, and subgraph attributes can also be overwritten to customise the generated layout. Configuration properties that do not fit on the diagram (e.g., SQL expressions) can be consulted using tooltips.
 
-### 9.4. Diagram Examples
+### 10.4. Diagram Examples
 
 Here follow a few examples of generated diagrams.
 
-#### 9.4.1. Synthetic Data Generation Diagram
+#### 10.4.1. Synthetic Data Generation Diagram
 
 This diagram shows the data generation configuration used in the demo.
 
 ![Alt text](ds_utility_demo_files/ds_gen_2.svg)
 
-#### 9.4.2. Sensitive Data Masking Diagram
+#### 10.4.2. Sensitive Data Masking Diagram
 
 This diagram shows the default data masking configuration resulting from a sensitive data discovery and applicable to all data sets.
 
 ![Alt text](ds_utility_demo_files/ds_dis_1.svg)
 
-#### 9.4.3. Data Subsetting Diagram
+#### 10.4.3. Data Subsetting Diagram
 
 This diagram shows the data subsetting and (adapted) data masking configurations used in the demo.
 
 ![Alt text](ds_utility_demo_files/ds_msk_1.svg)
 
-#### 9.4.4. Change Data Capture Diagram
+#### 10.4.4. Change Data Capture Diagram
 
 This diagram shows tables and triggers of the capture data set used in the demo.
 
 ![Alt text](ds_utility_demo_files/ds_cap.svg)
 
-#### 9.4.5. Data Structure Diagram
+#### 10.4.5. Data Structure Diagram
 
 This tool can also generate the data structure diagram of your schema (or a subset of it) similar to those generated by database design engineering tools like SQL*Developer Data Modeler.
 
 ![Data Structure Diagram](ds_utility_demo_files/ds_dsd.svg)
 
-## 10. DEGPL Language
+## 11. DEGPL Language
 
 This chapter provides a brief overview of DEGPL's features, syntax, and includes a few examples. For a more detailed description of the language, please refer to the *Data Set Utility Reference Manual*.
 
-### 10.1. Introduction
+### 11.1. Introduction
 
 The Data Extraction and Generation Path Language (DEGPL) is presented as an alternative or complementary approach to APIs for achieving data subsetting (SUB), synthetic data generation (GEN), and sensitive data masking. Notably, DEGPL adopts a syntax reminiscent of the GraphViz DOT language.
 
-### 10.2. Key features
+### 11.2. Key features
 
 - **Easy and Concise Description:** DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.
 - **Easy and Concise Description:** DEGPL provides a straightforward and concise way to describe the path for extracting or generating data within a data model.
@@ -1096,11 +1198,11 @@ The Data Extraction and Generation Path Language (DEGPL) is presented as an alte
 
 These features collectively contribute to DEGPL's effectiveness in configuring data extraction, generation, and masking processes in a user-friendly and versatile manner.
 
-### 10.3. Syntax Overview
+### 11.3. Syntax Overview
 
 This section only gives an overview of the DEGPL language syntax. For a more in-depth description of the syntax, please consult the *Data Set Utility Reference Manual*.
 
-#### 10.3.1. Data set
+#### 11.3.1. Data set
 
 A data set can be retrieved, deleted, created or replaced using its name or id (*set_id*). Its properties can be set or modified as explained in the properties section below.
 
@@ -1114,7 +1216,7 @@ set demo_data_cap/d;                                  -- just delete
 ```
 
 
-#### 10.3.2. Tables
+#### 11.3.2. Tables
 
 A table can be included in a data set by specifying its name or its alias. When no alias is defined, it is generated by the tool based on your (configurable) naming conventions. When both are specified, table alias is modified as indicated. Standard wildcards *\** and *?* can be used for multiple matches. Extraction type can also be specified with a slash after table name or alias. All statements are separated with a semi-colon. Comments must be enclosed between */\** and *\*/*.
 
@@ -1127,7 +1229,7 @@ prd/f;           /*fully extract table with alias prd (i.e., products)*/*
 demo_orders ord; /*includes orders table and sets its alias to ord*/
 ```
 
-#### 10.3.3. Constraints
+#### 11.3.3. Constraints
 
 Constraints are specified and included in the data set using directed arrows between two tables. The arrow shape indicates the cardinality, and the body denotes the extraction type of the constraint. Wildcards can be employed for tables.
 
@@ -1153,7 +1255,7 @@ A -> B , C ; /* equivalent to A -> B, A -> C */
 A , B -> C ; /* equivalent to A -> C, B -> C*/
 ```
 
-#### 10.3.4. Properties
+#### 11.3.4. Properties
 
 Properties of data sets, tables, constraints, columns, masks, and default values can be modified by specifying them within square brackets, separating with a comma (preferred), semi-colon, or space. Property names, aligning with the internal data model column names of the tool, may be abbreviated for brevity. Values must be enclosed in double quotes, except for positive integers and identifiers (mix of letters, digits and underscore).
 
@@ -1166,7 +1268,7 @@ per->[percentage="50%"]ord; /*extract 50% of person's orders*/
 per=>[min_rows=0,max_rows=5]ord; /*generate between 0 and 5 orders per person*/
 ```
 
-#### 10.3.5. Columns
+#### 11.3.5. Columns
 
 Properties for generated or masked columns can be specified following the column name. Column names are separated from table names by a dot. It is unnecessary to repeat table name for each column. Wildcards *\** and *?* can also be used.
 
@@ -1174,12 +1276,12 @@ Examples:
 
 ```DEGPL
 /* set properties of per_id columns*/
-per.per_id[gen_type="SQL", params=DEMO_PER_SEQ];
+per.per_id[gen_type="SQL", gen_params=DEMO_PER_SEQ];
 per.gender[msk_type=SHUFFLE, shuffle_group=1] /*statement continue on next line*/
    .first_name[msk_type=SHUFFLE, shuffle_group=1]; /*table name not repeated*/
 ```
 
-#### 10.3.6. Default values
+#### 11.3.6. Default values
 
 Default values can be specified for table, constraint, column, and mask properties. Utilize the table syntax with *table*, *constraint*, *column*, or *mask* as the table name.
 
@@ -1194,7 +1296,7 @@ mask[msk_type=SQL, locked=Y]; /*default properties for all subsequent masks*/
 
 A scope can also be specified allowing to overwrite non-NULL values or ignore any subsequent setting of a property.
 
-#### 10.3.7. Recursion
+#### 11.3.7. Recursion
 
 You can include constraints and tables recursively by specifying a number of recursions just after the constraint name (or properties if any).
 
@@ -1204,7 +1306,7 @@ Example:
 per/b=<3*; /*extract persons and all its child tables (using 1-N constraints) down to 3 levels*/
 ```
 
-#### 10.3.8. Scope
+#### 11.3.8. Scope
 
 You can specify whether a referenced object (table or constraint) is in the data set, outside of the data set, or if it doesn't matter, by prefixing it with an exclamation mark, a caret, or nothing, respectively.
 
@@ -1214,15 +1316,15 @@ Example:
 !*^>-0* /*include recursively any N-1 constraint not in the data set yet, from tables already included to any table*/
 ```
 
-#### 10.3.9. Invocation
+#### 11.3.9. Invocation
 
 Your DEGPL code or configuration can be submitted to the *execute_degpl()* procedure available in the extension package (*DS_UTILITY_EXT*). It will apply to any existing configuration, so you may need to reset (create or replace) your data set if you want to start from a clean slate.
 
-### 10.4. Examples
+### 11.4. Examples
 
 Here follow some commented (partial) examples of DEGPL code used in the demo:
 
-#### 10.4.1. Data Generation Example
+#### 11.4.1. Data Generation Example
 
 ```DEGPL
 set demo_data_gen/r[set_type=GEN];
@@ -1243,19 +1345,19 @@ pcc+>ptr; /*don't generate transactions (alias ptr) from credit cards (alias pcc
 ∃*∄>-0* /*Add recursively missing referential constraints (N-1) for all data set tables*/;
 ...
 /*2. define how to generate column values*/
-per.per_id[gen_type=SEQ,params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
+per.per_id[gen_type=SEQ,gen_params=DEMO_PER_SEQ]; /*generate per_id using a sequence/
 column[gen_type=SQL]; /*Use a SQL expression for all subsequent columns*/
-per.first_name[params="ds_masker_krn.random_value_from_data_set('INT_GIVEN_NAMES_250')"];
-per.last_name[params="ds_masker_krn.random_value_from_data_set('EU6_FAMILY_NAMES_217')"];
-per.full_name[params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
-ord.order_date[params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
-   .total_price[params="0/*computed with post_gen_code*/"];
-sto.store_name[params="ds_masker_krn.random_company_name"];
-prd.unit_price[params="ds_masker_krn.random_integer(10,100)"];
+per.first_name[gen_params="ds_masker_krn.random_value_from_data_set('INT_GIVEN_NAMES_250')"];
+per.last_name[gen_params="ds_masker_krn.random_value_from_data_set('EU6_FAMILY_NAMES_217')"];
+per.full_name[gen_params=":first_name||' '||:last_name"]; /*full name is dernomalised*/
+ord.order_date[gen_params="ds_masker_krn.obfuscate_date(sysdate,'YY')"] /*random date this year*/
+   .total_price[gen_params="0/*computed with post_gen_code*/"];
+sto.store_name[gen_params="ds_masker_krn.random_company_name"];
+prd.unit_price[gen_params="ds_masker_krn.random_integer(10,100)"];
 ...
 ```
 
-#### 10.4.2. Data Subsetting Example
+#### 11.4.2. Data Subsetting Example
 
 With comments (hence one line per instruction):
 
@@ -1278,26 +1380,35 @@ The same without comments, all on a single line:
 demo*;demo_dual/x;sto/f;cnt/n;cct/n;oet/n;per/b[where="per_id<=10"]=<3*;per~>[percent=50]ord;!*^>-*;
 ```
 
-#### 10.4.3. Data Masking Example
+#### 11.4.3. Data Masking Example
 
 ```DEGPL
 /*Define how to mask table columns*/
 mask[locked=Y]; /*default value for all masked column below*/
 per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
    .first_name[msk_type=SHUFFLE, shuffle_group=1]
-   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table('DEMO_PERSONS','LAST_NAME')]
+   .last_name[msk_type=TOKENIZE, msk_params="ds_utility_krn.random_value_from_table('DEMO_PERSONS','LAST_NAME')]
              [options="enforce_uniqueness=true"];
 mask[msk_type=SQL]; /*all columns below will be masked with a SQL expression*/
-per.full_name[params=":first_name||' '||:last_name"]
-   .nationality[params="ds_utility_krn.random_value_from_table('DEMO_COUNTRIES','CNT_CD')"]
-   .title[params="'XXXX'", options="mask_null_values=true"];
-pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
+per.full_name[msk_params=":first_name||' '||:last_name"]
+   .nationality[msk_params="ds_utility_krn.random_value_from_table('DEMO_COUNTRIES','CNT_CD')"]
+   .title[msk_params="'XXXX'", options="mask_null_values=true"];
+pcc.credit_card_number[msk_params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
 ```
 
-#### 10.4.4. Data Capture Example
+#### 11.4.4. Data Encryption Example
+
+```DEGPL
+/*Define how to encrypt table columns*/
+mask[locked=Y]; /*default value for all masked column below*/
+per.per_id[tde_type="SQL", tde_params="ds_crypto_krn.encrypt_integer(p_value=>per_id,p_min_value=>1,p_max_value=>99)"];
+```
+
+#### 11.4.5. Data Capture Example
 
 ```DEGPL
 set demo_data_cap/r[set_type=CAP, capture_mode=SYNC];
 demo*/b[target_db="DBCC_DIGIT_01_T.CC.CEC.EU.INT"];
 demo_dual/x;
 ```
+
