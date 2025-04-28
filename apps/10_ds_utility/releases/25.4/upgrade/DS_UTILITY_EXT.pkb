@@ -1059,9 +1059,6 @@ CREATE OR REPLACE PACKAGE BODY ds_utility_ext AS
                     END
                     || ' tooltip="' || get_tab_config(r_tab) || l_col_config || '"'
          ;
-         log_utility.log_message(0, 'T', 'r_tab.ora_table_name='||r_tab.ora_table_name);
-         log_utility.log_message(0, 'T', 'l_node_att='||LENGTH(l_node_att));
-         log_utility.log_message(0, 'T', 'l_node_att='||l_node_att);
          PIPE ROW(SUBSTRB(line(6, r_tab.ora_table_name||' ['||TRIM(l_node_att)||']'),1,4000));
          <<con_loop>>
          FOR r_con IN c_con(r_tab.ora_table_name) LOOP

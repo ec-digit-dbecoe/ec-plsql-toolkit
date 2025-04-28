@@ -653,7 +653,7 @@ CREATE TABLE ds_patterns (
   ,msk_params VARCHAR2(4000 CHAR) NULL
   ,gen_type VARCHAR2(30 CHAR) NULL CONSTRAINT ds_pat_gen_type CHECK (gen_type IS NULL OR gen_type IN ('SQL','SEQ','FK'))
   ,gen_params VARCHAR2(4000 CHAR) NULL
-  ,tde_type VARCHAR2(30 CHAR) NULL CONSTRAINT ds_pat_tde_type CHECK (tde_type IS NULL OR gen_type IN ('SQL','INHERIT'))
+  ,tde_type VARCHAR2(30 CHAR) NULL CONSTRAINT ds_pat_tde_type CHECK (tde_type IS NULL OR tde_type IN ('SQL','INHERIT'))
   ,tde_params VARCHAR2(4000 CHAR) NULL
 )
 TABLESPACE &&tab_ts

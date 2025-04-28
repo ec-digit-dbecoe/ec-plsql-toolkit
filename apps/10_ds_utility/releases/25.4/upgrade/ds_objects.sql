@@ -1,5 +1,5 @@
 REM DBM-00010: NOT EXISTS(SELECT 'x' FROM user_tab_columns WHERE table_name='DS_PATTERNS' AND column_name='TDE_TYPE')
-ALTER TABLE ds_patterns ADD tde_type VARCHAR2(30 CHAR) NULL CONSTRAINT ds_pat_tde_type_ck CHECK (tde_type IS NULL OR tde_type IN ('SQL','INHERIT'))
+ALTER TABLE ds_patterns ADD tde_type VARCHAR2(30 CHAR) NULL CONSTRAINT ds_pat_tde_type CHECK (tde_type IS NULL OR tde_type IN ('SQL','INHERIT'))
 ;
 
 COMMENT ON COLUMN ds_patterns.tde_type IS 'Default encryption type';
