@@ -1,3 +1,10 @@
+## [25.5.1](https://sdlc.webcloud.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/compare/25.5.0...25.5.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* DS 25.4.1: fix bugs in demo scripts + add transportation scenario 0 ([efaf6bf](https://sdlc.webcloud.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/efaf6bf253fc675c0472389da06986cf98b5bafa))
+
 # 25.5 (2025-05-xx)
 
 ### Features

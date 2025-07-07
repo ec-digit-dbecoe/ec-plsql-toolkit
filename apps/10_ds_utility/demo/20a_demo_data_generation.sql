@@ -81,11 +81,11 @@ DECLARE
    l_set_id ds_data_sets.set_id%TYPE := ds_utility_krn.get_data_set_def_by_name('DEMO_DATA_GEN');
 BEGIN
    -- Define how to generate ORG_ENTITIES columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_ID', p_gen_type=>'SEQ', p_params=>'DEMO_OEN_SEQ');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_NAME', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_ID', p_gen_type=>'SEQ', p_gen_params=>'DEMO_OEN_SEQ');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_NAME', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_col_name=>'COLORS.NAME',p_col_len=>20)||' '||ds_masker_krn.random_value_from_data_set(p_set_col_name=>'FOOD.NAME',p_col_len=>20)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_CD', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORG_ENTITIES', p_col_name=>'OEN_CD', p_gen_type=>'SQL', p_gen_params=>
       q'#CASE LEVEL WHEN 1 THEN ds_masker_krn.random_value_from_regexp('([BCDFGLMNPRSTV][AEIOU]){3}')
              WHEN 2 THEN ds_masker_krn.random_value_from_regexp('([BCDFGLMNPRSTV][AEIOU]){3}')
              WHEN 3 THEN PRIOR oen_cd||'.'||CHR(ASCII('A')+ROWNUM-1)
@@ -94,71 +94,71 @@ BEGIN
 END#'
    );
    -- Define how to generate PERSONS columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'PER_ID', p_gen_type=>'SEQ', p_params=>'DEMO_PER_SEQ');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'FIRST_NAME', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'PER_ID', p_gen_type=>'SEQ', p_gen_params=>'DEMO_PER_SEQ');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'FIRST_NAME', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_col_name=>'INT_GIVEN_NAMES_250.GIVEN_NAME_ASCII',p_col_len=>30,p_seed=>SEED)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'LAST_NAME', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'LAST_NAME', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_col_name=>'EU6_FAMILY_NAMES_217.FAMILY_NAME_ASCII',p_col_len=>30,p_seed=>SEED)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'FULL_NAME', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'FULL_NAME', p_gen_type=>'SQL', p_gen_params=>
       q'#:first_name||' '||:last_name#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'GENDER', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'GENDER', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_col_name=>'INT_GIVEN_NAMES_250.GENDER',p_col_len=>1,p_seed=>SEED)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'BIRTH_DATE', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'BIRTH_DATE', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_date(p_min_date=>ADD_MONTHS(TRUNC(SYSDATE),-65*12),p_max_date=>ADD_MONTHS(TRUNC(SYSDATE),-21*12))#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'TITLE', p_gen_type=>'SQL', p_null_value_pct=>20, p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'TITLE', p_gen_type=>'SQL', p_null_value_pct=>20, p_gen_params=>
       q'#CASE WHEN :gender = 'M' THEN 'Mr' ELSE ds_masker_krn.random_value_from_list(p_values=>'Ms, Mrs, Miss') END#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'MANAGER_FLAG', p_gen_type=>'SQL', p_null_value_pct=>NULL, p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'MANAGER_FLAG', p_gen_type=>'SQL', p_null_value_pct=>NULL, p_gen_params=>
       q'#CASE WHEN MOD(ROWNUM,10)=0 THEN 'Y' END#'
    );
    ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'PER_ID_MANAGER', p_null_value_condition=>q'#:manager_flag='Y'#');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'NATIONALITY', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PERSONS', p_col_name=>'NATIONALITY', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_name=>'EU_COUNTRIES_27',p_col_name=>'CODE_A3',p_col_len=>30,p_seed=>SEED,p_weight=>'POPULATION')#'
    );
    -- Define how to generate ASSIGNMENTS columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_ASSIGNMENTS', p_col_name=>'DATE_FROM', p_gen_type=>'SQL', p_params=>'RECORD gen.date_from');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_ASSIGNMENTS', p_col_name=>'DATE_TO', p_gen_type=>'SQL', p_params=>'RECORD gen.date_to');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_ASSIGNMENTS', p_col_name=>'DATE_FROM', p_gen_type=>'SQL', p_gen_params=>'RECORD gen.date_from');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_ASSIGNMENTS', p_col_name=>'DATE_TO', p_gen_type=>'SQL', p_gen_params=>'RECORD gen.date_to');
    -- Define how to generate CLOCKINGS columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_TYPE', p_gen_type=>'SQL', p_params=>'RECORD gen.thetype');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_DATE', p_gen_type=>'SQL', p_params=>'RECORD gen.thedate');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_TIME', p_gen_type=>'SQL', p_params=>'RECORD gen.thetime');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_TYPE', p_gen_type=>'SQL', p_gen_params=>'RECORD gen.thetype');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_DATE', p_gen_type=>'SQL', p_gen_params=>'RECORD gen.thedate');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CLOCKINGS', p_col_name=>'CLOCKING_TIME', p_gen_type=>'SQL', p_gen_params=>'RECORD gen.thetime');
    -- Define how to generate CREDIT_CARDS columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CREDIT_CARDS', p_col_name=>'CREDIT_CARD_NUMBER', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CREDIT_CARDS', p_col_name=>'CREDIT_CARD_NUMBER', p_gen_type=>'SQL', p_gen_params=>
       'ds_masker_krn.random_credit_card_number(p_prefix=>:cct_cd)'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CREDIT_CARDS', p_col_name=>'EXPIRY_DATE', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_CREDIT_CARDS', p_col_name=>'EXPIRY_DATE', p_gen_type=>'SQL', p_gen_params=>
       'ds_masker_krn.random_expiry_date'
    );
    -- Define how to generate TRANSACTIONS columns
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_TRANSACTIONS', p_col_name=>'TRANSACTION_TIMESTAMP', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_TRANSACTIONS', p_col_name=>'TRANSACTION_TIMESTAMP', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_time(p_min_date=>PARENT order_date+ROWNUM-1,p_max_date=>PARENT order_date+CASE ROWNUM WHEN 1 THEN 0 ELSE ds_masker_krn.random_integer(1,7) END)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_TRANSACTIONS', p_col_name=>'TRANSACTION_AMOUNT', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PER_TRANSACTIONS', p_col_name=>'TRANSACTION_AMOUNT', p_gen_type=>'SQL', p_gen_params=>
       'CASE ROWNUM WHEN 1 THEN PARENT total_price * (CASE ROWCOUNT WHEN 1 THEN 100 ELSE 30 END) / 100 ELSE PARENT total_price - LAG transaction_amount END' --30% on order, remaining on delivery (when 2 payments)
    );
    -- Define how to generate ORDERS
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'ORD_ID', p_gen_type=>'SEQ', p_params=>'DEMO_ORD_SEQ');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'ORDER_DATE', p_gen_type=>'SQL', p_params=>q'#ds_masker_krn.obfuscate_date(sysdate,'YY')#');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'TOTAL_PRICE', p_gen_type=>'SQL', p_params=>'0 /*TBD*/'); -- cannot compute!
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'ORD_ID', p_gen_type=>'SEQ', p_gen_params=>'DEMO_ORD_SEQ');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'ORDER_DATE', p_gen_type=>'SQL', p_gen_params=>q'#ds_masker_krn.obfuscate_date(sysdate,'YY')#');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDERS', p_col_name=>'TOTAL_PRICE', p_gen_type=>'SQL', p_gen_params=>'0 /*TBD*/'); -- cannot compute!
    -- Define how to generate STORES
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_STORES', p_col_name=>'STO_ID', p_gen_type=>'SEQ', p_params=>'DEMO_STO_SEQ');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_STORES', p_col_name=>'STORE_NAME', p_gen_type=>'SQL', p_params=>'ds_masker_krn.random_company_name');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_STORES', p_col_name=>'STO_ID', p_gen_type=>'SEQ', p_gen_params=>'DEMO_STO_SEQ');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_STORES', p_col_name=>'STORE_NAME', p_gen_type=>'SQL', p_gen_params=>'ds_masker_krn.random_company_name');
    -- Define how to generate PRODUCTS
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'PRD_ID', p_gen_type=>'SEQ', p_params=>'DEMO_PRD_SEQ');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'PRODUCT_NAME', p_gen_type=>'SQL', p_params=>
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'PRD_ID', p_gen_type=>'SEQ', p_gen_params=>'DEMO_PRD_SEQ');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'PRODUCT_NAME', p_gen_type=>'SQL', p_gen_params=>
       q'#ds_masker_krn.random_value_from_data_set(p_set_col_name=>'COLORS.NAME',p_col_len=>20)||' '||ds_masker_krn.random_value_from_data_set(p_set_col_name=>'OBJECTS.NAME',p_col_len=>20)#'
    );
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'UNIT_PRICE', p_gen_type=>'SQL', p_params=>'ds_masker_krn.random_integer(10,100)');
---   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'DESCR', p_gen_type=>'SQL', p_params=>'ds_masker_krn.lorem_ipsum_clob(5000)');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'UNIT_PRICE', p_gen_type=>'SQL', p_gen_params=>'ds_masker_krn.random_integer(10,100)');
+--   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_PRODUCTS', p_col_name=>'DESCR', p_gen_type=>'SQL', p_gen_params=>'ds_masker_krn.lorem_ipsum_clob(5000)');
    -- Define how to generate ORDER_ITEMS
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'ORDER_LINE', p_gen_type=>'SQL', p_params=>'ROWNUM');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'QUANTITY', p_gen_type=>'SQL', p_params=>'ds_masker_krn.random_integer(1,8,SEED)');
-   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'PRICE', p_gen_type=>'SQL', p_params=>'RECORD demo_oit_prd_fk.unit_price * :quantity');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'ORDER_LINE', p_gen_type=>'SQL', p_gen_params=>'ROWNUM');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'QUANTITY', p_gen_type=>'SQL', p_gen_params=>'ds_masker_krn.random_integer(1,8,SEED)');
+   ds_utility_krn.update_table_column_properties(p_set_id=>l_set_id, p_table_name=>'DEMO_ORDER_ITEMS', p_col_name=>'PRICE', p_gen_type=>'SQL', p_gen_params=>'RECORD demo_oit_prd_fk.unit_price * :quantity');
    COMMIT;
 END;
 /

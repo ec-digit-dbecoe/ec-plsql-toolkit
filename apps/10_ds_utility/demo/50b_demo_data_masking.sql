@@ -29,13 +29,13 @@ ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>REPLAC
 !mask[locked=Y]; /*lock all masks updated below */
 per.gender[msk_type=SHUFFLE, shuffle_group=1, partition_bitmap=1]
    .first_name[msk_type=SHUFFLE, shuffle_group=1]
-   .last_name[msk_type=TOKENIZE, params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_PERSONS',p_col_name=>'LAST_NAME',p_cycle=>'Y')"]
+   .last_name[msk_type=TOKENIZE, msk_params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_PERSONS',p_col_name=>'LAST_NAME',p_cycle=>'Y')"]
              [options="enforce_uniqueness=true, encrypt_tokenized_values=true"];
 mask[msk_type=SQL]; /*default masking type*/
-per.full_name[params="::first_name||' '||::last_name"]
-   .nationality[params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_COUNTRIES',p_col_name=>'CNT_CD',p_seed=>rowid)"]
-   .title[params="'XXXX'", options="mask_null_values=true"];
-pcc.credit_card_number[params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
+per.full_name[msk_params="::first_name||' '||::last_name"]
+   .nationality[msk_params="ds_utility_krn.random_value_from_table(p_tab_name=>'DEMO_COUNTRIES',p_col_name=>'CNT_CD',p_seed=>rowid)"]
+   .title[msk_params="'XXXX'", options="mask_null_values=true"];
+pcc.credit_card_number[msk_params="ds_masker_krn.encrypt_credit_card_number(credit_card_number)"];
 £','::',':'));
 end;
 /
@@ -77,7 +77,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SEQUENCE, params="START WITH 10 INCREMENT BY 10", sensitive=Y, locked=Y]
+per.per_id[msk_type=SEQUENCE, msk_params="START WITH 10 INCREMENT BY 10", sensitive=Y, locked=Y]
 £');
 end;
 /
@@ -104,7 +104,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SEQUENCE, params="demo_per_seq", sensitive=Y, locked=Y]
+per.per_id[msk_type=SEQUENCE, msk_params="demo_per_seq", sensitive=Y, locked=Y]
 £');
 end;
 /
@@ -131,7 +131,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SEQUENCE, params="demo_per_seq@DBCC_DIGIT_01_T.CC.CEC.EU.INT", sensitive=Y, locked=Y]
+per.per_id[msk_type=SEQUENCE, msk_params="demo_per_seq@DBCC_DIGIT_01_T.CC.CEC.EU.INT", sensitive=Y, locked=Y]
 £');
 end;
 /
@@ -184,7 +184,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SQL, params="ds_masker_krn.encrypt_number(per_id)", sensitive=Y, locked=Y]
+per.per_id[msk_type=SQL, msk_params="ds_masker_krn.encrypt_number(per_id)", sensitive=Y, locked=Y]
 £');
 end;
 /
@@ -210,7 +210,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=TOKENIZE, params="ds_masker_krn.random_number(p_precision=>2,p_seed=>NULL)"
+per.per_id[msk_type=TOKENIZE, msk_params="ds_masker_krn.random_number(p_precision=>2,p_seed=>NULL)"
          , options="enforce_uniqueness=true, allow_equal_value=false, encrypt_tokenized_values=true", sensitive=Y, locked=Y]
 £');
 end;
@@ -238,7 +238,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=TOKENIZE, params="ds_masker_krn.encrypt_number(per_id)"
+per.per_id[msk_type=TOKENIZE, msk_params="ds_masker_krn.encrypt_number(per_id)"
          , options="enforce_uniqueness=true, allow_equal_value=true, encrypt_tokenized_values=true", sensitive=Y, locked=Y]
 £');
 end;
@@ -268,7 +268,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SEQUENCE, params="DEMO_PER_SEQ", options="differ_masking=true", sensitive=Y, locked=Y]
+per.per_id[msk_type=SEQUENCE, msk_params="DEMO_PER_SEQ", options="differ_masking=true", sensitive=Y, locked=Y]
 £');
 end;
 /
@@ -295,7 +295,7 @@ commit;
 begin
 ds_utility_krn.set_message_filter('EWI');
 ds_utility_ext.execute_degpl(p_commit=>TRUE,p_table_name=>'DEMO%',p_code=>q'£
-per.per_id[msk_type=SQL, params="per_id+100", sensitive=Y, locked=Y]
+per.per_id[msk_type=SQL, msk_params="per_id+100", sensitive=Y, locked=Y]
 £');
 end;
 /
