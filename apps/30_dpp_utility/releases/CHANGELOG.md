@@ -1,3 +1,15 @@
+# 25.0 (2025-09-xx)
+
+### Bug fixes
+
+* Error management issues are fixed.
+* Old dump files are now also removed for the output directory.
+
+### Features
+
+* Ability to upload and download ump files to and from AWS S3 buckets (AWS only).
+* Deleting old dump file is now a job with report in the log tables.
+
 # 24.3.2 (2024-11-xx)
 
 ### Bug fixes

@@ -1,0 +1,10 @@
+DPP_INJ_KRN.pks
+DPP_JOB_VAR.pks
+DPP_JOB_KRN.pks
+DPP_S3_VAR.pks
+DPP_S3_KRN.pks: UPPER('&&installation_env')='AWS'
+DPP_S3_KRN.pkb: UPPER('&&installation_env')='AWS'
+DPP_INJ_KRN.pkb
+DPP_JOB_KRN.pkb
+004_dpp_options.sql
+003_dpp_job_types.sql

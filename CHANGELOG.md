@@ -1,3 +1,12 @@
+# [25.6.0](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/compare/25.5.1...25.6.0) (2025-09-22)
+
+
+### Features
+
+* create Tookit 25.6 including DPP 25.0 ([3addda7](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/3addda77ddb56878e2984a237852d6a2f5042e3b))
+* update Toolkit 25.6 with DPP 25.0 bug fixes ([4fc3b10](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/4fc3b100b7b3e7ff6cd799690ea2fee840a3ef61))
+* update Toolkit 25.6 with DPP 25.0 bug fixes ([b9a82c5](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/b9a82c504ffde152d55ba85f1fb00aab9fce3f66))
+
 ## [25.5.1](https://sdlc.webcloud.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/compare/25.5.0...25.5.1) (2025-07-07)
 
 

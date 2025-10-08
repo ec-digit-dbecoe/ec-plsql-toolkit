@@ -1,10 +1,11 @@
 <!-- omit in toc -->
-# DPP Utility - User's Guide v24.3
+# DPP Utility - User's Guide v25.0
 
 <!-- omit in toc -->
 ## Author: Jean-Marc MALMEDY (European Commission)
 
 ## 1. Table of content
+
 - [1. Table of content](#1-table-of-content)
 - [2. Introduction](#2-introduction)
   - [2.1. Overview](#21-overview)
@@ -63,14 +64,25 @@
     - [5.2.4. Running the import](#524-running-the-import)
     - [5.2.5. Import through a network link](#525-import-through-a-network-link)
   - [5.3. Transferring dump file](#53-transferring-dump-file)
-    - [5.3.1. Setting up transfer](#531-setting-up-transfer)
-      - [5.3.1.1. DPP\_INSTANCES - Database instance](#5311-dpp_instances---database-instance)
-      - [5.3.1.2. DPP\_PARAMETERS - General parameters](#5312-dpp_parameters---general-parameters)
-      - [5.3.1.3. DPP\_ROLES - Database role](#5313-dpp_roles---database-role)
-      - [5.3.1.4. DPP\_SCHEMAS - Schemas](#5314-dpp_schemas---schemas)
-      - [5.3.1.5. DPP\_RECIPIENTS - Mail recipients](#5315-dpp_recipients---mail-recipients)
-      - [5.3.1.6. DPP\_SCHEMA\_OPTIONS - Schema options](#5316-dpp_schema_options---schema-options)
-    - [5.3.2. Running the transfer](#532-running-the-transfer)
+    - [5.3.1. Transfer via database link](#531-transfer-via-database-link)
+      - [5.3.1.1. Setting up transfer](#5311-setting-up-transfer)
+        - [5.3.1.1.1. DPP\_INSTANCES - Database instance](#53111-dpp_instances---database-instance)
+        - [5.3.1.1.2. DPP\_PARAMETERS - General parameters](#53112-dpp_parameters---general-parameters)
+        - [5.3.1.1.3. DPP\_ROLES - Database role](#53113-dpp_roles---database-role)
+        - [5.3.1.1.4. DPP\_SCHEMAS - Schemas](#53114-dpp_schemas---schemas)
+        - [5.3.1.1.5. DPP\_RECIPIENTS - Mail recipients](#53115-dpp_recipients---mail-recipients)
+        - [5.3.1.1.6. DPP\_SCHEMA\_OPTIONS - Schema options](#53116-dpp_schema_options---schema-options)
+      - [5.3.1.2. Running the transfer](#5312-running-the-transfer)
+    - [5.3.2. Transfer via AWS S3 bucket](#532-transfer-via-aws-s3-bucket)
+      - [5.3.2.1. Setting up the upload and Download](#5321-setting-up-the-upload-and-download)
+        - [5.3.2.1.1. DPP\_INSTANCES - Database instance](#53211-dpp_instances---database-instance)
+        - [5.3.2.1.2. DPP\_PARAMETERS - General parameters](#53212-dpp_parameters---general-parameters)
+        - [5.3.2.1.3. DPP\_SCHEMAS - Schemas](#53213-dpp_schemas---schemas)
+        - [5.3.2.1.4. DPP\_RECIPIENTS - Mail recipients](#53214-dpp_recipients---mail-recipients)
+        - [5.3.2.1.5. DPP\_SCHEMA\_OPTIONS - Schema options](#53215-dpp_schema_options---schema-options)
+      - [5.3.2.2. Running the upload or download process](#5322-running-the-upload-or-download-process)
+        - [5.3.2.2.1. Uploading files to a S3 bucket](#53221-uploading-files-to-a-s3-bucket)
+        - [5.3.2.2.2. Downloading files from a S3 bucket](#53222-downloading-files-from-a-s3-bucket)
   - [5.4. Timeout monitoring](#54-timeout-monitoring)
     - [5.4.1. Setting up timeout monitoring](#541-setting-up-timeout-monitoring)
       - [5.4.1.1. DPP\_SCHEMA\_OPTIONS - Schema options](#5411-dpp_schema_options---schema-options)
@@ -112,6 +124,11 @@
       - [6.2.1.3. remove\_files\_older](#6213-remove_files_older)
       - [6.2.1.4. remove\_files\_old\_functional](#6214-remove_files_old_functional)
       - [6.2.1.5. transfer\_dumpfiles](#6215-transfer_dumpfiles)
+      - [6.2.1.6. upload\_file\_to\_s3](#6216-upload_file_to_s3)
+      - [6.2.1.7. upload\_files\_to\_s3](#6217-upload_files_to_s3)
+      - [6.2.1.8. upload\_dumpfiles\_to\_s3](#6218-upload_dumpfiles_to_s3)
+      - [6.2.1.9. download\_files\_from\_s3](#6219-download_files_from_s3)
+      - [6.2.1.10. download\_dumpfiles\_from\_s3](#62110-download_dumpfiles_from_s3)
     - [6.2.2. DPP\_JOB\_MEM package](#622-dpp_job_mem-package)
       - [6.2.2.1. flush\_prr](#6221-flush_prr)
       - [6.2.2.2. load\_prr](#6222-load_prr)
@@ -175,9 +192,13 @@
       - [6.2.14.44. delete\_schema\_config](#621444-delete_schema_config)
       - [6.2.14.45. Error codes](#621445-error-codes)
     - [6.2.15. DPP\_CNF\_VAR package](#6215-dpp_cnf_var-package)
-    - [6.2.16. DC\_DBA\_MGMT\_KILL\_SESS\_DEDIC\_DB stored procedure](#6216-dc_dba_mgmt_kill_sess_dedic_db-stored-procedure)
-    - [6.2.17. DC\_DBA\_MGMT\_LOCK\_USER stored procedure](#6217-dc_dba_mgmt_lock_user-stored-procedure)
-    - [6.2.18. DPP\_MONITORING job](#6218-dpp_monitoring-job)
+    - [6.2.16. DPP\_S3\_KRN package](#6216-dpp_s3_krn-package)
+      - [6.2.16.1. upload\_file\_to\_s3](#62161-upload_file_to_s3)
+      - [6.2.16.2. download\_file\_from\_s3](#62162-download_file_from_s3)
+    - [6.2.17. DPP\_S3\_VAR package](#6217-dpp_s3_var-package)
+    - [6.2.18. DC\_DBA\_MGMT\_KILL\_SESS\_DEDIC\_DB stored procedure](#6218-dc_dba_mgmt_kill_sess_dedic_db-stored-procedure)
+    - [6.2.19. DC\_DBA\_MGMT\_LOCK\_USER stored procedure](#6219-dc_dba_mgmt_lock_user-stored-procedure)
+    - [6.2.20. DPP\_MONITORING job](#6220-dpp_monitoring-job)
 
 ## 2. Introduction
 
@@ -198,7 +219,8 @@ The main functionalities of the utility are:
 3. Transferring a data pump dump file from a database instance to another one using pre-defined configurations or specific parameters.
 4. Importing a data pump dump file into a database schema using pre-defined configurations or specific parameters.
 5. Directly importing a database schema from a database instance to another one through a network link using pre-defined configurations or specific parameters.
-6. Timeout monitoring and detection.
+6. Uploading and downloading dump files to or from AWS S3 buckets (on AWS only).
+7. Timeout monitoring and detection.
 
 ### 2.3. Assumptions
 
@@ -213,7 +235,7 @@ Usually, in a classical use case, the **PROD** environment is the source of the 
 
 The DPP Utility is based on the regular [Oracle Data Pump utility](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html). However, the DPP Utility proposes some enhancements and additional functionalities compared to the Data Pump utility:
 
-- [Transfer of the dump files](#53-transferring-dump-file) from the source system to the target system.
+- [Transfer of the dump files](#53-transferring-dump-file) from the source system to the target system, through database link or AWS S3 buckets (on AWS).
 - Automatic execution of pre and post actions before or after [export](#5125-dpp_actions---specific-actions) and [import](#5225-dpp_actions---specific-actions) operations.
 - Ability to kill sessions and lock schemas during [export](#5127-dpp_schema_options---schema-options) and [import](#5227-dpp_schema_options---schema-options) operations.
 - [Easy to deploy bundle](#4-installation).
@@ -266,16 +288,26 @@ To import a dump file in a database schema, the following operations must be per
 
 #### 3.2.3. Transferring dump file
 
-To transfer a dump file from the source environment to the target one, the following operations must be performed:
+To transfer a dump file from the source environment to the target one, via a database link, the following operations must be performed:
 
-1. Setting up the transfer parameters in the following tables as described in the [set up](#53-transferring-dump-file) chapter:
-    - [instances](#5311-dpp_instances---database-instance)
-    - [parameters](#5312-dpp_parameters---general-parameters)
-    - [roles](#5313-dpp_roles---database-role)
-    - [schemas](#5314-dpp_schemas---schemas)
-    - [recipients](#5315-dpp_recipients---mail-recipients)
-    - [schema options](#5316-dpp_schema_options---schema-options)
-2. [Running the transfer](#532-running-the-transfer): `EXEC transfer_dumpfiles('func_name', 'db_link_name');`
+1. Setting up the transfer parameters in the following tables as described in the [set up](#531-transfer-via-database-link) chapter:
+    - [instances](#53111-dpp_instances---database-instance)
+    - [parameters](#53112-dpp_parameters---general-parameters)
+    - [roles](#53113-dpp_roles---database-role)
+    - [schemas](#53114-dpp_schemas---schemas)
+    - [recipients](#53115-dpp_recipients---mail-recipients)
+    - [schema options](#53116-dpp_schema_options---schema-options)
+2. [Running the transfer](#5312-running-the-transfer): `EXEC transfer_dumpfiles('func_name', 'db_link_name');`
+
+To upload or download dump files to or from an AWS S3 bucket from or to a source or target database, the following operations must be performed:
+
+1. Setting up the upload or download operation in the following tables as described in the [S3 set up](#532-transfer-via-aws-s3-bucket) chapter:
+   - [instances](#53211-dpp_instances---database-instance)
+   - [parameters](#53212-dpp_parameters---general-parameters)
+   - [schemas](#53213-dpp_schemas---schemas)
+   - [recipients](#53214-dpp_recipients---mail-recipients)
+   - [schema options](#53215-dpp_schema_options---schema-options)
+2. Running the [upload](#53221-uploading-files-to-a-s3-bucket) or [download](#53222-downloading-files-from-a-s3-bucket) operation.
 
 #### 3.2.4. Timeout monitoring
 
@@ -695,7 +727,7 @@ Those are the requested privileges:
 
 In some cases, forcing the default role of the source schema is needed. This is achieved by executing the following command as administrator:
   
-   plain ALTER USER source_schema
+    ALTER USER source_schema
     DEFAULT ROLE imp_full_database,exp_full_database;
   
 Where **source_schema** must be replaced with the source schema name.
@@ -775,7 +807,7 @@ For example, the **APP_DBECOE_D20240517002002.exp** dump file name may be interp
 
 #### 5.1.2. Setting up export
 
-An DPP Utility export job is defined with several parameters that need to be inserted in several database tables.
+A DPP Utility export job is defined with several parameters that need to be inserted in several database tables.
 
 ##### 5.1.2.1. DPP_INSTANCES - Database instance
 
@@ -933,6 +965,7 @@ Several options can be defined for a schema and a flow. They are all defined in 
 | ENCRYPTION_PASSWORD   | This is the encryption password when the **PASSWORD** encryption mode is selected.                                                                                                                                                                                                                                                    | any valid password                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | LOGTIME               | Define the type of timestamps to be mentioned in the logs generated by the Data Pump as described in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-62324358-2F26-4A94-B69F-1075D53FA96D).                                                                    | **NONE**, **STATUS**, **LOGFILE** or **ALL**                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | DATA_REMAP            | With this option, a transformation can be applied to a column at export time as explained in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-E75AAE6F-4EA6-4737-A752-6B62F5E9D460). Such an entry must be created for each column that must be transformed.    | The value is the concatenation of four fields separated with the "#" character. Those fields are the name of the remap (**COLUMN_FUNCTION** usually), the name of the table the column belongs to, the column name and the name of a PL/SQL function in a package that applies the transformation. The function must have a single parameter of the same type as the column to be transformed and must return a value of the same type. For example: COLUMN_FUNCTION#TST_EMPLOYEE#FIRST_NAME#DATA_REMAP_TEST.TO_UPPER |
+| METRICS               | Define the metrics level to be mentioned in the logs generated by the Data Pump as described in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-export-utility.html#SUTIL-GUID-2E7A8123-F8D8-4C62-AE4D-8A3F1753E6D3).                                                 | Numeric value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 #### 5.1.3. Preparing schema for export
 
@@ -940,7 +973,7 @@ Some actions may be required to prepare a schema for the export of the dump.
 
 If there are some queues in use in the schema to be exported, the following code must be executed while logged with the user of the schema to be exported:
 
-   plain BEGIN
+    BEGIN
        -– needed only if there are Oracle Advanced Queues to manage
        DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&&APP_DPP',FALSE);
        DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&&APP_DPP',FALSE);
@@ -954,14 +987,14 @@ Once all needed parameters have been defined, the export job can be executed. It
 
 So the export job is executed as follows:
 
-   plain BEGIN
+    BEGIN
         dpp_job_krn.export_schema('func_name');
     END;
     /
 
 or
 
-   plain EXEC dpp_job_krn.export_schema('func_name');
+    EXEC dpp_job_krn.export_schema('func_name');
 
 Where **func_name** must be replaced with the functional name of the schema to be exported.
 
@@ -1017,7 +1050,7 @@ For example, the **APP_DBECOE_D20240517002002.exp** dump file name may be interp
 
 #### 5.2.2. Setting up import
 
-An DPP Utility import job is defined with several parameters that need to be inserted in several database tables.
+A DPP Utility import job is defined with several parameters that need to be inserted in several database tables.
 
 ##### 5.2.2.1. DPP_INSTANCES - Database instance
 
@@ -1192,6 +1225,7 @@ Several options can be defined for a schema and a flow. They are all defined in 
 | ENCRYPTION_PASSWORD           | This is the encryption password to be used to import a dump that has been protected at [export time](#51-exporting-dump-file with the password encryption method.                                                                                                                                                                     | the same password as the one used for the export                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | LOGTIME                       | Define the type of timestamps to be mentioned in the logs generated by the Data Pump as described in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-62324358-2F26-4A94-B69F-1075D53FA96D).                                                                    | **NONE**, **STATUS**, **LOGFILE** or **ALL**                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | DATA_REMAP                    | With this option, a transformation can be applied to a column at import time as explained in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html#GUID-E75AAE6F-4EA6-4737-A752-6B62F5E9D460). Such an entry must be created for each column that must be transformed.    | The value is the concatenation of four fields separated with the "#" character. Those fields are the name of the remap (**COLUMN_FUNCTION** usually), the name of the table the column belongs to, the column name and the name of a PL/SQL function in a package that applies the transformation. The function must have a single parameter of the same type as the column to be transformed and must return a value of the same type. For example: COLUMN_FUNCTION#TST_EMPLOYEE#FIRST_NAME#DATA_REMAP_TEST.TO_UPPER |
+| METRICS                       | Define the metrics level to be mentioned in the logs generated by the Data Pump as described in the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-export-utility.html#SUTIL-GUID-2E7A8123-F8D8-4C62-AE4D-8A3F1753E6D3).                                                 | Numeric value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 ##### 5.2.2.8. DPP_SCHEMA_RELATIONS - Relationships between schemas
 
@@ -1233,7 +1267,7 @@ Some actions may be required to prepare a schema for the import of a dump.
 
 If there some queues in use in the schema to be imported, the following code must be executed while logged with the user of the schema the dump must be imported in:
 
-   plain BEGIN
+    BEGIN
        -– needed only if there are Oracle Advanced Queues to manage
        DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('ENQUEUE_ANY', '&&APP_DPP',FALSE);
        DBMS_AQADM.GRANT_SYSTEM_PRIVILEGE('DEQUEUE_ANY', '&&APP_DPP',FALSE);
@@ -1247,14 +1281,14 @@ Once all needed parameters have been defined, the import job can be executed. It
 
 So the import job is executed as follows:
 
-   plain BEGIN
+    BEGIN
         dpp_job_krn.import_schema('src_func_name', 'trg_func_name');
     END;
     /
 
 or
 
-   plain EXEC dpp_job_krn.import_schema('src_func_name', 'trg_func_name');
+    EXEC dpp_job_krn.import_schema('src_func_name', 'trg_func_name');
 
 Where **src_func_name** must be replaced with the functional name of the source schema and **trg_func_name** must be replaced with the functional name of the target schema.
 
@@ -1279,15 +1313,21 @@ In order to perform the import through the network link, the following configura
 
 ### 5.3. Transferring dump file
 
-When a dump file has been [exported](#51-exporting-dump-file) and needs to be [imported](#52-importing-dump-file) in another database instance, if first needs to be transferred from the source database instance to the target database instance. In a Data Center installation, the dump file needs also to be transferred from the export directory to the import directory as described in the [**dpp_parameters** database table](#5312-dpp_parameters---general-parameters).
+When a dump file has been [exported](#51-exporting-dump-file) and needs to be [imported](#52-importing-dump-file) in another database instance, if first needs to be transferred from the source database instance to the target database instance. In a Data Center installation, the dump file needs also to be transferred from the export directory to the import directory as described in the [**dpp_parameters** database table](#53112-dpp_parameters---general-parameters).
+
+The usual way to transfer the dump files is through a database link between the source and target databases. This is fully supported by the DPP Utility. However, the use of database links is no more recommended for new databases. It is even recommended to replace the existing database links with another transfer solution. Therefore, on AWS hosted databases, transferring dump files through AWS S3 buckets (or compatible hosting) is supported by the DPP Utility starting from the version 25.0.
 
 Transferring the dump file is another common use case of the DPP Utility.
 
-#### 5.3.1. Setting up transfer
+#### 5.3.1. Transfer via database link
 
-An DPP Utility job is defined with several parameters that need to be inserted in several database tables.
+This chapter describes how a transfer of dump files via a database link can be configured and executed.
 
-##### 5.3.1.1. DPP_INSTANCES - Database instance
+##### 5.3.1.1. Setting up transfer
+
+A DPP Utility job is defined with several parameters that need to be inserted in several database tables.
+
+###### 5.3.1.1.1. DPP_INSTANCES - Database instance
 
 The database instance must be defined in the **dpp_instances** table as follows:
 
@@ -1305,7 +1345,7 @@ The database instance must be defined in the **dpp_instances** table as follows:
 
 At least one instance must be defined for the source schema.
 
-##### 5.3.1.2. DPP_PARAMETERS - General parameters
+###### 5.3.1.1.2. DPP_PARAMETERS - General parameters
 
 Several general parameters must be defined in the **dpp_parameters** table as follows:
 
@@ -1335,7 +1375,7 @@ The following parameters need to be defined for an transfer job:
 | smtp.sender             | No        | This parameter stores the email address of the mail sender.                                                                                                                                                                                                                                                                                                                                       |
 | smtp.default_recipient  | No        | This is the default recipient a mail is sent to when the list of recipients cannot be determined. This is the case when the schema name given as parameter does not exist.                                                                                                                                                                                                                        |
 
-##### 5.3.1.3. DPP_ROLES - Database role
+###### 5.3.1.1.3. DPP_ROLES - Database role
 
 If a specific database role must be used to execute the transfer job, it must be defined in the **dpp_roles** table as follows:
 
@@ -1351,7 +1391,7 @@ If a specific database role must be used to execute the transfer job, it must be
 
 Defining a role is optional since they are only needed when some code must be executed via the [**dpp_actions** configuration](#5125-dpp_actions---specific-actions) before or after an export or import operation. Such an action could be restoring some privileges to the role.
 
-##### 5.3.1.4. DPP_SCHEMAS - Schemas
+###### 5.3.1.1.4. DPP_SCHEMAS - Schemas
 
 The source database schema needs to be defined in the **dpp_schemas** table as follows:
 
@@ -1373,7 +1413,7 @@ The source database schema needs to be defined in the **dpp_schemas** table as f
 
 At least one schema must be defined in this table, the source one.
 
-##### 5.3.1.5. DPP_RECIPIENTS - Mail recipients
+###### 5.3.1.1.5. DPP_RECIPIENTS - Mail recipients
 
 At the end of the transfer process, the DPP Utility can send a mail to some recipients indicating whether the job was executed successfully or with some errors. The mail recipients are defined in the **dpp_recipients** table as follows:
 
@@ -1388,7 +1428,7 @@ At the end of the transfer process, the DPP Utility can send a mail to some reci
 
 No, one or several recipients may be defined for each schema. If none is defined, no mails will be sent at the end of the transfer process.
 
-##### 5.3.1.6. DPP_SCHEMA_OPTIONS - Schema options
+###### 5.3.1.1.6. DPP_SCHEMA_OPTIONS - Schema options
 
 Several options can be defined to fine tune the transfer job. Those options are defined in the **dpp_schema_options** table as follows:
 
@@ -1397,7 +1437,7 @@ Several options can be defined to fine tune the transfer job. Those options are 
 | SMA_ID            | the schema ID as defined in the **dpp_schemas** table                                 | 1                                             |
 | OTN_NAME          | option name                                                                           | EMAIL_RESULT                                  |
 | STN_VALUE         | option value                                                                          | Y                                             |
-| STN_USAGE         | the flow direction (**I** for an import, **E** for an export, **T** for a transfer)   | I                                             |
+| STN_USAGE         | the flow direction (**I** for an import, **E** for an export, **T** for a transfer)   | T                                             |
 | DATE_CREAT        | row creation date                                                                     | 2024-05-21 17:38:48                           |
 | USER_CREAT        | row creation user ID                                                                  | malmjea                                       |
 | DATE_MODIF        | last modification date                                                                | 2024-05-21 17:39:27                           |
@@ -1411,20 +1451,20 @@ Several options can be defined for a schema and a flow. They are all defined in 
 | TIMEOUT_MONITORING            | Activates or deactivates the timeout monitoring for the current schema.                                                                           | **Y** for yes or **N** for no     |
 | TIMEOUT_DELAY                 | Number of minutes defining the delay after which the job is considered being in timeout.                                                          | Numeric value, number of minutes. |
 
-#### 5.3.2. Running the transfer
+##### 5.3.1.2. Running the transfer
 
 Once all needed parameters have been defined, the transfer job can be executed. It is implemented by the **transfer_dumpfiles** procedure of the [**dpp_job_krn** PL/SQL package](#621-dpp_job_krn-package). The [functional name of the source schema](#5124-dpp_schemas---schemas) and the name of the database link used to transfer the file need to be passed as parameter to the procedure.
 
 So the import job is executed as follows:
 
-   plain BEGIN
+    BEGIN
         dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');
     END;
     /
 
 or
 
-   plain EXEC dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');
+    EXEC dpp_job_krn.transfer_dumpfiles('func_name', 'db_link_name');
 
 Where **func_name** must be replaced with the functional name of the source schema and **db_link_name** must be replaced with the name of the database link used to transfer the dump file from the source database to the target one. It is assumed that the Oracle directories have the same name in both source and target environments.
 
@@ -1437,6 +1477,243 @@ Once the import job is started, a new line is introduced in the [**dpp_job_runs*
 | ERR               | the job terminated with errors        |
 
 The [**dpp_job_logs** table](#6110-dpp_job_logs) contains the execution log which is eventually also sent by mail.
+
+#### 5.3.2. Transfer via AWS S3 bucket
+
+This chapter describes how a transfer of dump files via an AWS S3 bucket can be configured and executed.
+
+This functionality is currently only available for AWS hosted Oracle databases.
+
+Technically, the transfer is performed in two steps:
+
+- The source database, after having [exported the dump files](#51-exporting-dump-file), uploads the dump files to an AWS S3 bucket.
+- The target database downloads the dump files from an AWS S3 bucket before [importing them](#6212-import_schema).
+
+In order to be able to upload or download files to or from AWS S3 bucket, the S3 bucket and the database must be set up in order to allow this access. This is described in the following document: [Amazon S3 integration](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html).
+
+##### 5.3.2.1. Setting up the upload and Download
+
+A DPP Utility job is defined with several parameters that need to be inserted in several database tables.
+
+###### 5.3.2.1.1. DPP_INSTANCES - Database instance
+
+The database instance must be defined in the **dpp_instances** table as follows:
+
+| Field             | Description                                                               | Example value                                 |
+| :---              | :---                                                                      | :---                                          |
+| ITE_NAME          | database instance name                                                    | DBCC_DIGIT_01_D                               |
+| DESCR_ENG         | description en English                                                    | DBE CoE's development database                |
+| DESCR_FRA         | description in French                                                     | base de données de développement du DBE CoE   |
+| PRODUCTION_FLAG   | flag indicating whether this is a production instance (**Y** or **N**)    | N                                             |
+| ENV_NAME          | environment name (**DC**, **AWS** or **COP**)                             | DC                                            |
+| DATE_CREAT        | row creation date                                                         | 2024-05-21 17:38:48                           |
+| USER_CREAT        | row creation user ID                                                      | malmjea                                       |
+| DATE_MODIF        | last modification date                                                    | 2024-05-21 17:39:27                           |
+| USER_MODIF        | last modification user ID                                                 | malmjea                                       |
+
+At least one instance must be defined for the source schema.
+
+###### 5.3.2.1.2. DPP_PARAMETERS - General parameters
+
+Several general parameters must be defined in the **dpp_parameters** table as follows:
+
+| Field             | Description                                                                                                                                                                   | Example value                                 |
+| :---              | :---                                                                                                                                                                          | :---                                          |
+| PRR_NAME          | parameter name                                                                                                                                                                | g_dpp_in_dir                                  |
+| PRR_VALUE         | parameter value                                                                                                                                                               | DATA_PUMP_DIR                                 |
+| DESCR_ENG         | description in English                                                                                                                                                        | Oracle directory for import                   |
+| DESCR_FRA         | description in French                                                                                                                                                         | répertoire Oracle d'import                    |
+| ITE_NAME          | The name of the database instance defined in **dpp_instance** if the parameter relates to a particular instance. If the parameter is general, this field may be left empty.   | DBCC_DIGIT_01_D                               |
+| DATE_CREAT        | row creation date                                                                                                                                                             | 2024-05-21 17:38:48                           |
+| USER_CREAT        | row creation user ID                                                                                                                                                          | malmjea                                       |
+| DATE_MODIF        | last modification date                                                                                                                                                        | 2024-05-21 17:39:27                           |
+| USER_MODIF        | last modification user ID                                                                                                                                                     | malmjea                                       |
+
+The following parameters need to be defined for an transfer job:
+
+| Parameter               | Mandatory | Comment                                                                                                                                                                                                                                                                                                                                                                                           |
+| :---                    | :---      | :---                                                                                                                                                                                                                                                                                                                                                                                              |
+| g_dpp_out_dir           | yes       | name of the Oracle directory the dump files must be transferred to (for an upload transfer only)                                                                                                                                                                                                                                                                                                  |
+| g_dpp_in_dir            | yes       | name of the Oracle directory the dump files must be transferred from (for a download  transfer only)                                                                                                                                                                                                                                                                                              |
+| smtp.dev_recipient      | no        | [The DPP Utility can generate a mail](#56-sending-mail) at the end of the job indicating whether it was executed successfully or with error. If the job is not executed in production environment, the mail is not sent to the regular recipients to avoid spamming. If a mail address is mentioned for the parameter, the mail will be sent to this address instead of the regular recipients.   |
+| smtp.host               | no        | The SMTP server that needs to be used to send the mail at the end of the job. If it is not mentioned, the default (**localhost**) server is used.                                                                                                                                                                                                                                                 |
+| smtp.port               | No        | This optional parameter stores the IP port of the SMTP server.                                                                                                                                                                                                                                                                                                                                    |
+| smtp.domain             | No        | This optional parameter stores the SMTP server domain.                                                                                                                                                                                                                                                                                                                                            |
+| smtp.username           | No        | If the SMTP server requires some authentication, the user ID is stored in this parameter.                                                                                                                                                                                                                                                                                                         |
+| smtp.wallet_path        | No        | Some SMTP servers need a certificate to complete the authentication. This parameter stores the path of the Oracle directory the **cwallet.sso** certificate file is stored in.                                                                                                                                                                                                                    |
+| smtp.sender             | No        | This parameter stores the email address of the mail sender.                                                                                                                                                                                                                                                                                                                                       |
+| smtp.default_recipient  | No        | This is the default recipient a mail is sent to when the list of recipients cannot be determined. This is the case when the schema name given as parameter does not exist.                                                                                                                                                                                                                        |
+
+###### 5.3.2.1.3. DPP_SCHEMAS - Schemas
+
+The source database schema needs to be defined in the **dpp_schemas** table as follows:
+
+| Field             | Description                                                                           | Example value                                 |
+| :---              | :---                                                                                  | :---                                          |
+| SMA_ID            | schema unique identifier                                                              | 1                                             |
+| ITE_NAME          | instance name as defined in the **dpp_instances** table                               | DBCC_DIGIT_01_D                               |
+| RLE_NAME          | optional role name as defined in the **dpp_roles** table                              | TRANSER_ROLE                                  |
+| STE_NAME          | schema type as defined in the **dpp_schema_types** table                              | MAIN                                          |
+| FUNCTIONAL_NAME   | an unique functional name given to the schema                                         | SRCDEV                                        |
+| SMA_NAME          | real name of the database schema                                                      | APP_DPP4TGT_D                                 |
+| PRODUCTION_FLAG   | flag indicating whether the schema is a production one (**Y** or **N**)               | N                                             |
+| DATE_FROM         | start date of the schema validity                                                     | 2024-05-22 13:07:34                           |
+| DATE_TO           | optional end date of the schema validity, the schema has no end date if omitted       | 2030-12-31 23:59:59                           |
+| DATE_CREAT        | row creation date                                                                     | 2024-05-21 17:38:48                           |
+| USER_CREAT        | row creation user ID                                                                  | malmjea                                       |
+| DATE_MODIF        | last modification date                                                                | 2024-05-21 17:39:27                           |
+| USER_MODIF        | last modification user ID                                                             | malmjea                                       |
+
+At least one schema must be defined in this table, the source one for an upload or the destination one for a download.
+
+###### 5.3.2.1.4. DPP_RECIPIENTS - Mail recipients
+
+At the end of the upload or download process, the DPP Utility can send a mail to some recipients indicating whether the job was executed successfully or with some errors. The mail recipients are defined in the **dpp_recipients** table as follows:
+
+| Field             | Description                                                                           | Example value                                 |
+| :---              | :---                                                                                  | :---                                          |
+| SMA_ID            | the schema ID as defined in the **dpp_schemas** table                                 | 1                                             |
+| EMAIL_ADDR        | the email address                                                                     | fname.lname@ec.europa.eu                      |
+| DATE_CREAT        | row creation date                                                                     | 2024-05-21 17:38:48                           |
+| USER_CREAT        | row creation user ID                                                                  | malmjea                                       |
+| DATE_MODIF        | last modification date                                                                | 2024-05-21 17:39:27                           |
+| USER_MODIF        | last modification user ID                                                             | malmjea                                       |
+
+No, one or several recipients may be defined for each schema. If none is defined, no mails will be sent at the end of the transfer process.
+
+###### 5.3.2.1.5. DPP_SCHEMA_OPTIONS - Schema options
+
+Several options can be defined to fine tune the upload or download job. Those options are defined in the **dpp_schema_options** table as follows:
+
+| Field             | Description                                                                           | Example value                                 |
+| :---              | :---                                                                                  | :---                                          |
+| SMA_ID            | the schema ID as defined in the **dpp_schemas** table                                 | 1                                             |
+| OTN_NAME          | option name                                                                           | EMAIL_RESULT                                  |
+| STN_VALUE         | option value                                                                          | Y                                             |
+| STN_USAGE         | the flow direction (**I** for an import, **E** for an export, **T** for a transfer)   | T                                             |
+| DATE_CREAT        | row creation date                                                                     | 2024-05-21 17:38:48                           |
+| USER_CREAT        | row creation user ID                                                                  | malmjea                                       |
+| DATE_MODIF        | last modification date                                                                | 2024-05-21 17:39:27                           |
+| USER_MODIF        | last modification user ID                                                             | malmjea                                       |
+
+Several options can be defined for a schema and a flow. They are all defined in the [**dpp_options** table](#6112-dpp_options) and the possible values, when enumerated, are available in the [**dpp_option_allowed_values** table](#6113-dpp_option_allowed_values). Those are the options that are available for an upload or download job:
+
+| Option name                   | Description                                                                                                                                                                                   | Possible values                       |
+| :---                          | :---                                                                                                                                                                                          | :---                                  |
+| EMAIL_RESULT                  | Emails the final result to the designated email list. If the job ended in **ERROR** the log from **dpp_job_logs** will be appended to the mail.                                               | **Y** for yes or **N** for no         |
+| TIMEOUT_MONITORING            | Activates or deactivates the timeout monitoring for the current schema.                                                                                                                       | **Y** for yes or **N** for no         |
+| TIMEOUT_DELAY                 | Number of minutes defining the delay after which the job is considered being in timeout.                                                                                                      | Numeric value, number of minutes.     |
+| S3_BUCKET                     | Name of the AWS S3 bucket that must be used for the upload or download process. This parameter is optional and can be passed at execution time.                                               | AWS S3 bucket name                    |
+| S3_PREFIX                     | Prefix in the S3 bucket which is the folder for an upload process and the folder and file name prefix for a download process. This parameter is optional and can be passed at execution time. | folder name or file path              |
+| S3_COMPR_LEVEL                | Compression level for an upload process. This parameter is optional and can be passed at execution time.                                                                                      | Numeric value between **0** and **9** |
+
+##### 5.3.2.2. Running the upload or download process
+
+Once all needed parameters have been defined, the upload or download process can be executed. There are several ways to execute the process, all implemented in the **dpp_job_krn** [PL/SQL package](#621-dpp_job_krn-package).
+
+###### 5.3.2.2.1. Uploading files to a S3 bucket
+
+A single file stored in an Oracle directory is uploaded to a S3 bucket as follows:
+
+    BEGIN
+       upload_file_to_s3(
+          'oracle_dir'
+        , 'file_name'
+        , 's3_bucket'
+        , 's3_prefix'
+        , 0
+       );
+    END;
+    /
+
+or
+
+    EXEC upload_file_to_s3('oracle_dir', 'file_name', 's3_bucket', 's3_prefix', 0 );
+
+Where **oracle_dir** must be replaced with the name of the Oracle directory the file is stored in, **file_name** must be replaced with the name of te file, **s3_bucket** must be replaced with the name of the target AWS S3 bucket, **s3_prefix** must be replaced with the target folder in the S3 bucket and **0** must be replaced with the wished compression level, between **0** and **9**. The **s3_bucket** and **s3_prefix** parameters may be omitted if they are defined in the [schema options settings](#53215-dpp_schema_options---schema-options). The compression level parameter is always optional.
+
+Several files stored in an Oracle directory are uploaded to a S3 bucket as follows:
+
+    BEGIN
+       upload_files_to_s3(
+          'oracle_dir'
+        , 'file_names_prefix'
+        , 's3_bucket'
+        , 's3_prefix'
+        , 0
+       );
+    END;
+    /
+
+or
+
+    EXEC upload_files_to_s3('oracle_dir' , 'file_names_prefix' , 's3_bucket' , 's3_prefix' , 0 );
+
+Where **oracle_dir** must be replaced with the name of the Oracle directory the files are stored in, **file_names_prefix** must be replaced with the common prefix part of the file names, **s3_bucket** must be replaced with the name of the target AWS S3 bucket, **s3_prefix** must be replaced with the target folder in the S3 bucket and **0** must be replaced with the wished compression level, between **0** and **9**. The **s3_bucket** and **s3_prefix** parameters may be omitted if they are defined in the [schema options settings](#53215-dpp_schema_options---schema-options). The compression level parameter is always optional.
+
+All files stored in the **oracle_dir** directory whose name starts with **file_names_prefix** are uploaded to the **s3_bucket** bucket in the **s3_prefix** folder.
+
+All files being part of a same dump are uploaded to a S3 bucket as follows:
+
+    BEGIN
+       upload_dumpfiles_to_s3(
+          'functional_name'
+        , 's3_bucket'
+        , 's3_prefix'
+        , 0
+        , SYSDATE
+       );
+    END;
+    /
+
+or
+
+    EXEC upload_dumpfiles_to_s3('functional_name', 's3_bucket', 's3_prefix', 0, SYSDATE );
+
+Where **functional_name** must be replaced with the functional name of the schema whose dump files must be uploaded as defined in the **dpp_schemas** [table](#53213-dpp_schemas---schemas), **s3_bucket** must be replaced with the name of the target AWS S3 bucket, **s3_prefix** must be replaced with the target folder in the S3 bucket, **0** must be replaced with the wished compression level, between **0** and **9** and **SYSDATE** must be replaced with the date of the dump whose files must be uploaded.
+
+This command identifies the files being part of the dump to be uploaded. Those file are stored in the Oracle directory defined in the **g_dpp_out_dir** parameter defined in the [parameters table](#53212-dpp_parameters---general-parameters). Those files are the ones whose name starts with the content of the **sma_name** field mentioned in the [schemas table](#53213-dpp_schemas---schemas) corresponding to the functional name. In the file name, the schema name is followed with the date passed in the command in **YYYYMMDD** format. If the date is omitted, the current date is used. This is followed with a 6 digits index number identifying the index of the file in the full dump. The file name is terminated with the **.exp** extension. All files matching this criterion are uploaded to the **s3_bucket** bucket in the **s3_prefix** folder.
+
+###### 5.3.2.2.2. Downloading files from a S3 bucket
+
+Several files stored in a S3 bucket are downloaded to an Oracle directory as follows:
+
+    BEGIN
+       download_files_from_s3(
+          'oracle_dir'
+        , 's3_bucket'
+        , 's3_prefix'
+       );
+    END;
+    /
+
+  or
+
+    EXEC download_files_from_s3('oracle_dir', 's3_bucket', 's3_prefix');
+
+Where **oracle_dir** must be replaced with the name of the Oracle directory the files are downloaded to, **s3_bucket** must be replaced with the name of the source S3 bucket and **s3_prefix** must be replaced with the prefix of the names of the files that must be downloaded, including the folder name.
+
+This command downloads the files stored in the **s3_bucket** whose full path including the folder starts with **s3_prefix**. Those files are downloaded to the **oracle_dir** Oracle directory.
+
+All files being part of a same dump are downloaded from a S3 bucket to an Oracle directory as follows:
+
+    BEGIN
+       download_dumpfiles_from_s3(
+          'functional_name'
+        , 's3_bucket'
+        , 's3_prefix
+        , SYSDATE
+       );
+    END;
+    /
+
+or
+
+    EXEC download_dumpfiles_from_s3('functional_name', 's3_bucket', 's3_prefix, SYSDATE );
+
+Where **functional_name** must be replaced with the functional name of the schema whose dump files must be downloaded as defined in the **dpp_schemas** [table](#53213-dpp_schemas---schemas), **s3_bucket** must be replaced with the name of the source AWS S3 bucket, **s3_prefix** must be replaced with the source folder in the S3 bucket and **SYSDATE** must be replaced with the date of the dump whose files must be downloaded.
+
+This command downloads all files begin part of a same dump from the **s3_bucket** in the **s3_prefix** folder. Those files are stored in the Oracle directory defined in the **g_dpp_in_dir** parameter defined in the [parameters table](#53212-dpp_parameters---general-parameters). Those files are the ones whose name starts with the content of the **sma_name** field mentioned in the [schemas table](#53213-dpp_schemas---schemas) corresponding to the functional name. In the file name, the schema name is followed with the date passed in the command in the **YYYYMMDD** format. If this date is omitted, the current date is used. All files matching this criterion are downloaded to the Oracle directory.
 
 ### 5.4. Timeout monitoring
 
@@ -1536,14 +1813,14 @@ If the action code stored in **BLOCK_TEXT** contains some sensitive pieces of in
 
 An existing dump file can be removed from the Oracle directory as follows:
 
-   plain BEGIN
-        dpp_job_krn.remove_dmp_file('file_name', 'directory_name');
+    BEGIN
+        dpp_job_krn.remove_file('file_name', 'directory_name');
     END;
     /
 
 or:
 
-   plain EXEC dpp_job_krn.remove_dmp_file('file_name', 'directory_name');
+    EXEC dpp_job_krn.remove_file('file_name', 'directory_name');
 
 Where:
 
@@ -1554,35 +1831,38 @@ Where:
 
 Old dump files can be removed as follows:
 
-   plain BEGIN
-        dpp_job_krn.remove_files_older('schema_name', 'date');
+    BEGIN
+        dpp_job_krn.remove_files_older('schema_name', 'date', schema_id);
     END;
     /
 
 or:
 
-   plain EXEC dpp_job_krn.remove_files_older('schema_name', 'date');
+    EXEC dpp_job_krn.remove_files_older('schema_name', 'date', schema_id);
 
 Where:
 
 - **schema_name** must be replaced with the technical name of the schema whose dump files must be removed.
 - **date** must be replaced with a date. All dump files of the schema mentioned in the first parameter made on this date and before will be removed.
+- **schema_id** must be replaced with the identifier of the schema whose dump files must be removed. This parameter is optional. If a value is mentioned for this parameter, it must match the schema name passed in the first parameter as defined in the [dpp_schemas table](#616-dpp_schemas).
 
 Another way to delete old dump files:
 
-   plain BEGIN
+    BEGIN
         dpp_job_krn.remove_files_old_functional('functional_name', 'date');
     END;
     /
 
 or:
 
-   plain EXEC dpp_job_krn.remove_files_old_functional('functional_name', 'date');
+    EXEC dpp_job_krn.remove_files_old_functional('functional_name', 'date');
 
 Where:
 
 - **functional_name** must be replaced with the functional name of the schema whose dump files must be removed.
 - **date** must be replaced with a date. All dump files of the schema mentioned in the first parameter made on this date and before will be removed.
+
+Removing old dump files is a process that is logged in the [**dpp_job_runs**](#619-dpp_job_runs) and [**dpp_job_logs**](#6110-dpp_job_logs) tables with the **RMOLD** (for *removing old*) [job type](#618-dpp_job_types).
 
 ### 5.6. Sending mail
 
@@ -1597,9 +1877,13 @@ Depending on the configuration of the [**dpp_schema_options**](#6111-dpp_schema_
   - [**dpp_recipients**](#5226-dpp_recipients---mail-recipients)
   - [**dpp_schema_options**](#5227-dpp_schema_options---schema-options)
 - for a transfer job:
-  - [**dpp_parameters**](#5312-dpp_parameters---general-parameters)
-  - [**dpp_recipients**](#5315-dpp_recipients---mail-recipients)
-  - [**dpp_schema_options**](#5316-dpp_schema_options---schema-options)
+  - [**dpp_parameters**](#53112-dpp_parameters---general-parameters)
+  - [**dpp_recipients**](#53115-dpp_recipients---mail-recipients)
+  - [**dpp_schema_options**](#53116-dpp_schema_options---schema-options)
+- For a S3 bucket operation:
+  - [**dpp_parameters**](#53212-dpp_parameters---general-parameters)
+  - [**dpp_recipients**](#53214-dpp_recipients---mail-recipients)
+  - [**dpp_schema_options**](#53215-dpp_schema_options---schema-options)
   
 The mail is actually sent by the [MAIL Utility](https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/DBECoE+Portfolio#DBECoEPortfolio-MAILUtility).
 
@@ -1607,14 +1891,14 @@ When the jobs are executed in a non-production environment, the MAIL Utility doe
 
 By default, the mail will be sent to this address. To inform the MAIL Utility that the environment is the production one and the mails should be sent to the regular recipients, the following piece of code can be executed before running the DPP Utility:
 
-   plain BEGIN
+    BEGIN
        mail_utility_krn.set_is_prod('Y');
     END;
     /
 
 or:
 
-   plain EXEC mail_utility_krn.set_is_prod('Y');
+    EXEC mail_utility_krn.set_is_prod('Y');
 
 ### 5.7. Managing configurations
 
@@ -1792,17 +2076,17 @@ This table allows defining relations between schemas, such as link main schema t
 
 #### 6.1.8. DPP_JOB_TYPES
 
-This table shows the types of data pump jobs possible, there are only 3 types defined currently ([import](#322-importing-dump-file), [export](#321-exporting-dump-file) and [file transfer](#323-transferring-dump-file)).
+This table shows the types of data pump jobs possible, there are only 4 types defined currently ([import](#322-importing-dump-file), [export](#321-exporting-dump-file), [file transfer](#323-transferring-dump-file) and [old dump files removal](#552-removing-old-dump-files)).
 
-| Column name       | Type                      | Description                                                                                                               |
-| :---              | :---                      | :---                                                                                                                      |
-| JTE_CD            | VARCHAR2(10) NOT NULL     | The type of Job. There are 3 entries: **IMPJB** (import job), **EXPJB** (export job) and **TRFJB** (file transfer job)    |
-| DESCR_ENG         | VARCHAR2(2000) NOT NULL   | Description in the English language                                                                                       |
-| DESCR_FRA         | VARCHAR2(2000) NOT NULL   | Description in the French language                                                                                        |
-| DATE_CREAT        | DATE NOT NULL             | The date this entry was created                                                                                           |
-| USER_CREAT        | VARCHAR2(128) NOT NULL    | The user who created this entry                                                                                           |
-| DATE_MODIF        | DATE NOT NULL             | The last time this row was modified by **USER_MODIF** user                                                                |
-| USER_MODIF        | VARCHAR2(128) NOT NULL    | The user who last modified this row                                                                                       |
+| Column name       | Type                      | Description                                                                                                                                                   |
+| :---              | :---                      | :---                                                                                                                                                          |
+| JTE_CD            | VARCHAR2(10) NOT NULL     | The type of Job. There are 4 entries: **IMPJB** (import job), **EXPJB** (export job), **TRFJB** (file transfer job) and **RMOLD** (removing old dump files)   |
+| DESCR_ENG         | VARCHAR2(2000) NOT NULL   | Description in the English language                                                                                                                           |
+| DESCR_FRA         | VARCHAR2(2000) NOT NULL   | Description in the French language                                                                                                                            |
+| DATE_CREAT        | DATE NOT NULL             | The date this entry was created                                                                                                                               |
+| USER_CREAT        | VARCHAR2(128) NOT NULL    | The user who created this entry                                                                                                                               |
+| DATE_MODIF        | DATE NOT NULL             | The last time this row was modified by **USER_MODIF** user                                                                                                    |
+| USER_MODIF        | VARCHAR2(128) NOT NULL    | The user who last modified this row                                                                                                                           |
 
 #### 6.1.9. DPP_JOB_RUNS
 
@@ -1859,7 +2143,7 @@ The possible options are stored in the [**dpp_options** table](#6112-dpp_options
 
 - **export:** [possible values of **dpp_schema_options** for an export operation](#5127-dpp_schema_options---schema-options)
 - **import:** [possible values of **dpp_schema_options** for an import operation](#5227-dpp_schema_options---schema-options)
-- **transfer:** [possible values of **dpp_schema_options** for a transfer operation](#5316-dpp_schema_options---schema-options)
+- **transfer:** [possible values of **dpp_schema_options** for a transfer operation](#53116-dpp_schema_options---schema-options) or a [S3 bucket operation](#53215-dpp_schema_options---schema-options)
 
 #### 6.1.12. DPP_OPTIONS
 
@@ -1939,7 +2223,7 @@ This procedure must be used instead of the deprecated **export_logical_name** on
 
 Format:
 
-   plain PROCEDURE export_schema(
+    PROCEDURE export_schema(
        p_functional_name    IN VARCHAR2
      , p_options            IN VARCHAR2 DEFAULT NULL
     );
@@ -1957,7 +2241,7 @@ This procedure must be used instead of the deprecated **import_logical_name** on
 
 Format:
 
-   plain PROCEDURE import_schema(
+    PROCEDURE import_schema(
        p_src_functional_name        IN VARCHAR2
      , p_trg_functional_name        IN VARCHAR2
      , p_options                    IN VARCHAR2 DEFAULT NULL
@@ -1971,27 +2255,29 @@ Parameters:
 
 ##### 6.2.1.3. remove_files_older
 
-This routine will remove all export dump files made ON AND BEFORE a particular date for a particular schema. The use of this procedure is described in the [Removing old dump files chapter](#552-removing-old-dump-files).
+This routine removes all export dump files made ON AND BEFORE a particular date for a particular schema. The use of this procedure is described in the [Removing old dump files chapter](#552-removing-old-dump-files).
 
 Format:
 
-   plain PROCEDURE remove_files_older(
-       p_sma_name       IN VARCHAR2
+    PROCEDURE remove_files_older(
+       p_sma_name       IN dpp_schemas.sma_name%TYPE
      , p_date           IN DATE
+     , p_sma_id         IN dpp_schemas.sma_id%TYPE    DEFAULT NULL
     );
 
 Parameters:
 
 - **p_sma_name:** Specifies the functional schema from which data was exported previously by a call to [**export_schema**](#6211-export_schema).
-- **p_date**: Specifies the date for which all OS-files OLDER or EQUAL to this date will be removed from the file system.
+- **p_date:** Specifies the date for which all OS-files OLDER or EQUAL to this date will be removed from the file system.
+- **p_sma_id:** Specifies the identifier of the schema whose dump files must be removed. This parameter is optional. If a value is mentioned for this parameter, it must match the schema name passed in the first parameter as defined in the [dpp_schemas table](#616-dpp_schemas).
 
 ##### 6.2.1.4. remove_files_old_functional
 
-This routine will remove ALL export dump files made BEFORE a particular date for a particular schema identified by its functional name.  The use of this procedure is described in the [Removing old dump files chapter](#552-removing-old-dump-files).
+This routine removes ALL export dump files made BEFORE a particular date for a particular schema identified by its functional name.  The use of this procedure is described in the [Removing old dump files chapter](#552-removing-old-dump-files).
 
 Format:
 
-   plain PROCEDURE remove_files_old_functional(
+    PROCEDURE remove_files_old_functional(
        p_src_functional IN VARCHAR2
      , p_date           IN DATE
     );
@@ -2003,7 +2289,7 @@ Parameters:
 
 ##### 6.2.1.5. transfer_dumpfiles
 
-This routine will transfer exported files from the one environment to another over a network connection. As previously mentioned, these environments are physically separated.
+This routine transfers exported files from one environment to another over a network connection. As previously mentioned, these environments are physically separated.
 
 **Warning:** this routine needs a database link, pointing to an [**APP_DPP_X** schema](#441-installation--app_dpp_x-schema) located on the other side. It assumes that the in/out directories have the same name in all environments. A function with same name returns the status of the process.
 
@@ -2011,7 +2297,7 @@ The use of the procedure is described in the [Transferring dump file chapter](#5
 
 Format:
 
-   plain PROCEDURE transfer_dumpfiles(
+    PROCEDURE transfer_dumpfiles(
        p_schema     IN VARCHAR2
      , p_db_link    IN VARCHAR2
     );
@@ -2020,6 +2306,130 @@ Parameters:
 
 - **p_schema:** Specifies the functional schema from which data that is previously exported by a call to [**export_schema**](#6211-export_schema).
 - **p_db_link:** Specifies the name of the database link to be used to transfer the files on the other side.
+
+##### 6.2.1.6. upload_file_to_s3
+
+This routine uploads a single file from an Oracle directory to an AWS S3 bucket.
+
+**Warning:** This functionality is only implemented for AWS hosted databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+The use of this procedure is described in the [Uploading files to a S3 bucket chapter](#53221-uploading-files-to-a-s3-bucket).
+
+Format:
+
+    PROCEDURE upload_file_to_s3(
+       p_directory          IN VARCHAR2
+     , p_file_name          IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2
+     , p_s3_prefix          IN VARCHAR2
+     , p_compression_level  IN PLS_INTEGER DEFAULT NULL
+    );
+
+Parameters:
+
+- **p_directory:** Specifies the Oracle directory the file is stored in.
+- **p_file_name:** Specifies the name of the file to be uploaded.
+- **p_s3_bucket:** Specifies the name of the S3 bucket the file must be uploaded to.
+- **p_s3_prefix:** Specifies the folder in the S3 bucket the file must be uploaded to.
+- **p_compression_level:** Specifies the compression method and level. The value must be numeric between *0* (no compression) and *9* (maximum compression). This parameter is optional. If it is omitted or null, no compression is applied.
+
+##### 6.2.1.7. upload_files_to_s3
+
+This routine uploads several files from an Oracle directory to an AWS S3 bucket.
+
+**Warning:** This functionality is only implemented for AWS hosted databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+The use of this procedure is described in the [Uploading files to a S3 bucket chapter](#53221-uploading-files-to-a-s3-bucket).
+
+Format:
+
+    PROCEDURE upload_files_to_s3(
+       p_directory          IN VARCHAR2
+     , p_file_names_prefix  IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2
+     , p_s3_prefix          IN VARCHAR2
+     , p_compression_level  IN PLS_INTEGER DEFAULT NULL
+    );
+
+Parameters:
+
+- **p_directory:** Specifies the Oracle directory the files are stored in.
+- **p_file_names_prefix:** Specifies the prefix of the names of the file to be uploaded. All files stored in the Oracle directory whose name starts with this prefix are uploaded.
+- **p_s3_bucket:** Specifies the name of the S3 bucket the files must be uploaded to.
+- **p_s3_prefix:** Specifies the folder in the S3 bucket the files must be uploaded to.
+- **p_compression_level:** Specifies the compression method and level. The value must be numeric between *0* (no compression) and *9* (maximum compression). This parameter is optional. If it is omitted or null, no compression is applied.
+
+##### 6.2.1.8. upload_dumpfiles_to_s3
+
+This routine uploads all files being part of a dump from an Oracle directory to an AWS S3 bucket.
+
+**Warning:** This functionality is only implemented for AWS hosted databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+The use of this procedure is described in the [Uploading files to a S3 bucket chapter](#53221-uploading-files-to-a-s3-bucket).
+
+Format:
+
+    PROCEDURE upload_dumpfiles_to_s3(
+       p_functional_name    IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2    DEFAULT NULL
+     , p_s3_prefix          IN VARCHAR2    DEFAULT NULL
+     , p_compression_level  IN PLS_INTEGER DEFAULT NULL
+     , p_date               IN DATE        DEFAULT SYSDATE
+    );
+
+Parameters:
+
+- **p_functional_name:** Defines the functional name of the schema whose dump files must be uploaded. The functional name must match an entry in the [dpp_schemas table](#53213-dpp_schemas---schemas).
+- **p_s3_bucket:** Specifies the name of the S3 bucket the dump files must be uploaded to. This parameter is optional if a **S3_BUCKET** parameter value is defined in the [dpp_schema_options table](#53215-dpp_schema_options---schema-options). If different values are specified in the routine parameter and in the options table, the routine parameter is used.
+- **p_s3_prefix:** Specifies the name of the folder in the S3 bucket the dump files must be uploaded to. This parameter is optional if a **S3_PREFIX** parameter is defined in the [dpp_schema_options table](#53215-dpp_schema_options---schema-options). If different values are specified in the routine parameter and in the options table, the routine parameter is used.
+- **p_compression_level:** Specifies the compression method and level. The value must be numeric between *0* (no compression) and *9* (maximum compression). This parameter is optional. A default compression level can also be defined in the **S3_COMPR_LEVEL** parameter in the [dpp_schema_options table](#53215-dpp_schema_options---schema-options). If different values are specified in the routine parameter and in the options table, the routine parameter is used.
+- **p_date:** Specifies the date of the dump whose files must be uploaded. This parameter is optional and the current date is used if it is not defined.
+
+##### 6.2.1.9. download_files_from_s3
+
+This routine downloads several files from an AWS S3 bucket to an Oracle directory.
+
+**Warning:** This functionality is only implemented for AWS hosted databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+The use of this procedure is described in the [Downloading files from a S3 bucket chapter](#53222-downloading-files-from-a-s3-bucket).
+
+Format:
+
+    PROCEDURE download_files_from_s3(
+       p_directory          IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2
+     , p_s3_prefix          IN VARCHAR2
+    );
+
+Parameters:
+
+- **p_directory:** Defines the Oracle directory the files must be downloaded to.
+- **p_s3_bucket:** Defines the S3 bucket the files must be downloaded from.
+- **p_s3_prefix:** Defines the full prefix, including the folder, of the names of the files to be downloaded. The files stored in the S3 bucket and whose full path inside the bucket starts with this prefix are downloaded.
+
+##### 6.2.1.10. download_dumpfiles_from_s3
+
+This routine downloads all files being part of a dump from an AWS S3 bucket to an Oracle directory.
+
+**Warning:** This functionality is only implemented for AWS hosted databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+The use of this procedure is described in the [Downloading files from a S3 bucket chapter](#53222-downloading-files-from-a-s3-bucket).
+
+Format:
+
+    PROCEDURE download_dumpfiles_from_s3(
+       p_functional_name    IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2    DEFAULT NULL
+     , p_s3_prefix          IN VARCHAR2    DEFAULT NULL
+     , p_date               IN DATE        DEFAULT SYSDATE
+    );
+
+Parameters:
+
+- **p_functional_name:** Defines the functional name of the schema whose dump files must be downloaded. The functional name must match an entry in the [dpp_schemas table](#53213-dpp_schemas---schemas).
+- **p_s3_bucket:** Specifies the name of the S3 bucket the dump files are stored in. This parameter is optional if a **S3_BUCKET** parameter value is defined in the [dpp_schema_options table](#53215-dpp_schema_options---schema-options). If different values are specified in the routine parameter and in the options table, the routine parameter is used.
+- **p_s3_prefix:** Specifies the name of the folder in the S3 bucket the dump files are stored in. This parameter is optional if a **S3_PREFIX** parameter is defined in the [dpp_schema_options table](#53215-dpp_schema_options---schema-options). If different values are specified in the routine parameter and in the options table, the routine parameter is used.
+- **p_date:** Specifies the date of the dump whose files must be downloaded. This parameter is optional and the current date is used if it is not defined.
 
 #### 6.2.2. DPP_JOB_MEM package
 
@@ -2033,7 +2443,7 @@ This routine flushes a table in memory containing the utility parameters.
 
 Format:
 
-   plain PROCEDURE flush_prr;
+    PROCEDURE flush_prr;
 
 ##### 6.2.2.2. load_prr
 
@@ -2041,7 +2451,7 @@ This routine loads a table in memory with the utility parameters.
 
 Format:
 
-   plain PROCEDURE load_prr;
+    PROCEDURE load_prr;
 
 ##### 6.2.2.3. get_prr
 
@@ -2049,7 +2459,7 @@ This routine retrieves a parameter row from the table in memory containing the u
 
 Format:
 
-   plain FUNCTION get_prr(
+    FUNCTION get_prr(
        p_prr_name       IN dpp_parameters.prr_name%TYPE
      , p_ite_name       IN dpp_parameters.ite_name%TYPE := NULL
     ) RETURN dpp_parameters%ROWTYPE;
@@ -2103,11 +2513,11 @@ The routines of this package are described down below.
 
 ##### 6.2.11.1. exec_monitoring
 
-This procedure is automatically called by the [**DPP_MONITORING** monitoring job](#6218-dpp_monitoring-job) every five minutes and implements the timeout detection.
+This procedure is automatically called by the [**DPP_MONITORING** monitoring job](#6220-dpp_monitoring-job) every five minutes and implements the timeout detection.
 
 Format:
 
-   plain PROCEDURE exec_monitoring(p_debug IN BOOLEAN := FALSE);
+    PROCEDURE exec_monitoring(p_debug IN BOOLEAN := FALSE);
 
 Parameters:
 
@@ -2137,7 +2547,7 @@ Oracle currently does not allow a database user to create a database link in ano
 
 Format:
 
-   plain PROCEDURE create_database_link (
+    PROCEDURE create_database_link (
        p_target_schema         IN    VARCHAR2
      , p_db_link_name          IN    VARCHAR2
      , p_db_link_user          IN    VARCHAR2
@@ -2165,7 +2575,7 @@ Oracle currently does not allow a database user to drop a database link in anoth
 
 Format:
 
-   plain PROCEDURE drop_database_link (
+    PROCEDURE drop_database_link (
        p_target_schema         IN    VARCHAR2
      , p_db_link_name          IN    VARCHAR2
     );
@@ -2181,7 +2591,7 @@ This procedure inserts a new database instance in the [**dpp_instances** table](
 
 Format:
 
-   plain PROCEDURE insert_instance(
+    PROCEDURE insert_instance(
        p_instance_name         IN  dpp_instances.ite_name%TYPE
      , p_descr_eng             IN  dpp_instances.descr_eng%TYPE
      , p_descr_fra             IN  dpp_instances.descr_fra%TYPE
@@ -2211,7 +2621,7 @@ This procedure deletes a database instance from the [**dpp_instances** table](#6
 
 Format:
 
-   plain PROCEDURE delete_instance(
+    PROCEDURE delete_instance(
        p_instance_name         IN  dpp_instances.ite_name%TYPE
     );
 
@@ -2225,7 +2635,7 @@ This procedure updates a database instance in the [**dpp_instances** table](#612
 
 Format:
 
-   plain PROCEDURE update_instance(
+    PROCEDURE update_instance(
        p_instance_name         IN  dpp_instances.ite_name%TYPE
      , p_descr_eng             IN  dpp_instances.descr_eng%TYPE       := NULL
      , p_descr_fra             IN  dpp_instances.descr_fra%TYPE       := NULL
@@ -2255,7 +2665,7 @@ This procedure inserts a new schema type in the [**dpp_schema_types** table](#61
 
 Format:
 
-   plain PROCEDURE insert_schema_type(
+    PROCEDURE insert_schema_type(
        p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
      , p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL
      , p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL
@@ -2277,7 +2687,7 @@ This procedure deletes a schema type from the [**dpp_schema_types** table](#615-
 
 Format:
 
-   plain PROCEDURE delete_schema_type(
+    PROCEDURE delete_schema_type(
        p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
     );
 
@@ -2291,7 +2701,7 @@ This procedure updates a schema type in the [**dpp_schema_types** table](#615-dp
 
 Format:
 
-   plain PROCEDURE update_schema_type(
+    PROCEDURE update_schema_type(
        p_schema_type_name      IN  dpp_schema_types.ste_name%TYPE
      , p_date_creat            IN  dpp_schema_types.date_creat%TYPE   := NULL
      , p_user_creat            IN  dpp_schema_types.user_creat%TYPE   := NULL
@@ -2313,7 +2723,7 @@ This procedure inserts a new role in the [**dpp_roles** table](#614-dpp_roles).
 
 Format:
 
-   plain PROCEDURE insert_role(
+    PROCEDURE insert_role(
        p_role_name             IN  dpp_roles.rle_name%TYPE
      , p_descr_eng             IN  dpp_roles.descr_eng%TYPE
      , p_descr_fra             IN  dpp_roles.descr_fra%TYPE
@@ -2339,7 +2749,7 @@ This procedure deletes a role from the [**dpp_roles** table](#614-dpp_roles).
 
 Format:
 
-   plain PROCEDURE delete_role(
+    PROCEDURE delete_role(
        p_role_name             IN  dpp_roles.rle_name%TYPE
     );
 
@@ -2353,7 +2763,7 @@ This procedure updates a role in the [**dpp_roles** table](#614-dpp_roles).
 
 Format:
 
-   plain PROCEDURE update_role(
+    PROCEDURE update_role(
        p_role_name             IN  dpp_roles.rle_name%TYPE
      , p_descr_eng             IN  dpp_roles.descr_eng%TYPE        := NULL
      , p_descr_fra             IN  dpp_roles.descr_fra%TYPE        := NULL
@@ -2379,7 +2789,7 @@ This function inserts a new database schema in the [**dpp_schemas** table](#616-
 
 Format:
 
-   plain FUNCTION insert_schema(
+    FUNCTION insert_schema(
        p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
      , p_instance_name         IN  dpp_schemas.ite_name%TYPE
      , p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL
@@ -2420,7 +2830,7 @@ This procedure deletes a database schema from the [**dpp_schemas** table](#616-d
 
 Format:
 
-   plain PROCEDURE delete_schema(
+    PROCEDURE delete_schema(
        p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
     );
@@ -2436,7 +2846,7 @@ This procedure updates a database schema in the [**dpp_schemas** table](#616-dpp
 
 Format:
 
-   plain PROCEDURE update_schema(
+    PROCEDURE update_schema(
        p_schema_id             IN  dpp_schemas.sma_id%TYPE
      , p_instance_name         IN  dpp_schemas.ite_name%TYPE          := NULL
      , p_role_name             IN  dpp_schemas.rle_name%TYPE          := NULL
@@ -2474,7 +2884,7 @@ This function duplicates a database schema in the [**dpp_schemas** table](#616-d
 
 Format:
 
-   plain FUNCTION duplicate_schema(
+    FUNCTION duplicate_schema(
        p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
      , p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
@@ -2504,7 +2914,7 @@ This procedure inserts a new item in the table of objects that should never be d
 
 Format:
 
-   plain PROCEDURE insert_nodrop_object(
+    PROCEDURE insert_nodrop_object(
        p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
@@ -2534,7 +2944,7 @@ This procedure deletes an item from the table of objects that should never be dr
 
 Format:
 
-   plain PROCEDURE delete_nodrop_object(
+    PROCEDURE delete_nodrop_object(
        p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
@@ -2554,7 +2964,7 @@ This procedure updates an item in the table of objects that should never be drop
 
 Format:
 
-   plain PROCEDURE update_nodrop_object(
+    PROCEDURE update_nodrop_object(
        p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
@@ -2584,7 +2994,7 @@ This procedure duplicates an item in the table of objects that should never be d
 
 Format:
 
-   plain PROCEDURE duplicate_nodrop_object(
+    PROCEDURE duplicate_nodrop_object(
        p_schema_id             IN  dpp_nodrop_objects.sma_id%TYPE     := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_object_name           IN  dpp_nodrop_objects.object_name%TYPE
@@ -2616,7 +3026,7 @@ This procedure inserts a new action in the [**dpp_actions** table](#611-dpp_acti
 
 Format:
 
-   plain PROCEDURE insert_action(
+    PROCEDURE insert_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2650,7 +3060,7 @@ This procedure inserts a new action in the [**dpp_actions** table](#611-dpp_acti
 
 Format:
 
-   plain PROCEDURE insert_http_request_action(
+    PROCEDURE insert_http_request_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2684,7 +3094,7 @@ Parameters:
 
 The PL/SQL code of the action is automatically generated by this function. The HTTP request will be sent using the [HTTP Utility](https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility). The PL/SQL code that is generated is based on the following template:
 
-   plain BEGIN
+    BEGIN
        http_utility_krn.send_http_request(
           '{url}'
         , '{wallet_path}'
@@ -2706,7 +3116,7 @@ The difference with the [insert_http_request_action procedure](#621421-insert_ht
 
 Format:
 
-   plain PROCEDURE insert_http_request_action_enc(
+    PROCEDURE insert_http_request_action_enc(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2742,7 +3152,7 @@ Parameters:
 
 The PL/SQL code of the action is automatically generated by this function and the values of *p_url* and *p_wallet_path* are automatically encrypted. The HTTP request will be sent using the [HTTP Utility](https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility). The PL/SQL code that is generated is based on the following template:
 
-   plain BEGIN
+    BEGIN
        http_utility_krn.send_http_request(
           '{url}'
         , '{wallet_path}'
@@ -2762,7 +3172,7 @@ This procedure inserts a new action in the [**dpp_actions** table](#611-dpp_acti
 
 Format:
 
-   plain PROCEDURE insert_http_gitlab_req_action(
+    PROCEDURE insert_http_gitlab_req_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2802,7 +3212,7 @@ Parameters:
 
 The PL/SQL code of the action is automatically generated by this function. The HTTP request will be sent using the [HTTP Utility](https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility). The PL/SQL code that is generated is based on the following template:
 
-   plain BEGIN
+    BEGIN
        http_utility_krn.send_gitlab_http_request(
           '{url}'
         , '{token}'
@@ -2830,7 +3240,7 @@ The difference with the [insert_http_gitlab_req_action procedure](#621423-insert
 
 Format:
 
-   plain PROCEDURE insert_http_gitlab_req_action_enc(
+    PROCEDURE insert_http_gitlab_req_action_enc(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2872,7 +3282,7 @@ Parameters:
 
 The PL/SQL code of the action is automatically generated by this function and the values of *p_url*, *p_token* and *p_wallet_path* are automatically encrypted. The HTTP request will be sent using the [HTTP Utility](https://webgate.ec.europa.eu/fpfis/wikis/display/BONEAS/HTTP+Utility). The PL/SQL code that is generated is based on the following template:
 
-   plain BEGIN
+    BEGIN
        http_utility_krn.send_gitlab_http_request(
           '{url}'
         , '{token}'
@@ -2898,7 +3308,7 @@ This procedure deletes an action from [**dpp_actions** table](#611-dpp_actions).
 
 Format:
 
-   plain PROCEDURE delete_action(
+    PROCEDURE delete_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2920,7 +3330,7 @@ This procedure updates an action in the [**dpp_actions** table](#611-dpp_actions
 
 Format:
 
-   plain PROCEDURE update_action(
+    PROCEDURE update_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2954,7 +3364,7 @@ This procedure updates the execution order of an action in the [**dpp_actions** 
 
 Format:
 
-   plain PROCEDURE update_action_exec_order(
+    PROCEDURE update_action_exec_order(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -2982,7 +3392,7 @@ This procedure duplicates an action in the [**dpp_actions** table](#611-dpp_acti
 
 Format:
 
-   plain PROCEDURE duplicate_action(
+    PROCEDURE duplicate_action(
        p_schema_id             IN  dpp_actions.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_atn_usage             IN  dpp_actions.atn_usage%TYPE
@@ -3016,7 +3426,7 @@ This procedure inserts a new parameter in the [**dpp_parameters** table](#6115-d
 
 Format:
 
-   plain PROCEDURE insert_parameter(
+    PROCEDURE insert_parameter(
        p_param_name            IN  dpp_parameters.prr_name%TYPE
      , p_param_value           IN  dpp_parameters.prr_value%TYPE
      , p_descr_eng             IN  dpp_parameters.descr_eng%TYPE
@@ -3046,7 +3456,7 @@ This procedure deletes a from the [**dpp_parameters** table](#6115-dpp_parameter
 
 Format:
 
-   plain PROCEDURE delete_parameter(
+    PROCEDURE delete_parameter(
        p_param_name            IN  dpp_parameters.prr_name%TYPE
      , p_instance_name         IN  dpp_parameters.ite_name%TYPE          := NULL
     );
@@ -3062,7 +3472,7 @@ This procedure updates a parameter in the [**dpp_parameters** table](#6115-dpp_p
 
 Format:
 
-   plain PROCEDURE update_parameter(
+    PROCEDURE update_parameter(
        p_param_name            IN  dpp_parameters.prr_name%TYPE
      , p_param_value           IN  dpp_parameters.prr_value%TYPE         := NULL
      , p_descr_eng             IN  dpp_parameters.descr_eng%TYPE         := NULL
@@ -3092,7 +3502,7 @@ This procedure inserts a new email recipient in the [**dpp_recipients** table](#
 
 Format:
 
-   plain PROCEDURE insert_recipient(
+    PROCEDURE insert_recipient(
        p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_email_addr            IN  dpp_recipients.email_addr%TYPE
@@ -3118,7 +3528,7 @@ This procedure deletes an email recipient in the [**dpp_recipients** table](#613
 
 Format:
 
-   plain PROCEDURE delete_recipient(
+    PROCEDURE delete_recipient(
        p_schema_id             IN  dpp_recipients.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_email_addr            IN  dpp_recipients.email_addr%TYPE
@@ -3136,7 +3546,7 @@ This procedure duplicates an email recipient in the [**dpp_recipients** table](#
 
 Format:
 
-   plain PROCEDURE duplicate_recipient(
+    PROCEDURE duplicate_recipient(
        p_schema_id             IN  dpp_recipients.sma_id%TYPE         := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_email_addr            IN  dpp_recipients.email_addr%TYPE
@@ -3166,7 +3576,7 @@ This procedure inserts a new schema option in the [**dpp_schema_options** table]
 
 Format:
 
-   plain PROCEDURE insert_schema_option(
+    PROCEDURE insert_schema_option(
        p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_option_name           IN  dpp_schema_options.otn_name%TYPE
@@ -3196,7 +3606,7 @@ This procedure deletes a schema option from the [**dpp_schema_options** table](#
 
 Format:
 
-   plain PROCEDURE delete_schema_option(
+    PROCEDURE delete_schema_option(
        p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_option_name           IN  dpp_schema_options.otn_name%TYPE
@@ -3218,7 +3628,7 @@ This procedure updates a schema option in the [**dpp_schema_options** table](#61
 
 Format:
 
-   plain PROCEDURE update_schema_option(
+    PROCEDURE update_schema_option(
        p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_option_name           IN  dpp_schema_options.otn_name%TYPE
@@ -3250,7 +3660,7 @@ This procedure duplicates a schema option in the [**dpp_schema_options** table](
 
 Format:
 
-   plain PROCEDURE duplicate_schema_option(
+    PROCEDURE duplicate_schema_option(
        p_schema_id             IN  dpp_schema_options.sma_id%TYPE        := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_option_name           IN  dpp_schema_options.otn_name%TYPE
@@ -3284,7 +3694,7 @@ This procedure inserts a relationship between two schemas in the [**dpp_schema_r
 
 Format:
 
-   plain PROCEDURE insert_schema_relation(
+    PROCEDURE insert_schema_relation(
        p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
      , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
@@ -3316,7 +3726,7 @@ This procedure deletes a relationship between two schemas from the [**dpp_schema
 
 Format:
 
-   plain PROCEDURE delete_schema_relation(
+    PROCEDURE delete_schema_relation(
        p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
      , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
@@ -3336,7 +3746,7 @@ This procedure updates a relationship between two schemas in the [**dpp_schema_r
 
 Format:
 
-   plain PROCEDURE update_schema_relation(
+    PROCEDURE update_schema_relation(
        p_schema_id_from        IN  dpp_schema_relations.sma_id_from%TYPE := NULL
      , p_functional_name_from  IN  dpp_schemas.functional_name%TYPE      := NULL
      , p_schema_id_to          IN  dpp_schema_relations.sma_id_to%TYPE   := NULL
@@ -3368,7 +3778,7 @@ This procedure cleans up the job runs ([**dpp_job_runs** table](#619-dpp_job_run
 
 Format:
 
-   plain PROCEDURE clean_up_job_runs(
+    PROCEDURE clean_up_job_runs(
        p_schema_id             IN  dpp_job_runs.sma_id%TYPE           := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_date_started          IN  dpp_job_runs.date_started%TYPE     := NULL
@@ -3388,7 +3798,7 @@ This function duplicates a schema and all configurations attached to it ([**dpp_
 
 Format:
 
-   plain FUNCTION duplicate_schema_config(
+    FUNCTION duplicate_schema_config(
        p_src_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
      , p_src_functional_name   IN  dpp_schemas.functional_name%TYPE   := NULL
      , p_trg_schema_id         IN  dpp_schemas.sma_id%TYPE            := NULL
@@ -3418,7 +3828,7 @@ This procedure deletes a schema and all configurations attached to it ([**dpp_no
 
 Format:
 
-   plain PROCEDURE delete_schema_config(
+    PROCEDURE delete_schema_config(
        p_schema_id             IN  dpp_schemas.sma_id%TYPE            := NULL
      , p_functional_name       IN  dpp_schemas.functional_name%TYPE   := NULL
     );
@@ -3471,7 +3881,57 @@ The procedures and functions of the [**dpp_cnf_krn** package](#6214-dpp_cnf_krn-
 
 This package contains global variables and constants for the [**dpp_cnf_krn** package](#6214-dpp_cnf_krn-package), to make this one stateless.
 
-#### 6.2.16. DC_DBA_MGMT_KILL_SESS_DEDIC_DB stored procedure
+#### 6.2.16. DPP_S3_KRN package
+
+This package implements the upload and download to and from AWS S3 buckets functionalities. It proposes low level routines that upload files to S3 buckets or download files from S3 buckets that are used by the high level routines of the [DPP_JOB_KRN package](#621-dpp_job_krn-package).
+
+**Warning:** Since the S3 upload and download services are only available on AWS, this package is not deployed in Data Center and Cloud On Premise databases. Furthermore, the AWS S3 bucket and the database must be configured to allow the upload and download of files to this S3 bucket from this Oracle database.
+
+##### 6.2.16.1. upload_file_to_s3
+
+This procedure uploads a single file from an Oracle directory to an AWS S3 bucket.
+
+Format:
+
+    PROCEDURE upload_file_to_s3(
+       p_directory          IN VARCHAR2
+     , p_file_name          IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2
+     , p_s3_prefix          IN VARCHAR2
+     , p_compression_level  IN PLS_INTEGER    := NULL
+    );
+
+Parameters:
+
+- **p_directory:** The name of the Oracle directory the file is stored in.
+- **p_file_name:** The name of the file to be uploaded.
+- **p_s3_bucket:** The name of the S3 bucket the file must be uploaded to.
+- **p_s3_prefix:** The name of the S3 folder the file must be uploaded to.
+- **p_compression_level:** The compression method and level which is a number bewteen *0* (no compression) and *9* (maximum compression). This parameter is optional. If it is not specified, no compression is applied.
+
+##### 6.2.16.2. download_file_from_s3
+
+This procedure downloads a file from an AWS S3 bucket.
+
+Format:
+
+    PROCEDURE download_file_from_s3(
+       p_directory          IN VARCHAR2
+     , p_s3_bucket          IN VARCHAR2
+     , p_s3_prefix          IN VARCHAR2
+    );
+
+Parameters:
+
+- **p_directory:** Name of the Oracle directory the file must be downloaded to.
+- **p_s3_bucket:** Name of the S3 bucket the file is stored in.
+- **p_s3_refix:** Full path of the file in the S3 bucket.
+
+#### 6.2.17. DPP_S3_VAR package
+
+This package contains global variables, constants and exceptions for the **dpp_s3_krn** [package](#6216-dpp_s3_krn-package).
+
+#### 6.2.18. DC_DBA_MGMT_KILL_SESS_DEDIC_DB stored procedure
 
 This stored procedure kills a session.
 
@@ -3479,7 +3939,7 @@ This stored procedure kills a session.
 
 Format:
 
-   plain PROCEDURE dc_dba_mgmt_kill_sess_dedic_db(
+    PROCEDURE dc_dba_mgmt_kill_sess_dedic_db(
        session_sid      IN INT
      , session_serial   IN INT
      ,v_inst_id         IN NUMBER DEFAULT 0
@@ -3491,7 +3951,7 @@ Parameters:
 - **session_serial:** The serial number of the session to be killed
 - **v_inst_id:** The instance identifier
 
-#### 6.2.17. DC_DBA_MGMT_LOCK_USER stored procedure
+#### 6.2.19. DC_DBA_MGMT_LOCK_USER stored procedure
 
 This procedure locks or unlocks a schema.
 
@@ -3499,7 +3959,7 @@ This procedure locks or unlocks a schema.
 
 Format:
 
-   plain PROCEDURE dc_dba_mgmt_lock_user(
+    PROCEDURE dc_dba_mgmt_lock_user(
        user             IN VARCHAR2
      , b_lock           IN BOOLEAN
     );
@@ -3509,6 +3969,6 @@ Parameters:
 - **user:** name of the schema to be locked or unlocked
 - **b_lock:** **TRUE** if the schema needs to locked, **FALSE** if it needs to be unlocked.
 
-#### 6.2.18. DPP_MONITORING job
+#### 6.2.20. DPP_MONITORING job
 
 This job is part of the implementation of the timeout monitoring. Every five minutes, it executes the [**exec_monitoring** procedure](#62111-exec_monitoring) of the [**dpp_monitoring_krn** package](#6211-dpp_monitoring_krn-package).
