@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0052)file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html><html><head>
       <title>ec_plsql_toolkit_technical_guide</title>
-      
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="./ec_plsql_toolkit_technical_guide_files/katex.min.css">
+      <link rel="stylesheet" href="file:////home/deboiph/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -26,79 +24,78 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="ec-plsl-toolkit-v249---technical-guide">EC PL/SL Toolkit v24.9 - Technical Guide </h1>
+<h1 id="ec-plsl-toolkit-v256---technical-guide">EC PL/SL Toolkit v25.6 - Technical Guide </h1>
 <h2 id="author-philippe-debois-european-commission---digit">Author: Philippe Debois (European Commission - DIGIT) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#1-introduction">1. Introduction</a>
+<li><a href="#1-introduction">1. Introduction</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#11-audience">1.1. Audience</a></li>
+<li><a href="#11-audience">1.1. Audience</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#2-toolkit-home-directory">2. Toolkit home directory</a>
+<li><a href="#2-toolkit-home-directory">2. Toolkit home directory</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#21-apps-directory">2.1. Apps directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#22-bin-directory">2.2. Bin directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#23-conf-directory">2.3. Conf directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#24-doc-directory">2.4. Doc directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#25-logs-directory">2.5. Logs directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#26-sql-directory">2.6. Sql directory</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#27-tmp-directory">2.7. Tmp directory</a></li>
+<li><a href="#21-apps-directory">2.1. Apps directory</a></li>
+<li><a href="#22-bin-directory">2.2. Bin directory</a></li>
+<li><a href="#23-conf-directory">2.3. Conf directory</a></li>
+<li><a href="#24-doc-directory">2.4. Doc directory</a></li>
+<li><a href="#25-logs-directory">2.5. Logs directory</a></li>
+<li><a href="#26-sql-directory">2.6. Sql directory</a></li>
+<li><a href="#27-tmp-directory">2.7. Tmp directory</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#3-tools-migration-setup">3. Tools migration setup</a>
+<li><a href="#3-tools-migration-setup">3. Tools migration setup</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#31-version-specific-setup">3.1. Version specific setup</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#32-version-independent-setup">3.2. Version independent setup</a>
+<li><a href="#31-version-specific-setup">3.1. Version specific setup</a></li>
+<li><a href="#32-version-independent-setup">3.2. Version independent setup</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#321-scripts">3.2.1. Scripts</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#322-parameters">3.2.2. Parameters</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#323-substitution-variables">3.2.3. Substitution variables</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#324-privileges">3.2.4. Privileges</a></li>
+<li><a href="#321-scripts">3.2.1. Scripts</a></li>
+<li><a href="#322-parameters">3.2.2. Parameters</a></li>
+<li><a href="#323-substitution-variables">3.2.3. Substitution variables</a></li>
+<li><a href="#324-privileges">3.2.4. Privileges</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#33-common-setup">3.3. Common setup</a>
+<li><a href="#33-common-setup">3.3. Common setup</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#331-common-scripts">3.3.1. Common scripts</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#332-common-privileges">3.3.2. Common privileges</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#333-common-substitution-variables">3.3.3. Common substitution variables</a></li>
+<li><a href="#331-common-scripts">3.3.1. Common scripts</a></li>
+<li><a href="#332-common-privileges">3.3.2. Common privileges</a></li>
+<li><a href="#333-common-substitution-variables">3.3.3. Common substitution variables</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#4-procedures">4. Procedures</a>
+<li><a href="#4-procedures">4. Procedures</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#41-creating-a-new-version-of-a-tool">4.1. Creating a new version of a tool</a>
+<li><a href="#41-creating-a-new-version-of-a-tool">4.1. Creating a new version of a tool</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#411-preparing-a-new-version-of-a-tool">4.1.1. Preparing a new version of a tool</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#412-defining-a-release-strategy-and-assigning-a-release-number">4.1.2. Defining a release strategy and assigning a release number</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#413-creating-a-release-folder-and-its-subfolders">4.1.3. Creating a release folder and its subfolders</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#414-populate-install-andor-upgrade-subfolders">4.1.4. Populate install and/or upgrade subfolders</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#415-making-database-objects-inventory-including-checksums">4.1.5. Making database objects inventory including checksums</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#416-cleaning-up-full-release-folders">4.1.6. Cleaning up full release folders</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#417-testing-the-migration">4.1.7. Testing the migration</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#418-updating-release-notes">4.1.8. Updating release notes</a></li>
+<li><a href="#411-preparing-a-new-version-of-a-tool">4.1.1. Preparing a new version of a tool</a></li>
+<li><a href="#412-defining-a-release-strategy-and-assigning-a-release-number">4.1.2. Defining a release strategy and assigning a release number</a></li>
+<li><a href="#413-creating-a-release-folder-and-its-subfolders">4.1.3. Creating a release folder and its subfolders</a></li>
+<li><a href="#414-populate-install-andor-upgrade-subfolders">4.1.4. Populate install and/or upgrade subfolders</a></li>
+<li><a href="#415-making-database-objects-and-files-inventory-including-checksums">4.1.5. Making database objects and files inventory including checksums</a></li>
+<li><a href="#416-cleaning-up-full-release-folders">4.1.6. Cleaning up full release folders</a></li>
+<li><a href="#417-testing-the-migration">4.1.7. Testing the migration</a></li>
+<li><a href="#418-updating-release-notes">4.1.8. Updating release notes</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#42-creating-a-new-version-of-the-installer">4.2. Creating a new version of the installer</a>
+<li><a href="#42-creating-a-new-version-of-the-installer">4.2. Creating a new version of the installer</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#421-declaring-release-number-and-type">4.2.1. Declaring release number and type</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#422-declaring-checksums">4.2.2. Declaring checksums</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#423-script-execution-method">4.2.3. Script Execution Method</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#424-home-directory-of-the-dbm-tool">4.2.4. Home Directory of the DBM Tool</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#425-procedure">4.2.5. Procedure</a></li>
+<li><a href="#421-declaring-release-number-and-type">4.2.1. Declaring release number and type</a></li>
+<li><a href="#422-declaring-checksums">4.2.2. Declaring checksums</a></li>
+<li><a href="#423-script-execution-method">4.2.3. Script Execution Method</a></li>
+<li><a href="#424-home-directory-of-the-dbm-tool">4.2.4. Home Directory of the DBM Tool</a></li>
+<li><a href="#425-procedure">4.2.5. Procedure</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#43-making-a-new-version-of-the-toolkit">4.3. Making a new version of the toolkit</a>
+<li><a href="#43-making-a-new-version-of-the-toolkit">4.3. Making a new version of the toolkit</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#431-assigning-a-toolkit-version-number">4.3.1. Assigning a toolkit version number</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#432-renaming-the-toolkit-version-folder">4.3.2. Renaming the toolkit version folder</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#433-updating-toolkit-release-notes">4.3.3. Updating toolkit release notes</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#434-building-archives">4.3.4. Building archives</a></li>
+<li><a href="#431-assigning-a-toolkit-version-number">4.3.1. Assigning a toolkit version number</a></li>
+<li><a href="#432-renaming-the-toolkit-version-folder">4.3.2. Renaming the toolkit version folder</a></li>
+<li><a href="#433-updating-toolkit-release-notes">4.3.3. Updating toolkit release notes</a></li>
+<li><a href="#434-building-the-archive">4.3.4. Building the archive</a></li>
+<li><a href="#435-testing-the-archive">4.3.5. Testing the archive</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#44-testing-archives">4.4. Testing archives</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#45-upload-archives-in-nexus">4.5. Upload archives in Nexus</a></li>
 </ul>
 </li>
 </ul>
@@ -116,6 +113,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>.gitlab</code></td>
+<td>GitLab dir</td>
+<td>GitLab configuration files.</td>
+</tr>
 <tr>
 <td><code>apps</code></td>
 <td>Applications dir</td>
@@ -164,11 +166,15 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="http://CHANGELOG.md">CHANGELOG.md</a></td>
+<td>Change log</td>
+</tr>
+<tr>
 <td>clean-up</td>
 <td>Shell script to clean-up temporary and logs files before making a zip.</td>
 </tr>
 <tr>
-<td><a href="http://contributing-guidelines.md/">contributing-guidelines.md</a></td>
+<td><a href="http://contributing-guidelines.md">contributing-guidelines.md</a></td>
 <td>Guidelines for contributing to this project.</td>
 </tr>
 <tr>
@@ -192,15 +198,11 @@
 <td>Shell script to migrate the DBM tool.</td>
 </tr>
 <tr>
-<td>mkzip</td>
-<td>Shell script to package the toolkit.</td>
-</tr>
-<tr>
 <td>NOTICE.txt</td>
 <td>Licence terms of embedded 3rd party components.</td>
 </tr>
 <tr>
-<td><a href="http://readme.md/">README.md</a></td>
+<td><a href="http://README.md">README.md</a></td>
 <td>Readme file.</td>
 </tr>
 <tr>
@@ -241,7 +243,7 @@
 </code></pre><p>Each <code>releases</code> folder contains an <code>all</code> version that holds the material that do not depend on a specific version (i.e., that is common to all versions). This folder also contains a <code>Release-Notes.txt</code> file that documents new features, changes (enhancements), and bug fixes of each release.</p>
 <p>Each version folder (<code>all</code> or <code>xx.yy[.zz]</code>) contains subfolders whose name is dictated by the corresponding installer command plus a <code>config</code> folder containing configuration files.</p>
 <h3 id="22-bin-directory">2.2. Bin directory </h3>
-<p>This directory contains shell scripts that are used by the installer for performing some specific tasks. Two versions of each file are provided, one for Windows (<code>.bat</code> or <code>.cmd</code> extension), one for Linux (no extension but with execute permission).</p>
+<p>This directory contains shell scripts that are used by the installer for performing some specific tasks. Several versions of each file are provided, one or two for Windows (<code>.bat</code>, <code>.cmd</code>, or <code>.ps1</code> extension), one for Linux (no extension but with execute permission).</p>
 <p>Here follows the list of provided files and their usage (only the Linux files are listed):</p>
 <table>
 <thead>
@@ -342,6 +344,10 @@
 <tr>
 <td>dbm_uninstall.sql</td>
 <td>Uninstall all database objects of the DBM tool</td>
+</tr>
+<tr>
+<td>dbm-check-privs.sql</td>
+<td>Check missing system, role, or table privileges.</td>
 </tr>
 <tr>
 <td>dbm-checksums.sql</td>
@@ -610,7 +616,7 @@
 <li>Define a release strategy and assign a release number.</li>
 <li>Create a release folder and its subfolders.</li>
 <li>Populate <code>install</code> and/or <code>upgrade</code> subfolders.</li>
-<li>Make database objects inventory including checksums.</li>
+<li>Make database objects and files inventory including checksums.</li>
 <li>Clean up full release folders</li>
 <li>Test the migration</li>
 <li>Update release notes (while making changes).</li>
@@ -667,9 +673,12 @@
 <h4 id="414-populate-install-andor-upgrade-subfolders">4.1.4. Populate install and/or upgrade subfolders </h4>
 <p>Copy scripts responsible for full installation in the <code>install</code> subfolder and those responsible for upgrade in the <code>upgrade</code> subfolder. Remember, files containing database code are identical for both installation and upgrade, on the contrary to files related to the database structure.</p>
 <p>To provide better support for rollback in case of migration failure, it is recommended to use the changelogs method of the DBM tool, i.e. to create <code>install.dbm</code> and <code>upgrade.dbm</code> changelog files. This method also allows the conditional execution of files depending on the target environment.</p>
-<h4 id="415-making-database-objects-inventory-including-checksums">4.1.5. Making database objects inventory including checksums </h4>
-<p>The inventory of database objects (stored in the file <code>config/objects.dbm</code>), which includes their checksums, enables validation of the correct installation or upgrade of the tool. It also provides a means to determine the currently installed version of the tool if this information is lost (e.g., due to re-installation of the DBM tool).</p>
-<p>To generate the database objects inventory, execute the <code>dbm-cli</code> shell script while connected to the schema containing the database objects being released. Use the following command: <code>@dbm-cli make &lt;tool&gt; &lt;version&gt;</code>. Here, <code>&lt;tool&gt;</code> refers to the name or abbreviation of the tool, and <code>&lt;version&gt;</code> is the designated target release number. Although the version parameter is optional, it is recommended to explicitly specify it, as the currently known installed version managed by the DBM tool may not be up to date.</p>
+<h4 id="415-making-database-objects-and-files-inventory-including-checksums">4.1.5. Making database objects and files inventory including checksums </h4>
+<p>An inventory of database objects (stored in the file <code>config/objects.dbm</code>), which includes their checksums, enables validation of the correct installation or upgrade of the tool. It also provides a means to determine the currently installed version of the tool if this information is lost (e.g., due to re-installation of the DBM tool).</p>
+<p>An inventory of files is saved into a <code>files.dbm</code> file located in each directory. Each file is listed with its name, its hash, and an optional run condition. This inventory is used to detect whether distributed files have been deleted or changed, in which case they are reported respectively as <code>MISSING</code> or <code>TAMPERED</code>. It is also use to detect files that have been deleted or changed since their execution.</p>
+<p>To generate the database objects inventory only, execute the <code>dbm-cli</code> shell script while connected to the schema containing the database objects being released. Use the following command: <code>@dbm-cli make -db[-objects] &lt;tool&gt; &lt;version&gt;</code>. Here, <code>&lt;tool&gt;</code> refers to the name or abbreviation of the tool, and <code>&lt;version&gt;</code> is the designated target release number. Although the version parameter is optional, it is recommended to explicitly specify it, as the currently known installed version managed by the DBM tool may not be up to date.</p>
+<p>To generate the files inventory only, execute the following command: <code>@dbm-cli make -file[s] &lt;tool&gt; &lt;version&gt;</code>.</p>
+<p>To generate both database objects and files inventory, execute the following command: <code>@dbm-cli make &lt;tool&gt; &lt;version&gt;</code>.</p>
 <h4 id="416-cleaning-up-full-release-folders">4.1.6. Cleaning up full release folders </h4>
 <p>The size of the toolkit bundle can grow significantly if all versions of all tools are kept indefinitely. At a minimum, the toolkit should maintain the latest full release and all incremental releases, ensuring users with older versions can upgrade to the latest version seamlessly. Preserving an inventory of all releases is crucial for the DBM tool to accurately identify the currently installed version of each tool and determine necessary upgrades.</p>
 <p>On the other hand, it is useful to be able to reinstall a previous version of the toolkit, for instance, to reproduce a bug reported by an end-user, to test the DBM tool itself, or to revert to a more stable version. Maintaining a history of all toolkit bundles (archives) achieves thi goal.</p>
@@ -684,23 +693,8 @@
 <h4 id="417-testing-the-migration">4.1.7. Testing the migration </h4>
 <p>Migration should be rigorously tested on a schema that does not already contain the version of the tool being released. Both full installation and incremental upgrades should undergo testing. Testing the full installation of a tool requires its prior uninstallation for accurate evaluation.</p>
 <h4 id="418-updating-release-notes">4.1.8. Updating release notes </h4>
-<p>Update the <code>Release-Notes.txt</code> file located in the <code>releases</code> folder. This file is cumulative and thereby contains the history of all versions since the creation of the tool.</p>
-<p>Add a new section for the release formatted as the following:</p>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>VERSION xx.yy[.zz] - Month YYYY
-
-New features:
-- ...
-
-Changes:
-- ...
-
-Bug fixing:
-- ...
-</code></pre><p>Put <code>- n/a</code> when a section is not applicable.</p>
-<p>Adapt the file header with the correct release number and date:</p>
-<pre data-role="codeBlock" data-info="text" class="language-text text"><code>XXX Utility xx.yy[.zz] Release Notes
-Date: Month YYYY
-</code></pre><p>To ensure a correct and complete documentation of the release, it is recommended to update this file while the software is being adapted.</p>
+<p>Release notes - stored in the <code>CHANGELOG.md</code> file - are automatically generated by the semantic release component based on commit messages. This file is cumulative and thereby contains the history of all versions since the creation of the tool.</p>
+<p>To ensure a correct and complete documentation of the release, it is recommended to format each commit message as specified in the <a href="https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md">Guidelines</a>.</p>
 <h3 id="42-creating-a-new-version-of-the-installer">4.2. Creating a new version of the installer </h3>
 <p>The procedure for creating a new version of the DBM installer is similar to that for other tools but includes some minor differences and additional steps.</p>
 <p>The DBM installer can upgrade itself only if its session is not invalidated by one of the database changes. For instance, altering a table referenced in the <code>DBM_UTILITY_VAR</code> package will invalidate it, raising the "ERROR-04068: Existing state of packages has been discarded" exception the next time one of the DBM packages is invoked.</p>
@@ -737,36 +731,30 @@ Date: Month YYYY
 <p>The recommended method to identify the scripts that must be executed to migrate the DBM tool is the changelog file method (i.e., files to be executed are listed in <code>install.dbm</code> and/or <code>upgrade.dbm</code> changelog files).</p>
 <p>To allow this file to be executed from the <code>migrate-dbm.sql</code> script using SQL*Plus, referenced files must all be prefixed with <code>@@</code>. SQL*Plus <code>PROMPT</code> commands can be used to display useful informative messages.</p>
 <h4 id="424-home-directory-of-the-dbm-tool">4.2.4. Home Directory of the DBM Tool </h4>
-<p>Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirel, its date, y within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit. <strong>This is subject to discussion</strong></p>
-<p>SQL scripts are stored in the <code>sql</code> subfolder, PL/SQL package code in the <code>plsql</code> subfolder, and documentation in the <code>doc</code> subfolder. Refer to the <a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#sql-directory">SQL Directory</a>, <a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#plsql-directory">PLSQL Directory</a>, and <a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#doc-directory">Doc Directory</a> sections for descriptions of the files they contain.</p>
-<p>When the work-in-progress is finalized and released, the files stored in the above subfolders must be copied to the appropriate subfolder under <code>apps/05_dbm_utility</code>. Specifically:</p>
+<p>Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirely within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit.</p>
+<p>SQL scripts are stored in the <code>sql</code> subfolder, PL/SQL package code in the <code>plsql</code> subfolder, and documentation in the <code>doc</code> subfolder. Refer to the <a href="#sql-directory">SQL Directory</a>, <a href="#plsql-directory">PLSQL Directory</a>, and <a href="#doc-directory">Doc Directory</a> sections for descriptions of the files they contain.</p>
+<p>When the work-in-progress is finalised and released, the files stored in the above subfolders must be copied to the appropriate subfolder under <code>apps/05_dbm_utility</code>. Specifically:</p>
 <ul>
 <li>Documentation should be copied to the <code>doc</code> subfolder.</li>
 <li>The <code>ds_objects.sql</code> script (used to recreate all DB objects) should be copied to the <code>install</code> subfolder.</li>
 <li>Package files should be copied to both the <code>install</code> and <code>upgrade</code> subfolders, depending on the type of release.</li>
 </ul>
 <h4 id="425-procedure">4.2.5. Procedure </h4>
-<p>In addition to the steps described above, all steps outlined in the section <a href="file:///tmp/crossnote20241013-18150-1qa9mt4.0ga.html#creating-a-new-version-of-a-tool">Creating a New Version of a Tool</a> must also be followed for the DBM tool.</p>
+<p>In addition to the steps described above, all steps outlined in the section <a href="#creating-a-new-version-of-a-tool">Creating a New Version of a Tool</a> must also be followed for the DBM tool.</p>
 <h3 id="43-making-a-new-version-of-the-toolkit">4.3. Making a new version of the toolkit </h3>
 <p>Once a new version of a tool has been incorporated in the toolkit, a new bundle (i.e., archive) of the toolkit must be prepared. This also applies when a new version of the DBM tool is released.</p>
 <p>The <code>apps/00_all</code> folder houses not only the common materials for all tools (such as scripts for exposure, concealment, configuration, and uninstallation of any tool) but also includes a version-specific folder representing the release number of the toolkit bundle.</p>
 <h4 id="431-assigning-a-toolkit-version-number">4.3.1. Assigning a toolkit version number </h4>
 <p>The toolkit follows the same release number format (<code>xx.yy[.zz]</code>) and numbering policy as the individual tools it contains.</p>
-<p>The bugfix number <code>zz</code> should be used only if the only changes it brings compared to the previous version are related to bug fixing of one or several tools.</p>
+<p>The toolkit version number is automatically generated by the semantic release component based on commit messages. A new major, minor, or bugfix release number is generated respectively when <code>BREAKING CHANGE</code>, <code>feat:</code>, or <code>fix:</code> is specified in one of the commit messages.</p>
 <h4 id="432-renaming-the-toolkit-version-folder">4.3.2. Renaming the toolkit version folder </h4>
 <p>Contrary to individual tools within the toolkit, only one <code>xx.yy[.zz]</code> release folder needs to be maintained. The recommended approach is to rename the existing release folder to match the newly assigned release number.</p>
 <h4 id="433-updating-toolkit-release-notes">4.3.3. Updating toolkit release notes </h4>
-<p>Release notes of the toolkit follow the same format and update practice as those of individual tools except that:</p>
-<ul>
-<li>There is no "New features" section.</li>
-<li>The "Changes" section contains the list of tools and their version that bring new features and/or changes.</li>
-<li>The "Bug fixing" section contains the list of tools and their version that bring bug fixing only.</li>
-</ul>
-<h4 id="434-building-archives">4.3.4. Building archives </h4>
-<p>To build the archive (zip file), execute the <code>mkzip</code> shell script located in the home directory of the toolkit. This script first executes the <code>cleanup</code> shell script that delete temporary files and log files. It then creates an archive named <code>ec_plsql_toolkit.zip</code> in the parent directory. This archive must be renamed manually to include the toolkit version and the operating system for which it was created (Windows or Linux). As an example: <code>ec_plsql_toolkit_24_5_Windows.zip</code>. Date and time is no more mentioned in the archive name.</p>
-<p>An archive must be built for both Windows and Linux platforms. This is in particular necessary for Linux to preserve the execution mode of bash shell scripts.</p>
-<h3 id="44-testing-archives">4.4. Testing archives </h3>
-<p>It is recommended to test both Windows and Linux archives by unzipping them it onto a file system and initiating the migration process while connected to a database schema that does not already contain the version of the released tools. As a default procedure, uninstall the existing tools, install a previous full release, and then perform the upgrades.</p>
+<p>Release notes of the toolkit - stored in the <code>CHANGELOG.md</code> file - are automatically generated by the semantic release component as previously described.</p>
+<h4 id="434-building-the-archive">4.3.4. Building the archive </h4>
+<p>Since GitLab is used, it is no more necessary to manually create an archive for the toolkit. A zip file named <code>ec-plsql-toolkit.xx.yy.zz.zip</code> can be downloaded from the <code>xx.yy.zz</code> release automatically created by the semantic release component.</p>
+<h4 id="435-testing-the-archive">4.3.5. Testing the archive </h4>
+<p>It is recommended to test the archive by unzipping it into a file system and initiating the migration process while connected to a database schema that does not already contain the version of the released tools. As a default procedure, uninstall the existing tools, install a previous full release, and then perform the upgrades.</p>
 <p>The migration can be launched via the following commands:</p>
 <ul>
 <li>migrate-dbm # upgrade the DBM tool to its latest version (recommended)</li>
@@ -775,8 +763,6 @@ Date: Month YYYY
 <li>dbm-cli expose <code>&lt;tools-list&gt;</code> # re-expose tools if needed</li>
 </ul>
 <p>Where <code>&lt;tools-list&gt;</code> is a comma separated list of the tools that you want to migrate or <code>all</code> for all tools. To be noted that concealing and re-exposing tools is recommended to take care of dropped or newly created database objects.</p>
-<h3 id="45-upload-archives-in-nexus">4.5. Upload archives in Nexus </h3>
-<p>Upload both archives in the <a href="https://dbecoestore-nexus.devops.tech.ec.europa.eu/">Nexus repository of the DBECoE</a>, under the <code>ec_plsql_toolkit</code> folder of the <code>raw_releases</code> group.</p>
 
       </div>
       
@@ -787,4 +773,5 @@ Date: Month YYYY
     
     
     
-  </body></html>
+  
+    </body></html>

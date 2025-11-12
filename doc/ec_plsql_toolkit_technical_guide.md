@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# EC PL/SL Toolkit v24.9 - Technical Guide
+# EC PL/SL Toolkit v25.6 - Technical Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission - DIGIT)
@@ -33,7 +33,7 @@
     - [4.1.2. Defining a release strategy and assigning a release number](#412-defining-a-release-strategy-and-assigning-a-release-number)
     - [4.1.3. Creating a release folder and its subfolders](#413-creating-a-release-folder-and-its-subfolders)
     - [4.1.4. Populate install and/or upgrade subfolders](#414-populate-install-andor-upgrade-subfolders)
-    - [4.1.5. Making database objects inventory including checksums](#415-making-database-objects-inventory-including-checksums)
+    - [4.1.5. Making database objects and files inventory including checksums](#415-making-database-objects-and-files-inventory-including-checksums)
     - [4.1.6. Cleaning up full release folders](#416-cleaning-up-full-release-folders)
     - [4.1.7. Testing the migration](#417-testing-the-migration)
     - [4.1.8. Updating release notes](#418-updating-release-notes)
@@ -47,9 +47,8 @@
     - [4.3.1. Assigning a toolkit version number](#431-assigning-a-toolkit-version-number)
     - [4.3.2. Renaming the toolkit version folder](#432-renaming-the-toolkit-version-folder)
     - [4.3.3. Updating toolkit release notes](#433-updating-toolkit-release-notes)
-    - [4.3.4. Building archives](#434-building-archives)
-  - [4.4. Testing archives](#44-testing-archives)
-  - [4.5. Upload archives in Nexus](#45-upload-archives-in-nexus)
+    - [4.3.4. Building the archive](#434-building-the-archive)
+    - [4.3.5. Testing the archive](#435-testing-the-archive)
 
 ## 1. Introduction
 
@@ -63,6 +62,7 @@ The home directory of the toolkit (`ec_plsql_toolkit`) contains the following fo
 
 | Name | Long name | Usage |
 | ---- | ----------- | ------ |
+| `.gitlab` | GitLab dir | GitLab configuration files. |
 | `apps` | Applications dir | Contains the material of all tools included in the toolkit. |
 | `bin`  | Binaries dir | Contains Windows and Linux shell scripts of the installer. |
 | `conf` | Configuration dir | Contains configuration files of the installer. |
@@ -77,6 +77,7 @@ The home directory also contains the following files:
 
 | File | Usage |
 | ---- | ----- |
+| CHANGELOG.md | Change log |
 | clean-up | Shell script to clean-up temporary and logs files before making a zip. |
 | contributing-guidelines.md | Guidelines for contributing to this project. |
 | dbm-cli | Main shell script (DBM client). |
@@ -84,7 +85,6 @@ The home directory also contains the following files:
 | ec-cla.pdf | Contributor licence agreement. |
 | LICENCE.txt | Licence terms. |
 | migrate-dbm | Shell script to migrate the DBM tool. |
-| mkzip | Shell script to package the toolkit. |
 | NOTICE.txt | Licence terms of embedded 3rd party components. |
 | README.md | Readme file. |
 | set-os | Shell script to determine current operating system. |
@@ -131,7 +131,7 @@ Each version folder (`all` or `xx.yy[.zz]`) contains subfolders whose name is di
 
 ### 2.2. Bin directory
 
-This directory contains shell scripts that are used by the installer for performing some specific tasks. Two versions of each file are provided, one for Windows (`.bat` or `.cmd` extension), one for Linux (no extension but with execute permission).
+This directory contains shell scripts that are used by the installer for performing some specific tasks. Several versions of each file are provided, one or two for Windows (`.bat`, `.cmd`, or `.ps1` extension), one for Linux (no extension but with execute permission).
 
 Here follows the list of provided files and their usage (only the Linux files are listed):
 
@@ -179,6 +179,7 @@ This folder contains - the latest version of - all SQL scripts of the DBM instal
 | ---- | ----- |
 | check-dbm.sql | Check whether the DBM tool is correctly installed. |
 | dbm_uninstall.sql | Uninstall all database objects of the DBM tool |
+| dbm-check-privs.sql | Check missing system, role, or table privileges. |
 | dbm-checksums.sql | Compute the global checksum of database objects and packages. |
 | dbm-checksums-detailed.sql | Compute the checksum of each database object. |
 | dbm-startup.sql | Executed at startup of the `dbm-cli`. |
@@ -324,7 +325,7 @@ The steps are the following:
 - Define a release strategy and assign a release number.
 - Create a release folder and its subfolders.
 - Populate `install` and/or `upgrade` subfolders.
-- Make database objects inventory including checksums.
+- Make database objects and files inventory including checksums.
 - Clean up full release folders
 - Test the migration
 - Update release notes (while making changes).
@@ -390,11 +391,17 @@ Copy scripts responsible for full installation in the `install` subfolder and th
 
 To provide better support for rollback in case of migration failure, it is recommended to use the changelogs method of the DBM tool, i.e. to create `install.dbm` and `upgrade.dbm` changelog files. This method also allows the conditional execution of files depending on the target environment.
 
-#### 4.1.5. Making database objects inventory including checksums
+#### 4.1.5. Making database objects and files inventory including checksums
 
-The inventory of database objects (stored in the file `config/objects.dbm`), which includes their checksums, enables validation of the correct installation or upgrade of the tool. It also provides a means to determine the currently installed version of the tool if this information is lost (e.g., due to re-installation of the DBM tool).
+An inventory of database objects (stored in the file `config/objects.dbm`), which includes their checksums, enables validation of the correct installation or upgrade of the tool. It also provides a means to determine the currently installed version of the tool if this information is lost (e.g., due to re-installation of the DBM tool).
 
-To generate the database objects inventory, execute the `dbm-cli` shell script while connected to the schema containing the database objects being released. Use the following command: `@dbm-cli make <tool> <version>`. Here, `<tool>` refers to the name or abbreviation of the tool, and `<version>` is the designated target release number. Although the version parameter is optional, it is recommended to explicitly specify it, as the currently known installed version managed by the DBM tool may not be up to date.
+An inventory of files is saved into a `files.dbm` file located in each directory. Each file is listed with its name, its hash, and an optional run condition. This inventory is used to detect whether distributed files have been deleted or changed, in which case they are reported respectively as `MISSING` or `TAMPERED`. It is also use to detect files that have been deleted or changed since their execution.
+
+To generate the database objects inventory only, execute the `dbm-cli` shell script while connected to the schema containing the database objects being released. Use the following command: `@dbm-cli make -db[-objects] <tool> <version>`. Here, `<tool>` refers to the name or abbreviation of the tool, and `<version>` is the designated target release number. Although the version parameter is optional, it is recommended to explicitly specify it, as the currently known installed version managed by the DBM tool may not be up to date.
+
+To generate the files inventory only, execute the following command: `@dbm-cli make -file[s] <tool> <version>`.
+
+To generate both database objects and files inventory, execute the following command: `@dbm-cli make <tool> <version>`.
 
 #### 4.1.6. Cleaning up full release folders
 
@@ -418,33 +425,9 @@ Migration should be rigorously tested on a schema that does not already contain 
 
 #### 4.1.8. Updating release notes
 
-Update the `Release-Notes.txt` file located in the `releases` folder. This file is cumulative and thereby contains the history of all versions since the creation of the tool.
+Release notes - stored in the `CHANGELOG.md` file - are automatically generated by the semantic release component based on commit messages. This file is cumulative and thereby contains the history of all versions since the creation of the tool.
 
-Add a new section for the release formatted as the following:
-
-```text
-VERSION xx.yy[.zz] - Month YYYY
-
-New features:
-- ...
-
-Changes:
-- ...
-
-Bug fixing:
-- ...
-```
-
-Put `- n/a` when a section is not applicable.
-
-Adapt the file header with the correct release number and date:
-
-```text
-XXX Utility xx.yy[.zz] Release Notes
-Date: Month YYYY
-```
-
-To ensure a correct and complete documentation of the release, it is recommended to update this file while the software is being adapted.
+To ensure a correct and complete documentation of the release, it is recommended to format each commit message as specified in the [Guidelines](https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md).
 
 ### 4.2. Creating a new version of the installer
 
@@ -520,11 +503,11 @@ To allow this file to be executed from the `migrate-dbm.sql` script using SQL\*P
 
 #### 4.2.4. Home Directory of the DBM Tool
 
-Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirel, its date, y within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit. **This is subject to discussion**
+Unlike other tools, which require their work-in-progress material to be stored in a home directory outside of the toolkit, the work-in-progress material for the DBM installer can be hosted entirely within the toolkit itself, as long as changes are committed and pushed to Git in a separate branch. This is justified by the fact that modifications could not be easily tested if performed outside of the toolkit.
 
 SQL scripts are stored in the `sql` subfolder, PL/SQL package code in the `plsql` subfolder, and documentation in the `doc` subfolder. Refer to the [SQL Directory](#sql-directory), [PLSQL Directory](#plsql-directory), and [Doc Directory](#doc-directory) sections for descriptions of the files they contain.
 
-When the work-in-progress is finalized and released, the files stored in the above subfolders must be copied to the appropriate subfolder under `apps/05_dbm_utility`. Specifically:
+When the work-in-progress is finalised and released, the files stored in the above subfolders must be copied to the appropriate subfolder under `apps/05_dbm_utility`. Specifically:
 
 - Documentation should be copied to the `doc` subfolder.
 - The `ds_objects.sql` script (used to recreate all DB objects) should be copied to the `install` subfolder.
@@ -544,7 +527,7 @@ The `apps/00_all` folder houses not only the common materials for all tools (suc
 
 The toolkit follows the same release number format (`xx.yy[.zz]`) and numbering policy as the individual tools it contains.
 
-The bugfix number `zz` should be used only if the only changes it brings compared to the previous version are related to bug fixing of one or several tools.
+The toolkit version number is automatically generated by the semantic release component based on commit messages. A new major, minor, or bugfix release number is generated respectively when `BREAKING CHANGE`, `feat:`, or `fix:` is specified in one of the commit messages.
 
 #### 4.3.2. Renaming the toolkit version folder
 
@@ -552,21 +535,15 @@ Contrary to individual tools within the toolkit, only one `xx.yy[.zz]` release f
 
 #### 4.3.3. Updating toolkit release notes
 
-Release notes of the toolkit follow the same format and update practice as those of individual tools except that:
+Release notes of the toolkit - stored in the `CHANGELOG.md` file - are automatically generated by the semantic release component as previously described.
 
-- There is no "New features" section.
-- The "Changes" section contains the list of tools and their version that bring new features and/or changes.
-- The "Bug fixing" section contains the list of tools and their version that bring bug fixing only.
+#### 4.3.4. Building the archive
 
-#### 4.3.4. Building archives
+Since GitLab is used, it is no more necessary to manually create an archive for the toolkit. A zip file named `ec-plsql-toolkit.xx.yy.zz.zip` can be downloaded from the `xx.yy.zz` release automatically created by the semantic release component.
 
-To build the archive (zip file), execute the `mkzip` shell script located in the home directory of the toolkit. This script first executes the `cleanup` shell script that delete temporary files and log files. It then creates an archive named `ec_plsql_toolkit.zip` in the parent directory. This archive must be renamed manually to include the toolkit version and the operating system for which it was created (Windows or Linux). As an example: `ec_plsql_toolkit_24_5_Windows.zip`. Date and time is no more mentioned in the archive name.
+#### 4.3.5. Testing the archive
 
-An archive must be built for both Windows and Linux platforms. This is in particular necessary for Linux to preserve the execution mode of bash shell scripts.
-
-### 4.4. Testing archives
-
-It is recommended to test both Windows and Linux archives by unzipping them it onto a file system and initiating the migration process while connected to a database schema that does not already contain the version of the released tools. As a default procedure, uninstall the existing tools, install a previous full release, and then perform the upgrades.
+It is recommended to test the archive by unzipping it into a file system and initiating the migration process while connected to a database schema that does not already contain the version of the released tools. As a default procedure, uninstall the existing tools, install a previous full release, and then perform the upgrades.
 
 The migration can be launched via the following commands:
 
@@ -576,7 +553,3 @@ The migration can be launched via the following commands:
 - dbm-cli expose `<tools-list>` # re-expose tools if needed
 
 Where `<tools-list>` is a comma separated list of the tools that you want to migrate or `all` for all tools. To be noted that concealing and re-exposing tools is recommended to take care of dropped or newly created database objects.
-
-### 4.5. Upload archives in Nexus
-
-Upload both archives in the [Nexus repository of the DBECoE](https://dbecoestore-nexus.devops.tech.ec.europa.eu/), under the `ec_plsql_toolkit` folder of the `raw_releases` group.

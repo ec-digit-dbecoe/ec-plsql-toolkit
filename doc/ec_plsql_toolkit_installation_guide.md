@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# EC PL/SL Toolkit v24.10 - Installation Guide
+# EC PL/SL Toolkit v25.6 - Installation Guide
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission - DIGIT)

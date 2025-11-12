@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0053)file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html><html><head>
       <title>ec_plsql_toolkit_installation_guide</title>
-      
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="./ec_plsql_toolkit_installation_guide_files/katex.min.css">
+      <link rel="stylesheet" href="file:////home/deboiph/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -26,36 +24,36 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="ec-plsl-toolkit-v2410---installation-guide">EC PL/SL Toolkit v24.10 - Installation Guide </h1>
+<h1 id="ec-plsl-toolkit-v256---installation-guide">EC PL/SL Toolkit v25.6 - Installation Guide </h1>
 <h2 id="author-philippe-debois-european-commission---digit">Author: Philippe Debois (European Commission - DIGIT) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#1-audience">1. Audience</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#2-introduction">2. Introduction</a>
+<li><a href="#1-audience">1. Audience</a></li>
+<li><a href="#2-introduction">2. Introduction</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#core-utilities">Core Utilities</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#supporting-utilities">Supporting Utilities</a></li>
+<li><a href="#core-utilities">Core Utilities</a></li>
+<li><a href="#supporting-utilities">Supporting Utilities</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#3-quick-start">3. Quick start</a>
+<li><a href="#3-quick-start">3. Quick start</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#31-pre-requisites">3.1. Pre-requisites</a>
+<li><a href="#31-pre-requisites">3.1. Pre-requisites</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#311-database-platform">3.1.1. Database Platform</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#312-installer-platform">3.1.2. Installer Platform</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#313-system-privileges">3.1.3. System privileges</a></li>
+<li><a href="#311-database-platform">3.1.1. Database Platform</a></li>
+<li><a href="#312-installer-platform">3.1.2. Installer Platform</a></li>
+<li><a href="#313-system-privileges">3.1.3. System privileges</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#32-installation-procedure">3.2. Installation procedure</a>
+<li><a href="#32-installation-procedure">3.2. Installation procedure</a>
 <ul>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#321-create-the-target-schema">3.2.1. Create the target schema</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#323-set-environment-variables">3.2.3. Set environment variables</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#327-managing-migration-failure">3.2.7. Managing Migration Failure</a></li>
-<li><a href="file:///tmp/crossnote20241013-18150-iy3b1b.1thbq.html#328-log-files">3.2.8. Log files</a></li>
+<li><a href="#321-create-the-target-schema">3.2.1. Create the target schema</a></li>
+<li><a href="#322-unzip-the-archive-or-clone-the-repository">3.2.2. Unzip the archive or clone the repository</a></li>
+<li><a href="#323-set-environment-variables">3.2.3. Set environment variables</a></li>
+<li><a href="#324-install-or-upgrade-the-dbm-tool">3.2.4. Install or upgrade the DBM tool</a></li>
+<li><a href="#325-interactive-install-or-upgrade-of-the-toolkit">3.2.5. Interactive install or upgrade of the toolkit</a></li>
+<li><a href="#326-automated-install-or-upgrade-of-the-toolkit">3.2.6. Automated install or upgrade of the toolkit</a></li>
+<li><a href="#327-managing-migration-failure">3.2.7. Managing Migration Failure</a></li>
+<li><a href="#328-log-files">3.2.8. Log files</a></li>
 </ul>
 </li>
 </ul>
@@ -81,37 +79,37 @@
 <td>DBM</td>
 <td>Data Base Migration Utility</td>
 <td>Database migration tool similar to Liquibase and Flyway but more database developer oriented.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/05_dbm_utility/doc/dbm_utility.md">User's Guide</a></td>
+<td><a href="../apps/05_dbm_utility/doc/dbm_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>DOC</td>
 <td>Mail Merge Utility</td>
 <td>Produce documents based on templates and access data based on the DAPL language.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/20_doc_utility/doc/doc_utility.md">User's Guide</a></td>
+<td><a href="../apps/20_doc_utility/doc/doc_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>DPP</td>
 <td>Data Pump Utility</td>
 <td>Add-on to the Oracle Data Pump utility.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/30_dpp_utility/doc/dpp_utility.md">User's Guide</a></td>
+<td><a href="../apps/30_dpp_utility/doc/dpp_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>DS</td>
 <td>Data Set Utility</td>
 <td>Data sub-setting and transportation, Sensitive data discovery and masking, Synthetic data generator, Change data capture.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_data_masking.md">Data Masking</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_data_subsetting.md">Data Subsetting</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_synthetic_data_generation.md">Synthetic Data Generation</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_ref_manual.md">Reference Manual</a> / <a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_ds_utility/doc/ds_utility_demo.md">Demo Guide</a></td>
+<td><a href="../apps/10_ds_utility/doc/ds_utility_data_masking.md">Data Masking</a> / <a href="../apps/10_ds_utility/doc/ds_utility_data_subsetting.md">Data Subsetting</a> / <a href="../apps/10_ds_utility/doc/ds_utility_synthetic_data_generation.md">Synthetic Data Generation</a> / <a href="../apps/10_ds_utility/doc/ds_utility_ref_manual.md">Reference Manual</a> / <a href="../apps/10_ds_utility/doc/ds_utility_demo.md">Demo Guide</a></td>
 </tr>
 <tr>
 <td>GEN</td>
 <td>Code Generator</td>
 <td>PL/SQL code generator to boost developer's productivity and industrialise solutions.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_gen_utility/doc/gen_utility.md">User's Guide</a></td>
+<td><a href="../apps/10_gen_utility/doc/gen_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>QC</td>
 <td>Quality Check Utility</td>
 <td>Check database design best practices amongst which naming conventions of database objects.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/30_qc_utility/doc/qc_utility.md">User's Guide</a></td>
+<td><a href="../apps/30_qc_utility/doc/qc_utility.md">User's Guide</a></td>
 </tr>
 </tbody>
 </table>
@@ -130,7 +128,7 @@
 <td>ARM</td>
 <td>Archive Management Utility</td>
 <td>Utility to pack several files into a single one to ease data transportation (used by the DPP).</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_arm_utility/doc/arm_utility.md">User's Guide</a></td>
+<td><a href="../apps/10_arm_utility/doc/arm_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>DDL</td>
@@ -154,7 +152,7 @@
 <td>SEC</td>
 <td>Security Utility</td>
 <td>Solution to store password securely into the database.</td>
-<td><a href="file:///home/deboiph/citnet/dbcc-internal-dev/ec_plsql_toolkit/apps/10_sec_utility/doc/sec_utility.md">User's Guide</a></td>
+<td><a href="../apps/10_sec_utility/doc/sec_utility.md">User's Guide</a></td>
 </tr>
 <tr>
 <td>SQL</td>
@@ -358,4 +356,5 @@ dbm-cli expose
     
     
     
-  </body></html>
+  
+    </body></html>

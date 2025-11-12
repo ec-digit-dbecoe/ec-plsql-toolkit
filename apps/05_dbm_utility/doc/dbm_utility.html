@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0051)file:///tmp/crossnote202517-20406-83rd04.m3ug4.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html><html><head>
       <title>dbm_utility</title>
-      
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="./dbm_utility_files/katex.min.css">
+      <link rel="stylesheet" href="file:////home/deboiph/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -30,181 +28,181 @@
 <h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1-introduction">1. Introduction</a>
+<li><a href="#1-introduction">1. Introduction</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#11-overview">1.1. Overview</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#12-purpose">1.2. Purpose</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#13-key-features">1.3. Key Features</a></li>
+<li><a href="#11-overview">1.1. Overview</a></li>
+<li><a href="#12-purpose">1.2. Purpose</a></li>
+<li><a href="#13-key-features">1.3. Key Features</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#2-quick-start">2. Quick Start</a>
+<li><a href="#2-quick-start">2. Quick Start</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#21-check-pre-requisites">2.1. Check pre-requisites</a>
+<li><a href="#21-check-pre-requisites">2.1. Check pre-requisites</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#211-database-platform">2.1.1. Database Platform</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#212-installer-platform">2.1.2. Installer Platform</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#213-system-privileges">2.1.3. System privileges</a></li>
+<li><a href="#211-database-platform">2.1.1. Database Platform</a></li>
+<li><a href="#212-installer-platform">2.1.2. Installer Platform</a></li>
+<li><a href="#213-system-privileges">2.1.3. System privileges</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#22-get-the-dbm-tool">2.2. Get the DBM tool</a>
+<li><a href="#22-get-the-dbm-tool">2.2. Get the DBM tool</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#221-archive-distribution">2.2.1. Archive distribution</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#222-oss-distribution">2.2.2. OSS distribution</a></li>
+<li><a href="#221-archive-distribution">2.2.1. Archive distribution</a></li>
+<li><a href="#222-oss-distribution">2.2.2. OSS distribution</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#23-set-environment">2.3. Set environment</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#24-installupgrade-the-dbm-tool">2.4. Install/Upgrade the DBM tool</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#25-launch-the-dbm-tool">2.5. Launch the DBM tool</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#26-configure-applications">2.6. Configure applications</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#27-installupgrade-applications">2.7. Install/Upgrade applications</a></li>
+<li><a href="#23-set-environment">2.3. Set environment</a></li>
+<li><a href="#24-installupgrade-the-dbm-tool">2.4. Install/Upgrade the DBM tool</a></li>
+<li><a href="#25-launch-the-dbm-tool">2.5. Launch the DBM tool</a></li>
+<li><a href="#26-configure-applications">2.6. Configure applications</a></li>
+<li><a href="#27-installupgrade-applications">2.7. Install/Upgrade applications</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#3-execution-mode-and-usage">3. Execution mode and usage</a>
+<li><a href="#3-execution-mode-and-usage">3. Execution mode and usage</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#31-execution-mode">3.1. Execution mode</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#32-usage">3.2. Usage</a></li>
+<li><a href="#31-execution-mode">3.1. Execution mode</a></li>
+<li><a href="#32-usage">3.2. Usage</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4-commands">4. Commands</a>
+<li><a href="#4-commands">4. Commands</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#41-commands-overview">4.1. Commands Overview</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#42-list-of-commands">4.2. List of commands</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#43-configure">4.3. Configure</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#44-precheck">4.4. Precheck</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#45-migrate--install--upgrade">4.5. Migrate / Install / Upgrade</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#46-validate">4.6. Validate</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#47-check-files">4.7. Check files</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#48-rollback">4.8. Rollback</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#49-make-inventory">4.9. Make inventory</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#410-show--guess--set-current">4.10. Show / Guess / Set current</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#411-uninstall">4.11. Uninstall</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#412-scan-files">4.12. Scan files</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#413-read-config">4.13. Read config</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#414-display">4.14. Display</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#415-setup">4.15. Setup</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#416-create--drop-restore-point">4.16. Create / Drop restore point</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#417-flashback-database">4.17. Flashback database</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#418-expose--conceal">4.18. Expose / Conceal</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#419-export--import">4.19. Export / Import</a>
+<li><a href="#41-commands-overview">4.1. Commands Overview</a></li>
+<li><a href="#42-list-of-commands">4.2. List of commands</a></li>
+<li><a href="#43-configure">4.3. Configure</a></li>
+<li><a href="#44-precheck">4.4. Precheck</a></li>
+<li><a href="#45-migrate--install--upgrade">4.5. Migrate / Install / Upgrade</a></li>
+<li><a href="#46-validate">4.6. Validate</a></li>
+<li><a href="#47-check-files">4.7. Check files</a></li>
+<li><a href="#48-rollback">4.8. Rollback</a></li>
+<li><a href="#49-make-inventory">4.9. Make inventory</a></li>
+<li><a href="#410-show--guess--set-current">4.10. Show / Guess / Set current</a></li>
+<li><a href="#411-uninstall">4.11. Uninstall</a></li>
+<li><a href="#412-scan-files">4.12. Scan files</a></li>
+<li><a href="#413-read-config">4.13. Read config</a></li>
+<li><a href="#414-display">4.14. Display</a></li>
+<li><a href="#415-setup">4.15. Setup</a></li>
+<li><a href="#416-create--drop-restore-point">4.16. Create / Drop restore point</a></li>
+<li><a href="#417-flashback-database">4.17. Flashback database</a></li>
+<li><a href="#418-expose--conceal">4.18. Expose / Conceal</a></li>
+<li><a href="#419-export--import">4.19. Export / Import</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4191-exporting-data">4.19.1. Exporting Data</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4192-importing-data">4.19.2. Importing Data</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4193-exportimport-for-all-applications">4.19.3. Export/Import for All Applications</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4194-supported-options">4.19.4. Supported Options</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4195-file-naming-and-storage">4.19.5. File Naming and Storage</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#4196-implementation-details">4.19.6. Implementation Details</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#5-folder-structure-and-versioning">5. Folder Structure and Versioning</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#51-folder-structure">5.1. Folder Structure</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#52-versioning">5.2. Versioning</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#6-scripts-execution-methods">6. Scripts Execution Methods</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#61-changelog-file">6.1. Changelog File</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#62-master-script">6.2. Master Script</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#63-file-naming-conventions">6.3. File Naming Conventions</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#7-configuration-files">7. Configuration Files</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#71-parameters">7.1. Parameters</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#72-variable-definitions">7.2. Variable Definitions</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#73-application-dependencies">7.3. Application dependencies</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#8-database-object-inventory">8. Database Object Inventory</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#81-overview">8.1. Overview</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#82-generating-the-inventory">8.2. Generating the Inventory</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#83-checksum-computation">8.3. Checksum Computation</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#84-conditional-database-objects">8.4. Conditional database objects</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#9-conditional-file-execution">9. Conditional file execution</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#91-overview">9.1. Overview</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#92-conditional-file-execution-in-detail">9.2. Conditional File Execution in Detail</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#921-creating-the-filesdbm-file">9.2.1. Creating the "files.dbm" File</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#922-specifying-conditions">9.2.2. Specifying Conditions</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#923-substitution-variables">9.2.3. Substitution Variables</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#924-evaluating-conditions">9.2.4. Evaluating Conditions</a></li>
+<li><a href="#4191-exporting-data">4.19.1. Exporting Data</a></li>
+<li><a href="#4192-importing-data">4.19.2. Importing Data</a></li>
+<li><a href="#4193-exportimport-for-all-applications">4.19.3. Export/Import for All Applications</a></li>
+<li><a href="#4194-supported-options">4.19.4. Supported Options</a></li>
+<li><a href="#4195-file-naming-and-storage">4.19.5. File Naming and Storage</a></li>
+<li><a href="#4196-implementation-details">4.19.6. Implementation Details</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#10-privileges-management">10. Privileges management</a>
+<li><a href="#5-folder-structure-and-versioning">5. Folder Structure and Versioning</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#101-creating-the-privilegesdbm-file">10.1. Creating the "privileges.dbm" file</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#102-file-location">10.2. File location</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#103-file-format">10.3. File format</a>
+<li><a href="#51-folder-structure">5.1. Folder Structure</a></li>
+<li><a href="#52-versioning">5.2. Versioning</a></li>
+</ul>
+</li>
+<li><a href="#6-scripts-execution-methods">6. Scripts Execution Methods</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1031-privilege-usage">10.3.1. Privilege usage</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1032-privilege-types">10.3.2. Privilege types</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1033-grant-type">10.3.3. Grant type</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1034-privilege">10.3.4. Privilege</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1035-object">10.3.5. Object</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1036-admingrant-option">10.3.6. Admin/Grant option</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1037-any-privileges">10.3.7. ANY privileges</a></li>
+<li><a href="#61-changelog-file">6.1. Changelog File</a></li>
+<li><a href="#62-master-script">6.2. Master Script</a></li>
+<li><a href="#63-file-naming-conventions">6.3. File Naming Conventions</a></li>
+</ul>
+</li>
+<li><a href="#7-configuration-files">7. Configuration Files</a>
+<ul>
+<li><a href="#71-parameters">7.1. Parameters</a></li>
+<li><a href="#72-variable-definitions">7.2. Variable Definitions</a></li>
+<li><a href="#73-application-dependencies">7.3. Application dependencies</a></li>
+</ul>
+</li>
+<li><a href="#8-database-object-inventory">8. Database Object Inventory</a>
+<ul>
+<li><a href="#81-overview">8.1. Overview</a></li>
+<li><a href="#82-generating-the-inventory">8.2. Generating the Inventory</a></li>
+<li><a href="#83-checksum-computation">8.3. Checksum Computation</a></li>
+<li><a href="#84-conditional-database-objects">8.4. Conditional database objects</a></li>
+</ul>
+</li>
+<li><a href="#9-conditional-file-execution">9. Conditional file execution</a>
+<ul>
+<li><a href="#91-overview">9.1. Overview</a></li>
+<li><a href="#92-conditional-file-execution-in-detail">9.2. Conditional File Execution in Detail</a>
+<ul>
+<li><a href="#921-creating-the-filesdbm-file">9.2.1. Creating the "files.dbm" File</a></li>
+<li><a href="#922-specifying-conditions">9.2.2. Specifying Conditions</a></li>
+<li><a href="#923-substitution-variables">9.2.3. Substitution Variables</a></li>
+<li><a href="#924-evaluating-conditions">9.2.4. Evaluating Conditions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#11-migration-failure-recovery">11. Migration Failure Recovery</a>
+<li><a href="#10-privileges-management">10. Privileges management</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#111-file-level-recovery">11.1. File Level Recovery</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#112-statement-level-recovery">11.2. Statement Level Recovery</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#113-conditional-statement-execution">11.3. Conditional Statement Execution</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#114-statement-tag-format">11.4. Statement Tag Format</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#115-jump-to-statement-option">11.5. Jump-to-Statement Option</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#116-skip-file-option">11.6. Skip-File Option</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#12-data-model">12. Data Model</a>
+<li><a href="#101-creating-the-privilegesdbm-file">10.1. Creating the "privileges.dbm" file</a></li>
+<li><a href="#102-file-location">10.2. File location</a></li>
+<li><a href="#103-file-format">10.3. File format</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#121-data-structure-diagram">12.1. Data Structure Diagram</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#122-tables-description">12.2. Tables description</a>
-<ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1221-applications">12.2.1. Applications</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1222-versions">12.2.2. Versions</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1223-files">12.2.3. Files</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1224-variables">12.2.4. Variables</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1225-parameters">12.2.5. Parameters</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1226-commands">12.2.6. Commands</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1227-streams">12.2.7. Streams</a></li>
+<li><a href="#1031-privilege-usage">10.3.1. Privilege usage</a></li>
+<li><a href="#1032-privilege-types">10.3.2. Privilege types</a></li>
+<li><a href="#1033-grant-type">10.3.3. Grant type</a></li>
+<li><a href="#1034-privilege">10.3.4. Privilege</a></li>
+<li><a href="#1035-object">10.3.5. Object</a></li>
+<li><a href="#1036-admingrant-option">10.3.6. Admin/Grant option</a></li>
+<li><a href="#1037-any-privileges">10.3.7. ANY privileges</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#13-glossary">13. Glossary</a>
+<li><a href="#11-migration-failure-recovery">11. Migration Failure Recovery</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#131-release">13.1. Release</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#132-version">13.2. Version</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#133-migration">13.3. Migration</a>
+<li><a href="#111-file-level-recovery">11.1. File Level Recovery</a></li>
+<li><a href="#112-statement-level-recovery">11.2. Statement Level Recovery</a></li>
+<li><a href="#113-conditional-statement-execution">11.3. Conditional Statement Execution</a></li>
+<li><a href="#114-statement-tag-format">11.4. Statement Tag Format</a></li>
+<li><a href="#115-jump-to-statement-option">11.5. Jump-to-Statement Option</a></li>
+<li><a href="#116-skip-file-option">11.6. Skip-File Option</a></li>
+</ul>
+</li>
+<li><a href="#12-data-model">12. Data Model</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1331-installation-migration">13.3.1. Installation Migration</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1332-upgrade-migration">13.3.2. Upgrade Migration</a></li>
+<li><a href="#121-data-structure-diagram">12.1. Data Structure Diagram</a></li>
+<li><a href="#122-tables-description">12.2. Tables description</a>
+<ul>
+<li><a href="#1221-applications">12.2.1. Applications</a></li>
+<li><a href="#1222-versions">12.2.2. Versions</a></li>
+<li><a href="#1223-files">12.2.3. Files</a></li>
+<li><a href="#1224-variables">12.2.4. Variables</a></li>
+<li><a href="#1225-parameters">12.2.5. Parameters</a></li>
+<li><a href="#1226-commands">12.2.6. Commands</a></li>
+<li><a href="#1227-streams">12.2.7. Streams</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#14-annexes">14. Annexes</a>
+<li><a href="#13-glossary">13. Glossary</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#141-commands">14.1. Commands</a>
+<li><a href="#131-release">13.1. Release</a></li>
+<li><a href="#132-version">13.2. Version</a></li>
+<li><a href="#133-migration">13.3. Migration</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1411-end-users-commands">14.1.1. End-users' commands</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1412-internal-commands">14.1.2. Internal commands</a></li>
+<li><a href="#1331-installation-migration">13.3.1. Installation Migration</a></li>
+<li><a href="#1332-upgrade-migration">13.3.2. Upgrade Migration</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#142-options">14.2. Options</a>
+</ul>
+</li>
+<li><a href="#14-annexes">14. Annexes</a>
 <ul>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1421-shell-script-options">14.2.1. Shell script options</a></li>
-<li><a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#1422-command-help">14.2.2. Command help</a></li>
+<li><a href="#141-commands">14.1. Commands</a>
+<ul>
+<li><a href="#1411-end-users-commands">14.1.1. End-users' commands</a></li>
+<li><a href="#1412-internal-commands">14.1.2. Internal commands</a></li>
+</ul>
+</li>
+<li><a href="#142-options">14.2. Options</a>
+<ul>
+<li><a href="#1421-shell-script-options">14.2.1. Shell script options</a></li>
+<li><a href="#1422-command-help">14.2.2. Command help</a></li>
 </ul>
 </li>
 </ul>
@@ -331,7 +329,7 @@
 <h3 id="25-launch-the-dbm-tool">2.5. Launch the DBM tool </h3>
 <p>To launch the command-line client (CLI) of the DBM tool, execute the <code>dbm-cli</code> shell script from a terminal window while being located in the <code>ec_plsql_toolkit</code> folder.</p>
 <p>Upon startup, you will encounter the following screen:</p>
-<p><img src="./dbm_utility_files/startup-screen.png" alt="Startup screen"></p>
+<p><img src="dbm_utility_files/startup-screen.png" alt="Startup screen"></p>
 <p>Note that the information displayed may vary depending on the version of SQL*Plus and the database version you are connected to.</p>
 <p>Once SQL*Plus is connected to your schema, it initiates the "startup.sql" script situated in the "sql" folder. This script scans the file system under the "apps" folder to identify managed applications or tools and their respective versions. Additionally, it reads all configuration files ("*.conf"), "database objects inventories" ("objects.dbm"), files inventories ("files.dbm"), and privileges inventories ("privileges*.dbm") associated with each version of each application or tool.</p>
 <p>The prompt "DBM-CLI&gt;" then invites you to execute one DBM command.</p>
@@ -417,7 +415,7 @@ Options (format: -option or "-parameter=value")
 <p>These commands provide users with comprehensive control over the database migration process, enabling efficient and reliable management of database objects across different applications and versions.</p>
 <h3 id="42-list-of-commands">4.2. List of commands </h3>
 <p>To get the list of available commands, type <code>@dbm-cli help</code>. You will get the following screen:</p>
-<p><img src="./dbm_utility_files/help-screen.png" alt="Help screen"></p>
+<p><img src="dbm_utility_files/help-screen.png" alt="Help screen"></p>
 <p>Commands and their options do not need to be fully typed; they can be abbreviated by providing only the first 3, 4 or 5 characters (or any longer prefix), depending on each command and option.</p>
 <p>To get help for a specific command (including a description of its purpose, parameters, and available options), type <code>@dbm-cli help &lt;command&gt;</code>.</p>
 <p>As a rule of thumb, when no application is specified, the command is executed for all applications installed or found on the file system (depending on the command). When no version is specified, the command is executed for the currently installed version.</p>
@@ -526,14 +524,14 @@ Options (format: -option or "-parameter=value")
 <h3 id="51-folder-structure">5.1. Folder Structure </h3>
 <p>Upon startup of DBM-CLI, the file system is scanned, starting with the "apps" directory, to discover applications for which migrations are provided, the releases that are available, their  characteristics (e.g., incremental or full, support for rollback, etc.), the configuration files and the SQL scripts to be executed. This information is derived from the file structure and some naming conventions.</p>
 <p>The folder structure under the "apps" folder is the following:</p>
-<p><img src="./dbm_utility_files/folder-structure.png" alt="Folder structure"></p>
+<p><img src="dbm_utility_files/folder-structure.png" alt="Folder structure"></p>
 <p>Each application managed by the tool possesses a dedicated folder within the "apps" directory, with the application code derived from the folder name. Additionally, a special directory named "all" can be established to accommodate materials common to all applications, such as shared configuration files. You can use numerical prefixes in the application folder names to instruct the tool to process them in a certain order.</p>
 <p>Under each application folder resides a "releases" folder that contains the various releases. Release numbers are derived from the folder name. Similarly, a designated "all" folder can be created to house materials common to all releases of an application, such as scripts for uninstalling the application or configuration settings independent of specific releases.</p>
 <p>Every operation applicable to a release is represented by a dedicated folder within the release folder. These folders are named after the respective commands, including "install," "upgrade," "validate," and "uninstall," and contain all necessary scripts for the associated operation. Additionally, a "config" folder may be created to contain release-specific configuration files.</p>
 <p>In certain scenarios, it may be necessary to verify certain prerequisites before executing a migration. For example, you might need to ensure that the schema has specific privileges. This can be accomplished by placing one or more scripts in a "precheck" folder. These scripts should raise an exception if the prerequisite conditions are not met, thereby preventing the migration from proceeding.</p>
 <p>For operations that support rollback functionality, such as install or upgrade, a dedicated "rollback" folder may exist within its respective folder. This folder signifies the operation's ability to be reverted and includes the necessary scripts for rollback execution.</p>
 <p>Here is an example of file structure showing 5 applications. Application folders are numbered to sequence them. For the LOG utility, 3 versions are provided (1.0, 1.0.1, and 23.0). Version 1.0 is a full release (as indicated by the "install" folder). Version 1.0.1 is an incremental release (as indicated by the "upgrade" folder). Upgrade to version 1.0.1 can be rolled back (as indicated by the "rollback" sub-folder). Uninstallation is independent from the version installed, reason why the "uninstall" folder is located under the special "ALL" version. Each version has a "config" folder that holds version specific configuration (e.g., the inventory of database objects).</p>
-<p><img src="./dbm_utility_files/file-system.png" alt="File system structure"></p>
+<p><img src="dbm_utility_files/file-system.png" alt="File system structure"></p>
 <h3 id="52-versioning">5.2. Versioning </h3>
 <p>A release number is structured as follows: "xx.yy.zz", where each number comprises one or two digits at most. The "xx" denotes the mandatory major release number, while "yy" and "zz" represent the optional minor and bugfix release numbers, respectively. These components are separated by dots. Valid examples of release numbers include: 1, 1.0, 1.0.1, 23.0.</p>
 <p>The alphanumeric representation of the release number described above is referred to as the version code. Internally, this code undergoes transformation into a numeric value known as the version number. This transformation enables proper ordering of versions during deployment. For instance, the aforementioned releases are converted into 10000, 10000, 10001, and 230000, correspondingly, using the following formula: <code>xx * 100^2 + yy * 100 + zz</code>.</p>
@@ -542,7 +540,7 @@ Options (format: -option or "-parameter=value")
 <h3 id="61-changelog-file">6.1. Changelog File </h3>
 <p>Similarly to Liquibase, you have the option to specify the list of scripts to execute by arranging them in the desired order within a changelog file named "install.dbm" or "upgrade.dbm". These files are placed in the "install" or "upgrade" folder, respectively. When such a file exists, it takes precedence over the two other methods.</p>
 <p>Here is an example of such an "install.dbm" file:</p>
-<p><img src="./dbm_utility_files/install-dbm.png" alt="install.dbm example"></p>
+<p><img src="dbm_utility_files/install-dbm.png" alt="install.dbm example"></p>
 <p>The files listed will be executed in the specified sequence, prioritising the creation of database objects followed by package specifications and bodies.</p>
 <p>This file can easily be created in the following way:</p>
 <ul>
@@ -552,24 +550,24 @@ Options (format: -option or "-parameter=value")
 <p>Files order can then be adapted using an editor of your choice.</p>
 <p>This method also allows specifying a run condition, which is a conditional expression involving variables or parameters. This expression is evaluated to determine whether the file should be executed or not.</p>
 <p>Here is an example of a "upgrade.dbm" file:</p>
-<p><code>dbm_objects.sql</code><br>
-<code>DBM_UTILITY_VAR.pks</code><br>
-<code>DBM_UTILITY_KRN.pks</code><br>
-<code>DBM_UTILITY_KRN.pkb</code><br>
-<code>dbm_public_synonyms.sql: '&amp;&amp;public' = 'true'</code><br>
-<code>dbm_public_grants.sql: '&amp;&amp;public' = 'true'</code></p>
-<p>The last 2 scripts will be executed only if the "public" variable or parameter is set to "true".</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>dbm_objects.sql
+DBM_UTILITY_VAR.pks
+DBM_UTILITY_KRN.pks
+DBM_UTILITY_KRN.pkb
+dbm_public_synonyms.sql: '&amp;&amp;public' = 'true'
+dbm_public_grants.sql: '&amp;&amp;public' = 'true'
+</code></pre><p>The last 2 scripts will be executed only if the "public" variable or parameter is set to "true".</p>
 <p>SQL*Plus master scripts (e.g., <code>install.sql</code>) can be used as changelog files by simply renaming them (e.g., to <code>install.dbm</code>). All SQL*plus commands that they contain will be ignored except the <code>PROMPT</code> command that can be used to display a message before executing a file. Any <code>@</code> preceding file names are allowed but ignored.</p>
 <h3 id="62-master-script">6.2. Master Script </h3>
 <p>Alternatively, you can opt to create a master script that executes your files utilising the <code>@@</code> command of SQL*Plus. Any other SQL*Plus command can also be used (e.g., "prompt" to display information messages). This master script must be named "install.sql" or "upgrade.sql" depending on the operation to be performed. When such a file exists, it is the only one executed and it takes precedence over the naming convention method.</p>
 <p>Here is the "install.sql" file corresponding to the above example:</p>
-<p><img src="./dbm_utility_files/install-sql.png" alt="Install.sql example"></p>
+<p><img src="dbm_utility_files/install-sql.png" alt="Install.sql example"></p>
 <p>Note that "@@" is used rather than "@" or the "start" command to instruct SQL*Plus that files are located in the same directory as the master script.</p>
 <p>Also note that changelog files take precedence over master scripts. Therefore, master scripts will be ignored if changelog files are present (for example, <code>install.sql</code> will be ignored if <code>install.dbm</code> is found).</p>
 <h3 id="63-file-naming-conventions">6.3. File Naming Conventions </h3>
 <p>Similarly to Flyway, you can define the execution order of files within a directory by incorporating a sequence number into their names. Only files with extensions such as ".sql", ".pks", ".pls", ".pkb", ".plb", and "java" will be executed, while all other files will be disregarded.</p>
 <p>Here is an example of how to name files for the above described example:</p>
-<p><img src="./dbm_utility_files/file-naming.png" alt="File naming example"></p>
+<p><img src="dbm_utility_files/file-naming.png" alt="File naming example"></p>
 <p>It is recommended to leave gaps in the numbering to ease the potential addition of new files in the future.</p>
 <h2 id="7-configuration-files">7. Configuration Files </h2>
 <p>The configuration files containing parameters and substitution variable definitions can be situated at different levels in the file hierarchy, depending on the application and/or version to which they apply.</p>
@@ -599,7 +597,7 @@ Options (format: -option or "-parameter=value")
 <li>"check_error_msg": error message raised when value is invalid.</li>
 </ul>
 <p>Here follows the example of the definition of a "tab_ts" variable that holds the name of the tablespace in which tables must be created:</p>
-<p><img src="./dbm_utility_files/var-example.png" alt="Variable example"></p>
+<p><img src="dbm_utility_files/var-example.png" alt="Variable example"></p>
 <p>This variable is referenced in the migration scripts as <code>&amp;&amp;tab_ts</code>. It will be substituted with its actual value when the script executes.</p>
 <h3 id="73-application-dependencies">7.3. Application dependencies </h3>
 <p>When deploying multiple applications or tools using the DBM tool, dependencies between them may arise. For instance, application A might need to be installed after application B is already present. Dependencies can also extend to specific versions of these applications. For example, version X of application A may necessitate the presence of version Y of application B.</p>
@@ -616,7 +614,7 @@ Options (format: -option or "-parameter=value")
 <p>Inventory files, named "objects.dbm," are required to be situated in the "config" directory of each application version. These files comprise one line for each database object, formatted as what follows:</p>
 <p><code>&lt;object-type&gt; &lt;object-name&gt;[: [&lt;checksum&gt;] [&lt;condition&gt;]]</code>.</p>
 <p>Here is an example of a database objects inventory file:</p>
-<p><img src="./dbm_utility_files/objects-dbm.png" alt="Database object inventory"></p>
+<p><img src="dbm_utility_files/objects-dbm.png" alt="Database object inventory"></p>
 <p>Comment lines, denoted by a "#" at the beginning, are disregarded.</p>
 <h3 id="82-generating-the-inventory">8.2. Generating the Inventory </h3>
 <p>This inventory can be generated using the <code>list_db_objects()</code> pipelined function. It accepts the database object name pattern as the first parameter and a flag indicating whether the checksum should be computed or not as the second parameter. An anti-pattern can also be specified to exclude some database objects.</p>
@@ -689,15 +687,15 @@ Note that column positions are not used so as to have the same checksum when ins
 <p>These checksums help identify changes or differences in the properties of database objects, facilitating database management, version control, and change tracking. Checksum computation is designed to be independent from the type of migration (full installation vs incremental upgrade).</p>
 <h3 id="84-conditional-database-objects">8.4. Conditional database objects </h3>
 <p>For each database object, you can specify a conditional expression. The evaluation of this expression (TRUE or FALSE) determines whether the database object is expected to exist or not. A common scenario is to specify that an object should only exist in certain environments.</p>
-<p>Syntax of conditional expressions for database objects are the same as for conditional file execution (see section  <a href="file:///tmp/crossnote202517-20406-83rd04.m3ug4.html#9-conditional-execution">9. Conditional execution</a>).</p>
+<p>Syntax of conditional expressions for database objects are the same as for conditional file execution (see section  <a href="#9-conditional-execution">9. Conditional execution</a>).</p>
 <p>Here follows an example of a unit test package (<code>DS_CRYPTO_TST</code>) that exists only in the "dev" environment.</p>
 <p>With checksum:</p>
-<p><code>PACKAGE BODY DS_CRYPTO_TST: 807219452 '&amp;&amp;env' = 'dev'</code><br>
-<code>PACKAGE DS_CRYPTO_TST: 943970027 '&amp;&amp;env' = 'dev'</code></p>
-<p>Without checksum:</p>
-<p><code>PACKAGE BODY DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'</code><br>
-<code>PACKAGE DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'</code></p>
-<p>Note that when no checksum is specified, the conditional expression shall not start with a digit.</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>PACKAGE BODY DS_CRYPTO_TST: 807219452 '&amp;&amp;env' = 'dev'
+PACKAGE DS_CRYPTO_TST: 943970027 '&amp;&amp;env' = 'dev'
+</code></pre><p>Without checksum:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>PACKAGE BODY DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'
+PACKAGE DS_CRYPTO_TST: '&amp;&amp;env' = 'dev'
+</code></pre><p>Note that when no checksum is specified, the conditional expression shall not start with a digit.</p>
 <h2 id="9-conditional-file-execution">9. Conditional file execution </h2>
 <h3 id="91-overview">9.1. Overview </h3>
 <p>One of the key features of the migration tool is its ability to execute files conditionally based on specified criteria. With this feature, users can define conditions under which certain migration scripts should be executed, allowing for greater flexibility and control over the migration process.</p>
@@ -802,7 +800,7 @@ COMMIT;
 <h2 id="12-data-model">12. Data Model </h2>
 <p>This sections described the internal data model of the DBM tool.</p>
 <h3 id="121-data-structure-diagram">12.1. Data Structure Diagram </h3>
-<p><img src="./dbm_utility_files/dbm-dsd.png" alt="Data structure diagram"></p>
+<p><img src="dbm_utility_files/dbm-dsd.png" alt="Data structure diagram"></p>
 <p>All database objects are prefixed with DBM.</p>
 <h3 id="122-tables-description">12.2. Tables description </h3>
 <h4 id="1221-applications">12.2.1. Applications </h4>
@@ -1309,4 +1307,5 @@ Check the validity of given applications using checksums.
     
     
     
-  </body></html>
+  
+    </body></html>

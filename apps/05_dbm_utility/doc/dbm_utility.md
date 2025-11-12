@@ -591,12 +591,14 @@ This method also allows specifying a run condition, which is a conditional expre
 
 Here is an example of a "upgrade.dbm" file:
 
-`dbm_objects.sql`
-`DBM_UTILITY_VAR.pks`
-`DBM_UTILITY_KRN.pks`
-`DBM_UTILITY_KRN.pkb`
-`dbm_public_synonyms.sql: '&&public' = 'true'`
-`dbm_public_grants.sql: '&&public' = 'true'`
+```txt
+dbm_objects.sql
+DBM_UTILITY_VAR.pks
+DBM_UTILITY_KRN.pks
+DBM_UTILITY_KRN.pkb
+dbm_public_synonyms.sql: '&&public' = 'true'
+dbm_public_grants.sql: '&&public' = 'true'
+```
 
 The last 2 scripts will be executed only if the "public" variable or parameter is set to "true".
 
@@ -761,13 +763,17 @@ Here follows an example of a unit test package (`DS_CRYPTO_TST`) that exists onl
 
 With checksum:
 
-`PACKAGE BODY DS_CRYPTO_TST: 807219452 '&&env' = 'dev'`
-`PACKAGE DS_CRYPTO_TST: 943970027 '&&env' = 'dev'`
+```txt
+PACKAGE BODY DS_CRYPTO_TST: 807219452 '&&env' = 'dev'
+PACKAGE DS_CRYPTO_TST: 943970027 '&&env' = 'dev'
+```
 
 Without checksum:
 
-`PACKAGE BODY DS_CRYPTO_TST: '&&env' = 'dev'`
-`PACKAGE DS_CRYPTO_TST: '&&env' = 'dev'`
+```txt
+PACKAGE BODY DS_CRYPTO_TST: '&&env' = 'dev'
+PACKAGE DS_CRYPTO_TST: '&&env' = 'dev'
+```
 
 Note that when no checksum is specified, the conditional expression shall not start with a digit.
 
