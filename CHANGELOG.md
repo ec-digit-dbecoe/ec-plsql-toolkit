@@ -1,3 +1,17 @@
+# [25.7.0](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/compare/25.6.0...25.7.0) (2026-02-03)
+
+
+### Bug Fixes
+
+* DPP 25.1: buffer overflow when sending the content of a huge log file par mail ([2596279](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/25962797e1063c0380e14331acfe8f4b07fdf21f))
+
+
+### Features
+
+* DPP 25.1: implement post-export actions ([139d260](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/139d2603f90499c29afc09fc4bde0032eb176f4f))
+* DS 25.5: "ds_records.remark" field renamed to "remarks". ([1b64b0b](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/1b64b0bc1964e7e101aace860bfd4814eb534b2b))
+* DS 25.5: Policy can be applied on a single user and for Data Pump sessions only. ([76227bc](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/commit/76227bc5e5dbe5f5c7f9a28db09d42426753ff1a))
+
 # [25.6.0](https://sdlc.aws.cloud.tech.ec.europa.eu/dbe-coe/oracle-toolkit/ec-plsql-toolkit/compare/25.5.1...25.6.0) (2025-09-22)
 
 

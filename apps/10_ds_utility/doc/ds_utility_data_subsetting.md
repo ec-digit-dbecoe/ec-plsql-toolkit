@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Data Set Utility - Data Subsetting - User's Guide v25.0
+# Data Set Utility - Data Subsetting - User's Guide v25.5
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -763,7 +763,7 @@ DECLARE
    l_set_id ds_data_sets.set_id%TYPE := ds_utility_krn.get_data_set_def_by_name('Jonathon Taylor');
 BEGIN
    ds_utility_var.g_msg_mask := 'ES'; -- Show Errors & SQL
-   ds_utility_krn.handle_data_set(p_set_id=>l_set_id,p_oper=>'DIRECT-EXECUTE',p_mode=>'I');
+   ds_utility_krn.transport_data_set(p_set_id=>l_set_id,p_method=>'DIRECT-EXECUTE',p_mode=>'I');
    COMMIT;
 END;
 /
@@ -936,7 +936,7 @@ DECLARE
    l_set_id ds_data_sets.set_id%TYPE := ds_utility_krn.get_data_set_def_by_name('Jonathon Taylor');
 BEGIN
    ds_utility_krn.delete_output;
-   ds_utility_krn.handle_data_set(p_set_id=>l_set_id,p_oper=>'PREPARE-SCRIPT',p_mode=>'I');
+   ds_utility_krn.transport_data_set(p_set_id=>l_set_id,p_method=>'PREPARE-SCRIPT',p_mode=>'I');
    COMMIT;
    -- To check results: SELECT text FROM ds_output ORDER BY line
 END;
@@ -959,11 +959,13 @@ DECLARE
 BEGIN
    ds_utility_var.g_msg_mask := 'E'; -- Show Errors
    ds_utility_krn.create_policies(p_set_id=>l_set_id);
+   ds_utility_krn.create_policies_context();
+   ds_utility_krn.activate_policies();
 END;
 /
 ```
 
-Once created, queries on employees and job history tables will return respectively 1 and 2 rows. You can then proceed with exporting your schema (in full or only the tables of your data set). Once rows have been exported, you can drop security policies with the following code:
+Once created, queries on employees and job history tables executed with the current user will return respectively 1 and 2 rows. The other users are not impacted. You can then proceed with exporting your schema (in full or only the tables of your data set). Once rows have been exported, you can drop security policies with the following code:
 
 ```sql
 REM Drop policies
@@ -971,6 +973,8 @@ REM Drop policies
 DECLARE
    l_set_id ds_data_sets.set_id%TYPE := ds_utility_krn.get_data_set_def_by_name('Jonathon Taylor');
 BEGIN
+   ds_utility_krn.deactivate_policies();
+   ds_utility_krn.drop_policies_context();
    ds_utility_krn.drop_policies(p_set_id=>l_set_id);
 END;
 /

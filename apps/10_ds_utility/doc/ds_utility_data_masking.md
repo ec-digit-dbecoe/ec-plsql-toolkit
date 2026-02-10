@@ -1,5 +1,5 @@
 ﻿<!-- omit in toc -->
-# Data Set Utility - Sensitive Data Discovery and on-the-fly Data Masking - User's Guide v25.0
+# Data Set Utility - Sensitive Data Discovery and on-the-fly Data Masking - User's Guide v25.5
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -647,7 +647,7 @@ To be able to preview, extract and transport masked data, the following actions 
 - Generate tokens for columns having a `TOKENIZE` mask (in `DS_MASKS`).
 - Propagate primary key masking to foreign keys.
 
-All these actions can be performed with a single call to `mask_data_set()` **before** invoking `create_views()` for preview and `handle_data_set()` for extraction and transportation.
+All these actions can be performed with a single call to `mask_data_set()` **before** invoking `create_views()` for preview and `transport_data_set()` for extraction and transportation.
 
 # 3. Procedure
 
@@ -1251,9 +1251,9 @@ Masked data can be extracted and transported to another schema in various ways:
 
 ```sql
 truncate table ds_output;
-exec ds_utility_krn.handle_data_set (
+exec ds_utility_krn.transport_data_set (
   p_set_id=>ds_utility_krn.get_data_set_def_by_name('tmp_persons')
-, p_oper=>'PREPARE-SCRIPT',p_output=>'DS_OUTPUT',p_mode=>'I'
+, p_method=>'PREPARE-SCRIPT',p_output=>'DS_OUTPUT',p_mode=>'I'
 );
 select text from ds_output order by line;
 ```
@@ -1261,9 +1261,9 @@ select text from ds_output order by line;
 ### 4.8.1. Via a SQL script that is directly executed
 
 ```sql
-exec ds_utility_krn.handle_data_set (
+exec ds_utility_krn.transport_data_set (
   p_set_id=>ds_utility_krn.get_data_set_def_by_name('tmp_persons')
-, p_oper=>'EXECUTE-SCRIPT',p_output=>'DS_OUTPUT',p_mode=>'I'
+, p_method=>'EXECUTE-SCRIPT',p_output=>'DS_OUTPUT',p_mode=>'I'
 , p_db_link=>'DBCC_DIGIT_01_T.CC.CEC.EU.INT'
 );
 ```
@@ -1277,9 +1277,9 @@ update ds_tables
    set target_db_link = 'DBCC_DIGIT_01_T.CC.CEC.EU.INT'
  where set_id=ds_utility_krn.get_data_set_def_by_name('tmp_persons')
 ;
-exec ds_utility_krn.handle_data_set (
+exec ds_utility_krn.transport_data_set (
   p_set_id=>ds_utility_krn.get_data_set_def_by_name('tmp_persons')
-, p_oper=>'DIRECT-EXECUTE',p_output=>'DS_OUTPUT',p_mode=>'I'
+, p_method=>'DIRECT-EXECUTE',p_output=>'DS_OUTPUT',p_mode=>'I'
 );
 ```
 

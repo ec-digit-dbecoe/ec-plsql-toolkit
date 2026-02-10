@@ -1,3 +1,13 @@
+# 25.1 (2025-11-xx)
+
+### Features
+
+* Implement the post-export actions.
+
+## Bug fixes
+
+* Error raised when sending log above 32KB par mail fixed.
+
 # 25.0 (2025-09-xx)
 
 ### Bug fixes

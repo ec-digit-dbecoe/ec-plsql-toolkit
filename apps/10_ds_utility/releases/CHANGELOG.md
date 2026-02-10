@@ -1,3 +1,22 @@
+## [25.5]
+
+### Bug fixes
+
+* Exported data not correctly anonymized bug fixed.
+* *handle_data_set* function correctly deprecated.
+
+### Features
+
+* Policy can be applied on a single user and for Data Pump sessions only.
+* *ds_records.remark* field renamed to *remarks*.
+
+## [25.4.1](https://sdlc.webcloud.ec.europa.eu/dbe-coe/oracle-toolkit/ds_utility/compare/25.4.0...25.4.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* replace references to params with gen_params and msk_params ([145044c](https://sdlc.webcloud.ec.europa.eu/dbe-coe/oracle-toolkit/ds_utility/commit/145044c68dc589945f1597fa755be4e5f45ca11c))
+
 # 25.4 (2025-04-xx)
 
 ### Features

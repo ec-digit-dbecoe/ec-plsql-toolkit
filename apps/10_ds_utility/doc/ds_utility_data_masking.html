@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0051)file:///tmp/crossnote2025028-30970-d98w86.fsok.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html><html><head>
       <title>ds_utility_data_masking</title>
-      
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="./ds_utility_data_masking_files/katex.min.css">
+      <link rel="stylesheet" href="file:////home/malmjea/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -27,116 +25,116 @@
       <div class="crossnote markdown-preview  ">
       
 <p><!-- omit in toc --></p>
-<h1 id="data-set-utility---sensitive-data-discovery-and-on-the-fly-data-masking---users-guide-v250">Data Set Utility - Sensitive Data Discovery and on-the-fly Data Masking - User's Guide v25.0 </h1>
+<h1 id="data-set-utility---sensitive-data-discovery-and-on-the-fly-data-masking---users-guide-v255">Data Set Utility - Sensitive Data Discovery and on-the-fly Data Masking - User's Guide v25.5 </h1>
 <h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#1-data-discovery">1. Data Discovery</a>
+<li><a href="#1-data-discovery">1. Data Discovery</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#11-data-discovery-techniques">1.1. Data Discovery Techniques</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#12-tool-overview">1.2. Tool Overview</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#13-pattern-properties">1.3. Pattern properties</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#14-search-criteria">1.4. Search criteria</a>
+<li><a href="#11-data-discovery-techniques">1.1. Data Discovery Techniques</a></li>
+<li><a href="#12-tool-overview">1.2. Tool Overview</a></li>
+<li><a href="#13-pattern-properties">1.3. Pattern properties</a></li>
+<li><a href="#14-search-criteria">1.4. Search criteria</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#141-data-type">1.4.1. Data type</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#142-regular-expressions">1.4.2. Regular expressions</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#143-lookup-data-sets">1.4.3. Lookup data sets</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#144-data-related-criteria">1.4.4. Data related criteria</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#145-combining-criteria">1.4.5. Combining criteria</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#146-multiple-matches">1.4.6. Multiple matches</a></li>
+<li><a href="#141-data-type">1.4.1. Data type</a></li>
+<li><a href="#142-regular-expressions">1.4.2. Regular expressions</a></li>
+<li><a href="#143-lookup-data-sets">1.4.3. Lookup data sets</a></li>
+<li><a href="#144-data-related-criteria">1.4.4. Data related criteria</a></li>
+<li><a href="#145-combining-criteria">1.4.5. Combining criteria</a></li>
+<li><a href="#146-multiple-matches">1.4.6. Multiple matches</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#15-data-discovery-invocation">1.5. Data discovery invocation</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#16-data-discovery-report">1.6. Data discovery report</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#17-data-discovery-results">1.7. Data discovery results</a></li>
+<li><a href="#15-data-discovery-invocation">1.5. Data discovery invocation</a></li>
+<li><a href="#16-data-discovery-report">1.6. Data discovery report</a></li>
+<li><a href="#17-data-discovery-results">1.7. Data discovery results</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#2-data-masking">2. Data Masking</a>
+<li><a href="#2-data-masking">2. Data Masking</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#21-overview">2.1. Overview</a>
+<li><a href="#21-overview">2.1. Overview</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#211-data-masking-techniques">2.1.1. Data masking techniques</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#212-data-masking-methods">2.1.2. Data Masking Methods</a></li>
+<li><a href="#211-data-masking-techniques">2.1.1. Data masking techniques</a></li>
+<li><a href="#212-data-masking-methods">2.1.2. Data Masking Methods</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#22-mask-properties">2.2. Mask properties</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#23-sql-masking">2.3. SQL masking</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#24-masking-functions-library">2.4. Masking functions library</a>
+<li><a href="#22-mask-properties">2.2. Mask properties</a></li>
+<li><a href="#23-sql-masking">2.3. SQL masking</a></li>
+<li><a href="#24-masking-functions-library">2.4. Masking functions library</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#241-function-types">2.4.1. Function types</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#242-deterministic-functions">2.4.2. Deterministic functions</a></li>
+<li><a href="#241-function-types">2.4.1. Function types</a></li>
+<li><a href="#242-deterministic-functions">2.4.2. Deterministic functions</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#25-shuffling">2.5. Shuffling</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#26-tokenisation">2.6. tokenisation</a>
+<li><a href="#25-shuffling">2.5. Shuffling</a></li>
+<li><a href="#26-tokenisation">2.6. tokenisation</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#261-tokenisation-techniques">2.6.1. tokenisation techniques</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#262-relationship-cardinality">2.6.2. Relationship cardinality</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#263-security">2.6.3. Security</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#264-token-format">2.6.4. Token format</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#265-token-identical-to-value">2.6.5. Token identical to value</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#266-custom-mapping">2.6.6. Custom mapping</a></li>
+<li><a href="#261-tokenisation-techniques">2.6.1. tokenisation techniques</a></li>
+<li><a href="#262-relationship-cardinality">2.6.2. Relationship cardinality</a></li>
+<li><a href="#263-security">2.6.3. Security</a></li>
+<li><a href="#264-token-format">2.6.4. Token format</a></li>
+<li><a href="#265-token-identical-to-value">2.6.5. Token identical to value</a></li>
+<li><a href="#266-custom-mapping">2.6.6. Custom mapping</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#27-masking-of-unique-identifiers">2.7. Masking of unique identifiers</a>
+<li><a href="#27-masking-of-unique-identifiers">2.7. Masking of unique identifiers</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#271-shuffling">2.7.1. Shuffling</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#272-format-preserving-encryption-fpe">2.7.2. Format Preserving Encryption (FPE)</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#273-sequence-based-masking">2.7.3. Sequence-based masking</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#274-tokenisation">2.7.4. tokenisation</a></li>
+<li><a href="#271-shuffling">2.7.1. Shuffling</a></li>
+<li><a href="#272-format-preserving-encryption-fpe">2.7.2. Format Preserving Encryption (FPE)</a></li>
+<li><a href="#273-sequence-based-masking">2.7.3. Sequence-based masking</a></li>
+<li><a href="#274-tokenisation">2.7.4. tokenisation</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#28-final-note">2.8. Final note</a></li>
+<li><a href="#28-final-note">2.8. Final note</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#3-procedure">3. Procedure</a>
+<li><a href="#3-procedure">3. Procedure</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#31-data-sub-setting">3.1. Data sub-setting</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#32-data-discovery">3.2. Data discovery</a>
+<li><a href="#31-data-sub-setting">3.1. Data sub-setting</a></li>
+<li><a href="#32-data-discovery">3.2. Data discovery</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#321-review-pre-defined-patterns">3.2.1. Review pre-defined patterns</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#322-launch-the-data-discovery">3.2.2. Launch the data discovery</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#323-review-the-execution-report">3.2.3. Review the execution report</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#324-review-the-results">3.2.4. Review the results</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#325-iterate-as-necessary">3.2.5. Iterate as necessary</a></li>
+<li><a href="#321-review-pre-defined-patterns">3.2.1. Review pre-defined patterns</a></li>
+<li><a href="#322-launch-the-data-discovery">3.2.2. Launch the data discovery</a></li>
+<li><a href="#323-review-the-execution-report">3.2.3. Review the execution report</a></li>
+<li><a href="#324-review-the-results">3.2.4. Review the results</a></li>
+<li><a href="#325-iterate-as-necessary">3.2.5. Iterate as necessary</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#33-data-masking">3.3. Data masking</a>
+<li><a href="#33-data-masking">3.3. Data masking</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#331-review-masks">3.3.1. Review masks</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#332-preview-masked-data">3.3.2. Preview masked data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#333-iterate-as-necessary">3.3.3. Iterate as necessary</a></li>
+<li><a href="#331-review-masks">3.3.1. Review masks</a></li>
+<li><a href="#332-preview-masked-data">3.3.2. Preview masked data</a></li>
+<li><a href="#333-iterate-as-necessary">3.3.3. Iterate as necessary</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#34-data-extraction-and-transportation">3.4. Data extraction and transportation</a></li>
+<li><a href="#34-data-extraction-and-transportation">3.4. Data extraction and transportation</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#4-tutorial">4. Tutorial</a>
+<li><a href="#4-tutorial">4. Tutorial</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#41-overview">4.1. Overview</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#42-data-model">4.2. Data model</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#43-sample-data">4.3. Sample data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#44-data-sub-setting">4.4. Data Sub-Setting</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#45-data-discovery">4.5. Data discovery</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#46-data-masking">4.6. Data masking</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#47-data-preview">4.7. Data Preview</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#48-data-extraction-and-transportation">4.8. Data extraction and transportation</a>
+<li><a href="#41-overview">4.1. Overview</a></li>
+<li><a href="#42-data-model">4.2. Data model</a></li>
+<li><a href="#43-sample-data">4.3. Sample data</a></li>
+<li><a href="#44-data-sub-setting">4.4. Data Sub-Setting</a></li>
+<li><a href="#45-data-discovery">4.5. Data discovery</a></li>
+<li><a href="#46-data-masking">4.6. Data masking</a></li>
+<li><a href="#47-data-preview">4.7. Data Preview</a></li>
+<li><a href="#48-data-extraction-and-transportation">4.8. Data extraction and transportation</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#481-via-a-sql-script-that-is-directly-executed">4.8.1. Via a SQL script that is directly executed</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#482-via-database-link">4.8.2. Via database link</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#483-via-xml">4.8.3. Via XML</a></li>
+<li><a href="#481-via-a-sql-script-that-is-directly-executed">4.8.1. Via a SQL script that is directly executed</a></li>
+<li><a href="#482-via-database-link">4.8.2. Via database link</a></li>
+<li><a href="#483-via-xml">4.8.3. Via XML</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#5-references">5. References</a>
+<li><a href="#5-references">5. References</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#51-oracle-regular-expressions">5.1. Oracle Regular Expressions</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#52-apis">5.2. APIs</a>
+<li><a href="#51-oracle-regular-expressions">5.1. Oracle Regular Expressions</a></li>
+<li><a href="#52-apis">5.2. APIs</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#521-ds_utility_krn">5.2.1. DS_UTILITY_KRN</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#522-ds_masker_krn">5.2.2. DS_MASKER_KRN</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#523-ds_crypto_krn">5.2.3. DS_CRYPTO_KRN</a></li>
+<li><a href="#521-ds_utility_krn">5.2.1. DS_UTILITY_KRN</a></li>
+<li><a href="#522-ds_masker_krn">5.2.2. DS_MASKER_KRN</a></li>
+<li><a href="#523-ds_crypto_krn">5.2.3. DS_CRYPTO_KRN</a></li>
 </ul>
 </li>
 </ul>
@@ -305,7 +303,7 @@
 </tr>
 </tbody>
 </table>
-<p><a name="_table_1" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 1 – pre-defined search patterns</strong></em></p>
+<p><a name="_table_1" href=""></a><em><strong>Table 1 – pre-defined search patterns</strong></em></p>
 <p>The “(sys)” mentioned in the name allows to make the distinction between pre-defined patterns (that in principle should not be modified) and user-created ones. Patterns have been designed with the assumption that your database object names and comments are in English. Should it not be the case, you will need to adapt them to your specific language or create your owns.</p>
 <h2 id="13-pattern-properties">1.3. Pattern properties </h2>
 <p>Search patterns are stored in the <code>DS_PATTERNS</code> table and have the following properties:</p>
@@ -350,7 +348,7 @@
 </ul>
 <p>Only the data types in <strong>bold</strong> can be specified at the level of the pattern. Column data types are converted according to the above equivalence table before being compared to the pattern data types.</p>
 <h3 id="142-regular-expressions">1.4.2. Regular expressions </h3>
-<p>Column name, comments and values can be searched using <strong>Oracle regular expressions</strong> (see <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#_table_17">Table 17 – metacharacters supported in Oracle regular expressions</a> – in annex and <a href="https://docs.oracle.com/en-us/iaas/data-safe/doc/regular-expressions.html">Oracle documentation</a> for a full description). Note that the Oracle specific implementation has some limitations compared to other implementations (e.g., look ahead is not implemented in Oracle). A search criterion is considered as fulfilled if the column name, column comment or column value matches the given regular expression.</p>
+<p>Column name, comments and values can be searched using <strong>Oracle regular expressions</strong> (see <a href="#_table_17">Table 17 – metacharacters supported in Oracle regular expressions</a> – in annex and <a href="https://docs.oracle.com/en-us/iaas/data-safe/doc/regular-expressions.html">Oracle documentation</a> for a full description). Note that the Oracle specific implementation has some limitations compared to other implementations (e.g., look ahead is not implemented in Oracle). A search criterion is considered as fulfilled if the column name, column comment or column value matches the given regular expression.</p>
 <p>Pattern matching is always <strong>case insensitive</strong> i.e., lower/upper case differences are ignored. In practice, the <code>REGEXP_LIKE</code> function is used with the “i” option (insensitive) passed as parameter.</p>
 <p>Pattern matching is also <strong>accent insensitive</strong> i.e., accentuated characters in both column values and search patterns are converted to their ASCII equivalent characters before comparison (as an example, “é” is converted to “e”, “à” to “a”, etc.). In practice, the <code>unaccentuate_string()</code> function of the <code>ds_masker_krn</code> package is applied to both column value and regular expression.</p>
 <p>For column name patterns, consider searching for abbreviations in addition to full words. As an example, when searching for currency codes, consider search for “currency”, “ccy” and “cur” as well as “code” and “cd”. To avoid false positive, patterns should also take care of word separators (the underscore character is the most common, but it depends on your naming conventions).</p>
@@ -393,7 +391,7 @@
 </tr>
 </tbody>
 </table>
-<p><a name="_table_2" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 2 – pre-defined data sets</strong></em></p>
+<p><a name="_table_2" href=""></a><em><strong>Table 2 – pre-defined data sets</strong></em></p>
 <p>Data set names are prefixed with their scope (country, continent, region, etc.) and suffixed with their number of records.</p>
 <p>As a data set usually contains several columns (e.g., the “countries” data set contains the country code and the country name), you must specify which one to use.</p>
 <p>The syntax is <code>DATA-SET-NAME.COLUMN-NAME</code> where <code>DATA-SET-NAME</code> is the name of a CSV or SQL data set and <code>COLUMN-NAME</code> is one of its columns. As an example, the pre-defined pattern “Currency code” is associated with the <code>INT_CURRENCIES_170.CCY_CODE</code> data set column.</p>
@@ -421,7 +419,7 @@
 </tr>
 </thead>
 </table>
-<p><a name="_table_3" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 3 – logical combination of criteria</strong></em></p>
+<p><a name="_table_3" href=""></a><em><strong>Table 3 – logical combination of criteria</strong></em></p>
 <h3 id="146-multiple-matches">1.4.6. Multiple matches </h3>
 <p>When a table column matches several patterns, the best matching pattern is retained according to the following priority rules:</p>
 <ul>
@@ -602,8 +600,8 @@ Info: *ANO_COUNTRIES.CAPITAL: Pattern "City (sys)" RETAINED; matching on: data s
 </tr>
 </tbody>
 </table>
-<p><a name="_table_4" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 4 –function types library</strong></em></p>
-<p>See <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#_ref137029754">Table 19 – methods of the DS_MASKER_KRN package</a> – for an overview of the provided pre-defined functions.</p>
+<p><a name="_table_4" href=""></a><em><strong>Table 4 –function types library</strong></em></p>
+<p>See <a href="#_ref137029754">Table 19 – methods of the DS_MASKER_KRN package</a> – for an overview of the provided pre-defined functions.</p>
 <p>To preserve the validity, the checksum or the check digit is recomputed.</p>
 <p>When passing parameters to these functions, it is recommended to use named parameters (e.g., <code>p_param=&gt;value</code>) rather than positional parameters. This syntax is indeed more resilient to any future potential change in the order of parameters.</p>
 <p>Before encrypting and decrypting, the encryption key must be globally defined by calling the <code>set_encryption_key()</code> function. As this private key is only held in memory, make sure to store it in a safe location to allow subsequent decryption.</p>
@@ -717,7 +715,7 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 <li>Generate tokens for columns having a <code>TOKENIZE</code> mask (in <code>DS_MASKS</code>).</li>
 <li>Propagate primary key masking to foreign keys.</li>
 </ul>
-<p>All these actions can be performed with a single call to <code>mask_data_set()</code> <strong>before</strong> invoking <code>create_views()</code> for preview and <code>handle_data_set()</code> for extraction and transportation.</p>
+<p>All these actions can be performed with a single call to <code>mask_data_set()</code> <strong>before</strong> invoking <code>create_views()</code> for preview and <code>transport_data_set()</code> for extraction and transportation.</p>
 <h1 id="3-procedure">3. Procedure </h1>
 <p>This section describes the steps to follow to discover and mask your sensitive data.</p>
 <h2 id="31-data-sub-setting">3.1. Data sub-setting </h2>
@@ -732,13 +730,13 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 <p>To make your changes repeatable, it is recommended to create a script to apply your changes (configuration as code) instead of directly updating the database. This will also avoid losing your changes when a new release of the tool is deployed. Using APIs is also preferred over executing DML statements.</p>
 <p>Besides regular expressions, sensitive data can also be detected based on pre-defined look-up data sets (list of countries, cities, currencies, etc.). You can also define your own look-up data sets and reference them in your search patterns.</p>
 <h3 id="322-launch-the-data-discovery">3.2.2. Launch the data discovery </h3>
-<p>Launch the sensitive data discovery, for the data set that you want to extract or for the whole schema. See sections <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#14-data-discovery-invocation">1.4 Data discovery invocation</a>, <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#15-data-discovery-report">1.5. Data discovery report</a> and <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#16-data-discovery-results">1.6. Data discovery results</a> for a description of which procedure to invoke, its parameters, how to get the execution report, and what are the results of this process.</p>
+<p>Launch the sensitive data discovery, for the data set that you want to extract or for the whole schema. See sections <a href="#14-data-discovery-invocation">1.4 Data discovery invocation</a>, <a href="#15-data-discovery-report">1.5. Data discovery report</a> and <a href="#16-data-discovery-results">1.6. Data discovery results</a> for a description of which procedure to invoke, its parameters, how to get the execution report, and what are the results of this process.</p>
 <h3 id="323-review-the-execution-report">3.2.3. Review the execution report </h3>
 <p>Examine the report to double check whether the correct sensitive data type has been detected for each table column, especially when several patterns are matching. Check whether patterns have been retained or discarded for good reasons, based on the number of hits or the hit percentage. Looking at sample data may also help to detect incorrect matches.</p>
 <h3 id="324-review-the-results">3.2.4. Review the results </h3>
 <p>Examine the results stored in the <code>DS_MASKS</code> table i.e., which data type or pattern was finally retained for each table column and, more importantly, which mask will be ultimately applied (which is not visible in the execution report).</p>
 <p>Should a column be detected as sensitive while it is not, change its <code>sensitive_flag</code> to N.</p>
-<p>Review the default mask type proposed and its parameters and adapt them as necessary. See section  <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#331-review-masks">3.3.1. Review masks</a> for a description of the various cases that need to be tackled.</p>
+<p>Review the default mask type proposed and its parameters and adapt them as necessary. See section  <a href="#331-review-masks">3.3.1. Review masks</a> for a description of the various cases that need to be tackled.</p>
 <p>When you update a record, lock it by setting its <code>locked_flag</code> to Y to prevent your change from being overwritten by a subsequent execution of the data discovery.</p>
 <h3 id="325-iterate-as-necessary">3.2.5. Iterate as necessary </h3>
 <p>Based on the knowledge of your business and database schema, you may detect some table columns that have not been reported as sensitive while they should have been. This may be because some search patterns are not well configured (e.g., regular impression is incorrect or not precise enough) or because no search pattern exists to detect them. In this case, review and adapt search patterns as necessary and launch again the sensitive data discovery.</p>
@@ -901,7 +899,7 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 </tr>
 </tbody>
 </table>
-<p><a name="_table_5" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 5 – generated persons</strong></em></p>
+<p><a name="_table_5" href=""></a><em><strong>Table 5 – generated persons</strong></em></p>
 <p>Here is the content of the <code>TMP_PER_CREDIT_CARDS</code> table:</p>
 <table>
 <thead>
@@ -1014,7 +1012,7 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 </tr>
 </tbody>
 </table>
-<p><a name="_table_6" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 6 – generated credit cards</strong></em></p>
+<p><a name="_table_6" href=""></a><em><strong>Table 6 – generated credit cards</strong></em></p>
 <p>Here is the content of the TMP_PER_TRANSACTIONS table:</p>
 <table>
 <thead>
@@ -1268,7 +1266,7 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 </tr>
 </tbody>
 </table>
-<p><a name="_table_7" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 7 – generated transactions</strong></em></p>
+<p><a name="_table_7" href=""></a><em><strong>Table 7 – generated transactions</strong></em></p>
 <h2 id="44-data-sub-setting">4.4. Data Sub-Setting </h2>
 <p>The first step is to define the rules for extracting a sub-set of the sample data. Let’s suppose that we want to extract half of the persons and their details (credit cards and transactions). As data sub-setting is not the purpose of this tutorial, the process will not be explained in detail.</p>
 <p>The steps are the following:</p>
@@ -1338,7 +1336,7 @@ dbms_masker_krn<span class="token punctuation">.</span>random_value_from_data_se
 </tr>
 </tbody>
 </table>
-<p><a name="_table_8" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 8 – extracted persons</strong></em></p>
+<p><a name="_table_8" href=""></a><em><strong>Table 8 – extracted persons</strong></em></p>
 <p>Their credit card numbers and transactions are also extracted.</p>
 <h2 id="45-data-discovery">4.5. Data discovery </h2>
 <p>The tool comes with a pre-defined set of search patterns that we can adapt or complemented as needed. Let’s suppose that we do not know anything about our data. In this case, we will keep all pre-defined patterns activated (they are all enabled by default).</p>
@@ -1417,7 +1415,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_9" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 9 – default mask type after discovery</strong></em></p>
+<p><a name="_table_9" href=""></a><em><strong>Table 9 – default mask type after discovery</strong></em></p>
 <p>A SQL function will be applied to all columns except the last one that will INHERIT its masking from its mater table (<code>TMP_PER_CREDIT_CARDS</code>) through its foreign key. Here follows the masking functions generated by default:</p>
 <table>
 <thead>
@@ -1465,7 +1463,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_10" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 10 – default SQL expressions after discovery</strong></em></p>
+<p><a name="_table_10" href=""></a><em><strong>Table 10 – default SQL expressions after discovery</strong></em></p>
 <h2 id="46-data-masking">4.6. Data masking </h2>
 <p>The masks generated by the sensitive data discovery are not necessarily complete (e.g., <code>PER_ID</code> was not detected as sensitive) and don’t necessarily meet your needs either (e.g., genders generated at random will lead to incoherences with given names generated from a data set).</p>
 <p>We are therefore going to make the following changes to the masks:</p>
@@ -1558,7 +1556,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_11" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 11 – adapted mask types</strong></em></p>
+<p><a name="_table_11" href=""></a><em><strong>Table 11 – adapted mask types</strong></em></p>
 <p>We also want to declare the <code>PER_ID</code> column as sensitive by inserting a mask for this column:</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>insert_mask<span class="token punctuation">(</span>
  p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span>p_column_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PER_ID'</span>
@@ -1640,7 +1638,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_12" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 12 – mask types for scenario 1</strong></em></p>
+<p><a name="_table_12" href=""></a><em><strong>Table 12 – mask types for scenario 1</strong></em></p>
 <p>You will note the <code>SEQUENCE</code> masking type on <code>PER_ID</code> and the fact that this mask is propagated to (or inherited by) all foreign key columns.</p>
 <p>Scenario 2 – Shuffling</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>update_mask_properties<span class="token punctuation">(</span>
@@ -1732,14 +1730,14 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_13" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 13 – mask types for scenario 2</strong></em></p>
+<p><a name="_table_13" href=""></a><em><strong>Table 13 – mask types for scenario 2</strong></em></p>
 <p>Scenario 3 – Encryption</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>insert_mask <span class="token punctuation">(</span>
    p_table_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'TMP_PERSONS'</span><span class="token punctuation">,</span>p_column_name<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PER_ID'</span>
  <span class="token punctuation">,</span> p_msk_type<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'SQL'</span><span class="token punctuation">,</span> p_params<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'ds_masker_krn.encrypt_number(per_id)'</span>
  <span class="token punctuation">,</span> p_locked_flag<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'Y'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><p>As only the SQL expression was changed, the mask types remain as in <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#_table_11">Table 11</a>.</p>
+</code></pre><p>As only the SQL expression was changed, the mask types remain as in <a href="#_table_11">Table 11</a>.</p>
 <p>Any mask applied to a primary key is automatically propagated to all foreign key columns, thereby overwriting any previously defined mask, if any. <code>PER_ID</code>s of credit cards and transactions is therefore INHERITed from the masked person’s <code>PER_ID</code>, whatever is the scenario.</p>
 <h2 id="47-data-preview">4.7. Data Preview </h2>
 <p>Before previewing, extracting, or transporting data, some masking operations (shuffling records, generate unique ids based on a sequence, generate tokens, and propagate PK masking), must be performed by calling <code>ds_utility_krn.mask_data_set()</code>.</p>
@@ -1811,11 +1809,11 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_14" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 14 – masked persons for scenario 1</strong></em></p>
+<p><a name="_table_14" href=""></a><em><strong>Table 14 – masked persons for scenario 1</strong></em></p>
 <p>You will note that:</p>
 <ul>
 <li><code>PER_ID</code>s are generated from a sequence with a starting value and an increment of 10.</li>
-<li>Compared to <a href="file:///tmp/crossnote2025028-30970-d98w86.fsok.html#_table_8">Table 8</a>, first names and genders have been shuffled together (keeping the coherence between them).</li>
+<li>Compared to <a href="#_table_8">Table 8</a>, first names and genders have been shuffled together (keeping the coherence between them).</li>
 </ul>
 <p>Scenario 2 – Shuffling</p>
 <table>
@@ -1866,7 +1864,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_15" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 15 – masked persons for scenario 2</strong></em></p>
+<p><a name="_table_15" href=""></a><em><strong>Table 15 – masked persons for scenario 2</strong></em></p>
 <p>You will note that <code>PER_IDs</code> are shuffled but remain identical to their initial values.</p>
 <p>Scenario 3 – Encryption</p>
 <table>
@@ -1917,7 +1915,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_16" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 16 – masked persons for scenario 3</strong></em></p>
+<p><a name="_table_16" href=""></a><em><strong>Table 16 – masked persons for scenario 3</strong></em></p>
 <p>You will note that <code>PER_ID</code>s are encrypted and their format (i.e., their maximum number of digits – 4 in this example) is preserved.</p>
 <p>As a last step, views can be dropped in the following way.</p>
 <p>With masking:</p>
@@ -1940,15 +1938,15 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 <li>Via a SQL script that is prepared but not executed</li>
 </ol>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-truncate">truncate</span> <span class="token keyword keyword-table">table</span> ds_output<span class="token punctuation">;</span>
-<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>handle_data_set <span class="token punctuation">(</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>transport_data_set <span class="token punctuation">(</span>
   p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'tmp_persons'</span><span class="token punctuation">)</span>
-<span class="token punctuation">,</span> p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PREPARE-SCRIPT'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
+<span class="token punctuation">,</span> p_method<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PREPARE-SCRIPT'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-select">select</span> <span class="token keyword keyword-text">text</span> <span class="token keyword keyword-from">from</span> ds_output <span class="token keyword keyword-order">order</span> <span class="token keyword keyword-by">by</span> line<span class="token punctuation">;</span>
 </code></pre><h3 id="481-via-a-sql-script-that-is-directly-executed">4.8.1. Via a SQL script that is directly executed </h3>
-<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>handle_data_set <span class="token punctuation">(</span>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>transport_data_set <span class="token punctuation">(</span>
   p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'tmp_persons'</span><span class="token punctuation">)</span>
-<span class="token punctuation">,</span> p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EXECUTE-SCRIPT'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
+<span class="token punctuation">,</span> p_method<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'EXECUTE-SCRIPT'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
 <span class="token punctuation">,</span> p_db_link<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DBCC_DIGIT_01_T.CC.CEC.EU.INT'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p>Note that the database link must have the same name as the target database to allow remote procedure call.</p>
@@ -1957,9 +1955,9 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
    <span class="token keyword keyword-set">set</span> target_db_link <span class="token operator">=</span> <span class="token string">'DBCC_DIGIT_01_T.CC.CEC.EU.INT'</span>
  <span class="token keyword keyword-where">where</span> set_id<span class="token operator">=</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'tmp_persons'</span><span class="token punctuation">)</span>
 <span class="token punctuation">;</span>
-<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>handle_data_set <span class="token punctuation">(</span>
+<span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>transport_data_set <span class="token punctuation">(</span>
   p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'tmp_persons'</span><span class="token punctuation">)</span>
-<span class="token punctuation">,</span> p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DIRECT-EXECUTE'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
+<span class="token punctuation">,</span> p_method<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DIRECT-EXECUTE'</span><span class="token punctuation">,</span>p_output<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DS_OUTPUT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h3 id="483-via-xml">4.8.3. Via XML </h3>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-exec">exec</span> ds_utility_krn<span class="token punctuation">.</span>export_data_set_to_xml <span class="token punctuation">(</span>
@@ -2074,7 +2072,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_17" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 17 – metacharacters supported in Oracle regular expressions</strong></em></p>
+<p><a name="_table_17" href=""></a><em><strong>Table 17 – metacharacters supported in Oracle regular expressions</strong></em></p>
 <h2 id="52-apis">5.2. APIs </h2>
 <p>This section lists the methods that are available in each package of the tool. Only those related to data discovery, data masking and data encryption are listed here. See each package specification for a detailed description of their parameters.</p>
 <h3 id="521-ds_utility_krn">5.2.1. DS_UTILITY_KRN </h3>
@@ -2136,7 +2134,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_18" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 18 – methods of the DS_UTILITY_KRN package</strong></em></p>
+<p><a name="_table_18" href=""></a><em><strong>Table 18 – methods of the DS_UTILITY_KRN package</strong></em></p>
 <h3 id="522-ds_masker_krn">5.2.2. DS_MASKER_KRN </h3>
 <table>
 <thead>
@@ -2328,7 +2326,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_19" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 19 – methods of the DS_MASKER_KRN package</strong></em></p>
+<p><a name="_table_19" href=""></a><em><strong>Table 19 – methods of the DS_MASKER_KRN package</strong></em></p>
 <p>Other methods of the package that are not listed above are for internal use only.</p>
 <p>Encryption methods provided by this package produce cipher values having exactly the same length, precision and/or scale than the input value. As an example, encrypting a single digit number will produce a single digit number (e.g., “0” might be encrypted as “9”). For strings, only printable characters of the latin aphabet no.1 (ISO-8859-1) can be used. For more advanced options, methods of DS_CRYPTO_KRN should be used instead.</p>
 <h3 id="523-ds_crypto_krn">5.2.3. DS_CRYPTO_KRN </h3>
@@ -2387,7 +2385,7 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
 </tr>
 </tbody>
 </table>
-<p><a name="_table_20" href="file:///home/deboiph/citnet/dbcc-internal-dev/ds_utility/doc"></a><em><strong>Table 20 – methods of the DS_CRYPTO_KRN package</strong></em></p>
+<p><a name="_table_20" href=""></a><em><strong>Table 20 – methods of the DS_CRYPTO_KRN package</strong></em></p>
 <p>The encryption and decryption methods of this package offer additional parameters and possibilities than those of the <code>DS_MASKER_KRN</code> package. As an example, you can specify exactly the character set that you want to use when encrypting and decrypting strings (e.g., alpha lowercase, uppercase, or mixed case, alphanumeric, accentuated characters, special symbols, etc). You can also specify the length, precision, and scale of the columns in which the ciphered values will be stored. By doing so, the encryption of a single digit number can result in a several digits number (e.g., “0” could be encrypted as “12483” if the maximum precision is 5). It is worth to mention that the same parameters must be passed to both encryption and decryption functions. Not doing so will lead to wrong decrypted values.</p>
 
       </div>
@@ -2399,4 +2397,5 @@ Info: *TMP_PER_TRANSACTIONS.CREDIT_CARD_NBR: Pattern "Generic credit card number
     
     
     
-  </body></html>
+  
+    </body></html>

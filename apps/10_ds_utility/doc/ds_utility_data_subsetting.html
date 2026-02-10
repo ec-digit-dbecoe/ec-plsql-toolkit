@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0052)file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html><html><head>
       <title>ds_utility_data_subsetting</title>
-      
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="./ds_utility_data_subsetting_files/katex.min.css">
+      <link rel="stylesheet" href="file:////home/malmjea/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -26,89 +24,89 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="data-set-utility---data-subsetting---users-guide-v250">Data Set Utility - Data Subsetting - User's Guide v25.0 </h1>
+<h1 id="data-set-utility---data-subsetting---users-guide-v255">Data Set Utility - Data Subsetting - User's Guide v25.5 </h1>
 <h2 id="author-philippe-debois-european-commission">Author: Philippe Debois (European Commission) </h2>
 <h1 id="table-of-contents">Table of Contents </h1>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#1-data-subsetting">1. Data Subsetting</a>
+<li><a href="#1-data-subsetting">1. Data Subsetting</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#11-introduction">1.1. Introduction</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#12-the-data-model">1.2. The Data Model</a>
+<li><a href="#11-introduction">1.1. Introduction</a></li>
+<li><a href="#12-the-data-model">1.2. The Data Model</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#121-configuration-tables">1.2.1. Configuration tables</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#122-transactional-tables">1.2.2. Transactional tables</a></li>
+<li><a href="#121-configuration-tables">1.2.1. Configuration tables</a></li>
+<li><a href="#122-transactional-tables">1.2.2. Transactional tables</a></li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#13-the-process">1.3. The process</a>
+<li><a href="#13-the-process">1.3. The process</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#131-reference-data">1.3.1. Reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#132-master-data">1.3.2. Master data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#133-transactional-data">1.3.3. Transactional data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#134-base-tables">1.3.4. Base tables</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#135-referential-integrity">1.3.5. Referential integrity</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#136-extraction-of-rowids">1.3.6. Extraction of rowids</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#137-data-transportation">1.3.7. Data Transportation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2-tutorial">2. Tutorial</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#21-data-model">2.1. Data model</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#211-hr-data-model">2.1.1. HR Data Model</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#22-case-study-1--data-subsetting-and-transportation">2.2. Case Study 1 – Data Subsetting and Transportation</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#221-data-set-creation">2.2.1. Data set creation</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#222-identification-of-base-tables">2.2.2. Identification of base tables</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#223-extraction-of-rowids">2.2.3. Extraction of rowids</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#224-referential-integrity">2.2.4. Referential integrity</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#225-managing-reference-data">2.2.5. Managing reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#226-first-scenario--no-extraction-of-reference-data">2.2.6. First scenario – no extraction of reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#227-second-scenario--full-extraction-of-reference-data">2.2.7. Second scenario – full extraction of reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#228-third-scenario--partial-extraction-of-reference-data">2.2.8. Third scenario – partial extraction of reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#229-extracting-rowids">2.2.9. Extracting rowids</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2291-first-scenario--no-extraction-of-reference-data">2.2.9.1. First scenario – no extraction of reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2292-second-scenario--full-extraction-of-reference-data">2.2.9.2. Second scenario – full extraction of reference data</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2293-third-scenario--partial-extraction-of-reference-data">2.2.9.3. Third scenario – partial extraction of reference data</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2210-preview-data-set">2.2.10. Preview data set</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2211-data-set-transportation">2.2.11. Data set transportation</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2212-variants">2.2.12. Variants</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#22121-variant-1">2.2.12.1. Variant 1</a>
-<ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#221211-excluding-columns">2.2.12.1.1. Excluding columns</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#221212-forcing-column-value">2.2.12.1.2. Forcing column value</a></li>
-</ul>
-</li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#22122-variant-2">2.2.12.2. Variant 2</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#22123-variant-3">2.2.12.3. Variant 3</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#22124-variant-4">2.2.12.4. Variant 4</a></li>
+<li><a href="#131-reference-data">1.3.1. Reference data</a></li>
+<li><a href="#132-master-data">1.3.2. Master data</a></li>
+<li><a href="#133-transactional-data">1.3.3. Transactional data</a></li>
+<li><a href="#134-base-tables">1.3.4. Base tables</a></li>
+<li><a href="#135-referential-integrity">1.3.5. Referential integrity</a></li>
+<li><a href="#136-extraction-of-rowids">1.3.6. Extraction of rowids</a></li>
+<li><a href="#137-data-transportation">1.3.7. Data Transportation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#23-case-study-2--change-data-capture">2.3. Case Study 2 – Change Data Capture</a>
+<li><a href="#2-tutorial">2. Tutorial</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#231-create-data-set-definition">2.3.1. Create data set definition</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#232-include-captured-tables">2.3.2. Include captured tables</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#233-create-database-triggers">2.3.3. Create database triggers</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#234-perform-some-operations">2.3.4. Perform some operations</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#235-check-captured-operations">2.3.5. Check captured operations</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#236-generate-redo-script">2.3.6. Generate redo script</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#237-generate-undo-script">2.3.7. Generate undo script</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#238-rollback-captured-operations">2.3.8. Rollback captured operations</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#239-drop-database-triggers">2.3.9. Drop database triggers</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2310-delete-data-set-definition">2.3.10. Delete data set definition</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#2311-variants">2.3.11. Variants</a>
+<li><a href="#21-data-model">2.1. Data model</a>
 <ul>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#23111-synchronous-replication">2.3.11.1. Synchronous replication</a></li>
-<li><a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#23112-asynchronous-replication">2.3.11.2. Asynchronous replication</a></li>
+<li><a href="#211-hr-data-model">2.1.1. HR Data Model</a></li>
+</ul>
+</li>
+<li><a href="#22-case-study-1--data-subsetting-and-transportation">2.2. Case Study 1 – Data Subsetting and Transportation</a>
+<ul>
+<li><a href="#221-data-set-creation">2.2.1. Data set creation</a></li>
+<li><a href="#222-identification-of-base-tables">2.2.2. Identification of base tables</a></li>
+<li><a href="#223-extraction-of-rowids">2.2.3. Extraction of rowids</a></li>
+<li><a href="#224-referential-integrity">2.2.4. Referential integrity</a></li>
+<li><a href="#225-managing-reference-data">2.2.5. Managing reference data</a></li>
+<li><a href="#226-first-scenario--no-extraction-of-reference-data">2.2.6. First scenario – no extraction of reference data</a></li>
+<li><a href="#227-second-scenario--full-extraction-of-reference-data">2.2.7. Second scenario – full extraction of reference data</a></li>
+<li><a href="#228-third-scenario--partial-extraction-of-reference-data">2.2.8. Third scenario – partial extraction of reference data</a></li>
+<li><a href="#229-extracting-rowids">2.2.9. Extracting rowids</a>
+<ul>
+<li><a href="#2291-first-scenario--no-extraction-of-reference-data">2.2.9.1. First scenario – no extraction of reference data</a></li>
+<li><a href="#2292-second-scenario--full-extraction-of-reference-data">2.2.9.2. Second scenario – full extraction of reference data</a></li>
+<li><a href="#2293-third-scenario--partial-extraction-of-reference-data">2.2.9.3. Third scenario – partial extraction of reference data</a></li>
+</ul>
+</li>
+<li><a href="#2210-preview-data-set">2.2.10. Preview data set</a></li>
+<li><a href="#2211-data-set-transportation">2.2.11. Data set transportation</a></li>
+<li><a href="#2212-variants">2.2.12. Variants</a>
+<ul>
+<li><a href="#22121-variant-1">2.2.12.1. Variant 1</a>
+<ul>
+<li><a href="#221211-excluding-columns">2.2.12.1.1. Excluding columns</a></li>
+<li><a href="#221212-forcing-column-value">2.2.12.1.2. Forcing column value</a></li>
+</ul>
+</li>
+<li><a href="#22122-variant-2">2.2.12.2. Variant 2</a></li>
+<li><a href="#22123-variant-3">2.2.12.3. Variant 3</a></li>
+<li><a href="#22124-variant-4">2.2.12.4. Variant 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#23-case-study-2--change-data-capture">2.3. Case Study 2 – Change Data Capture</a>
+<ul>
+<li><a href="#231-create-data-set-definition">2.3.1. Create data set definition</a></li>
+<li><a href="#232-include-captured-tables">2.3.2. Include captured tables</a></li>
+<li><a href="#233-create-database-triggers">2.3.3. Create database triggers</a></li>
+<li><a href="#234-perform-some-operations">2.3.4. Perform some operations</a></li>
+<li><a href="#235-check-captured-operations">2.3.5. Check captured operations</a></li>
+<li><a href="#236-generate-redo-script">2.3.6. Generate redo script</a></li>
+<li><a href="#237-generate-undo-script">2.3.7. Generate undo script</a></li>
+<li><a href="#238-rollback-captured-operations">2.3.8. Rollback captured operations</a></li>
+<li><a href="#239-drop-database-triggers">2.3.9. Drop database triggers</a></li>
+<li><a href="#2310-delete-data-set-definition">2.3.10. Delete data set definition</a></li>
+<li><a href="#2311-variants">2.3.11. Variants</a>
+<ul>
+<li><a href="#23111-synchronous-replication">2.3.11.1. Synchronous replication</a></li>
+<li><a href="#23112-asynchronous-replication">2.3.11.2. Asynchronous replication</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +122,7 @@
 <p>Overall, data subsetting is a valuable technique for streamlining data handling, improving testing and development processes, and safeguarding data privacy in various data-related contexts.</p>
 <h2 id="12-the-data-model">1.2. The Data Model </h2>
 <p>The data set utility has no GUI and is entirely operated by calling APIs and querying its internal tables, reason why a good understanding of its internal data model is crucial:</p>
-<p><img src="./ds_utility_data_subsetting_files/002.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/002.png" alt=""></p>
 <h3 id="121-configuration-tables">1.2.1. Configuration tables </h3>
 <p><code>DATA SETS</code> are uniquely identified by their <code>SET_ID</code> (<code>SET_PK</code>). Their <code>SET_NAME</code> must also be unique (<code>SET_UK</code>). <code>DATA SETS</code> are defined for one or more <code>TABLES</code> which are uniquely identified by a <code>TABLE_ID</code> (<code>TAB_PK</code>). <code>TABLE_NAME</code> must also be unique within a data set (<code>TAB_UK</code>).</p>
 <p><code>DATA SETS</code> may have one or more foreign key <code>CONSTRAINTS</code> that will be walked through during the extraction or generation process. They are uniquely identified by a <code>CON_ID</code> (<code>CON_PK</code>). Foreign key <code>CONSTRAINTS</code> link source <code>TABLES</code> (<code>CON_TAB_SRC_FK</code>) with destination <code>TABLES</code> (<code>CON_TAB_DST_FK</code>).</p>
@@ -188,7 +186,7 @@
 <li><a href="https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html">https://www.oracle.com/database/technologies/appdev/datamodeler-samples.html</a></li>
 </ul>
 <p>Here follows a diagram and a description of the HR data model.</p>
-<p><img src="./ds_utility_data_subsetting_files/003.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/003.png" alt=""></p>
 <p>In the Human Resource (HR) records, each employee has an identification number, e-mail address, job identification code, salary, and manager. Some employees earn commissions in addition to their salary.</p>
 <p>The company also tracks information about jobs within the organization. Each job has an identification code, job title, and a minimum and maximum salary range for the job. Some employees have been with the company for a long time and have held different positions within the company. When an employee resigns, the duration the employee was working, the job identification number, and the department are recorded.</p>
 <p>The sample company is regionally diverse, so it tracks the locations of its warehouses and departments. Each employee is assigned to a department, and each department is identified either by a unique department number or a short name. Each department is associated with one location, and each location has a full address that includes the street name, postal code, city, state or province, and the country code.</p>
@@ -371,7 +369,7 @@ set_id<span class="token operator">=</span><span class="token number">23</span>
 </table>
 <p>Note that <code>CON_ID</code> is generated from a sequence so you might get different values should you run the tutorial scripts yourself.</p>
 <p>The diagram below shows in <strong>red</strong> the base table from which records will be extracted first as well as the 1-N relationships that will be followed for extracting detail records.</p>
-<p><img src="./ds_utility_data_subsetting_files/004.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/004.png" alt=""></p>
 <p>The <code>JHIST_EMP_FK</code> foreign key between <code>EMPLOYEES</code> and <code>JOB_HISTORY</code> has been included meaning that the job history data of Jonathon Taylor will be extracted.</p>
 <p>The recursive <code>EMP_MANAGER_FK</code> foreign key has also been included meaning that, if Jonathon Taylor is a manager, his subordinates will also be extracted. At this point, we should question ourselves if this is desired or not. Let's keep it as Jonathon Taylor is not a manager anyway.</p>
 <p>The <code>DEPT_MGR_FK</code> foreign key between <code>EMPLOYEES</code> and <code>DEPARTMENTS</code> has also been included meaning that, if Jonathon Taylor is the manager of a department, this latest will be extracted too. This foreign key is in reality the implementation of a 1-1 relationship. Departments may be managed by one and only one employee and an employee may be the manager of one and only one department. Even if it does not seem to be a parent/child relationship, let's keep it as Jonathon Taylor doesn't manage any department anyway.</p>
@@ -513,7 +511,7 @@ set_id<span class="token operator">=</span><span class="token number">23</span>
 <span class="token operator">/</span>
 </code></pre><p>Next step therefore consists in extracting referenced data (from tables which are referenced by a foreign key). This is performed by calling the <code>include_referential_cons()</code> procedure.</p>
 <p>The diagram below shows in blue the referential constraints that have been added recursively to the data set definition.</p>
-<p><img src="./ds_utility_data_subsetting_files/005.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/005.png" alt=""></p>
 <p>These referential constraints that have been included can be found via the following query:</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Show">Show</span> referential constraints <span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> that have been included
 
@@ -676,7 +674,7 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
 <span class="token operator">/</span>
 </code></pre><p>For each scenario, the following diagram show how many records will be extracted in each table and from which foreign key they come from (<strong>red</strong> = base records + 1-N relationships; <strong>blue</strong> = N-1 relationships; <strong>black</strong> = reference table).</p>
 <h4 id="2291-first-scenario--no-extraction-of-reference-data">2.2.9.1. First scenario – no extraction of reference data </h4>
-<p><img src="./ds_utility_data_subsetting_files/006.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/006.png" alt=""></p>
 <table>
 <thead>
 <tr>
@@ -772,7 +770,7 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
 </tbody>
 </table>
 <h4 id="2292-second-scenario--full-extraction-of-reference-data">2.2.9.2. Second scenario – full extraction of reference data </h4>
-<p><img src="./ds_utility_data_subsetting_files/007.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/007.png" alt=""></p>
 <table>
 <thead>
 <tr>
@@ -868,7 +866,7 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
 </tbody>
 </table>
 <h4 id="2293-third-scenario--partial-extraction-of-reference-data">2.2.9.3. Third scenario – partial extraction of reference data </h4>
-<p><img src="./ds_utility_data_subsetting_files/008.png" alt=""></p>
+<p><img src="ds_utility_data_subsetting_files/008.png" alt=""></p>
 <table>
 <thead>
 <tr>
@@ -1138,13 +1136,13 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
    <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
 <span class="token operator">/</span>
-</code></pre><p>As explained in section <a href="file:///tmp/crossnote2025028-30970-ukag0e.z0a5e.html#229-extracting-rowids">2.2.9. Extracting rowids</a>, <code>DEPT_MGR_FK</code> constraint must be disabled (or changed to <code>DEFERRED</code>) in the target schema before launching the data transfer.</p>
+</code></pre><p>As explained in section <a href="#229-extracting-rowids">2.2.9. Extracting rowids</a>, <code>DEPT_MGR_FK</code> constraint must be disabled (or changed to <code>DEFERRED</code>) in the target schema before launching the data transfer.</p>
 <p>The data set can then after be transported via the database link in the following way:</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-DECLARE">DECLARE</span>
    l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-BEGIN">BEGIN</span>
    ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'ES'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors &amp; SQL</span>
-   ds_utility_krn<span class="token punctuation">.</span>handle_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DIRECT-EXECUTE'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>transport_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_method<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'DIRECT-EXECUTE'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
 <span class="token operator">/</span>
@@ -1262,7 +1260,7 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
    l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-BEGIN">BEGIN</span>
    ds_utility_krn<span class="token punctuation">.</span>delete_output<span class="token punctuation">;</span>
-   ds_utility_krn<span class="token punctuation">.</span>handle_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_oper<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PREPARE-SCRIPT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>transport_data_set<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">,</span>p_method<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'PREPARE-SCRIPT'</span><span class="token punctuation">,</span>p_mode<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">'I'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token keyword keyword-COMMIT">COMMIT</span><span class="token punctuation">;</span>
    <span class="token comment">-- To check results: SELECT text FROM ds_output ORDER BY line</span>
 <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
@@ -1278,14 +1276,18 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
 <span class="token keyword keyword-BEGIN">BEGIN</span>
    ds_utility_var<span class="token punctuation">.</span>g_msg_mask :<span class="token operator">=</span> <span class="token string">'E'</span><span class="token punctuation">;</span> <span class="token comment">-- Show Errors</span>
    ds_utility_krn<span class="token punctuation">.</span>create_policies<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>create_policies_context<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>activate_policies<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
 <span class="token operator">/</span>
-</code></pre><p>Once created, queries on employees and job history tables will return respectively 1 and 2 rows. You can then proceed with exporting your schema (in full or only the tables of your data set). Once rows have been exported, you can drop security policies with the following code:</p>
+</code></pre><p>Once created, queries on employees and job history tables executed with the current user will return respectively 1 and 2 rows. The other users are not impacted. You can then proceed with exporting your schema (in full or only the tables of your data set). Once rows have been exported, you can drop security policies with the following code:</p>
 <pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code>REM <span class="token keyword keyword-Drop">Drop</span> policies
 
 <span class="token keyword keyword-DECLARE">DECLARE</span>
    l_set_id ds_data_sets<span class="token punctuation">.</span>set_id<span class="token operator">%</span><span class="token keyword keyword-TYPE">TYPE</span> :<span class="token operator">=</span> ds_utility_krn<span class="token punctuation">.</span>get_data_set_def_by_name<span class="token punctuation">(</span><span class="token string">'Jonathon Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-BEGIN">BEGIN</span>
+   ds_utility_krn<span class="token punctuation">.</span>deactivate_policies<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   ds_utility_krn<span class="token punctuation">.</span>drop_policies_context<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    ds_utility_krn<span class="token punctuation">.</span>drop_policies<span class="token punctuation">(</span>p_set_id<span class="token operator">=</span><span class="token operator">&gt;</span>l_set_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-END">END</span><span class="token punctuation">;</span>
 <span class="token operator">/</span>
@@ -1730,4 +1732,5 @@ REM Third scenario <span class="token operator">-</span> <span class="token keyw
     
     
     
-  </body></html>
+  
+    </body></html>

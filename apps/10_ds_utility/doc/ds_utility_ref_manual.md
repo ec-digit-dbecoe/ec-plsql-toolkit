@@ -1,5 +1,5 @@
 ﻿<!-- omit in toc -->
-# Data Set Utility- Reference Manual v25.4
+# Data Set Utility- Reference Manual v25.5
 
 <!-- omit in toc -->
 ## Author: Philippe Debois (European Commission)
@@ -126,7 +126,7 @@
       - [2.4.1.9. User name](#2419-user-name)
       - [2.4.1.10. Undo timestamp](#24110-undo-timestamp)
       - [2.4.1.11. Operation](#24111-operation)
-      - [2.4.1.12. Remark](#24112-remark)
+      - [2.4.1.12. Remarks](#24112-remarks)
       - [2.4.1.13. Deleted flag](#24113-deleted-flag)
       - [2.4.1.14. Record data](#24114-record-data)
       - [2.4.1.15. Record old data](#24115-record-old-data)
@@ -983,7 +983,7 @@ This property gives the exact date and time (down to the millisecond) when a cap
 
 This property is used when capturing data changes only and indicates the type of operation that has been performed i.e., whether the record is the result of an insert, update or delete operation. 
 
-#### 2.4.1.12. Remark
+#### 2.4.1.12. Remarks
 
 This property is used when extracting records only and gives more information about the primary key of the record and the foreign key for those resulting from a constraint walk-through. It is used automatically populated when the debug mode is activated and not set otherwise.
 
@@ -1457,7 +1457,24 @@ The default behaviour is the following:
 
 Security policies can be used to export your data set via the standard export utility or data pump. They will guarantee that only the data of your data set are visible and exported.
 
-Security policies can be created and dropped by calling the `create_policy()` and `drop_policy()` procedures. Parameters are like those used when creating and dropping views.
+When a standard Oracle policy is applied to a table, a filtering clause is silently added to the queries that retrieve the content of this table. A policy can also be defined for DML operations but this is ouf of the scope of the Data Set Utility. If a standard Oracle policy is defined to a table to only allow the retrieving of the rows being part of a data set, all users having read privilege on this table will only see the rows allowed by the policy without being aware of this filter, which could lead to issues or misunderstanding. The purpose of the policies in the context of the Data Set Utility is to explicitly filter the content of some tables before exporting them in a standard data pump operation or using the DPP Utility. The policy needs then to be activated only for the users used to perform the data pump export operation. Usually, this user is the owner of the tables. To achieve this goal, the where clause silently added to the query checks whether a dedicated parameter is set in a globally created context. It is then possible to enable or disable the policy for a particular user, the other users not being impacted.
+
+When an Oracle data pump operation is executed, either via the Oracle `DBMS_DATAPUMP`PL/SQL package or using the DPP Utility, it is executed in a dedicated session. It could then be useful to activate the policies only for such data pump operations, leaving other sessions unimpacted. When activating a policy, it is then possible to make it active for all sessions of the user or only for data pump sessions.
+
+The system is implemented as follows:
+
+1. A [subsetting data set is created](#21011-configure-data-set) to define the rows of each table that should be part of the export data pump operation.
+2. The `create_policies()` procedure is called to create a policy for each table whose content needs to be filtered.
+3. The `create_policies_context()`procedure is called. It creates a global context where the parameters that (de)activates the policies are defined.
+4. The `activate_policies()` procedure is called. It activates the policies for a particular user passed as parameter. From this moment, when this user will query the tables being part of the data set, it will only receive the rows of the data set. The other users are not impacted. If no user is passed to the procedure call, the current user, which usually is the table owner, is used. It is also possible to activate the policies for data pump sessions only. In this case, only the data pump sessions created with the corresponding user will have access to the restricted content of the tables.
+
+If the filtering policy must apply to the table owner, the following privilege must be revoked from this user: `EXEMPT ACCESS POLICY`
+
+Furthermore, the user that creates the policies must be be granted with the execution privilege on the `SYS.DBMS_RLS` package.
+
+The policies can be temporarily deactivated by calling the `deactivate_policies()` procedure. It can be reactivated for the current or another user. The policies context is removed by calling the `drop_policies_context()` procedure. Finally, the policies are removed by calling the `drop_policies()` procedure.
+
+Policies should then be used very carefully. Indeed, activating policies for a dedicated Oracle user without restricting it to the data pump sessions could have an impact on all real users, applications or tools that are connected to the database with this user. They could only have access to a restricted content of the tables without being aware of this filter. It is also recommended to deactivate the policies, or even deleted them, once they are not needed anymore.
 
 #### 2.10.1.6. Forcing column values
 
@@ -1662,13 +1679,13 @@ This type of message sent to the output is used to display the number of records
 
 ## 3.2. Message masking
 
-You can define very precisely which type of message you want to get displayed by calling the `set_message_mask()` procedure. You must pass in parameter a string that is the concatenation of the first letters of the message types you want to activate. The default mask is 'E' meaning that only error messages are displayed. It is of course not advised to disable error messages. Letters can appear in any order.
+You can define very precisely which type of message you want to get displayed by calling the `set_message_filter()` procedure. You must pass in parameter a string that is the concatenation of the first letters of the message types you want to activate. The default mask is 'E' meaning that only error messages are displayed. It is of course not advised to disable error messages. Letters can appear in any order.
 
 Examples:
 
-- `set_message_mask('ED')` activates error and debugging messages
-- `set_message_mask('EWI')` activates error, warning, and information messages
-- `set_message_mask('SER')` activates logging of executed SQL statements and the number of impacted records i.e., SQL%ROWCOUNT (in addition to error messages)
+- `set_message_filter('ED')` activates error and debugging messages
+- `set_message_filter('EWI')` activates error, warning, and information messages
+- `set_message_filter('SER')` activates logging of executed SQL statements and the number of impacted records i.e., SQL%ROWCOUNT (in addition to error messages)
 
 ## 3.3. Test mode
 
